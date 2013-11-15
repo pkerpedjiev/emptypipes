@@ -71,3 +71,6 @@ Comes in handy for finding out which directories are the biggest from the comman
 
 I often want to compare two sets of numbers. This command allows me to get the mean, max, min, and count of the list without creating an awk script every time.
 
+###### Turn off google's top ten most visited web pages ######
+
+Get the [Chrome Extension New Tab Redirect](https://chrome.google.com/webstore/detail/new-tab-redirect/icpgjfneehieebagbmdbhnlpiopdcmna) and set the redirect option for a new tab to "about:blank".
