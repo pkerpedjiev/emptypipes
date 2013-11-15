@@ -8,23 +8,45 @@ categories: linux xfce
 
 Both at home and at work I use some distribution of linux with Xfce as the window manager. Over the years, I've added various shortcuts to speed up the things I do often. The most important of them are the keyboard shortcuts for launching applications. These are set by going to `Settings` -> `Keyboard` and then opening the `Application Shortcuts` tab. In there, my three most used programs are assigned the following shortcuts:
 
-| Command               | Shortcut               |
-|:--------------------- | ----------------------:|
-| `gnome_terminal`      | `<Alt> F1`             |
-| `chromium-browser`    | `<Alt> F3`             |
-| `thunar`              | `<Alt> F5`             |
+<table align="center">
+<tr>
+<td>Command</td>
+<td>Shortcut</td>
+</tr>
+<tr>
+<td> <code> gnome-terminal </code> </td>
+<td> <code> &lt;Alt&gt; F1 </code> </td>
+</tr>
+<tr>
+<td> <code> chromium-browser </code> </td>
+<td> <code> &lt;Alt&gt; F3 </code></td>
+</tr>
+<tr>
+<td> <code> thunar </code> </td>
+<td> <code> &lt;Alt&gt; F5 </code></td>
+</tr>
+</table>
+
 
 ###### Speaker Volume ######
 
 My speakers are further away than my keyboard. Changing the volume using the knob requires me to lean forward. Too much work. Moving the mouse is also annoying. Thankfully, I can add the following keybindings in XFCE and control the volume from my keyboard and subsequently raise the volume using <Ctrl><Alt> + and lower the volume using <Ctrl><Alt> - . Pretty convenient!
 Command
 
-
-| Command                         | Shortcut                            |
-|:------------------------------- | -----------------------------------:|
-| `amixer set Master 4%- -q`      | `<Primary> <Alt> minus`             |
-| `amixer set Master 4%+ -q`      | `<Primary> <Alt> minus`             |
-
+<table align="center">
+<tr>
+<td>Command</td>
+<td>Shortcut</td>
+</tr>
+<tr>
+<td> <code> amixer set Master 4%- -q </code> </td>
+<td> <code> &lt;Primary&gt; &lt;Alt&gt; minus </code> </td>
+</tr>
+<tr>
+<td> <code> amixer set Master 4%+ -q </code> </td>
+<td> <code> &lt;Primary&gt; &lt;Alt&gt; plus </code> </td>
+</tr>
+</table>
 
 ##### BASH forward command search ######
 
@@ -40,37 +62,38 @@ There's some command-option combinations that I run so often that I've assigned 
 
 1. List the files in the directory in reverse-time sorted order. 
 
-`alias lt='ls -lhtr'`
+   `alias lt='ls -lhtr'`
 
-This is my most used command, period. I'm almost always interested in my recently accessed files. This command provides those at the bottom, along with all the information about them.
+   This is my most used command, period. I'm almost always interested in my recently accessed files. This command provides those at the bottom, along with all the information about them.
 
 2. Shortcut for logging into my work computer:
 
-`alias work-login=`ssh user@workcomputer.com`
+   `alias work-login=`ssh user@workcomputer.com`
 
-My username and computer name don't change very often at work. Why re-type them every time?
+   My username and computer name don't change very often at work. Why re-type them every time?
 
 3. Create and attach to tmux windows:
 
-```
-alias tattach='tmux attach -t'
-alias tnew='tmux new -s'
-```
+    ```
+    alias tattach='tmux attach -t'
+    alias tnew='tmux new -s'
+    ```
 
-I'm a big fan of the screen multiplexer tmux. These aliases allow me to quickly create new sessions and attach to old ones.
+    I'm a big fan of the screen multiplexer tmux. These aliases allow me to quickly create new sessions and attach to old ones.
 
 4. Get the size of a folder and all its subfolders:
 
-`alias dum='du --max-depth=1 -h'`
+    `alias dum='du --max-depth=1 -h'`
 
-Comes in handy for finding out which directories are the biggest from the command line.
+    Comes in handy for finding out which directories are the biggest from the command line.
 
 5. Get summary statistics for a list of numbers:
 
-`alias fivestats="awk '{if(min=="'""'"){min=max=\$1}; if(\$1>max) {max=\$1}; if(\$1<min) {min=\$1}; total+=\$1; count+=1} END {print total/count, max, min, count}'`
+    `alias fivestats="awk '{if(min=="'""'"){min=max=\$1}; if(\$1>max) {max=\$1}; if(\$1<min) {min=\$1}; \`
+    `total+=\$1; count+=1} END {print total/count, max, min, count}'`
 
-I often want to compare two sets of numbers. This command allows me to get the mean, max, min, and count of the list without creating an awk script every time.
+    I often want to compare two sets of numbers. This command allows me to get the mean, max, min, and count of the list without creating an awk script every time.
 
-###### Turn off google's top ten most visited web pages ######
+##### Turn off google's top ten most visited web pages #####
 
 Get the [Chrome Extension New Tab Redirect](https://chrome.google.com/webstore/detail/new-tab-redirect/icpgjfneehieebagbmdbhnlpiopdcmna) and set the redirect option for a new tab to "about:blank".
