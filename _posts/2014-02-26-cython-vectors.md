@@ -1,10 +1,8 @@
 ---
 layout: post
-title:  "My Linux and Xfce Customizations"
+title:  "Fast 3D Vector Operations in Cython"
 categories: linux xfce
 ---
-
-##### Fast 3D Vector Operations in Cython #####
 
 The numpy library provides a plethora of fast functionality using for vectors. The question is, can we improve upon it by using cython and assuming vectors in three-dimensional space. Let's take the following two functions which are not provided by numpy, but easily implemented. The first simply calculates the magnitude of a vector, while the second calculates the distance between two vectors.
 
