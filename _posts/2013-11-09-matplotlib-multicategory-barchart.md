@@ -55,7 +55,7 @@ for i,cond in enumerate(conditions):
 
 This will yield a very bare bones plot like this:
 
-![Too simple bar plot](/img/barchart_1.png =200x)
+![Too simple bar plot](/img/barchart_1.png)
 
 So now the bars are in their appropriate places, but it's missing some of the essentials of a chart:
 
