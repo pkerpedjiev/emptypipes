@@ -135,6 +135,7 @@ As well as the code needed to produce it:
 {% highlight python %}
 import matplotlib.pyplot as plt
 import matplotlib.cm as cm
+import operator as o
 
 import numpy as np
 
