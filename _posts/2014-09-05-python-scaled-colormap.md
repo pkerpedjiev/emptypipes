@@ -51,6 +51,8 @@ for name, ax in zip(["[0,1]", "[-1,1]", "Normalized [-1,1]"], axes):
 
 {% endhighlight %}
 
+![Mapping different value ranges to colors](/img/scaled_colormap.png)
+
 Notice how the unnormalized [-1,1] input values have a dark blue color over the
 left half of the second plot. This is because `cm.jet(-1)` = `cm.jet(-.5)` =
 `cm.jet(0.)` Values outside of `cm.jet`'s accepted input range of [0,1] all
