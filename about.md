@@ -7,5 +7,6 @@ My name is Peter and I'm a PhD student working on modelling the tertiary structu
 
 ##### Software ######
 
+* [ernwin](http://www.tbi.univie.ac.at/~pkerp/ernwin) - A program for sampling coarse-grain 3D RNA structures.
 * [forgi](http://www.tbi.univie.ac.at/~pkerp/forgi) - A library for annotating and manipulating RNA secondary structure.
 * [bwa-pssm](http://bwa-pssm.binf.ku.dk/) - A short read aligner using position-specific scoring matrices to encode the error probabilities for each base.
