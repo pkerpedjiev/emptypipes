@@ -67,7 +67,7 @@ img {
 /* font-family: 'Alfa Slab One', cursive; */
 /* font-family: 'Squada One', cursive; */
 font-family: 'Comfortaa', cursive; font-weight: 700;
-    background: url('/img/stem33.png');
+    /* background: url('/img/stem33.png'); */
     background-size: 120px;
     background-repeat:no-repeat;
     background-position:right bottom; 
