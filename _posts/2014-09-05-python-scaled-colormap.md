@@ -56,6 +56,6 @@ for name, ax in zip(["[0,1]", "[-1,1]", "Normalized [-1,1]"], axes):
 Notice how the unnormalized [-1,1] input values have a dark blue color over the
 left half of the second plot. This is because `cm.jet(-1)` = `cm.jet(-.5)` =
 `cm.jet(0.)` Values outside of `cm.jet`'s accepted input range of [0,1] all
-return the same color. By using the `Normalize1` class, the input values are
+return the same color. By using the `Normalize` class, the input values are
 scaled to the [0,1] input range and the output colors span the entire range of
 the colormap (third plot).
