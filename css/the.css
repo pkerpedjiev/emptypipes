@@ -8,6 +8,7 @@
 @import url(http://fonts.googleapis.com/css?family=Alfa+Slab+One);
 @import url(http://fonts.googleapis.com/css?family=Squada+One);
 @import url(http://fonts.googleapis.com/css?family=Fjalla+One|Comfortaa:400,700|Telex|Righteous|Patua+One);
+@import url(http://fonts.googleapis.com/css?family=EB+Garamond);
 
 /* Fonts; Nobile, Open Sans, Raleway, Oldenburg, Gudea */
 
@@ -27,10 +28,11 @@
 /* Space out content a bit */
 body {
   /* font-family: 'Open Sans', sans-serif; font-weight: 300; */
- font-family: Gudea; 
+ /* font-family: Gudea; */
+ font-family: 'EB Garamond';
 /*     font-family: 'Merriweather', serif; */
 /*    font-family: 'Nevis', sans-serif; */
-    font-size: 12pt;
+    font-size: 14pt;
   padding-top: 20px;
   padding-bottom: 20px;
   color: #325163;
