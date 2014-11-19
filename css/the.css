@@ -39,8 +39,8 @@ body {
 }
 
 p {
-    line-height: 1.4;
-    text-align: justify; 
+    line-height: 1.5;
+    text-align: left; 
 }
 
 img {
@@ -75,6 +75,13 @@ font-family: 'Comfortaa', cursive; font-weight: 700;
     background-position:right bottom; 
 }
 /* Make the masthead heading the same height as the navigation */
+/*
+.container h6,h5,h4,h3,h2,h1 {
+    font-family: Gudea;
+    font-size: 90%;
+}
+    */
+
 .header h3 {
     font-family: 'Nevis'
   margin-top: 0;
