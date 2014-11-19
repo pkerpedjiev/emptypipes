@@ -28,11 +28,11 @@
 /* Space out content a bit */
 body {
   /* font-family: 'Open Sans', sans-serif; font-weight: 300; */
- /* font-family: Gudea; */
- font-family: 'EB Garamond';
+ font-family: Gudea;
+/* font-family: 'EB Garamond';*/
 /*     font-family: 'Merriweather', serif; */
 /*    font-family: 'Nevis', sans-serif; */
-    font-size: 14pt;
+    font-size: 12pt;
   padding-top: 20px;
   padding-bottom: 20px;
   color: #325163;
