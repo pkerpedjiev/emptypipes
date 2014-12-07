@@ -9,6 +9,8 @@
 @import url(http://fonts.googleapis.com/css?family=Squada+One);
 @import url(http://fonts.googleapis.com/css?family=Fjalla+One|Comfortaa:400,700|Telex|Righteous|Patua+One);
 @import url(http://fonts.googleapis.com/css?family=EB+Garamond);
+@import url(http://fonts.googleapis.com/css?family=Lato);
+@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed);
 
 /* Fonts; Nobile, Open Sans, Raleway, Oldenburg, Gudea */
 
@@ -28,19 +30,43 @@
 /* Space out content a bit */
 body {
   /* font-family: 'Open Sans', sans-serif; font-weight: 300; */
- font-family: Gudea;
-/* font-family: 'EB Garamond';*/
-/*     font-family: 'Merriweather', serif; */
-/*    font-family: 'Nevis', sans-serif; */
-    font-size: 12pt;
+ /* font-family: Arial,Helvetica,san; */
+    font-family:'helvetica neue',helvetica,arial,sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    font-stretch: normal;
+    font-style: normal;
+    font-variant: normal;
+    line-height: 23px;
   padding-top: 20px;
   padding-bottom: 20px;
-  color: #325163;
+  color: #555;
 }
 
 p {
-    line-height: 1.5;
     text-align: left; 
+}
+
+h4 {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+h4,h5 {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 500;
+}
+
+.date_and_stuff {
+    text-align: right;
+    font-size: 12px;
+    margin: 0 0 20px;
+    padding: 1px 0; 
+    text-transform:uppercase;
+}
+
+.post_heading {
+    margin-bottom: 10px;
 }
 
 img {
@@ -53,27 +79,15 @@ img {
 .header,
 .marketing,
 .footer {
-  padding-left: 15px;
-  padding-right: 15px;
+
+  padding-left: 0px;
+  padding-right: 0px;
 }
 
 .footer p {
     text-align: center;
 }
 
-/* Custom page header */
-.header {
-  border-bottom: 1px solid #e5e5e5;
-/*  font-family: 'Merriweather Sans', sans-serif; */
-/* font-family: Gudea; */
-/* font-family: 'Alfa Slab One', cursive; */
-/* font-family: 'Squada One', cursive; */
-font-family: 'Comfortaa', cursive; font-weight: 700;
-    /* background: url('/img/stem33.png'); */
-    background-size: 120px;
-    background-repeat:no-repeat;
-    background-position:right bottom; 
-}
 /* Make the masthead heading the same height as the navigation */
 /*
 .container h6,h5,h4,h3,h2,h1 {
@@ -82,13 +96,40 @@ font-family: 'Comfortaa', cursive; font-weight: 700;
 }
     */
 
-.header h3 {
-    font-family: 'Nevis'
-  margin-top: 0;
-  margin-bottom: 0;
-  font-size: 20pt;
-  line-height: 40px;
-  padding-bottom: 19px;
+/* 
+ * Inspiration:
+ *
+ * Charlie Parker: https://github.com/charliepark/charliepark.github.com/blob/master/stylesheets/screen.css
+ */
+
+@font-face {
+    font-family: 'LeagueGothicRegular';
+    src: url('/fonts/League_Gothic-webfont.eot');
+    src: url('/fonts/League_Gothic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/fonts/League_Gothic-webfont.woff') format('woff'),
+         url('/fonts/League_Gothic-webfont.ttf') format('truetype'),
+         url('/fonts/League_Gothic-webfont.svg#LeagueGothicRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+h1, h2, h3, h4 {font-family:"LeagueGothicRegular", helvetica,"League Gothic", "Helvetica Neue", helvetica, arial, sans-serif;font-weight:normal;letter-spacing:-.025em;}
+
+
+h1 {
+    font-size: 80px;
+}
+h2 {
+    font-size: 50px;
+}
+h4 {
+    font-size: 35px;
+}
+
+li.nav_list_item{display:inline-block;margin:0;position:relative;width:60px;}
+
+.header {
+    text-align: center;
 }
 
 /* Custom page footer */
@@ -99,6 +140,14 @@ font-family: 'Comfortaa', cursive; font-weight: 700;
   font-size: 10pt;
 }
 
+.nav_links {
+    margin-top: 40px;
+}
+
+.nav li {
+    text-align: right;
+}
+
 .nav li a {
     padding-top: 15px;
     color: #A3BFCF;
@@ -106,9 +155,9 @@ font-family: 'Comfortaa', cursive; font-weight: 700;
     font-weight: bold;
 }
 /* Customize container */
-@media (min-width: 768px) {
+@media (min-width: 300px) {
   .container {
-    max-width: 730px;
+    max-width: 500px;
   }
 }
 .container-narrow > hr {
@@ -134,7 +183,9 @@ font-family: 'Comfortaa', cursive; font-weight: 700;
 }
 
 .marketing h4 {
+    font-family: 'Roboto Condensed', sans-serif;
     font-size: 17px;
+    font-weight: 300;
 }
 
 .centered {
