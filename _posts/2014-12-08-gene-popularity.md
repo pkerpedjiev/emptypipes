@@ -51,19 +51,19 @@ times they have been cited:
  response against them.
 
  3. **HIV related** - [gp160 envelope
- glycoprotein](http://en.wikipedia.org/wiki/Env_%28gene%29) is one of the
+ glycoprotein (env)](http://en.wikipedia.org/wiki/Env_%28gene%29) is one of the
  proteins on the surface retroviruses which allow it to attach to and enter
  various cells. Needless to say, it is extremely important in finding
  treatments and vaccines for such viruses.
 
  4. **Other disease** - [Apolipoprotein
- E](http://en.wikipedia.org/wiki/Apolipoprotein_E) is involved in heart disease
+ E (APOE)](http://en.wikipedia.org/wiki/Apolipoprotein_E) is involved in heart disease
  and Alzheimer's disease, while [Methylenetetrahydrofolate reductase
  (MTHFR)](http://en.wikipedia.org/wiki/Methylenetetrahydrofolate_reductase) has
  associated with susceptibility to a variety of disorders including Alzheimer's
  colon cancer and others.
 
- 6. **Regulatory** - [Ubiquitin](http://en.wikipedia.org/wiki/Ubiquitin) is a
+ 6. **Regulatory** - [Ubiquitin (UBC)](http://en.wikipedia.org/wiki/Ubiquitin) is a
  protein involved in the translocation and degradation (among other processes)
  of other proteins. [Angiotensin-converting enzyme
  (ACE)](http://en.wikipedia.org/wiki/Angiotensin-converting_enzyme) is a
