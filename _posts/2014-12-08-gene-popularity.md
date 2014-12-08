@@ -47,12 +47,12 @@ times they have been cited:
  cells'](http://en.wikipedia.org/wiki/NF-%CE%BAB) (also known as NF-κB) and
  [major histocompatibility complex
  (MHC)](http://en.wikipedia.org/wiki/Major_histocompatibility_complex) are all
- associated with immune responses such as recognizing pathogens and mounting a
- response against them.
+ associated with immune responses such as recognizing pathogens and mounting
+ an attack against them.
 
  3. **HIV related** - [gp160 envelope
  glycoprotein (env)](http://en.wikipedia.org/wiki/Env_%28gene%29) is one of the
- proteins on the surface retroviruses which allow it to attach to and enter
+ proteins on the surface of retroviruses which allow it to attach to and enter
  various cells. Needless to say, it is extremely important in finding
  treatments and vaccines for such viruses.
 
