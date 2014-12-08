@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Shortest Cycle Basis of a Graph Using Horton's Algorithm in Python"
-categories: python graphs
+tags: python graphs
 ---
 
 Graphs with cycles are common occurance in nature. Chemical compounds have
