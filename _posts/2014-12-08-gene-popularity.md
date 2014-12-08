@@ -31,7 +31,7 @@ times they have been cited:
 <div id="gene-counts-chart"></div>
 <link rel="stylesheet" href="/css/d3_bar_chart.css">
 <script src="http://d3js.org/d3.v3.min.js"></script>
-<script src="js/d3_bar_chart.js"></script>
+<script src="/js/d3_bar_chart.js"></script>
  <script>renderGeneCountsChart();</script>
  </div>
 

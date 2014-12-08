@@ -1,6 +1,6 @@
 function renderGeneCountsChart() {
 
-d3.json('jsons/gene_counts.json', function(error, data) {
+d3.json('/jsons/gene_counts.json', function(error, data) {
     var barHeight = 20;
 
     var margin = {top: 40, right: 50, bottom: 30, left: 120},
