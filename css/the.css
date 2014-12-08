@@ -131,14 +131,11 @@ h4 {
 }
 
 /* Customize container */
-@media (min-width: 400px; max-width: 550px) {
     .container {
         max-width: 550px;
   }
-}
 .container-narrow > hr {
   margin: 30px 0;
-  max-width: 550px;
 }
 
 /* Main marketing message and sign up button */
