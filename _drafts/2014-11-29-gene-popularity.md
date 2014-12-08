@@ -72,7 +72,7 @@ times they have been cited:
 is a transcription factor which responds to the hormone estrogen, leading
 to a variety of downstream effcts.
 
- 7. **Other** - The only remaining gene on the list, [w
+ 7. **Other** - The gene [w
  (white)](http://en.wikipedia.org/wiki/White_%28mutation%29), is popular
  largely due to its historical cachet. It was the first mutation to be
  discovered which did not display typical Mendelian inheritance due to its
