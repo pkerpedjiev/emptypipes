@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "My Linux and Xfce Customizations"
-categories: linux xfce
+tags: linux xfce
 ---
 
 ##### Xfce Keyboard Shortcuts #####

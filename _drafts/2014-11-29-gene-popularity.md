@@ -16,59 +16,92 @@ information.
 
 Among the information provided with each entry is a section which contains a
 list of papers which have referenced this gene. In a sense, each reference 
-is a paper which has contributed to the dialogue or discussion
-surrounding the function of this little piece of DNA (or RNA). This can 
+is a paper which has contributed some bit of knowledge
+about the function of this piece of DNA (or RNA). This can 
 be viewed as a proxy for how 'popular'  it is. This got me
 wondering, which are the most popular genes? Which genes
 have been scrutinized most heavily? 
 
 To answer, this, I [downloaded the
 table](ftp://ftp.ncbi.nlm.nih.gov/gene/DATA/) which contains the reference
-information from GenBank, and performed some rudimentary analysis, yielding the
+information from GenBank, and performed some rudimentary analysis, and generated the
 following table of the top 20 most popular genes, as measured by the number of
 times they have been cited:
 
+<div class='chart'>
 <div id="gene-counts-chart"></div>
 <link rel="stylesheet" href="/css/d3_bar_chart.css">
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="js/d3_bar_chart.js"></script>
  <script>renderGeneCountsChart();</script>
+ </div>
 
-As some of these names were meaningless to me, I looked them up and summarized
-their descriptions in the list below:
+ The genese on the list can be broadly placed into 6 categories:
 
-* TP53 - sdfsd
+ 1. **Cancer related** - All of the genes with 'tumor' or
+ 'cancer' in their name, along with those containing 'growth factor' are
+ associated with various cancer and are involved in either helping cells
+ proliferate (oncogenes) or preventing them from becoming cancerous (tumor suppressor genes).
 
-There's nothing too surprising in the list. The first two entries (p53 and TNF) are genes
-associated with cancer which have been extensively studied due to their
-deleterious effects on human health. The third, ROSA 26, is, according to
-Wikipedia "a locus used for constitutive, ubiquitious gene expression in mice."
-Essentially, it's a place where one would clone in a gene that needs to be
-expressed all the time. It's very useful for putting new genes in mice and
-seeing what happens. The fourth, w or White Gene, was the 'first sex-linked
-mutation every discovered in the fruit fly D. melanogaster'.  Its inheritance
-pattern does not correspond to what one would expect according to the Mendelian
-laws on inhertance. This is because it is located on one of the sex chromosomes
-and has a different chance of being passed from male to female. It has
-historical cachet and didactic value, but is neither deadly nor particular useful.
+ 2. **Immune system related** - Interleukins, ['nuclear factor
+ kappa-light-chain-enhancer of activated B
+ cells'](http://en.wikipedia.org/wiki/NF-%CE%BAB) (also known as NF-κB) and
+ [major histocompatibility complex
+ (MHC)](http://en.wikipedia.org/wiki/Major_histocompatibility_complex) are all
+ associated with immune responses such as recognizing pathogens and mounting a
+ response against them.
 
-Among the remaining entries are a variety o
+ 3. **HIV related** - [gp160 envelope
+ glycoprotein](http://en.wikipedia.org/wiki/Env_%28gene%29) is one of the
+ proteins on the surface retroviruses which allow it to attach to and enter
+ various cells. Needless to say, it is extremely important in finding
+ treatments and vaccines for such viruses.
 
-The number 5 entry, Uniquitin, is involved in the degradation of proteins.
-As its name suggests, it performs a constitutive (ever present) and extremely 
-important process in cells. The number
-6 spot belongs to apolipoprotein E, which is involved in the transport
-of various lipids into the lymph system. It's associated with heart disease and Alzheimers
-and thus an important target to study when trying to understand how these diseases function
-and what we can do to battle them. Next comes the epidermal growth factor receptor
-and the vascular endothelial growth factor, two proteins which are involved in signalling
-when cells should divide and new tissue should grow. As expected, they are associated
-with various cancers and other diseases. Rounding off the list is interleukin-6, a protein
-involved in inflammation and immune response. Anything having to do with the immune system
-tends to be important due to its relevance in fighting off infection and battling disease,
-and IL-6 especially so due to its direct effect in stimulating an immune response. 
+ 4. **Other disease** - [Apolipoprotein
+ E](http://en.wikipedia.org/wiki/Apolipoprotein_E) is involved in heart disease
+ and Alzheimer's disease, while [Methylenetetrahydrofolate reductase
+ (MTHFR)](http://en.wikipedia.org/wiki/Methylenetetrahydrofolate_reductase) has
+ associated with susceptibility to a variety of disorders including Alzheimer's
+ colon cancer and others.
 
-As a whole this list tends to be biased toward disease-related genes, particularly cancer.
-The results are neither surprising nor particularly insightful. Nevertheless, they do
-provide a glimpse into what has received the most attention in the world of molecular 
-genetics in the past century.
+ 6. **Regulatory** - [Ubiquitin](http://en.wikipedia.org/wiki/Ubiquitin) is a
+ protein involved in the translocation and degradation (among other processes)
+ of other proteins. [Angiotensin-converting enzyme
+ (ACE)](http://en.wikipedia.org/wiki/Angiotensin-converting_enzyme) is a
+ regulatory enzyme which is involved in the control of blood pressure.
+[Estrogen receptor 1 (ESR1)](http://en.wikipedia.org/wiki/Estrogen_receptor_alpha).
+is a transcription factor which responds to the hormone estrogen, leading
+to a variety of downstream effcts.
+
+ 7. **Other** - The only remaining gene on the list, [w
+ (white)](http://en.wikipedia.org/wiki/White_%28mutation%29), is popular
+ largely due to its historical cachet. It was the first mutation to be
+ discovered which did not display typical Mendelian inheritance due to its
+ location on a sex-chromosome in *D. melanogaster*. Gene trap [ROSA 26
+ (gt(ROSA)26Sor)](http://en.wikipedia.org/wiki/ROSA26) is simply convenient
+ place to insert genes for study in a mouse model. 
+
+ Immediately evident is the overrepresentation of disease-related genes in this
+ list where 15 of the 20 genes are heavily involved in some human disease.  The
+ remaining entries are either regulatory (UBC, ACE and ESR1), historic (w) or
+ just simply useful (Gt(ROSA)26Sor. The majority of the genes come from human,
+ followed by mouse (expressing genes also found in humans, Tnf and Trp53), and
+ finally HIV and Drosophila. This is something of a reflection of where our
+ interests and funding lie. The two most studied genes are involved in cancer,
+ research in which is both well-funded and heavily reliant on genetic analysis.
+ Three on the list are associated with the immune system, two (APOE and
+ ACE) are associated with heart disease and one with HIV. We focus the majority
+ of our attention on the things which are likely to kill us.
+
+ Conspicuously absent from the list are any genes from plants or genes involved
+ in metabolism. Important pathways such as differentiation, DNA replication and
+ protein synthesis are all absent. That's not to say that they are not studied,
+ it's just that they recieve less attention than processes involved in our
+ demise. Then again, the age of molecular genetics has only begun in the last
+ century or so. Perhaps our interests will shift in the future as we find cures
+ and treatments for existing maladies and start having to deal with others such
+ as a a changing climate, energy crises and an aging population. Biology may
+ hold partial solutions to these problems and the proportional amount of effort
+ we put into finding processes to remove carbon dioxide from the
+ air, to produce fuels from biomatter or to limit or reverse aging may grow to
+ eclipse that put into research in the current top-20 genes.

@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Killing the tmux sockets"
-categories: python graphs
+title:  "Reviving a Seemingly Dead Tmux"
+tags: tmux
 ---
 
 Quite often, when I try to attach to an existing tmux session, the following error pops up:
@@ -10,7 +10,10 @@ Quite often, when I try to attach to an existing tmux session, the following err
 failed to connect to server: Connection refused
 {% endhighlight %}
 
-To cut a long story short, fixing it simply requires running the following command:
+It seems like `tmux` has disappeared or crashed. Fortunately, to this date that
+has never been the case. It's just a simple case of a deleted socket. To cut a
+long story short, fixing it requires sending `tmux` a signal to recreate the
+socket:
 
 {% highlight bash %}
 killall -s SIGUSR1 tmux

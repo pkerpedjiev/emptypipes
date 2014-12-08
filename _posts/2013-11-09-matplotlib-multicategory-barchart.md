@@ -2,7 +2,7 @@
 layout: post
 title:  "Creating a multi-category barplot in matplotlib"
 date:   2013-11-09 17:48:49
-categories: matplotlib python barplot
+tags: matplotlib python barplot
 ---
 
 There are many situations where one needs a bar-graph which displays some statistics for different categories under different conditions. In my case, I am interested in how well different programs predict the structures of RNA molecules. Thus the data can be partitioned into the categories (the RNA structures) and the conditions (the prediction programs):

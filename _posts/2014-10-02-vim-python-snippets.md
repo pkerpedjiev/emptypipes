@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "VIM Python Snippets"
-categories: linux xfce
+tags: linux python
 ---
 
 There are many times when a task calls for a simple python script. It is
@@ -13,8 +13,6 @@ examples, consider the following code (let's creatively call it ``do_stuff.py``)
 which simply converts the input to uppercase.  Simple, easy, to-the-point.
 
 {% highlight python %}
-#!/usr/bin/python
-
 import sys
 
 for line in sys.stdin:
@@ -25,8 +23,6 @@ What happens, however, when it grows a little bit and we add a function?
 
 
 {% highlight python %}
-#!/usr/bin/python
-
 import random
 import sys
 
@@ -46,8 +42,6 @@ loop to run leading to troubles. A much better solution is to do all of the
 as a script (as opposed to being imported as a library):
 
 {% highlight python %}
-#!/usr/bin/python
-
 import random
 import sys
 from optparse import OptionParser
@@ -96,8 +90,6 @@ right at the beginning of the script.
 
 {% highlight python %}
 snippet start
-    #!/usr/bin/python
-
     import sys
     from optparse import OptionParser
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Scaled Colormap in Matplotlib"
-categories: linux xfce
+tags: matplotlib python colormap
 ---
 
 I often have to create plots where the color of some element reflects an
