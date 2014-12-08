@@ -35,7 +35,16 @@ times they have been cited:
  <script>renderGeneCountsChart();</script>
  </div>
 
- The genese on the list can be broadly placed into 6 categories:
+ The graph above shows the number of references in PubMed to a particular gene
+ in GenBank. The color of the bars refers to the organism that the gene is
+ found in. It was made using d3.js and the script for generating it can be
+ found [here
+ (github.com)](https://github.com/pkerpedjiev/emptypipes/blob/gh-pages/js/d3_bar_chart.js),
+ while the data itself is located [here
+ (github.com)](https://github.com/pkerpedjiev/emptypipes/blob/gh-pages/jsons/gene_counts.json).
+ 
+ 
+ The genes on the list can be broadly placed into 6 categories:
 
  1. **Cancer related** - All of the genes with 'tumor' or
  'cancer' in their name, along with those containing 'growth factor' are
@@ -105,3 +114,6 @@ to a variety of downstream effcts.
  we put into finding processes to remove carbon dioxide from the
  air, to produce fuels from biomatter or to limit or reverse aging may grow to
  eclipse that put into research in the current top-20 genes.
+
+ **Nitty Gritty**
+
