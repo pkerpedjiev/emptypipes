@@ -39,7 +39,7 @@ times they have been cited:
 
  1. **Cancer related** - All of the genes with 'tumor' or
  'cancer' in their name, along with those containing 'growth factor' are
- associated with various cancer and are involved in either helping cells
+ associated with cancer and are involved in either helping cells
  proliferate ([oncogenes](http://en.wikipedia.org/wiki/Oncogene)) or preventing them from becoming cancerous ([tumor suppressor genes](http://en.wikipedia.org/wiki/Tumor_suppressor_gene)).
 
  2. **Immune system related** - Interleukins, ['nuclear factor
@@ -53,14 +53,14 @@ times they have been cited:
  3. **HIV related** - [gp160 envelope
  glycoprotein (env)](http://en.wikipedia.org/wiki/Env_%28gene%29) is one of the
  proteins on the surface of retroviruses which allow it to attach to and enter
- various cells. Needless to say, it is extremely important in finding
+ cells. Needless to say, it is extremely important in finding
  treatments and vaccines for such viruses.
 
  4. **Other disease** - [Apolipoprotein
  E (APOE)](http://en.wikipedia.org/wiki/Apolipoprotein_E) is involved in heart disease
  and Alzheimer's disease, while [Methylenetetrahydrofolate reductase
  (MTHFR)](http://en.wikipedia.org/wiki/Methylenetetrahydrofolate_reductase) has
- associated with susceptibility to a variety of disorders including Alzheimer's
+ associated with susceptibility to a variety of disorders including Alzheimer's,
  colon cancer and others.
 
  6. **Regulatory** - [Ubiquitin (UBC)](http://en.wikipedia.org/wiki/Ubiquitin) is a
@@ -68,7 +68,7 @@ times they have been cited:
  of other proteins. [Angiotensin-converting enzyme
  (ACE)](http://en.wikipedia.org/wiki/Angiotensin-converting_enzyme) is a
  regulatory enzyme which is involved in the control of blood pressure.
-[Estrogen receptor 1 (ESR1)](http://en.wikipedia.org/wiki/Estrogen_receptor_alpha).
+[Estrogen receptor 1 (ESR1)](http://en.wikipedia.org/wiki/Estrogen_receptor_alpha)
 is a transcription factor which responds to the hormone estrogen, leading
 to a variety of downstream effcts.
 
@@ -84,7 +84,7 @@ to a variety of downstream effcts.
  15 of the 20 genes are heavily involved in some human disease.  The
  remaining entries are either regulatory (UBC, ACE and ESR1), historic (w) or
  just simply useful (Gt(ROSA)26Sor). The majority come from human, followed by
- mouse (expressing genes also found in humans, Tnf and Trp53), and finally HIV
+ mouse (used to express genes also found in humans: Tnf and Trp53), and finally HIV
  and Drosophila. This is something of a reflection of where our interests and
  funding lie. The two most studied genes are involved in cancer, research in
  which is both well-funded and heavily reliant on genetic analysis.  Four on
