@@ -27,6 +27,7 @@ information from GenBank, and performed some rudimentary analysis, and generated
 following table of the top 20 most popular genes, as measured by the number of
 times they have been cited:
 
+<!--
 <div class='chart'>
 <div id="gene-counts-chart"></div>
 <link rel="stylesheet" href="/css/d3_bar_chart.css">
@@ -34,6 +35,9 @@ times they have been cited:
 <script src="/js/d3_bar_chart.js"></script>
  <script>renderGeneCountsChart();</script>
  </div>
+ -->
+
+ ![20 Most Cited Genes](/img/most_cited_genes.png)
 
  The graph above shows the number of references in PubMed to a particular gene
  in GenBank. The color of the bars refers to the organism that the gene is
