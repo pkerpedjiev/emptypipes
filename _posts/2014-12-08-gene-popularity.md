@@ -23,7 +23,7 @@ made an appearance in the most published papers?
 
 To answer, this, I [downloaded the
 table](ftp://ftp.ncbi.nlm.nih.gov/gene/DATA/) which contains the reference
-information from GenBank, and performed some rudimentary analysis, and generated the
+information from GenBank, performed some rudimentary analysis, and generated the
 following table of the top 20 most popular genes, as measured by the number of
 times they have been cited:
 
@@ -72,7 +72,7 @@ times they have been cited:
  4. **Other disease** - [Apolipoprotein
  E (APOE)](http://en.wikipedia.org/wiki/Apolipoprotein_E) is involved in heart disease
  and Alzheimer's disease, while [Methylenetetrahydrofolate reductase
- (MTHFR)](http://en.wikipedia.org/wiki/Methylenetetrahydrofolate_reductase) has
+ (MTHFR)](http://en.wikipedia.org/wiki/Methylenetetrahydrofolate_reductase) is 
  associated with susceptibility to a variety of disorders including Alzheimer's,
  colon cancer and others.
 
@@ -90,7 +90,7 @@ to a variety of downstream effcts.
  largely due to its historical cachet. It was the first mutation to be
  discovered which did not display typical Mendelian inheritance due to its
  location on a sex-chromosome in *D. melanogaster*. Gene trap [ROSA 26
- (gt(ROSA)26Sor)](http://en.wikipedia.org/wiki/ROSA26) is simply convenient
+ (gt(ROSA)26Sor)](http://en.wikipedia.org/wiki/ROSA26) is simply a convenient
  place to insert genes for study in a mouse model. 
 
  Immediately evident is the overrepresentation of disease-related genes.
