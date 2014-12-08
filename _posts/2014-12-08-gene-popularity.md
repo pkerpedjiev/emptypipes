@@ -114,6 +114,3 @@ to a variety of downstream effcts.
  we put into finding processes to remove carbon dioxide from the
  air, to produce fuels from biomatter or to limit or reverse aging may grow to
  eclipse that put into research in the current top-20 genes.
-
- **Nitty Gritty**
-
