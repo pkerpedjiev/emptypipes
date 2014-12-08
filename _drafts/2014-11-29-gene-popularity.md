@@ -1,11 +1,11 @@
 ---
 layout: post
-title:  "Gene Popularity in GenBank"
+title:  "The 20 Most Studied Genes"
 tags: genbank bioinformatics
 ---
 The Nation Center for Biotechnology Information (NCBI) maintains an enormous
 amount of biological data and provides it all to the public for no cost as a
-collection of databases. One of the most popular is GenBank, which contains
+collection of databases. One of the most popular is [GenBank](http://www.ncbi.nlm.nih.gov/genbank/), which contains
 information about annotated genes. Consider the [gene
 p53](http://www.ncbi.nlm.nih.gov/gene/7157), which encodes a tumor
 suppressor protein, the absence of which allows many cancers to proliferate. By
@@ -17,10 +17,9 @@ information.
 Among the information provided with each entry is a section which contains a
 list of papers which have referenced this gene. In a sense, each reference 
 is a paper which has contributed some bit of knowledge
-about the function of this piece of DNA (or RNA). This can 
-be viewed as a proxy for how 'popular'  it is. This got me
-wondering, which are the most popular genes? Which genes
-have been scrutinized most heavily? 
+about the function of this piece of DNA (or RNA).  This got me
+wondering, which are the most studied genes? Which genes have
+made an appearance in the most published papers?
 
 To answer, this, I [downloaded the
 table](ftp://ftp.ncbi.nlm.nih.gov/gene/DATA/) which contains the reference
@@ -41,7 +40,7 @@ times they have been cited:
  1. **Cancer related** - All of the genes with 'tumor' or
  'cancer' in their name, along with those containing 'growth factor' are
  associated with various cancer and are involved in either helping cells
- proliferate (oncogenes) or preventing them from becoming cancerous (tumor suppressor genes).
+ proliferate ([oncogenes](http://en.wikipedia.org/wiki/Oncogene)) or preventing them from becoming cancerous ([tumor suppressor genes](http://en.wikipedia.org/wiki/Tumor_suppressor_gene)).
 
  2. **Immune system related** - Interleukins, ['nuclear factor
  kappa-light-chain-enhancer of activated B
@@ -81,17 +80,18 @@ to a variety of downstream effcts.
  (gt(ROSA)26Sor)](http://en.wikipedia.org/wiki/ROSA26) is simply convenient
  place to insert genes for study in a mouse model. 
 
- Immediately evident is the overrepresentation of disease-related genes in this
- list where 15 of the 20 genes are heavily involved in some human disease.  The
+ Immediately evident is the overrepresentation of disease-related genes.
+ 15 of the 20 genes are heavily involved in some human disease.  The
  remaining entries are either regulatory (UBC, ACE and ESR1), historic (w) or
- just simply useful (Gt(ROSA)26Sor. The majority of the genes come from human,
- followed by mouse (expressing genes also found in humans, Tnf and Trp53), and
- finally HIV and Drosophila. This is something of a reflection of where our
- interests and funding lie. The two most studied genes are involved in cancer,
- research in which is both well-funded and heavily reliant on genetic analysis.
- Three on the list are associated with the immune system, two (APOE and
- ACE) are associated with heart disease and one with HIV. We focus the majority
- of our attention on the things which are likely to kill us.
+ just simply useful (Gt(ROSA)26Sor). The majority come from human, followed by
+ mouse (expressing genes also found in humans, Tnf and Trp53), and finally HIV
+ and Drosophila. This is something of a reflection of where our interests and
+ funding lie. The two most studied genes are involved in cancer, research in
+ which is both well-funded and heavily reliant on genetic analysis.  Four on
+ the list are associated with the immune system (IL6, IL10, NFKB1, and
+ HLA-DRB1), two (APOE and ACE) are associated with heart disease and one with
+ HIV. We focus the majority of our attention on the things which are likely to
+ kill us.
 
  Conspicuously absent from the list are any genes from plants or genes involved
  in metabolism. Important pathways such as differentiation, DNA replication and
