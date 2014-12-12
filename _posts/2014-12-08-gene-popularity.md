@@ -51,7 +51,8 @@ times they have been cited:
  The genes on the list can be broadly placed into 6 categories:
 
  1. **Cancer related** - [Tp53, Trp53](http://en.wikipedia.org/wiki/P53) and
- all of the genes with 'cancer' ([BRCA1](http://en.wikipedia.org/wiki/BRCA1))
+ all of the genes with 'cancer' ([BRCA1](http://en.wikipedia.org/wiki/BRCA1)),
+ 'tumor' ([TNF](http://en.wikipedia.org/wiki/Tumor_necrosis_factors))
  or 'growth factor'
  ([EGFR](http://en.wikipedia.org/wiki/Epidermal_growth_factor_receptor),
  [VEGFA](http://en.wikipedia.org/wiki/Vascular_endothelial_growth_factor_A) and
