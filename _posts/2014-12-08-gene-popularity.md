@@ -50,10 +50,16 @@ times they have been cited:
  
  The genes on the list can be broadly placed into 6 categories:
 
- 1. **Cancer related** - All of the genes with 'tumor' or
- 'cancer' in their name, along with those containing 'growth factor' are
- associated with cancer and are involved in either helping cells
- proliferate ([oncogenes](http://en.wikipedia.org/wiki/Oncogene)) or preventing them from becoming cancerous ([tumor suppressor genes](http://en.wikipedia.org/wiki/Tumor_suppressor_gene)).
+ 1. **Cancer related** - [Tp53, Trp53](http://en.wikipedia.org/wiki/P53) and
+ all of the genes with 'cancer' ([BRCA1](http://en.wikipedia.org/wiki/BRCA1))
+ or 'growth factor'
+ ([EGFR](http://en.wikipedia.org/wiki/Epidermal_growth_factor_receptor),
+ [VEGFA](http://en.wikipedia.org/wiki/Vascular_endothelial_growth_factor_A) and
+ [TGFB](http://en.wikipedia.org/wiki/Transforming_growth_factor_beta)) in their
+ name are likely associated with cancer and are involved in either helping
+ cells proliferate ([oncogenes](http://en.wikipedia.org/wiki/Oncogene)) or
+ preventing them from becoming cancerous ([tumor suppressor
+ genes](http://en.wikipedia.org/wiki/Tumor_suppressor_gene)).
 
  2. **Immune system related** - Interleukins, ['nuclear factor
  kappa-light-chain-enhancer of activated B
@@ -83,7 +89,7 @@ times they have been cited:
  regulatory enzyme which is involved in the control of blood pressure.
 [Estrogen receptor 1 (ESR1)](http://en.wikipedia.org/wiki/Estrogen_receptor_alpha)
 is a transcription factor which responds to the hormone estrogen, leading
-to a variety of downstream effcts.
+to a variety of downstream effects.
 
  7. **Other** - The gene [w
  (white)](http://en.wikipedia.org/wiki/White_%28mutation%29), is popular
