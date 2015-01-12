@@ -5,7 +5,7 @@ title:  "Peter Kerpedjiev"
 
 #### Bio ####
 
-My name is Peter and I'm a PhD student working on modelling the tertiary structure of RNA molecules at the [Theoretical Biochemistry Group](http://www.tbi.univie.ac.at) at the University of Vienna. 
+I'm a PhD student working on modelling the tertiary structure of RNA molecules at the [Theoretical Biochemistry Group](http://www.tbi.univie.ac.at) at the University of Vienna. 
 
 #### Contact ####
 

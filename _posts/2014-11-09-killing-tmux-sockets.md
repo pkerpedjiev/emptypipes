@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Reviving a Seemingly Dead Tmux"
-tags: tmux
+tags: tmux linux
 ---
 
 Quite often, when I try to attach to an existing tmux session, the following error pops up:
