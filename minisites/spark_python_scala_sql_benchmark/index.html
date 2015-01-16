@@ -76,7 +76,7 @@ chart.append("g")
     .style('font', '15px sans-serif')
     .style('font-weight', 'bold')
     .attr('text-anchor', 'middle')
-    .html('Spark Query Run Time with Python, Scala and SQL');
+    .html('Spark Query Run Time using Python, Scala and SQL');
 
 d3.json("data.json", function(error, data) {
   var categories = d3.set(data.values.map(function(d) { return d.category; })).values();

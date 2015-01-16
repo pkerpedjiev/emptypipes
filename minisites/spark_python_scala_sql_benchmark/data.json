@@ -1,6 +1,6 @@
 {
  "x_axis": "# Of Cores",
- "y_axis": "Time Elapsed",
+ "y_axis": "Time Elapsed (Seconds)",
 "values": 
 	[{"group": 8, "category": "python", "value": 290},
 	{"group": 8, "category": "python sql", "value": 363},
