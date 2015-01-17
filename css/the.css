@@ -94,8 +94,16 @@ td.archive_date {
     font-size: 13px;
 }
 
+h3 {
+    font-size: 35px;
+    font-family:"LeagueGothicRegular", helvetica,"League Gothic", "Helvetica Neue", helvetica, arial, sans-serif;
+    font-weight:normal;letter-spacing:+.025em;
+    margin: 20px 0 20px;
+    line-height: 30px;
+}
+
 h4 {
-    font-size: 30px;
+    font-size: 26px;
     font-family:"LeagueGothicRegular", helvetica,"League Gothic", "Helvetica Neue", helvetica, arial, sans-serif;
     font-weight:normal;letter-spacing:+.025em;
     margin: 20px 0 20px;

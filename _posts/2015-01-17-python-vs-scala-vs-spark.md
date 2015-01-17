@@ -6,40 +6,78 @@ tags: python scala spark
 
 The fantastic [Apache Spark](https://spark.apache.org/) framework provides an
 API for distributed data analysis and processing in three different languages:
-Scala, Java and Python. Being an ardent yet somewhat impatient python user, I
-was curious if there would be a large advantage in using Scala to code my
-data processing tasks. 
-
-**Summary:** If you have less cores at your disposal, Scala is quite a bit faster.
-As more cores are added, its advantage dwindles.
-
-**Side Note:** Using SparkSQL depends on the language it's called from. Using it
-from python is slower than from Scala, but the slowdown depends on the number of
-cores employed.
-
-**Evidence:** The plot below summarizes the results. The fastest performance was
-achieved when using SparkSQL with Scala. The slowest, SparkSQL with Python. The 
-more cores used, the more equal the results. This is likely due to the fact that
-parallelizable tasks start to contribute less and less of the total time and so
-the running time becomes dominated by the collection and aggregation tasks which
-must be run synchronously, take a long time and are largely language independent 
-(i.e. possibly run by some internal Spark API). This is only a guess, however.
-
-The figure...
+Scala, Java and Python. Being an ardent yet somewhat impatient Python user, I
+was curious if there would be a large advantage in using Scala to code my data
+processing tasks, so I created a small benchmark data processing script using
+Python, Scala, and SparkSQL. 
 
 #### The Task ####
 
-So what were we actually timing? The benchmark task consists of a few steps:
+The benchmark task consists of the following steps:
 
-1. Load a tab-separated table (gene2pubmed), and convert values to integers
+1. Load a tab-separated table (gene2pubmed), and convert string values to integers
 2. Load another table (pmid_year), parse dates and convert to integers
 3. Join the two tables on a key
 4. Count the number of occurances of a key (reduce)
 5. Sort by key
 6. Collect
 
+#### The Result ####
+
+<div class='chart'>
+<div align='center' id="python-scala-spark-chart"></div>
+<link rel="stylesheet" href="/css/d3_bar_chart.css">
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="/js/d3_python_scala_spark.js"></script>
+ </div>
+
+<!-- <img alt="Python and Scala on Spark Benchmark Results" src=/img/python_vs_scala_vs_spark.png width=400px> -->
+
+#### Interpretation ####
+
+The fastest performance was achieved when using SparkSQL with Scala. The
+slowest, SparkSQL with Python. The more cores used, the more equal the results.
+This is likely due to the fact that parallelizable tasks start to contribute
+less and less of the total time and so the running time becomes dominated by
+the collection and aggregation which must be run synchronously, take a long
+time and are largely language independent (i.e. possibly run by some internal
+Spark API). This is only a guess, however.
+
+#### Conclusion
+
+If you have less cores at your disposal, Scala is quite a bit faster than
+Python.  As more cores are added, its advantage dwindles. Having more computing
+power at your disposal gives you the opportunity to use alternative languages
+without having to wait for your results. If computing power is at a premium,
+then it might make sense to learn a little bit of Scala, if only enough to be
+able to code SparkSQL queries.
+
+#### Apache Spark ####
 
 The code for each programming language is listed in the sections below:
+
+##### Master and Worker Nodes #####
+
+{% highlight bash %}
+./sbin/stop-all.sh; SPARK_WORKER_CORES=4; rm logs/*; ./sbin/start-all.sh
+{% endhighlight %}
+
+
+##### Python Shell #####
+
+{% highlight bash %}
+./spark-1.2.0/bin/pyspark --master spark://server.com:7077 --driver-memory 4g --executor-memory 4g
+{% endhighlight %}
+
+##### Scala Shell #####
+
+{% highlight bash %}
+./spark-1.2.0/bin/spark-shell --master spark://server.com:7077 --driver-memory 4g --executor-memory 4g
+{% endhighlight %}
+
+#### Benchmark Code ####
+
+The following code was pasted into its respective shell and timed.
 
 ##### Scala #####
 
