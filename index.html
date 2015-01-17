@@ -12,9 +12,11 @@ title: Empty Pipes
         <ul class='inline'> 
             <li>{{ post.date | date_to_string }}</li>
             <li> | </li>
-        {% for tag in post.tags %}
-        <li> {{tag}} </li>
-        {% endfor %}
+            {% for tag in post.tags %}
+            <li> {{tag}} </li>
+            {% endfor %}
+            <li> | </li>
+            <li><a href="{{ post.url }}"><i class="fa fa-link"></i></a></li>
     </ul>
     </div>
 </div>
