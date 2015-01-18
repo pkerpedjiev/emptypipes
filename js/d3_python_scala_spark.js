@@ -24,6 +24,7 @@ function totalRunningTime() {
     .ticks(6);
 
     var chart =d3.select("#python-scala-spark-chart").append("svg")
+    .attr('no-svg', 'background-image: ' + ' /img/python_vs_scala_vs_spark.png')
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom);
 
