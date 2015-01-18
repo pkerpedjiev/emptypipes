@@ -1,0 +1,72 @@
+{"values": [
+{"group": "scala", "category": 1, "step": 1, "value": 18},
+{"group": "scala", "category": 2, "step": 1, "value": 13},
+{"group": "scala", "category": 4, "step": 1, "value": 9},
+{"group": "scala", "category": 8, "step": 1, "value": 8},
+
+{"group": "scala", "category": 1, "step": 2, "value": 15},
+{"group": "scala", "category": 2, "step": 2, "value": 13},
+{"group": "scala", "category": 4, "step": 2, "value": 10},
+{"group": "scala", "category": 8, "step": 2, "value": 12},
+
+{"group": "scala", "category": 1, "step": 3, "value": 139},
+{"group": "scala", "category": 2, "step": 3, "value": 100},
+{"group": "scala", "category": 4, "step": 3, "value": 100},
+{"group": "scala", "category": 8, "step": 3, "value": 87},
+
+{"group": "scala", "category": 1, "step": 4, "value": 7},
+{"group": "scala", "category": 2, "step": 4, "value": 6},
+{"group": "scala", "category": 4, "step": 4, "value": 18},
+{"group": "scala", "category": 8, "step": 4, "value": 1},
+
+{"group": "scala", "category": 1, "step": 5, "value": 77},
+{"group": "scala", "category": 2, "step": 5, "value": 53},
+{"group": "scala", "category": 4, "step": 5, "value": 39},
+{"group": "scala", "category": 8, "step": 5, "value": 64},
+
+{"group": "scala", "category": 1, "step": 6, "value": 3},
+{"group": "scala", "category": 2, "step": 6, "value": 3},
+{"group": "scala", "category": 4, "step": 6, "value": 6},
+{"group": "scala", "category": 8, "step": 6, "value": 2},
+
+{"group": "scala", "category": 1, "step": 7, "value": 97},
+{"group": "scala", "category": 2, "step": 7, "value": 77},
+{"group": "scala", "category": 4, "step": 7, "value": 65},
+{"group": "scala", "category": 8, "step": 7, "value": 67},
+
+{"group": "python", "category": 1, "step": 1, "value": 142},
+{"group": "python", "category": 2, "step": 1, "value": 82},
+{"group": "python", "category": 4, "step": 1, "value": 47},
+{"group": "python", "category": 8, "step": 1, "value": 31},
+
+{"group": "python", "category": 1, "step": 2, "value": 125},
+{"group": "python", "category": 2, "step": 2, "value": 71},
+{"group": "python", "category": 4, "step": 2, "value": 37},
+{"group": "python", "category": 8, "step": 2, "value": 19},
+
+{"group": "python", "category": 1, "step": 3, "value": 594},
+{"group": "python", "category": 2, "step": 3, "value": 305},
+{"group": "python", "category": 4, "step": 3, "value": 154},
+{"group": "python", "category": 8, "step": 3, "value": 82},
+
+{"group": "python", "category": 1, "step": 4, "value": 134},
+{"group": "python", "category": 2, "step": 4, "value": 61},
+{"group": "python", "category": 4, "step": 4, "value": 33},
+{"group": "python", "category": 8, "step": 4, "value": 20},
+
+{"group": "python", "category": 1, "step": 5, "value": 221},
+{"group": "python", "category": 2, "step": 5, "value": 114},
+{"group": "python", "category": 4, "step": 5, "value": 58},
+{"group": "python", "category": 8, "step": 5, "value": 51},
+
+{"group": "python", "category": 1, "step": 6, "value": 30},
+{"group": "python", "category": 2, "step": 6, "value": 15},
+{"group": "python", "category": 4, "step": 6, "value": 8},
+{"group": "python", "category": 8, "step": 6, "value": 4},
+
+{"group": "python", "category": 1, "step": 7, "value": 234},
+{"group": "python", "category": 2, "step": 7, "value": 173},
+{"group": "python", "category": 4, "step": 7, "value": 143},
+{"group": "python", "category": 8, "step": 7, "value": 131}
+]
+}

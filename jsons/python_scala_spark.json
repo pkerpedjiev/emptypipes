@@ -1,0 +1,24 @@
+{
+ "x_axis": "# Of Cores",
+ "y_axis": "Time Elapsed (Seconds)",
+"values": 
+	[{"group": 8, "category": "python", "value": 290},
+	{"group": 8, "category": "python sql", "value": 363},
+	{"group": 8, "category": "scala", "value": 254},
+	{"group": 8, "category": "scala sql", "value": 215},
+
+	{"group": 4, "category": "python", "value": 400},
+	{"group": 4, "category": "python sql", "value": 517},
+	{"group": 4, "category": "scala", "value": 278},
+	{"group": 4, "category": "scala sql", "value": 254},
+
+	{"group": 2, "category": "python", "value": 657},
+	{"group": 2, "category": "python sql", "value": 811},
+	{"group": 2, "category": "scala", "value": 339},
+	{"group": 2, "category": "scala sql", "value": 328},
+
+	{"group": 1, "category": "python", "value": 1095},
+	{"group": 1, "category": "python sql", "value": 1327},
+	{"group": 1, "category": "scala", "value": 451},
+	{"group": 1, "category": "scala sql", "value": 439}]
+}

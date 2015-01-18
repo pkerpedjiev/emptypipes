@@ -15,25 +15,31 @@ Python, Scala, and SparkSQL.
 
 The benchmark task consists of the following steps:
 
-1. Load a tab-separated table (gene2pubmed), and convert string values to integers
-2. Load another table (pmid_year), parse dates and convert to integers
-3. Join the two tables on a key
-4. Count the number of occurances of a key (reduce)
-5. Sort by key
-6. Collect
+1. Load a tab-separated table (gene2pubmed), and convert string values to integers (map, filter)
+2. Load another table (pmid_year), parse dates and convert to integers (map)
+3. Join the two tables on a key (join)
+4. Rearrange the keys and values (map)
+5. Count the number of occurances of a key (reduceByKey)
+6. Rearrange the keys and values (map)
+7. Sort by key (sortByKey)
 
-#### The Result ####
+#### Total Running Time ####
 
-<div class='chart'>
+Each of the scripts was run with a `collect` statement at the end to ensure that
+each step was executed. The time was recorded as the real time elapsed between
+the start of the script and the end. The scripts were run using 1,2,4 and 8 
+worker cores (as set by the `SPARK_WORKER_CORES` option).
+
+
+<div class='chart_total_running_time'>
 <div align='center' id="python-scala-spark-chart"></div>
 <link rel="stylesheet" href="/css/d3_bar_chart.css">
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="/js/d3_python_scala_spark.js"></script>
- </div>
+ <script>totalRunningTime();</script>
+</div>
 
 <!-- <img alt="Python and Scala on Spark Benchmark Results" src=/img/python_vs_scala_vs_spark.png width=400px> -->
-
-#### Interpretation ####
 
 The fastest performance was achieved when using SparkSQL with Scala. The
 slowest, SparkSQL with Python. The more cores used, the more equal the results.
@@ -41,14 +47,39 @@ This is likely due to the fact that parallelizable tasks start to contribute
 less and less of the total time and so the running time becomes dominated by
 the collection and aggregation which must be run synchronously, take a long
 time and are largely language independent (i.e. possibly run by some internal
-Spark API). This is only a guess, however.
+Spark API).
+
+To get a clearer picture of where the differences in performance lie, a `count()`
+action was performed after each transformation and other action. The time was
+recorded after each `count()`.
+
+<div class='chart_step_running_time'>
+<div align='center' id="python-scala-spark-chart-2"></div>
+<link rel="stylesheet" href="/css/d3_bar_chart.css">
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="/js/d3_python_scala_spark_2.js"></script>
+ <script>stageRunningTime();</script>
+</div>
+
+This data indicates that just about every step in the Python implementation,
+except for the final sort, benefitted proportionally (~ 8x) from the extra cores.  The
+Scala implementation, in contrast, showed no large speedup in any of the steps.
+The longest, the join and sort steps, ran about 1.5 times faster when using 8
+cores vs when using just 1. This can be either because the dataset is too small
+to benefit from parallelization, given Scala's already fast execution, or
+that something strange is going on with the settings and the operations
+performed by the master node are being run concurrently even when there are less
+worker nodes available. This doesn't appear to be case as running both the master
+and worker nodes on a machine with only four cores and allowing only one worker core
+actually led to faster execution than on the 24-core machine used for the 
+previous benchmarks (presumably because of the different processors in each, i5 vs Xeon).
 
 #### Conclusion
 
 If you have less cores at your disposal, Scala is quite a bit faster than
 Python.  As more cores are added, its advantage dwindles. Having more computing
-power at your disposal gives you the opportunity to use alternative languages
-without having to wait for your results. If computing power is at a premium,
+power gives you the opportunity to use alternative languages
+without having to wait for your results. If computing resources are at a premium,
 then it might make sense to learn a little bit of Scala, if only enough to be
 able to code SparkSQL queries.
 
