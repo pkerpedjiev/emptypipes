@@ -39,7 +39,7 @@ worker cores (as set by the `SPARK_WORKER_CORES` option).
  <script>totalRunningTime();</script>
 </div>
 
-<img src="/img/python_vs_scala_vs_spark.png" style='display:none'>
+<img src="/img/python_vs_scala_vs_spark.png">
 
 The fastest performance was achieved when using SparkSQL with Scala. The
 slowest, SparkSQL with Python. The more cores used, the more equal the results.
