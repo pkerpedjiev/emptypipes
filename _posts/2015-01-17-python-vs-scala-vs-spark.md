@@ -58,8 +58,10 @@ The code for each programming language is listed in the sections below:
 
 ##### Master and Worker Nodes #####
 
+The number of workers was set in the `SPARK_WORKER_CORES` variable in  `conf/spark-env.sh`
+
 {% highlight bash %}
-./sbin/stop-all.sh; SPARK_WORKER_CORES=4; rm logs/*; ./sbin/start-all.sh
+./sbin/stop-all.sh; rm logs/*; ./sbin/start-all.sh
 {% endhighlight %}
 
 
