@@ -72,9 +72,8 @@ performed by the master node are being run concurrently even when there are less
 worker nodes available. 
 
 This doesn't appear to be case as running both the master and worker nodes on a
-machine with only four cores and allowing only one worker core actually led to
-faster execution than on the 24-core machine used for the previous benchmarks
-(presumably because of the different processors in each, i5 vs Xeon). A more
+machine with only four available cores (vs 24 in the previous benchmarks) and
+allowing only one worker core actually led to faster execution. A more
 comprehensive test would require running the master node on a single core
 machine and placing the workers on separate more capable computers. I'll save
 that for another day though.
