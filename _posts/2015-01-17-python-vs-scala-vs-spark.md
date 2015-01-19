@@ -23,6 +23,10 @@ The benchmark task consists of the following steps:
 6. Rearrange the keys and values (map)
 7. Sort by key (sortByKey)
 
+#### The Data ####
+
+The dataset consists of two text file tables, weighing in at 297M and 229M.
+
 #### Total Running Time ####
 
 Each of the scripts was run with a `collect` statement at the end to ensure that
