@@ -65,6 +65,8 @@ recorded after each `count()`.
  <script>stageRunningTime();</script>
 </div>
 
+<img itemprop="image" src="/img/python_vs_scala_vs_spark_2_small.png" style='display:none' width=300 height=210>
+
 This data indicates that just about every step in the Python implementation,
 except for the final sort, benefitted proportionally (~ 8x) from the extra cores.  The
 Scala implementation, in contrast, showed no large speedup in any of the steps.
