@@ -31,6 +31,10 @@ The benchmark task consists of the following steps:
 6. Rearrange the keys and values (map)
 7. Sort by key (sortByKey)
 
+#### The Data ####
+
+The dataset consists of two text file tables, weighing in at 297M and 229M.
+
 #### Total Running Time ####
 
 Each of the scripts was run with a `collect` statement at the end to ensure that
@@ -47,7 +51,7 @@ worker cores (as set by the `SPARK_WORKER_CORES` option).
  <script>totalRunningTime();</script>
 </div>
 
-<img itemprop="image" src="/img/python_vs_scala_vs_spark.png" style='display:none'>
+<img itemprop="image" src="/img/python_vs_scala_vs_spark_small.png" style='display:none' width=300 height=210>
 
 The fastest performance was achieved when using SparkSQL with Scala. The
 slowest, SparkSQL with Python. The more cores used, the more equal the results.
@@ -69,6 +73,8 @@ recorded after each `count()`.
  <script>stageRunningTime();</script>
 </div>
 
+<img itemprop="image" src="/img/python_vs_scala_vs_spark_2_small.png" style='display:none' width=300 height=210>
+
 This data indicates that just about every step in the Python implementation,
 except for the final sort, benefitted proportionally (~ 8x) from the extra cores.  The
 Scala implementation, in contrast, showed no large speedup in any of the steps.
@@ -80,9 +86,8 @@ performed by the master node are being run concurrently even when there are less
 worker nodes available. 
 
 This doesn't appear to be case as running both the master and worker nodes on a
-machine with only four cores and allowing only one worker core actually led to
-faster execution than on the 24-core machine used for the previous benchmarks
-(presumably because of the different processors in each, i5 vs Xeon). A more
+machine with only four available cores (vs 24 in the previous benchmarks) and
+allowing only one worker core actually led to faster execution. A more
 comprehensive test would require running the master node on a single core
 machine and placing the workers on separate more capable computers. I'll save
 that for another day though.
