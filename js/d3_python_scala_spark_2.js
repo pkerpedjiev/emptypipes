@@ -1,7 +1,7 @@
 function stageRunningTime() {
     var margin = {top: 50, right: 40, bottom: 30, left: 50},
     width = 440 - margin.left - margin.right,
-    height = 300 - margin.top - margin.bottom;
+    height = 340 - margin.top - margin.bottom;
 
     // python / scala far left labels
     var y0 = d3.scale.ordinal()

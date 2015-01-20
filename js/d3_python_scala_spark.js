@@ -1,7 +1,7 @@
 function totalRunningTime() {
     var margin = {top: 50, right: 40, bottom: 30, left: 60},
-    width = 400 - margin.left - margin.right,
-    height = 280 - margin.top - margin.bottom;
+    width = 440 - margin.left - margin.right,
+    height = 300 - margin.top - margin.bottom;
 
     var x0 = d3.scale.ordinal()
     .rangeRoundBands([0, width], .1);

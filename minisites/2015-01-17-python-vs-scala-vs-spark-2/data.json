@@ -34,41 +34,6 @@
 {"group": "scala", "category": 4, "step": 7, "value": 65},
 {"group": "scala", "category": 8, "step": 7, "value": 67},
 
-{"group": "pypy", "category": 1, "step": 1, "value": 40},
-{"group": "pypy", "category": 2, "step": 1, "value": 21},
-{"group": "pypy", "category": 4, "step": 1, "value": 12},
-{"group": "pypy", "category": 8, "step": 1, "value": 12},
-
-{"group": "pypy", "category": 1, "step": 2, "value": 40},
-{"group": "pypy", "category": 2, "step": 2, "value": 24},
-{"group": "pypy", "category": 4, "step": 2, "value": 12},
-{"group": "pypy", "category": 8, "step": 2, "value": 8},
-
-{"group": "pypy", "category": 1, "step": 3, "value": 271},
-{"group": "pypy", "category": 2, "step": 3, "value": 120},
-{"group": "pypy", "category": 4, "step": 3, "value": 61},
-{"group": "pypy", "category": 8, "step": 3, "value": 36},
-
-{"group": "pypy", "category": 1, "step": 4, "value": 53},
-{"group": "pypy", "category": 2, "step": 4, "value": 28},
-{"group": "pypy", "category": 4, "step": 4, "value": 13},
-{"group": "pypy", "category": 8, "step": 4, "value": 8},
-
-{"group": "pypy", "category": 1, "step": 5, "value": 137},
-{"group": "pypy", "category": 2, "step": 5, "value": 57},
-{"group": "pypy", "category": 4, "step": 5, "value": 32},
-{"group": "pypy", "category": 8, "step": 5, "value": 20},
-
-{"group": "pypy", "category": 1, "step": 6, "value": 20},
-{"group": "pypy", "category": 2, "step": 6, "value": 12},
-{"group": "pypy", "category": 4, "step": 6, "value": 5},
-{"group": "pypy", "category": 8, "step": 6, "value": 3},
-
-{"group": "pypy", "category": 1, "step": 7, "value": 384},
-{"group": "pypy", "category": 2, "step": 7, "value": 177},
-{"group": "pypy", "category": 4, "step": 7, "value": 135},
-{"group": "pypy", "category": 8, "step": 7, "value": 125},
-
 {"group": "python", "category": 1, "step": 1, "value": 142},
 {"group": "python", "category": 2, "step": 1, "value": 82},
 {"group": "python", "category": 4, "step": 1, "value": 47},
@@ -103,7 +68,5 @@
 {"group": "python", "category": 2, "step": 7, "value": 173},
 {"group": "python", "category": 4, "step": 7, "value": 143},
 {"group": "python", "category": 8, "step": 7, "value": 131}
-
-
 ]
 }
