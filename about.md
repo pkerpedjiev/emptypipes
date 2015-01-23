@@ -9,7 +9,7 @@ I'm a PhD student working on modelling the tertiary structure of RNA molecules a
 
 #### Contact ####
 
-Feel free to email me at pkerpedjiev(at)gmail.com or (follow me on twitter)[https://twitter.com/pkerpedjiev].
+Feel free to email me at pkerpedjiev(at)gmail.com or [follow me on twitter](https://twitter.com/pkerpedjiev).
 
 
 #### This Webpage ####
