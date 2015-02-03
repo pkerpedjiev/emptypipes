@@ -9,11 +9,14 @@ I'm a PhD student working on modelling the tertiary structure of RNA molecules a
 
 #### Contact ####
 
-Feel free to email me at pkerpedjiev(at)gmail.com.
+Feel free to email me at pkerpedjiev(at)gmail.com or [follow me on Twitter](https://twitter.com/pkerpedjiev) or [Google+](https://www.google.com/+PeterKerpedjiev).
+
 
 #### This Webpage ####
 
 The source code for this web page can be found [on github](https://github.com/pkerpedjiev/emptypipes).
+
+
 
 #### Software ####
 
