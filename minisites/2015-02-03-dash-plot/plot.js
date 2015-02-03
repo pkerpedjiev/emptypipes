@@ -40,7 +40,7 @@ chart.append("g")
 
 var dsv = d3.dsv(' ', 'text/plain');
 
-dsv('all_ranges_short.csv', function(data) {
+dsv('all_ranges_unique.csv', function(data) {
     data.forEach(function(d) {
         d.pdb_len = +d.pdb_len;
         d.rmsd = +d.rmsd;
@@ -92,9 +92,7 @@ dsv('all_ranges_short.csv', function(data) {
       .data(nestedData)
       .enter().append("g")
       .attr("class", "g")
-      .attr("transform", function(d) { console.log("d.group:", d.key); return "translate(" + x0(d.key) + ",0)"; })
-      .attr('stroke', 'black')
-      .attr('stroke-width', 1);
+      .attr("transform", function(d) { console.log("d.group:", d.key); return "translate(" + x0(d.key) + ",0)"; });
    
     
   var dashes = ggroups.selectAll('.dash')
@@ -104,7 +102,10 @@ dsv('all_ranges_short.csv', function(data) {
   })
   .enter()
   .append("svg:path")
-  .attr("d", function(d) { return "M " + (x1(d[category])-2) + " " + y(d[value]) + " L " + (x1(d[category])+2) + " " + y(d[value]); });
+  .attr("d", function(d) { return "M " + (x1(d[category])-2) + " " + y(d[value]) + " L " + (x1(d[category])+2) + " " + y(d[value]); })
+  .attr('stroke', function(d) { return color(d[category]); })
+  .attr('stroke-width', 0.4)
+  .attr('opacity', 0.2);
 
 });
 
