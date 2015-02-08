@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "D3 Selectable Force-Directed Graph"
+title:  "Selectable Force-Directed Graph Using D3.js"
 tags: javascript d3.js
 ---
 
