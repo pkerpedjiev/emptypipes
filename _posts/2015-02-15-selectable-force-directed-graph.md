@@ -9,10 +9,11 @@ drag many nodes at once is a really useful feature to have in a force-directed
 graph.  Coincidentally, this was right around the time I was watching [Mike
 Bostock's Eyeo talk](http://vimeo.com/69448223) about sharing examples of code.
 While describing the process of creating the visualization
-of the [2013 Oscar Contenders](http://www.nytimes.com/interactive/2013/02/20/movies/among-the-oscar-contenders-a-host-of-connections.html?_r=0), 
-he showed an example of [dragging multiple nodes in a 
-graph layout](http://bl.ocks.org/mbostock/4566102). This seemed really useful
-and very similar to the behaviour we wanted to implement.
+of the [2013 Oscar
+Contenders](http://www.nytimes.com/interactive/2013/02/20/movies/among-the-oscar-contenders-a-host-of-connections.html?_r=0),
+he showed an example of [dragging multiple nodes in a graph
+layout](http://bl.ocks.org/mbostock/4566102). Very useful, very elegant, and very
+similar to what we needed.
 
 There was only one small problem. 
 
