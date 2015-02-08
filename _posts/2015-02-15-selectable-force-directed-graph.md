@@ -19,7 +19,7 @@ There was only one small problem.
 The layout in his
 example wasn't dynamic. It also wasn't zoomable. Fortunately, with a little
 bit of tinkering, these issues were resolved to yield a force-directed graph
-layout which allows the selection and dragging of multiple nodes (hold <shift>
+layout which allows the selection and dragging of multiple nodes (hold shift
 and drag across the background) and zooming while maintaining the force animation.
 You can even center the graph by hitting the 'c' key.
 
