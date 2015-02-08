@@ -6,9 +6,16 @@ tags: python scala spark
 
 ##### Update 20 Jan 2015 #####
 
-Thanks to a suggestion from a reddit comment, I added benchmarks for the python code running under PyPy. This makes the results even more interesting. PyPy actually runs the join faster than Scala when more cores are present. On the other hand, it runs the sort slower, leading to an approximately equal performance when there are more than 2 cores available. This is really good news for people (like myself) who are more familiar with python and don't want to learn another language just to execute faster Spark queries.
+Thanks to a suggestion from a reddit comment, I added benchmarks for the python
+code running under PyPy. This makes the results even more interesting. PyPy
+actually runs the join faster than Scala when more cores are present. On the
+other hand, it runs the sort slower, leading to an approximately equal
+performance when there are more than 2 cores available. This is really good
+news for people (like myself) who are more familiar with python and don't want
+to learn another language just to execute faster Spark queries.
 
-Apart from the extra data in the charts, the rest of this post is unmodified and thus doesn't mention PyPy.
+Apart from the extra data in the charts, the rest of this post is unmodified
+and thus doesn't mention PyPy.
 
 <hr>
 
@@ -46,7 +53,6 @@ worker cores (as set by the `SPARK_WORKER_CORES` option).
 <div class='chart_total_running_time'>
 <div align='center' id="python-scala-spark-chart"></div>
 <link rel="stylesheet" href="/css/d3_bar_chart.css">
-<script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="/js/d3_python_scala_spark.js"></script>
  <script>totalRunningTime();</script>
 </div>
@@ -68,7 +74,6 @@ recorded after each `count()`.
 <div class='chart_step_running_time'>
 <div align='center' id="python-scala-spark-chart-2"></div>
 <link rel="stylesheet" href="/css/d3_bar_chart.css">
-<script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="/js/d3_python_scala_spark_2.js"></script>
  <script>stageRunningTime();</script>
 </div>
