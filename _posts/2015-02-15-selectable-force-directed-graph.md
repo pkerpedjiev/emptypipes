@@ -4,7 +4,7 @@ title:  "D3 Selectable Force-Directed Graph"
 tags: javascript d3.js
 ---
 
-While working on our [online RNA secondary structure visualization application](nibiru.tbi.univie.ac.at/forna), we realized that being able to
+While working on our [online RNA secondary structure visualization application](http://nibiru.tbi.univie.ac.at/forna), we realized that being able to
 drag many nodes at once is a really useful feature to have in a force-directed
 graph.  Coincidentally, this was right around the time I was watching [Mike
 Bostock's Eyeo talk](http://vimeo.com/69448223) about sharing examples of code.
