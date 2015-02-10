@@ -24,7 +24,7 @@ follow the typical pattern using the mousewheel and dragging.
 <script src="/js/d3_selectable_force_directed_graph.js"></script>
 <script>selectableForceDirectedGraph();</script>
 
-The selection process is made to emulate the semantics of selection
+The selection process is made to emulate the behaviour of selection
 and dragging that is seen in most file managers and is thus familiar
 to most users of desktop computers:
 
