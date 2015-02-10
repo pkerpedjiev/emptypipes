@@ -8,15 +8,15 @@ Dragging multiple nodes in a force-directed graph layout is useful
 for making large changes in its arrangement. Mike Bostock
 showed a nice example of this while describing the process
 of creating the[2013 Oscar
-Contenders](http://www.nytimes.com/interactive/2013/02/20/movies/among-the-oscar-contenders-a-host-of-connections.html?_r=0),
+Contenders](http://www.nytimes.com/interactive/2013/02/20/movies/among-the-oscar-contenders-a-host-of-connections.html?_r=0)
 visualization in his [Eyeo talk](http://vimeo.com/69448223) about examples.
 
 His example, while instructive and useful, can be made even more
 helpful by adding the dynamic force calculation, as well as zooming
 and centering behaviour. 
 
-In the example below, hold down *shift* to select multiple
-nodes or press the 'c' key to center the graph. Zooming and panning
+In the example below, hold down **shift** to select multiple
+nodes or press the **'c'** key to center the graph. Zooming and panning
 follow the typical pattern using the mousewheel and dragging.
 
 <div align='center' id="d3_selectable_force_directed_graph"></div>
