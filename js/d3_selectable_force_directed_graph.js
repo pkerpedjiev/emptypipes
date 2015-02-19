@@ -1,7 +1,7 @@
 function selectableForceDirectedGraph() {
-    var width = 500,
+    var width = 400,
 
-    height = 400,
+    height = 300,
     shiftKey, ctrlKey;
 
     var nodeGraph = null;

@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Reviving a Seemingly Dead Tmux"
+description: "Bring a tmux session back from the dead by recreating the socket it uses."
 tags: tmux linux
 ---
 

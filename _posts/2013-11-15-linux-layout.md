@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "My Linux and Xfce Customizations"
+description: "Various customizations that make linux and bash easier and more convenient to use."
 tags: linux xfce
 ---
 

@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "The 20 Most Studied Genes"
+description: "A ranking of the most popular genes based on how many times they appear in scientific documents."
 tags: genbank bioinformatics
 ---
 The Nation Center for Biotechnology Information (NCBI) maintains an enormous

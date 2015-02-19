@@ -2,6 +2,7 @@
 layout: post
 title:  "Python vs. Scala vs. Spark"
 tags: python scala spark
+description: "A benchmark of how long it takes code written in python (also run on pypy) and scala to execute on the Apache Spark platform with a varying number of cores."
 ---
 
 ##### Update 20 Jan 2015 #####

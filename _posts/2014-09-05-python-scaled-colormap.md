@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Scaled Colormap in Matplotlib"
+description: "Scale the matplotlib colormap to provide a range of output colors over the whole domain of input values."
 tags: matplotlib python colormap
 ---
 

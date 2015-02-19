@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Fast 3D Vector Operations in Cython"
+description: "Speed up vector operations in python by using cython to pre-compile the code and add static type declarations."
 tags: python cython vector
 ---
 

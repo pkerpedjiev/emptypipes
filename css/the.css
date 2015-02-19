@@ -2,6 +2,11 @@
 @import url(http://fonts.googleapis.com/css?family=Arvo);
 @import url(http://fonts.googleapis.com/css?family=Bitter);
 
+div .example {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
 body {
     font-family: 'Bitter', serif;
     font-size: 12pt;
