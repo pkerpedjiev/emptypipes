@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Contour Demo</title>
+<body>
+<script src="lib/d3/d3.js"></script>
+<script src="../conrec.js"></script>
+<script src="data.js"></script>
+<script>
+
+var data = [];
+
+var res = 5;
+
+for (var i = 0; i < res; i++) {
+    var new_data = [];
+    var x = i- (res-1)/2;
+
+    for (var j = 0; j < res; j++) {
+        var y = j-(res-1)/2;
+        new_data.push(x * x + y * y);
+    }
+
+    data.push(new_data);
+}
+
+var num_levels = 6;
+var zs = [];
+var max_z = Math.max.apply(null, data.map(function(d) { return Math.max.apply(null, d) }));
+
+for (i = 0; i <= num_levels; i++) {
+    zs.push(i * max_z / num_levels);
+}
+
+//zs = [0,0.5,1,2.5, 4, 6]
+var cliff = 1000;
+data.push(d3.range(data[0].length).map(function() { return cliff; }));
+data.unshift(d3.range(data[0].length).map(function() { return cliff; }));
+data.forEach(function(d) {
+  d.push(cliff);
+  d.unshift(cliff);
+});
+
+var xs = d3.range(0, data.length);
+var ys = d3.range(0, data[0].length);
+var c = new Conrec,
+    width = 400,
+    height = 400,
+
+    x = d3.scale.linear()
+    .range([0, width])
+    .domain([Math.min.apply(null, xs), Math.max.apply(null, xs)]),
+
+    y = d3.scale.linear()
+    .range([height, 0])
+    .domain([Math.min.apply(null, ys), Math.max.apply(null, ys)]),
+
+    colours = d3.scale.linear().domain([zs[0], zs[zs.length - 1]]).range(["#fff", "red"]);
+
+c.contour(data, 0, xs.length - 1, 0, ys.length - 1, xs, ys, zs.length, zs);
+
+d3.select("body").append("svg")
+    .attr("width", width)
+    .attr("height", height)
+  .selectAll("path")
+    .data(c.contourList().reverse())
+  .enter().append("path")
+    .style("fill",function(d) { return colours(d.level);})
+    .style("stroke","black")
+    .attr("d", d3.svg.line()
+      .x(function(d) { return x(d.x); })
+      .y(function(d) { return y(d.y); }));
+
+</script>

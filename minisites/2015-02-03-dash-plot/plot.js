@@ -36,7 +36,7 @@ chart.append("g")
     .style('font', '15px sans-serif')
     .style('font-weight', 'bold')
     .attr('text-anchor', 'middle')
-    .html('RMSD of Structures Sampled Using <br/> Ernwin, NAST, RNAComposer and Rosetta');
+    .html('RMSD of Structures Sampled Using <br/> Ernwin, NAST, RNAComposer and FARNA');
 
 var dsv = d3.dsv(' ', 'text/plain');
 
@@ -47,6 +47,8 @@ dsv('best_values.csv', function(best_values) {
     });
 
     dsv('all_ranges_unique.csv', function(data) {
+        console.log('data', data);
+
         data.forEach(function(d) {
             d.pdb_len = +d.pdb_len;
             d.rmsd = +d.rmsd;

@@ -1,0 +1,7 @@
+cp /scr/pendari/pkerp/projects/rosetta_benchmark/rosetta_ranges.csv .
+cp /scr/pendari/pkerp/projects/rosetta_benchmark/rnacomposer_ranges.csv .
+cp /scr/pendari/pkerp/projects/rosetta_benchmark/ernwin_ranges.csv .
+cp /scr/pendari/pkerp/projects/rosetta_benchmark/nast_ranges.csv .
+
+cat *_ranges.csv | sort | uniq > all_ranges_unique.csv
+echo "program pdb_name pdb_len rmsd" | cat - all_ranges_unique.csv > /tmp/out && mv /tmp/out all_ranges_unique.csv
