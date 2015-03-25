@@ -13,7 +13,7 @@ showing which places are accessible by train from four of Europe's major
 cities: London, Paris, Berlin and Vienna. 
 
 The methodology is simple. I used the [Swiss public transport
-API](http://transport.opendata.ch/) to get best connection between the start
+API](http://transport.opendata.ch/) to get the best connection between the start
 city (London, Paris, Berlin and Vienna) and every other city in Europe. Then I
 created a grid over all of Europe and interpolated the time to each point on
 the grid by assuming that any location that wasn't a train station could be
