@@ -22,7 +22,7 @@ interconnected web of easy-to-reach locations criss-crossing the disconnected
 countryside.
 
 Darker blue colors indicate a shorter travel time. Click on the images to overlay
-them on top of open-street maps.
+them on top of open street maps.
 
 
 <table>
