@@ -12,9 +12,9 @@ these changes are fleeting and hard to see due to the speed with which the
 layout is updated. Slowing it down can help to see how each tick event updates the
 positions of each node.  A method for doing this is described by
 [@DavidBruant](https://twitter.com/davidbruant) in [a
-thread](https://github.com/mbostock/d3/issues/1519) conversely about running the force
-simulation faster.
-
+thread](https://github.com/mbostock/d3/issues/1519) about running the force
+simulation faster. Keep in mind that this is a hack and probably shouldn't be
+used for anything production-related.
 
 <div class="example" align='center' id="d3_slow_force_directed_graph" style="float: left;"></div>
 <div class="example" align='center' id="d3_normal_force_directed_graph" style="float: right;"></div>
@@ -42,4 +42,4 @@ pkerp@toc:~/projects/emptypipes$ diff js/d3.js js/d3_slow.js
 >         //d3.timer(force.tick);
 {% endhighlight %}
 
-The modified version of d3.js used in the 'slow' example above is available [here](/js/d3_slow.js).
+The modified version of d3.js used in the 'slow' example abov used in the 'slow' example abovee is available [here](/js/d3_slow.js).
