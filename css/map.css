@@ -1,1 +1,5 @@
 #map { height: 400px; }
+
+.leaflet-container img.leaflet-image-layer {
+        max-width: none !important;
+            }
