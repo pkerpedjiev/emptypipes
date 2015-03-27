@@ -8,6 +8,7 @@ tags: map javascript leaflet
 <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
 <link rel="stylesheet" href="/css/map.css" />
 <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+<script src="/js/d3.js"></script>
 
 Travel times from Vienna by train. The most accessible regions often lie
 along highways, but not all towns along a highway are equally accessible.
@@ -21,6 +22,7 @@ street maps).
 The origin of this map is described in slightly more detail <a href="/2015/03/25/train-travel-times-in-europe-map/">in another blog post.</a>
 
 
+<script src="/js/proj4.js"></script>
 <script type="text/javascript">
 
     var map;
@@ -47,5 +49,141 @@ The origin of this map is described in slightly more detail <a href="/2015/03/25
     var imageUrl = '/img/from_vienna_large.jpg',
     imageBounds = [[33.1, -12.4],[64.5,36.3]];
 
+    lowerLeft = proj4('EPSG:4326', 'EPSG:3785').forward([imageBounds[0][1], imageBounds[0][0]]);
+    upperRight = proj4('EPSG:4326', 'EPSG:3785').forward([imageBounds[1][1], imageBounds[1][0]]);
+
+    var imgWidth = upperRight[0] - lowerLeft[0];
+    var imgHeight = upperRight[1] - lowerLeft[1];
+
+    console.log('upperRight', upperRight, 'lowerLeft', lowerLeft);
+    console.log('imgWidth', imgWidth, 'imgHeight', imgHeight);
+
 var overlay = L.imageOverlay(imageUrl, imageBounds, {"opacity": 0.85}).addTo(map);
+var marker;
+
+    var canvas = document.createElement('canvas');
+    var context = canvas.getContext('2d');
+    var imageObj = new Image();
+    /*
+    var colorScale = d3.scale.linear().domain([d3.rgb(85, 158, 207), d3.rgb(255,255,255)]).range([3, 9.5])
+    var colorScale = d3.scale.linear().range(["red", "white"]).domain([3, 9.5])
+        console.log('cs:', colorScale(4));
+        console.log('cs:', colorScale.invert(colorScale(4)));
+        */
+
+    imageObj.onload = function() {
+        canvas.width = imageObj.width;
+        canvas.height = imageObj.height;
+        context.drawImage(imageObj, 0, 0, imageObj.width, imageObj.height);
+        console.log('imageObj', imageObj.width, imageObj.height);
+    };
+
+
+    imageObj.src = '/img/from_vienna_large.jpg';
+
+    function rinterpolateColor(color) {
+        // Reverse interpolate a color from the "Blues" color scale
+        colorScale = {'blue': [[0.0, 1.0, 1.0], [0.125, 0.9686274528503418,
+            0.9686274528503418], [0.25, 0.93725490570068359, 0.93725490570068359],
+            [0.375, 0.88235294818878174, 0.88235294818878174], [0.5,
+            0.83921569585800171, 0.83921569585800171], [0.625, 0.7764706015586853,
+            0.7764706015586853], [0.75, 0.70980393886566162, 0.70980393886566162],
+            [0.875, 0.61176472902297974, 0.61176472902297974], [1.0,
+            0.41960784792900085, 0.41960784792900085]],
+
+            'green': [[0.0, 0.9843137264251709, 0.9843137264251709], [0.125,
+            0.92156863212585449, 0.92156863212585449], [0.25,
+            0.85882353782653809, 0.85882353782653809], [0.375,
+            0.7921568751335144, 0.7921568751335144], [0.5,
+            0.68235296010971069, 0.68235296010971069], [0.625,
+            0.57254904508590698, 0.57254904508590698], [0.75,
+            0.44313725829124451, 0.44313725829124451], [0.875,
+            0.31764706969261169, 0.31764706969261169], [1.0,
+            0.18823529779911041, 0.18823529779911041]],
+
+            'red': [[0.0, 0.9686274528503418, 0.9686274528503418], [0.125,
+            0.87058824300765991, 0.87058824300765991], [0.25,
+            0.7764706015586853, 0.7764706015586853], [0.375,
+            0.61960786581039429, 0.61960786581039429], [0.5,
+            0.41960784792900085, 0.41960784792900085], [0.625,
+            0.25882354378700256, 0.25882354378700256], [0.75,
+            0.12941177189350128, 0.12941177189350128], [0.875,
+            0.031372550874948502, 0.031372550874948502], [1.0,
+            0.031372550874948502, 0.031372550874948502]]}
+
+        var closestValues = [];
+        console.log('colorScale', colorScale);
+
+        for (prop in colorScale) {
+            vals = colorScale[prop];
+
+            if (prop == "red")
+                ix = 0;
+            else if (prop == "green")
+                ix = 1;
+            else if (prop == "blue")
+                ix = 2;
+            else {
+                console.log("Weird color in reinterpolateColor", prop);
+                continue;
+            }
+            var scaledColor = color[ix] / 255;
+            console.log('scaledColor:', scaledColor);
+
+            for (var i = 0; i < vals.length-1; i++) {
+                console.log("from:", colorScale[prop][i][2], "to:", colorScale[prop][i+1][1])
+                    if ((colorScale[prop][i][2] < scaledColor && scaledColor < colorScale[prop][i+1][1]) 
+                            || (colorScale[prop][i][2] > scaledColor && scaledColor > colorScale[prop][i+1][1])) {
+                        var frac = (scaledColor - colorScale[prop][i][2]) / (colorScale[prop][i+1][1] - colorScale[prop][i][2]);
+                        var interpValue = colorScale[prop][i][0] + frac * (colorScale[prop][i+1][0] - colorScale[prop][i][0]);
+
+                        console.log("frac:", frac, "interpValue", interpValue);
+                        closestValues.push(interpValue);
+                    }
+            }
+        }
+    }
+
+
+
+    function onMapClick(e) {
+
+        console.log(e.latlng);
+        // transforming point coordinates
+        p = proj4('EPSG:4326', 'EPSG:3785').forward([e.latlng.lng, e.latlng.lat]);
+
+        var xRatio = (p[0] - lowerLeft[0]) / imgWidth;
+        var yRatio = (p[1] - lowerLeft[1]) / imgHeight;
+
+        var xPos = imageObj.width * xRatio;
+        var yPos = imageObj.height * yRatio;
+
+        if (xRatio < 0 || yRatio < 0 || xRatio > 1 || yRatio > 1)
+            return;
+
+        console.log('xPos', xPos);
+        console.log('yPos', yPos);
+
+        var x = xPos;
+        var y = canvas.height - yPos;
+
+        console.log('x', x, 'y', y);
+
+        var pixelData = context.getImageData(x, y, 1, 1);
+        console.log('pixelData', pixelData);
+        console.log('pixelData.data', pixelData.data);
+        var inputRange = [pixelData.data[0], pixelData.data[1], pixelData.data[2]]
+
+        rinterpolateColor(inputRange);
+        //console.log('cs:', colorScale(d3.rgb(inputRange)))
+
+        var popup = L.popup()
+                .setLatLng(e.latlng)
+                    .setContent("location:" + e.latlng + " (" + xRatio + "," + yRatio + ")")
+                        .openOn(map);
+        //marker = L.marker(e.latlng).addTo(map);
+        //marker.bindPopup("location:" + e.latlng).openPopup();
+    }
+
+    map.on('click', onMapClick);
     </script>
