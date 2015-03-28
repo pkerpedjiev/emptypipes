@@ -13,39 +13,20 @@ Travel times from London by train. The most accessible regions often lie
 along highways, but not all towns along a highway are equally accessible.
 This is likely due to the fact that major train links are also serviced by
 large roads (the rail lines are not displayed very prominently on open
-street maps).
+street maps). Click anywhere on the map to get the distance from the start as well as the 
+estimated travel time by train.
+
 <br>
 <br>
 <div id="map"></div>
 <br> 
 The origin of this map is described in slightly more detail <a href="/2015/03/25/train-travel-times-in-europe-map/">in another blog post.</a>
 
+<br><br><b>Disclaimer: </b>Everything is an estimate. Rounding errors abound. Don't use this for anything but entertainment and curiosity. But you already know that.
 
+
+<script src="/js/proj4.js"></script>
+<script src="/js/travelTimeMap.js"></script>
 <script type="text/javascript">
-
-    var map;
-
-    function initmap() {
-        // set up the map
-        map = new L.Map('map');
-
-        // create the tile layer with correct attribution
-        var osmUrl='http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
-        var osmAttrib='Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors';
-        var osm = new L.TileLayer(osmUrl, {minZoom: 2, maxZoom: 12, attribution: osmAttrib});
-
-        // start the map in South-E     ast England
-        map.setView(new L.LatLng(51.3, 0.7),5);
-        map.addLayer(osm);
-
-        return map
-    }
-
-    
-    var map = initmap();
-
-    var imageUrl = '/img/from_london_large.jpg',
-    imageBounds = [[33.1, -12.4],[64.5,36.3]];
-
-var overlay = L.imageOverlay(imageUrl, imageBounds, {"opacity": 0.85}).addTo(map);
+    loadClickableTravelTimeMap([51.51, 0.13], [[33.1,-12.4], [64.5,36.3]], '/img/from_london_large.jpg')
     </script>
