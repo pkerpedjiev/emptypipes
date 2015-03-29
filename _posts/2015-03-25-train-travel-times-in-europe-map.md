@@ -21,9 +21,9 @@ walked to at a rate of 10 minutes per kilometer. The results show a
 interconnected web of easy-to-reach locations criss-crossing the disconnected
 countryside.
 
-Darker blue colors indicate a shorter travel time. Click on the images to overlay
-them on top of open street maps.
-
+Darker blue colors indicate a shorter travel time. Colors are proportional to
+the log of the total estimated travel time. No legend is provided, but clicking
+on the image leads to a larger interactive version overlayed on OpenStreetMap.
 
 <table>
 <tr>
