@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Train Travel Times in Europe"
+title:  "Europe by Train"
 description: "A map of the travel time from Berlin, Vienna, London, Paris and Jena to any other place in Europe."
 tags: python maps leaflet
 ---
