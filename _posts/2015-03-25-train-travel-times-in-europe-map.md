@@ -14,7 +14,7 @@ cities: London, Paris, Berlin and Vienna.
 
 The methodology is simple. I used the [Swiss public transport
 API](http://transport.opendata.ch/) to get the best connection between the start
-city (London, Paris, Berlin and Vienna) and every other city in Europe. Then I
+city (London, Paris, Berlin and Vienna) and every other city in Europe (huge thanks to [@internetztube](https://twitter.com/internetztube) for a listing of European trains stations). Then I
 created a grid over all of Europe and interpolated the time to each point on
 the grid by assuming that any location that wasn't a train station could be
 walked to at a rate of 10 minutes per kilometer. The results show a
@@ -35,3 +35,4 @@ on the image leads to a larger interactive version overlayed on OpenStreetMap.
 <td><div align="center"><a href="/supp/travel_times_from_vienna"><img src="/img/from_vienna.jpg" width=260 height=260 style="border:1px solid #021a40;"></a>Vienna</td>
 </tr>
 </table>
+<br>
