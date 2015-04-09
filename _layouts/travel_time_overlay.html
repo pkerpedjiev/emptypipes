@@ -1,0 +1,30 @@
+---
+layout: default
+---
+
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+<link rel="stylesheet" href="/css/map.css" />
+<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+<script src="/js/d3.js"></script>
+
+Travel times from Vienna by train. The most accessible regions often lie
+along highways, but not all towns along a highway are equally accessible.
+This is likely due to the fact that major train links are also serviced by
+large roads (the rail lines are not displayed very prominently on open
+street maps). Click anywhere on the map to get the distance from the start as well as the 
+estimated travel time by train.
+<br>
+<br>
+<div id="map"></div>
+<br> 
+<br>
+
+The origin of this map is described in slightly more detail <a href="/2015/03/25/train-travel-times-in-europe-map/">in another blog post.</a>
+
+<br><br><b>Disclaimer: </b>Everything is an estimate. Rounding errors abound. Don't use this for anything but entertainment and curiosity. But you already know that.
+
+
+<script src="/js/proj4.js"></script>
+<script src="/js/travelTimeMap.js"></script>
+
+{{ content }}
