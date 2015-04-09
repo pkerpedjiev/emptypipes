@@ -1,9 +1,11 @@
 ---
 layout: travel_time_overlay
+city: Vienna
 title:  "Travel Times from Vienna"
-tags: map javascript leaflet
+tags: maps javascript leaflet
+coordinates: "[48.20, 16.37]"
 ---
 
 <script type="text/javascript">
-    loadClickableTravelTimeMap([48.20, 16.37], [[33.1,-12.4], [64.5,36.3]], '/img/from_vienna_large.jpg')
+    loadClickableTravelTimeMap({{ page.coordinates }}, [[33.1,-12.4], [64.5,36.3]], '/img/from_{{ page.city | downcase }}_large.jpg')
     </script>

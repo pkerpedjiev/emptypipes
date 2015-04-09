@@ -1,32 +1,11 @@
 ---
-layout: default
+layout: travel_time_overlay
 title:  "Travel Times from London"
-tags: map javascript leaflet
+tags: maps javascript leaflet
+city: London
+coordinates: "[51.51, 0.13]"
 ---
 
-
-<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
-<link rel="stylesheet" href="/css/map.css" />
-<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
-
-Travel times from London by train. The most accessible regions often lie
-along highways, but not all towns along a highway are equally accessible.
-This is likely due to the fact that major train links are also serviced by
-large roads (the rail lines are not displayed very prominently on open
-street maps). Click anywhere on the map to get the distance from the start as well as the 
-estimated travel time by train.
-
-<br>
-<br>
-<div id="map"></div>
-<br> 
-The origin of this map is described in slightly more detail <a href="/2015/03/25/train-travel-times-in-europe-map/">in another blog post.</a>
-
-<br><br><b>Disclaimer: </b>Everything is an estimate. Rounding errors abound. Don't use this for anything but entertainment and curiosity. But you already know that.
-
-
-<script src="/js/proj4.js"></script>
-<script src="/js/travelTimeMap.js"></script>
 <script type="text/javascript">
-    loadClickableTravelTimeMap([51.51, 0.13], [[33.1,-12.4], [64.5,36.3]], '/img/from_london_large.jpg')
+    loadClickableTravelTimeMap({{ page.coordinates }}, [[33.1,-12.4], [64.5,36.3]], '/img/from_{{ page.city | downcase }}_large.jpg')
     </script>
