@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Contour Demo</title>
+<body>
+<script src="lib/d3/d3.js"></script>
+<script src="../conrec.js"></script>
+<script src="../cubehelix.js"></script>
+<script>
+
+
+    d3.json('grid_time_vienna_200_5.json', function(jsonStruct) {
+        var num_levels = 15;
+        var zs = [];
+        var data = jsonStruct.grid_z;
+        var max_z = Math.max.apply(null, data.map(function(d) { return Math.max.apply(null, d) }));
+
+
+        for (i = 0; i <= num_levels; i++) {
+            zs.push(i * max_z / num_levels);
+        }
+        console.log('zs:', zs);
+
+        times = [2,4,6,8,10,12,14,16,18,20,22,24]
+        //times = [4,8,12,16,20,24]
+        zs = times.map(function(d) { return Math.log(d * 60); });
+        /*
+        var cliff = 100000;
+        data.push(d3.range(data[0].length).map(function() { return cliff; }));
+        data.unshift(d3.range(data[0].length).map(function() { return cliff; }));
+        data.forEach(function(d) {
+            d.push(cliff);
+            d.unshift(cliff);
+            });
+            */
+
+            var xs = d3.range(0, data.length);
+            var ys = d3.range(0, data[0].length);
+            var c = new Conrec,
+            width = 400,
+            height = 400,
+
+            x = d3.scale.linear()
+            .range([0, width])
+            .domain([Math.min.apply(null, xs), Math.max.apply(null, xs)]),
+
+
+            y = d3.scale.linear()
+            .range([height, 0])
+            .domain([Math.min.apply(null, ys), Math.max.apply(null, ys)]),
+
+
+            //colours = d3.scale.linear().domain([zs[0], zs[zs.length - 1]]).range(["#fff", "red"]);
+            colours = d3.scale.cubehelix().domain([Math.exp(zs[0]), Math.exp(zs[zs.length-1])])
+
+            console.log('x.domain()' + x.domain())
+            console.log('y.domain()' + y.domain())
+            console.log('data:', data);
+            console.log('x:', x);
+            console.log('y:', y);
+            c.contour(data, 0, xs.length - 1, 0, ys.length - 1, xs, ys, zs.length, zs);
+
+            var svg = d3.select("body").append("svg")
+            .attr("width", width)
+            .attr("height", height)
+
+
+            svg.selectAll("path")
+            .data(c.contourList().reverse())
+            .enter().append("path")
+            .style("fill",function(d) { return colours(Math.exp(d.level));})
+            .style("stroke","transparent")
+            .style('opacity', 0.6)
+            .attr("d", d3.svg.line()
+            .x(function(d) { return x(d.x); })
+            .y(function(d) { return y(d.y); }))
+            .on('mouseover', function(d) { 
+                d3.select(this).style('stroke', 'black');
+                })
+            .on('mouseout', function(d) {
+                d3.select(this).style('stroke', 'transparent');
+            });
+
+            var legendHeight = 100;
+
+            d3.select("body").append("br")
+            var svg2 = d3.select("body").append("svg")
+            .attr("width", width)
+            .attr("height", legendHeight)
+
+            // range round bands for number of rows
+            // range round bands for number of columns
+            // 12 times = 4 rows x 3 columns
+
+            // box row = index % 4
+            // box column = index / 4
+        });
+</script>
