@@ -1,0 +1,12 @@
+---
+layout: isochrone_details
+title:  "Isochrone Map for Train Travel from Amsterdam"
+tags: maps javascript leaflet isochrone
+city: Amsterdam
+latitude: 52.37
+longitude: 4.9
+---
+
+<script type="text/javascript">
+    drawIsochroneMap({{ page.latitude }}, {{ page.longitude }}, '/jsons/isochrone_map/grid_time_{{page.city | downcase}}_200_5.json');
+    </script>

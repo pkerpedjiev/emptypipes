@@ -1,0 +1,12 @@
+---
+layout: isochrone_details
+title:  "Isochrone Map for Train Travel from Vienna"
+tags: maps javascript leaflet isochrone
+city: Vienna 
+latitude: 48.20
+longitude: 16.37
+---
+
+<script type="text/javascript">
+    drawIsochroneMap({{ page.latitude }}, {{ page.longitude }}, '/jsons/isochrone_map/grid_time_{{page.city | downcase}}_200_5.json');
+    </script>

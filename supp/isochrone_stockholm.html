@@ -1,0 +1,12 @@
+---
+layout: isochrone_details
+title:  "Isochrone Map for Train Travel from Stockholm"
+tags: maps javascript leaflet isochrone
+city: Stockholm
+latitude: 59.33
+longitude: 18.07
+---
+
+<script type="text/javascript">
+    drawIsochroneMap({{ page.latitude }}, {{ page.longitude }}, '/jsons/isochrone_map/grid_time_{{page.city | downcase}}_200_5.json');
+    </script>

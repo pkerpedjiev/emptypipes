@@ -1,0 +1,12 @@
+---
+layout: isochrone_details
+title:  "Isochrone Map for Train Travel from Rome"
+tags: maps javascript leaflet isochrone
+city: Rome
+latitude: 41.90
+longitude: 12.50
+---
+
+<script type="text/javascript">
+    drawIsochroneMap({{ page.latitude }}, {{ page.longitude }}, '/jsons/isochrone_map/grid_time_{{page.city | downcase}}_200_5.json');
+    </script>
