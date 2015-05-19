@@ -103,6 +103,6 @@ absolute time required to reach a particular point. An example of such a map,
 called an isochrone map, is provided for Vienna above.
 <hr>
 <font size="2pt">
-The method for obtaining the data is descriped in the [Europe by Train post](/2015/05/11/2015-05-12-europe-high-speed-rail/). For
+The method for obtaining the data is descriped in the [Europe by Train post](/2015/03/25/train-travel-times-in-europe-map/). For
 more information, feel free to ask.
 </font>
