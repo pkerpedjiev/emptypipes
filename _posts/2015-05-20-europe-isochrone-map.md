@@ -9,8 +9,6 @@ tags: maps javascript d3.js leaflet
 
 Travel times from Vienna by train:
 <br>
-<br>
-
 <div id="isochroneMap" style="height: 400px; width: 550px;"></div>
 <div id="isochroneMapLegend" style="height: 40px; width: 550px;"></div>
 <link rel="stylesheet" href="/css/leaflet.css">
