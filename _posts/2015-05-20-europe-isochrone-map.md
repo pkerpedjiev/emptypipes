@@ -69,9 +69,31 @@ drawIsochroneMap(48.2000, 16.3667, '/jsons/isochrone_map/grid_time_vienna_200_5.
 </tr>
 </table>
 <hr>
+<b>How its made, technically</b>
+<br>
 
-<b>Background Information and Motivation</b>
+I used the [Swiss public transport API](http://transport.opendata.ch/) 
+to get travel times to most other small-medium sized cities in Europe. Then I 
+created a rectangle enclosing most of Europe (the borders of which can be seen
+in the maps for Stockholm, Helsinki and some of the Baltic State countries), and
+divided it into a grid (200 x 200 points). For each point in this grid, I calculated
+the fastest way to get to it assuming that the distance between the any train
+station and that point can be walked at a rate of 5 minutes / kilometer. Any points
+on water were assigned a swimming rate of 100 minutes / kilometer in order to create
+dense contours at the coasts.
+
+This grid was used as an input to `conrec.js` which created a set of contour lines.
+These lines were then plotted as a paths using `d3.js` on top of a `leaflet.js` 
+layer using the [Stamen maps tiles](http://maps.stamen.com/toner/). These tiles 
+were chosen because they provide tile sets containing the borders and labels
+which can be overlayed on top of the colored contour plot.
+
+The legend is its own div positioned directly below the map. The color map is cubehelix,
+which provides a nice range from dark to light tones while providing intermediate colors
+to distinguish the different contours.
+
 <hr>
+<b>Background Information and Motivation</b>
 
 While browsing twitter, I recently came across [this wonderful isochrone map]
 (https://alternativetransport.wordpress.com/2015/05/07/what-is-an-isochrone-map/)
@@ -99,8 +121,3 @@ in a particular amount of time provides a clear and concise comparison between
 the travel times to various locations as well as a concrete reference to the
 absolute time required to reach a particular point. An example of such a map,
 called an isochrone map, is provided for Vienna above.
-<hr>
-<font size="2pt">
-The method for obtaining the data is descriped in the [Europe by Train post](/2015/03/25/train-travel-times-in-europe-map/). For
-more information, feel free to ask.
-</font>
