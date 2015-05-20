@@ -73,10 +73,9 @@ drawIsochroneMap(48.2000, 16.3667, '/jsons/isochrone_map/grid_time_vienna_200_5.
 <b>Errata / Disclaimer</b>
 <br>
 
-Some data may be missing. Most notably, the south-west region of France seems to
-be missing data for the TGV connection from Paris to Toulouse so everything 
-in that area looks
-a little slower than it really is. Thanks to <i>cuicuit</i> on reddit for pointing this out! 
+Some data may be missing. Most notably, the connections from Paris seem to
+be missing a lot of data (to the south-west and into England). A fix is in the works. 
+Thanks to <i>cuicuit</i> on reddit and @yorksranter for pointing this out! 
 If you find other issues, please let me know
 and I'll do my best to fix them.
 
