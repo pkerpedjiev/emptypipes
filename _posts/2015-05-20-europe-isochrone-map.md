@@ -109,7 +109,7 @@ all, however, it made me wonder what such a map would look like today.
 
 Having toyed with the idea of plotting travel times by train in [a previous
 post](/2015/03/25/train-travel-times-in-europe-map/), the map
-at [alternativetransport.org](https://alternativetransport.wordpress.com/2015/05/07/what-is-an-isochrone-map/) made me realize that contour lines are much better
+at [alternativetransport.org](https://alternativetransport.wordpress.com/2015/05/07/what-is-an-isochrone-map/) made me realize that contour lines are a much better
 way of presenting the information. Relying on shades of a color makes it difficult
 to distinguish difference between disparate points on the map as well as to
 convert to an absolute value. Questions such as "how much darker is point A
