@@ -7,7 +7,7 @@ tags: maps javascript d3.js leaflet
 <meta charset="utf-8"> 
 <img itemprop="image" src="/img/isochrone_example.jpg" style='display:none' width=200 height=170>
 
-This map shows how long one would expect to travel to any point in Europe
+Below is a map showing how long one would expect to travel to any point in Europe
 starting in Vienna, using only trains and walking at a brisk rate of 5 min / kilometer.
 <br>
 <div id="isochroneMap" style="height: 400px; width: 550px;"></div>
