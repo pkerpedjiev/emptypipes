@@ -70,13 +70,24 @@ drawIsochroneMap(48.2000, 16.3667, '/jsons/isochrone_map/grid_time_vienna_200_5.
 </table>
 
 <hr>
+<b>Errata / Disclaimer</b>
+<br>
+
+Some data may be missing. Most notably, the south-west region of France seems to
+be missing data for the TGV connection from Paris to Toulouse so everything 
+in that area looks
+a little slower than it really is. Thanks to <i>cuicuit</i> on reddit for pointing this out! 
+If you find other issues, please let me know
+and I'll do my best to fix them.
+
+<hr>
 <b>How its made, technically</b>
 <br>
 
 I used the [Swiss public transport API](http://transport.opendata.ch/) 
 to get travel times to most other small-medium sized cities in Europe. Then I 
 created a rectangle enclosing most of Europe (the borders of which can be seen
-in the maps for Stockholm, Helsinki and some of the Baltic State countries), and
+in the maps for Stockholm, Helsinki and some of the Baltic countries), and
 divided it into a grid (200 x 200 points). For each point in this grid, I calculated
 the fastest way to get to it assuming that the distance between the any train
 station and that point can be walked at a rate of 5 minutes / kilometer. Any points
