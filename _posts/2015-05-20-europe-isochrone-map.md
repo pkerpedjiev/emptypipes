@@ -32,24 +32,26 @@ drawIsochroneMap(48.2000, 16.3667, '/jsons/isochrone_map/grid_time_vienna_200_5.
 <td><a href="/supp/isochrone_antwerp">Antwerp</a></td>
 <td><a href="/supp/isochrone_belgrade">Belgrade</a></td>
 <td><a href="/supp/isochrone_berlin">Berlin</a></td>
-<td><a href="/supp/isochrone_bratislava">Bratislava</a></td>
 </tr>
 <tr>
+<td><a href="/supp/isochrone_bratislava">Bratislava</a></td>
 <td><a href="/supp/isochrone_brussels">Brussels</a></td>
 <td><a href="/supp/isochrone_budapest">Budapest</a></td>
 <td><a href="/supp/isochrone_copenhagen">Copenhagen</a></td>
+</tr>
+<tr>
 <td><a href="/supp/isochrone_dublin">Dublin</a></td>
 <td><a href="/supp/isochrone_geneva">Geneva</a></td>
-</tr>
-<tr>
 <td><a href="/supp/isochrone_helsinki">Helsinki</a></td>
 <td><a href="/supp/isochrone_jena">Jena</a></td>
-<td><a href="/supp/isochrone_ljubljana">Ljubljana</a></td>
-<td><a href="/supp/isochrone_london">London (St. Pancras)</a></td>
-<td><a href="/supp/isochrone_madrid">Madrid</a></td>
 </tr>
 <tr>
+<td><a href="/supp/isochrone_ljubljana">Ljubljana</a></td>
+<td><a href="/supp/isochrone_london">London (St. Pancras)</a></td>
+<td><a href="/supp/isochrone_madrid">Madrid (Chamartín)</a></td>
 <td><a href="/supp/isochrone_oslo">Oslo</a></td>
+</tr>
+<tr>
 <td><a href="/supp/isochrone_paris">Paris (Est)</a></td>
 <td><a href="/supp/isochrone_podgorica">Podgorica</a></td>
 <td><a href="/supp/isochrone_prague">Prague</a></td>
@@ -60,9 +62,9 @@ drawIsochroneMap(48.2000, 16.3667, '/jsons/isochrone_map/grid_time_vienna_200_5.
 <td><a href="/supp/isochrone_sofia">Sofia</a></td>
 <td><a href="/supp/isochrone_stockholm">Stockholm</a></td>
 <td><a href="/supp/isochrone_tallinn">Tallinn</a></td>
-<td><a href="/supp/isochrone_vienna">Vienna</a></td>
 </tr>
 <tr>
+<td><a href="/supp/isochrone_vienna">Vienna</a></td>
 <td><a href="/supp/isochrone_vilnius">Vilnius</a></td>
 <td><a href="/supp/isochrone_warsaw">Warsaw</a></td>
 <td><a href="/supp/isochrone_zagreb">Zagreb</a></td>
