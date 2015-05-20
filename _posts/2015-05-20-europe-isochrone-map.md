@@ -7,7 +7,8 @@ tags: maps javascript d3.js leaflet
 <meta charset="utf-8"> 
 <img itemprop="image" src="/img/isochrone_example.jpg" style='display:none' width=200 height=170>
 
-Travel times from Vienna by train:
+This map shows how long one would expect to travel to any point in Europe
+starting in Vienna, using only trains and walking at a brisk rate of 5 min / kilometer.
 <br>
 <div id="isochroneMap" style="height: 400px; width: 550px;"></div>
 <div id="isochroneMapLegend" style="height: 40px; width: 550px;"></div>
@@ -21,11 +22,10 @@ Travel times from Vienna by train:
 <script type="text/javascript">
 drawIsochroneMap(48.2000, 16.3667, '/jsons/isochrone_map/grid_time_vienna_200_5.json');
 </script>
-
 <hr>
 <b>Other Cities</b>
 <br>
-<br>
+
 <table style="width: 550px;">
 <tr>
 <td><a href="/supp/isochrone_amsterdam">Amsterdam</a></td>
@@ -68,6 +68,7 @@ drawIsochroneMap(48.2000, 16.3667, '/jsons/isochrone_map/grid_time_vienna_200_5.
 <td><a href="/supp/isochrone_zagreb">Zagreb</a></td>
 </tr>
 </table>
+
 <hr>
 <b>How its made, technically</b>
 <br>
