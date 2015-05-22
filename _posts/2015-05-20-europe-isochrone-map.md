@@ -74,12 +74,16 @@ drawIsochroneMap(48.2000, 16.3667, '/jsons/isochrone_map/grid_time_vienna_200_5.
 <hr>
 <b>Errata / Disclaimer</b>
 <br>
+Everything is an estimate. Rounding errors abound. Don't use this for anything but entertainment and curiosity. But you already know that.
+<br>
 
-Some data may be missing. Most notably, the connections from Paris seem to
-be missing a lot of data (to the south-west and into England). A fix is in the works. 
-Thanks to <i>cuicuit</i> on reddit and @yorksranter for pointing this out! 
-If you find other issues, please let me know
+
+Some data may be missing. There may be faster connections.
+If you find issues, please let me know
 and I'll do my best to fix them.
+Thanks to <i>cuicuit</i> on reddit and
+[@yorksranter](https://twitter.com/yorksranter) for pointing out missing data
+for Paris and London!
 
 <hr>
 <b>How its made, technically</b>
