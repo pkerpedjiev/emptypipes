@@ -47,12 +47,12 @@ drawIsochroneMap(48.2000, 16.3667, '/jsons/isochrone_map/grid_time_vienna_200_5.
 </tr>
 <tr>
 <td><a href="/supp/isochrone_ljubljana">Ljubljana</a></td>
-<td><a href="/supp/isochrone_london">London (St. Pancras)</a></td>
-<td><a href="/supp/isochrone_madrid">Madrid (Chamartín)</a></td>
+<td><a href="/supp/isochrone_london">London</a></td>
+<td><a href="/supp/isochrone_madrid">Madrid</a></td>
 <td><a href="/supp/isochrone_oslo">Oslo</a></td>
 </tr>
 <tr>
-<td><a href="/supp/isochrone_paris">Paris (Est)</a></td>
+<td><a href="/supp/isochrone_paris">Paris</a></td>
 <td><a href="/supp/isochrone_podgorica">Podgorica</a></td>
 <td><a href="/supp/isochrone_prague">Prague</a></td>
 <td><a href="/supp/isochrone_riga">Riga</a></td>
