@@ -133,13 +133,6 @@ function drawIsochroneMap(initialLat, initialLon, travelTimeGridJson) {
                             {type: "text/plain;charset=utf-8"});
         saveAs(blob, "contours.json");
         */
-
-        d3.select('#dataDownload')
-        .append('a')
-        .attr('data', jsonData)
-        .attr('download', 'data.json')
-        .text('download all the data')
-
         //$('<a href="data:' + jsonData + '" download="data.json">download JSON</a>').appendTo('#dataDownload');
 
         var contourPath = g.selectAll("path")
