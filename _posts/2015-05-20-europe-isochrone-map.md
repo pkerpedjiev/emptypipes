@@ -77,7 +77,6 @@ drawIsochroneMap(48.2000, 16.3667, '/jsons/isochrone_map/grid_time_vienna_200_5.
 Everything is an estimate. Rounding errors abound. Don't use this for anything but entertainment and curiosity. But you already know that.
 <br>
 
-
 Some data may be missing. There may be faster connections.
 If you find issues, please let me know
 and I'll do my best to fix them.
