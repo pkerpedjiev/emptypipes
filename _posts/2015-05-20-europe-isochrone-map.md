@@ -85,7 +85,7 @@ Thanks to <i>cuicuit</i> on reddit and
 for Paris and London! This data has been added.
 <br>
 
-Ireland and parts of Spain are not well represented due to missing data. Sorry about that. 
+Ireland and parts of Spain are not well represented due to missing data.
 <br>
 <hr>
 <b>How its made, technically</b>
