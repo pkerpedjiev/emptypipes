@@ -32,24 +32,26 @@ drawIsochroneMap(48.2000, 16.3667, '/jsons/isochrone_map/grid_time_vienna_200_5.
 <td><a href="/supp/isochrone_antwerp">Antwerp</a></td>
 <td><a href="/supp/isochrone_belgrade">Belgrade</a></td>
 <td><a href="/supp/isochrone_berlin">Berlin</a></td>
-<td><a href="/supp/isochrone_bratislava">Bratislava</a></td>
 </tr>
 <tr>
+<td><a href="/supp/isochrone_bratislava">Bratislava</a></td>
 <td><a href="/supp/isochrone_brussels">Brussels</a></td>
 <td><a href="/supp/isochrone_budapest">Budapest</a></td>
 <td><a href="/supp/isochrone_copenhagen">Copenhagen</a></td>
-<td><a href="/supp/isochrone_dublin">Dublin</a></td>
-<td><a href="/supp/isochrone_geneva">Geneva</a></td>
 </tr>
 <tr>
+<td><a href="/supp/isochrone_dublin">Dublin</a></td>
+<td><a href="/supp/isochrone_geneva">Geneva</a></td>
 <td><a href="/supp/isochrone_helsinki">Helsinki</a></td>
 <td><a href="/supp/isochrone_jena">Jena</a></td>
+</tr>
+<tr>
 <td><a href="/supp/isochrone_ljubljana">Ljubljana</a></td>
 <td><a href="/supp/isochrone_london">London</a></td>
 <td><a href="/supp/isochrone_madrid">Madrid</a></td>
+<td><a href="/supp/isochrone_oslo">Oslo</a></td>
 </tr>
 <tr>
-<td><a href="/supp/isochrone_oslo">Oslo</a></td>
 <td><a href="/supp/isochrone_paris">Paris</a></td>
 <td><a href="/supp/isochrone_podgorica">Podgorica</a></td>
 <td><a href="/supp/isochrone_prague">Prague</a></td>
@@ -60,9 +62,9 @@ drawIsochroneMap(48.2000, 16.3667, '/jsons/isochrone_map/grid_time_vienna_200_5.
 <td><a href="/supp/isochrone_sofia">Sofia</a></td>
 <td><a href="/supp/isochrone_stockholm">Stockholm</a></td>
 <td><a href="/supp/isochrone_tallinn">Tallinn</a></td>
-<td><a href="/supp/isochrone_vienna">Vienna</a></td>
 </tr>
 <tr>
+<td><a href="/supp/isochrone_vienna">Vienna</a></td>
 <td><a href="/supp/isochrone_vilnius">Vilnius</a></td>
 <td><a href="/supp/isochrone_warsaw">Warsaw</a></td>
 <td><a href="/supp/isochrone_zagreb">Zagreb</a></td>
@@ -72,13 +74,19 @@ drawIsochroneMap(48.2000, 16.3667, '/jsons/isochrone_map/grid_time_vienna_200_5.
 <hr>
 <b>Errata / Disclaimer</b>
 <br>
+Everything is an estimate. Rounding errors abound. Don't use this for anything but entertainment and curiosity. But you already know that.
+<br>
 
-Some data may be missing. Most notably, the connections from Paris seem to
-be missing a lot of data (to the south-west and into England). A fix is in the works. 
-Thanks to <i>cuicuit</i> on reddit and @yorksranter for pointing this out! 
-If you find other issues, please let me know
+Some data may be missing. There may be faster connections.
+If you find issues, please let me know
 and I'll do my best to fix them.
+Thanks to <i>cuicuit</i> on reddit and
+[@yorksranter](https://twitter.com/yorksranter) for pointing out missing data
+for Paris and London! This data has been added.
+<br>
 
+Ireland and parts of Spain are not well represented due to missing data.
+<br>
 <hr>
 <b>How its made, technically</b>
 <br>

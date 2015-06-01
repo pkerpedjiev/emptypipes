@@ -119,7 +119,21 @@ function drawIsochroneMap(initialLat, initialLon, travelTimeGridJson) {
         width = 400,
         height = 400;
 
+
         c.contour(data, 0, xGridValues.length - 1, 0, yGridValues.length - 1, xGridValues, yGridValues, zs.length, zs);
+
+
+        /*
+        contours = c.contourList().map(function(d) { 
+            return d.map(function(e) { return {"x": e.x, "y": e.y}; }); });
+
+        console.log('cont:', contours);
+
+        var blob = new Blob([JSON.stringify(contours)], 
+                            {type: "text/plain;charset=utf-8"});
+        saveAs(blob, "contours.json");
+        */
+        //$('<a href="data:' + jsonData + '" download="data.json">download JSON</a>').appendTo('#dataDownload');
 
         var contourPath = g.selectAll("path")
         .data(c.contourList().reverse())
