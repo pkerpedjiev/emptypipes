@@ -104,6 +104,7 @@ function drawIsochroneMap(initialLat, initialLon, travelTimeGridJson) {
             this.stream.point(point.x, point.y);
         } 
 
+        /*
         var data = jsonStruct.grid_z;
         var max_z = Math.max.apply(null, data.map(function(d) { return Math.max.apply(null, d); }));
 
@@ -116,12 +117,10 @@ function drawIsochroneMap(initialLat, initialLon, travelTimeGridJson) {
         .rangePoints([jsonStruct.min_y, jsonStruct.max_y], 0).range();
 
         var c = new Conrec(),
-        width = 400,
-        height = 400;
-
-
         c.contour(data, 0, xGridValues.length - 1, 0, yGridValues.length - 1, xGridValues, yGridValues, zs.length, zs);
-
+        */
+        var width = 400,
+        height = 400;
 
         /*
         contours = c.contourList().map(function(d) { 
@@ -134,11 +133,20 @@ function drawIsochroneMap(initialLat, initialLon, travelTimeGridJson) {
         saveAs(blob, "contours.json");
         */
         //$('<a href="data:' + jsonData + '" download="data.json">download JSON</a>').appendTo('#dataDownload');
+        var contours = [];
+        for (var i = 0; i < jsonStruct.length; i++) {
+            var newContour = jsonStruct[i].path;
+            newContour.level = jsonStruct[i].level;
+            newContour.k = jsonStruct[i].k;
 
+            contours.push(newContour);
+        }
+
+        console.log('jsonStruct:', jsonStruct);
         var contourPath = g.selectAll("path")
-        .data(c.contourList().reverse())
+        .data(contours)
         .enter().append("path")
-        .style("fill",function(d) { return colours(Math.exp(d.level));})
+        .style("fill",function(d, i) { console.log('i', i); return colours(Math.exp(d.level));})
         .style("stroke", defaultContourColor)
         .style('stroke-width', defaultContourWidth)
         .style('opacity', 1)
@@ -162,5 +170,5 @@ function drawIsochroneMap(initialLat, initialLon, travelTimeGridJson) {
         map.on("viewreset", resetView);
         resetView();
 
-    });
+    })
 }
