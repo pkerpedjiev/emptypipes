@@ -142,6 +142,10 @@ function drawIsochroneMap(initialLat, initialLon, travelTimeGridJson) {
             contours.push(newContour);
         }
 
+        contours.sort(function(a,b) {
+            return b.level - a.level;
+        });
+
         console.log('jsonStruct:', jsonStruct);
         var contourPath = g.selectAll("path")
         .data(contours)
