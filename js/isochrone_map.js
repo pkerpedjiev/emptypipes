@@ -31,7 +31,7 @@ function drawIsochroneMap(initialLat, initialLon, travelTimeGridJson) {
     var g = svg.append("g").attr("class", "leaflet-zoom-hide").attr('opacity', 0.8);
     
     var times = [2,4,6,8,10,12,14,16,18,20,22,24];
-    var zs = times.map(function(d) { return Math.log((d + 0.25) * 60); });
+    var zs = times.map(function(d) { return Math.log((d + 0.26) * 60); });
     var colours = d3.scale.cubehelix().domain([Math.exp(zs[0]), Math.exp(zs[zs.length-1])]);
 
     console.log('colours.domain()', colours.domain());
