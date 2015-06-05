@@ -1,0 +1,29 @@
+---
+layout: default
+title:  "How the High Speed Rail Map was Made"
+tags: maps javascript leaflet isochrone
+---
+
+<div id="iceMap" style="height: 400px; width: 550px;"></div>
+<link rel="stylesheet" href="/css/leaflet.css">
+<script src="/js/leaflet.js"></script>
+<script src="/js/high_speed_rail.js"></script>
+<script>drawIceMap();</script>
+
+<br>
+The [European high speed rail network
+map](/2015/05/11/2015-05-12-europe-high-speed-rail/) was made stochastically.
+Connection information for trains between every city in the [European isochrone
+maps post](/2015/05/19/2015-05-14-europe-isochrone-map/) and about 50000 other
+stations in Europe was obtained using the [Swiss public transport
+API](http://transport.opendata.ch/). This data contained information about 
+train lines as well as the different stops on the route between two cities.
+Taking the longest route obtained for each train line (i.e. ICE 27, RJ 180, etc...)
+provided the initial data set.
+
+
+Since this data included many regional, Intercity, and Eurocity trains, the 
+obtained lines were filtered for trains from Spains AVE (Alta Velocidad Española),
+France's TGV (Train à Grande Vitesse), Germany's ICE (Intercity-Express), Austria's
+Railjet, Italy's ES (mostly not high speed, but...) and the Eurostar trains.
+
