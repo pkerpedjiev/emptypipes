@@ -53,26 +53,29 @@ drawIsochroneMap(48.2000, 16.3667, '/jsons/isochrone_contours/vienna.json');
 </tr>
 <tr>
 <td><a href="/supp/isochrone_london">London</a></td>
+<td><a href="/supp/isochrone_minsk">Minsk</a></td>
 <td><a href="/supp/isochrone_madrid">Madrid</a></td>
 <td><a href="/supp/isochrone_oslo">Oslo</a></td>
-<td><a href="/supp/isochrone_paris">Paris</a></td>
 </tr>
 <tr>
+<td><a href="/supp/isochrone_paris">Paris</a></td>
 <td><a href="/supp/isochrone_podgorica">Podgorica</a></td>
 <td><a href="/supp/isochrone_prague">Prague</a></td>
 <td><a href="/supp/isochrone_riga">Riga</a></td>
-<td><a href="/supp/isochrone_rome">Rome</a></td>
 </tr>
 <tr>
+<td><a href="/supp/isochrone_rome">Rome</a></td>
 <td><a href="/supp/isochrone_sofia">Sofia</a></td>
 <td><a href="/supp/isochrone_stockholm">Stockholm</a></td>
 <td><a href="/supp/isochrone_tallinn">Tallinn</a></td>
-<td><a href="/supp/isochrone_vienna">Vienna</a></td>
 </tr>
 <tr>
+<td><a href="/supp/isochrone_vienna">Vienna</a></td>
 <td><a href="/supp/isochrone_vilnius">Vilnius</a></td>
 <td><a href="/supp/isochrone_warsaw">Warsaw</a></td>
 <td><a href="/supp/isochrone_zagreb">Zagreb</a></td>
+</tr>
+<tr>
 <td><a href="/supp/isochrone_zurich">Zurich</a></td>
 </tr>
 </table>
