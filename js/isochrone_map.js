@@ -32,7 +32,10 @@ function drawIsochroneMap(initialLat, initialLon, travelTimeGridJson) {
     
     var times = [2,4,6,8,10,12,14,16,18,20,22,24];
     var zs = times.map(function(d) { return Math.log(d * 60); });
-    var colours = d3.scale.cubehelix().domain([Math.exp(zs[0]), Math.exp(zs[zs.length-1])]);
+
+    console.log('zs:', zs);
+    //var colours = d3.scale.cubehelix().domain([Math.exp(zs[0]), Math.exp(zs[zs.length-1])]);
+    var colours = d3.scale.cubehelix().domain([0, 11]);
 
     console.log('colours.domain()', colours.domain());
 
@@ -65,7 +68,7 @@ function drawIsochroneMap(initialLat, initialLon, travelTimeGridJson) {
         .attr('y', function(d) { return rowBands(d % numRows); })
         .attr('width', function(d) { return rowBands.rangeBand(); })
         .attr('height', function(d) { return rowBands.rangeBand(); })
-        .attr('fill', function(d) {return colours((d+1)*2*60); })
+        .attr('fill', function(d) {return colours(d); })
         .attr('opacity', 0.8)
         .attr('stroke', 'black');
 
@@ -146,11 +149,11 @@ function drawIsochroneMap(initialLat, initialLon, travelTimeGridJson) {
             return b.level - a.level;
         });
 
-        console.log('jsonStruct:', jsonStruct);
+        //console.log('jsonStruct:', jsonStruct);
         var contourPath = g.selectAll("path")
         .data(contours)
         .enter().append("path")
-        .style("fill",function(d, i) { console.log('i', i); return colours(Math.exp(d.level));})
+        .style("fill",function(d, i) { return colours(d.level);})
         .style("stroke", defaultContourColor)
         .style('stroke-width', defaultContourWidth)
         .style('opacity', 1)
@@ -165,14 +168,27 @@ function drawIsochroneMap(initialLat, initialLon, travelTimeGridJson) {
 
         function resetView() {
             console.log('reset:', map.options.center);
-            contourPath.attr("d", d3.svg.line()
+            contourPath.attr("d", function(d) {
+                var pathStr = d.map(function(d1) {
+                    var point = map.latLngToLayerPoint(new L.LatLng(d1[2], d1[1]));
+                    return d1[0] + point.x + "," + point.y;
+                }).join('');
+
+                //console.log('d', d); 
+
+                return pathStr;
+            });
+                             
+            /*
+                             d3.svg.line()
                              .x(function(d) { return map.latLngToLayerPoint(new L.LatLng(d.y, d.x)).x; })
                              .y(function(d) { return map.latLngToLayerPoint(new L.LatLng(d.y, d.x)).y; }));
+                             */
 
         }
 
         map.on("viewreset", resetView);
         resetView();
 
-    })
+    });
 }
