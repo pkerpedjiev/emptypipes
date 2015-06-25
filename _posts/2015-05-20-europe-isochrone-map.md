@@ -20,7 +20,7 @@ starting in Vienna, using only trains and walking at a brisk rate of 5 min / kil
 <script src="/js/tile.stamen.js"></script>
 
 <script type="text/javascript">
-drawIsochroneMap(48.2000, 16.3667, '/jsons/isochrone_map/grid_time_vienna_200_5.json');
+drawIsochroneMap(48.2000, 16.3667, '/jsons/isochrone_contours/vienna.json');
 </script>
 <hr>
 <b>Other Cities</b>
@@ -53,6 +53,7 @@ drawIsochroneMap(48.2000, 16.3667, '/jsons/isochrone_map/grid_time_vienna_200_5.
 </tr>
 <tr>
 <td><a href="/supp/isochrone_london">London</a></td>
+<td><a href="/supp/isochrone_minsk">Minsk</a></td>
 <td><a href="/supp/isochrone_madrid">Madrid</a></td>
 <td><a href="/supp/isochrone_minsk">Minsk</a></td>
 <td><a href="/supp/isochrone_oslo">Oslo</a></td>

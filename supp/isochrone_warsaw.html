@@ -8,5 +8,5 @@ longitude: 21.02
 ---
 
 <script type="text/javascript">
-    drawIsochroneMap({{ page.latitude }}, {{ page.longitude }}, '/jsons/isochrone_map/grid_time_{{page.city | downcase}}_200_5.json');
+    drawIsochroneMap({{ page.latitude }}, {{ page.longitude }}, '/jsons/isochrone_contours/{{page.city | downcase}}.json');
     </script>

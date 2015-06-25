@@ -1,12 +1,12 @@
 ---
 layout: isochrone_details
-title:  "Isochrone Map for Train Travel from Zürich"
+title:  "Isochrone Map for Train Travel from Zurich"
 tags: maps javascript leaflet isochrone
-city: Zürich
+city: Zurich
 latitude: 47.36
 longitude: 8.55
 ---
 
 <script type="text/javascript">
-    drawIsochroneMap({{ page.latitude }}, {{ page.longitude }}, '/jsons/isochrone_map/grid_time_{{page.city | downcase}}_200_5.json');
+    drawIsochroneMap({{ page.latitude }}, {{ page.longitude }}, '/jsons/isochrone_contours/{{page.city | downcase}}.json');
     </script>

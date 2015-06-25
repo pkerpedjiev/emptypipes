@@ -31,8 +31,11 @@ function drawIsochroneMap(initialLat, initialLon, travelTimeGridJson) {
     var g = svg.append("g").attr("class", "leaflet-zoom-hide").attr('opacity', 0.8);
     
     var times = [2,4,6,8,10,12,14,16,18,20,22,24];
-    var zs = times.map(function(d) { return Math.log((d + 0.26) * 60); });
-    var colours = d3.scale.cubehelix().domain([Math.exp(zs[0]), Math.exp(zs[zs.length-1])]);
+    var zs = times.map(function(d) { return Math.log(d * 60); });
+
+    console.log('zs:', zs);
+    //var colours = d3.scale.cubehelix().domain([Math.exp(zs[0]), Math.exp(zs[zs.length-1])]);
+    var colours = d3.scale.cubehelix().domain([0, 11]);
 
     console.log('colours.domain()', colours.domain());
 
@@ -65,7 +68,7 @@ function drawIsochroneMap(initialLat, initialLon, travelTimeGridJson) {
         .attr('y', function(d) { return rowBands(d % numRows); })
         .attr('width', function(d) { return rowBands.rangeBand(); })
         .attr('height', function(d) { return rowBands.rangeBand(); })
-        .attr('fill', function(d) {return colours((d+1)*2*60); })
+        .attr('fill', function(d) {return colours(d); })
         .attr('opacity', 0.8)
         .attr('stroke', 'black');
 
@@ -104,6 +107,7 @@ function drawIsochroneMap(initialLat, initialLon, travelTimeGridJson) {
             this.stream.point(point.x, point.y);
         } 
 
+        /*
         var data = jsonStruct.grid_z;
         var max_z = Math.max.apply(null, data.map(function(d) { return Math.max.apply(null, d); }));
 
@@ -116,12 +120,10 @@ function drawIsochroneMap(initialLat, initialLon, travelTimeGridJson) {
         .rangePoints([jsonStruct.min_y, jsonStruct.max_y], 0).range();
 
         var c = new Conrec(),
-        width = 400,
-        height = 400;
-
-
         c.contour(data, 0, xGridValues.length - 1, 0, yGridValues.length - 1, xGridValues, yGridValues, zs.length, zs);
-
+        */
+        var width = 400,
+        height = 400;
 
         /*
         contours = c.contourList().map(function(d) { 
@@ -134,11 +136,24 @@ function drawIsochroneMap(initialLat, initialLon, travelTimeGridJson) {
         saveAs(blob, "contours.json");
         */
         //$('<a href="data:' + jsonData + '" download="data.json">download JSON</a>').appendTo('#dataDownload');
+        var contours = [];
+        for (var i = 0; i < jsonStruct.length; i++) {
+            var newContour = jsonStruct[i].path;
+            newContour.level = jsonStruct[i].level;
+            newContour.k = jsonStruct[i].k;
 
+            contours.push(newContour);
+        }
+
+        contours.sort(function(a,b) {
+            return b.level - a.level;
+        });
+
+        //console.log('jsonStruct:', jsonStruct);
         var contourPath = g.selectAll("path")
-        .data(c.contourList().reverse())
+        .data(contours)
         .enter().append("path")
-        .style("fill",function(d) { return colours(Math.exp(d.level));})
+        .style("fill",function(d, i) { return colours(d.level);})
         .style("stroke", defaultContourColor)
         .style('stroke-width', defaultContourWidth)
         .style('opacity', 1)
@@ -153,9 +168,22 @@ function drawIsochroneMap(initialLat, initialLon, travelTimeGridJson) {
 
         function resetView() {
             console.log('reset:', map.options.center);
-            contourPath.attr("d", d3.svg.line()
+            contourPath.attr("d", function(d) {
+                var pathStr = d.map(function(d1) {
+                    var point = map.latLngToLayerPoint(new L.LatLng(d1[2], d1[1]));
+                    return d1[0] + point.x + "," + point.y;
+                }).join('');
+
+                //console.log('d', d); 
+
+                return pathStr;
+            });
+                             
+            /*
+                             d3.svg.line()
                              .x(function(d) { return map.latLngToLayerPoint(new L.LatLng(d.y, d.x)).x; })
                              .y(function(d) { return map.latLngToLayerPoint(new L.LatLng(d.y, d.x)).y; }));
+                             */
 
         }
 
