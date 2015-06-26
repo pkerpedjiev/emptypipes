@@ -1,0 +1,103 @@
+---
+layout: default
+---
+
+<link rel="stylesheet" href="/css/leaflet.css">
+<script src="/js/leaflet.js"></script>
+<script src="/js/isochrone_map.js"></script>
+<script src="/js/conrec.js"></script>
+<script src="/js/cubehelix.js"></script>
+<script src="/js/tile.stamen.js"></script>
+
+This map shows how long one would expect to travel to any point in Europe
+starting in {{ page.city }}, using only trains and walking at a brisk rate of 5 min / kilometer.
+<br>
+<br>
+
+<div id="isochroneMap" style="height: 400px; width: 550px;"></div>
+<div id="isochroneMapLegend" style="height: 40px; width: 550px;"></div>
+
+<hr>
+
+
+<hr>
+<b>Other Cities</b>
+<br>
+<br>
+
+<table style="width: 550px;">
+<tr>
+<td><a href="/supp/isochrone_driving/amsterdam">Amsterdam</a></td>
+<td><a href="/supp/isochrone_driving/antwerp">Antwerp</a></td>
+<td><a href="/supp/isochrone_driving/barcelona">Barcelona</a></td>
+<td><a href="/supp/isochrone_driving/belgrade">Belgrade</a></td>
+</tr>
+<tr>
+<td><a href="/supp/isochrone_driving/berlin">Berlin</a></td>
+<td><a href="/supp/isochrone_driving/bratislava">Bratislava</a></td>
+<td><a href="/supp/isochrone_driving/brussels">Brussels</a></td>
+<td><a href="/supp/isochrone_driving/bucharest">Bucharest</a></td>
+</tr>
+<tr>
+<td><a href="/supp/isochrone_driving/budapest">Budapest</a></td>
+<td><a href="/supp/isochrone_driving/copenhagen">Copenhagen</a></td>
+<td><a href="/supp/isochrone_driving/dublin">Dublin</a></td>
+<td><a href="/supp/isochrone_driving/frankfurt">Frankfurt</a></td>
+</tr>
+<tr>
+<td><a href="/supp/isochrone_driving/geneva">Geneva</a></td>
+<td><a href="/supp/isochrone_driving/helsinki">Helsinki</a></td>
+<td><a href="/supp/isochrone_driving/jena">Jena</a></td>
+<td><a href="/supp/isochrone_driving/ljubljana">Ljubljana</a></td>
+</tr>
+<tr>
+<td><a href="/supp/isochrone_driving/london">London</a></td>
+<td><a href="/supp/isochrone_driving/madrid">Madrid</a></td>
+<td><a href="/supp/isochrone_driving/minsk">Minsk</a></td>
+<td><a href="/supp/isochrone_driving/oslo">Oslo</a></td>
+</tr>
+<tr>
+<td><a href="/supp/isochrone_driving/paris">Paris</a></td>
+<td><a href="/supp/isochrone_driving/podgorica">Podgorica</a></td>
+<td><a href="/supp/isochrone_driving/prague">Prague</a></td>
+<td><a href="/supp/isochrone_driving/riga">Riga</a></td>
+</tr>
+<tr>
+<td><a href="/supp/isochrone_driving/rome">Rome</a></td>
+<td><a href="/supp/isochrone_driving/sofia">Sofia</a></td>
+<td><a href="/supp/isochrone_driving/stockholm">Stockholm</a></td>
+<td><a href="/supp/isochrone_driving/tallinn">Tallinn</a></td>
+</tr>
+<tr>
+<td><a href="/supp/isochrone_driving/vienna">Vienna</a></td>
+<td><a href="/supp/isochrone_driving/vilnius">Vilnius</a></td>
+<td><a href="/supp/isochrone_driving/warsaw">Warsaw</a></td>
+<td><a href="/supp/isochrone_driving/zagreb">Zagreb</a></td>
+</tr>
+<tr>
+<td><a href="/supp/isochrone_driving/zurich">Zurich</a></td>
+</tr>
+</table>
+
+<hr>
+The origin of this map is described in slightly more detail <a href="/2015/05/20/europe-isochrone-map/">in the original blog post.</a>
+
+<hr>
+<b>Errata / Disclaimer</b>
+<br>
+Everything is an estimate. Rounding errors abound. Don't use this for anything but entertainment and curiosity. But you already know that.
+<br>
+<br>
+
+Some data may be missing. There may be faster connections.
+If you find issues, please let me know
+and I'll do my best to fix them.
+Thanks to <i>cuicuit</i> on reddit and
+<a href="https://twitter.com/yorksranter">@yorksranter</a> for pointing out missing data
+for Paris and London!
+<br>
+<br>
+
+Ireland and parts of Spain are not well represented due to missing data.
+
+{{ content }}

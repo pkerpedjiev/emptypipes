@@ -1,0 +1,12 @@
+---
+layout: isochrone_driving_details
+title:  "Isochrone Map for Train Travel from Copenhagen"
+tags: maps javascript leaflet isochrone
+city: Copenhagen
+latitude: 55.67
+longitude: 12.57
+---
+
+<script type="text/javascript">
+    drawIsochroneMap({{ page.latitude }}, {{ page.longitude }}, '/jsons/isochrone_driving_contours/{{page.city | downcase}}.json');
+    </script>

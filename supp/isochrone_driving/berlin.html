@@ -1,0 +1,12 @@
+---
+layout: isochrone_driving_details
+title:  "Isochrone Map for Train Travel from Berlin"
+tags: maps javascript leaflet isochrone
+city: Berlin
+latitude: 52.52
+longitude: 13.38
+---
+
+<script type="text/javascript">
+    drawIsochroneMap({{ page.latitude }}, {{ page.longitude }}, '/jsons/isochrone_driving_contours/{{page.city | downcase}}.json');
+    </script>

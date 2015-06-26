@@ -1,0 +1,12 @@
+---
+layout: isochrone_driving_details
+title:  "Isochrone Map for Train Travel from Belgrade"
+tags: maps javascript leaflet isochrone
+city: Belgrade 
+latitude: 44.82
+longitude: 20.47
+---
+
+<script type="text/javascript">
+    drawIsochroneMap({{ page.latitude }}, {{ page.longitude }}, '/jsons/isochrone_driving_contours/{{page.city | downcase}}.json');
+    </script>

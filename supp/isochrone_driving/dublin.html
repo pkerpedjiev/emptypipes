@@ -1,0 +1,12 @@
+---
+layout: isochrone_driving_details
+title:  "Isochrone Map for Train Travel from Dublin"
+tags: maps javascript leaflet isochrone
+city: Dublin 
+latitude: 53.34
+longitude: -6.26
+---
+
+<script type="text/javascript">
+    drawIsochroneMap({{ page.latitude }}, {{ page.longitude }}, '/jsons/isochrone_driving_contours/{{page.city | downcase}}.json');
+    </script>
