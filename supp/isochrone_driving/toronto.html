@@ -1,0 +1,12 @@
+---
+layout: isochrone_driving_details
+title:  "Isochrone Map for Train Travel from Toronto"
+tags: maps javascript leaflet isochrone
+city: Toronto
+latitude: 43.70
+longitude: -79.4
+---
+
+<script type="text/javascript">
+    drawIsochroneMap({{ page.latitude }}, {{ page.longitude }}, '/jsons/isochrone_driving_contours/{{page.city | downcase}}.json');
+    </script>
