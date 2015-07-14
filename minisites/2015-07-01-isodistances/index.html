@@ -1,42 +1,13 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
-<style>
-
-svg {
-  background-color: lavender;
-  border: 1px solid black;
-}
-
-path {
-  fill: oldlace;
-  stroke: #666;
-  stroke-width: .5px;
-}
-
-path.altitude-circle {
-    fill: transparent;
-    stroke: red;
-    stroke-width: .5px;
-}
-
-path.azimuth-circle {
-    fill: transparent;
-    stroke: blue;
-    stroke-width: .5px;
-    opacity: 0.5;
-}
-
-text {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 12px;
-}
-
-</style>
+<link rel="stylesheet" href="/css/isodistances.css">
 <body>
     <script src="/js/d3.v3.min.js"></script>
     <script src="/js/topojson.v1.min.js"></script>
     <script src="/js/isodistances.js"></script>
+    <div id='flight-time-map'></div>
 <script>
-
+    d3.select('#flight-time-map')
+    .call(flightTimeMap())
 </script>
 
