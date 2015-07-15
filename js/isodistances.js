@@ -163,7 +163,8 @@ function flightTimeMap() {
             .data([lastPos])
             .enter()
             .append('path')
-            .attr('id', function(r) { return 'start-circle'; });
+            .attr('id', function(r) { return 'start-circle'; })
+            .attr("clip-path", "url(#circle-clip)");
 
             circlePathsG.selectAll('#start-circle')
             .attr('d', function(r) { return path(circle.origin(coords).angle(2)()); })
@@ -172,7 +173,8 @@ function flightTimeMap() {
             .data([lastPos])
             .enter()
             .append('path')
-            .attr('id', function(r) { return 'end-circle'; });
+            .attr('id', function(r) { return 'end-circle'; })
+            .attr("clip-path", "url(#circle-clip)");
 
             circlePathsG.selectAll('#end-circle')
             .attr('d', function(r) { return path(circle.origin([coords[0] - 180, -coords[1]]).angle(2)()); });
