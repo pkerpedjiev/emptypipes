@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<link rel="stylesheet" href="/css/isodistances.css">
+<body>
+    <script src="/js/d3.v3.min.js"></script>
+    <script src="/js/topojson.v1.min.js"></script>
+    <script src="/js/isodistances.js"></script>
+    <div id='flight-time-map'></div>
+<script>
+    d3.select('#flight-time-map')
+    .call(flightTimeMap())
+</script>
+

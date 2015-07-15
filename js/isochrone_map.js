@@ -107,35 +107,9 @@ function drawIsochroneMap(initialLat, initialLon, travelTimeGridJson) {
             this.stream.point(point.x, point.y);
         } 
 
-        /*
-        var data = jsonStruct.grid_z;
-        var max_z = Math.max.apply(null, data.map(function(d) { return Math.max.apply(null, d); }));
-
-        var lenXDim = data.length;
-        var lenYDim = data[0].length;
-
-        var xGridValues = d3.scale.ordinal().domain(d3.range(lenXDim))
-        .rangePoints([jsonStruct.min_x, jsonStruct.max_x], 0).range();
-        var yGridValues = d3.scale.ordinal().domain(d3.range(lenYDim))
-        .rangePoints([jsonStruct.min_y, jsonStruct.max_y], 0).range();
-
-        var c = new Conrec(),
-        c.contour(data, 0, xGridValues.length - 1, 0, yGridValues.length - 1, xGridValues, yGridValues, zs.length, zs);
-        */
         var width = 400,
         height = 400;
 
-        /*
-        contours = c.contourList().map(function(d) { 
-            return d.map(function(e) { return {"x": e.x, "y": e.y}; }); });
-
-        console.log('cont:', contours);
-
-        var blob = new Blob([JSON.stringify(contours)], 
-                            {type: "text/plain;charset=utf-8"});
-        saveAs(blob, "contours.json");
-        */
-        //$('<a href="data:' + jsonData + '" download="data.json">download JSON</a>').appendTo('#dataDownload');
         var contours = [];
         for (var i = 0; i < jsonStruct.length; i++) {
             var newContour = jsonStruct[i].path;
