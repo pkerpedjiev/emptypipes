@@ -31,8 +31,9 @@ d3.select('#flight-time-map')
 <hr>
 
 The red lines above indicate equal distances of approximately 1660 km, from the
-starting location. This distance corresponds to roughly two hours of flight
-time in a commercial airliner.
+starting location. This distance corresponds to (very) roughly two hours of flight
+time in a commercial airliner. The actual time would depend on the type of plane,
+wind conditions, trajectory and a host of other factors that are omitted for simplicity.
 
 The <i>flight paths</i> option, when checked, shows the path a flight might take when going
 to any point on the globe. Notice that no matter which direction it goes 

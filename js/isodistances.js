@@ -135,6 +135,42 @@ function flightTimeMap() {
         return newCommands.join("");
         }
 
+        function drawText() {
+            pathContainers = circlePathsG.selectAll('.path-g');
+            pathContainers.each(function(d) {
+                var path = d3.select(this).select('path');
+
+                var xPoss = d3.range(0, path.node().getTotalLength() - 50, 100) ;
+
+                var textData = d3.select(this).selectAll('text')
+                .data(xPoss);
+
+                textData.exit().remove();
+
+
+                var texts = textData.enter()
+                .append('text')
+                .attr('x', function(d1) { return d1; })
+                .attr('dy', 5)
+                .attr("clip-path", "url(#text-clip)")
+                .classed('flight-time-text', true)
+                .classed('invisible', function(d) {
+                    var legendLine = d3.select('.legend-line-altitude');
+
+                    if (legendLine.empty()) {
+                        return false;
+                    }
+                    return legendLine.classed('invisible');
+                });
+
+                texts
+                .append("textPath")
+                .attr("xlink:href", function(d1) { return "#circle" + d; } )
+                .text(function(d1) { return (d / 7.5); })
+                //.text(function(d1) { return d1; });
+            });
+        }
+
         function drawCircles(coords) {
             var pathContainers = circlePathsG.selectAll('.path-g')
             .data(d3.range(0, 180, 15))
@@ -190,39 +226,7 @@ function flightTimeMap() {
             circlePathsG.selectAll('.azimuth-circle')
             .attr('d', function(d) { return path(d3.geo.circle().origin(d).angle(90)()); });
 
-            pathContainers = circlePathsG.selectAll('.path-g');
-            pathContainers.each(function(d) {
-                var path = d3.select(this).select('path');
-
-                var xPoss = d3.range(0, path.node().getTotalLength() - 50, 100) ;
-
-                var textData = d3.select(this).selectAll('text')
-                .data(xPoss);
-
-                textData.exit().remove();
-
-
-                var texts = textData.enter()
-                .append('text')
-                .attr('x', function(d1) { return d1; })
-                .attr('dy', 5)
-                .attr("clip-path", "url(#text-clip)")
-                .classed('flight-time-text', true)
-                .classed('invisible', function(d) {
-                    var legendLine = d3.select('.legend-line-altitude');
-
-                    if (legendLine.empty()) {
-                        return false;
-                    }
-                    return legendLine.classed('invisible');
-                });
-
-                texts
-                .append("textPath")
-                .attr("xlink:href", function(d1) { return "#circle" + d; } )
-                .text(function(d1) { return (d / 7.5); })
-                //.text(function(d1) { return d1; });
-            });
+            
         }
 
         d3.json("/jsons/world-110m.json", function ready(error, world) {
@@ -261,6 +265,8 @@ function flightTimeMap() {
 
             circlePathsG.selectAll('#end-circle')
             .attr('d', function(r) { return path(circle.origin([coords[0] - 180, -coords[1]]).angle(2)()); });
+
+            drawText();
         }
 
         function redraw() {
