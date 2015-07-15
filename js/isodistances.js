@@ -210,6 +210,11 @@ function flightTimeMap() {
                 .classed('flight-time-text', true)
                 .classed('invisible', function(d) {
                     var legendLine = d3.select('.legend-line-altitude');
+
+                    if (legendLine.empty()) {
+                        console.log('empty selection:');
+                        return false;
+                    }
                     console.log('classed:', legendLine.classed('invisible'));
                     return legendLine.classed('invisble');
                 });
