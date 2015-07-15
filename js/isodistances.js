@@ -90,7 +90,8 @@ function flightTimeMap() {
         .attr('width', width- 2 * clipCircleEdgeWidth )
         .attr('height', height);
 
-        var lastPos = [24.9, 60.17]; // New York, NY
+        //var lastPos = [24.9, 60.17]; // Helsinki, FI
+        var lastPos = [40.7, 74.01]; // New York, NY
 
         function cutPath(pathTxt) {
             var commands = pathTxt.match(/[MLQTCSAZ][^MLQTCSAZ]*/gi);
