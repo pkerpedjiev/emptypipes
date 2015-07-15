@@ -266,6 +266,7 @@ function flightTimeMap() {
             circlePathsG.selectAll('#end-circle')
             .attr('d', function(r) { return path(circle.origin([coords[0] - 180, -coords[1]]).angle(2)()); });
 
+            drawCircles();
             drawText();
         }
 
