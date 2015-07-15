@@ -73,3 +73,7 @@ Other interesting facts that one can glean from this map:
 Thanks to <a href=http://bl.ocks.org/patricksurry/6621971>patricksurry's
 block</a> for an example of how to implement a rolling pan and zoom with d3.js.
 
+<b>Errata / Disclaimer</b>
+<br>
+Everything is an estimate. Rounding errors abound. Don't use this for anything but entertainment and curiosity. But you already know that.
+<br>
