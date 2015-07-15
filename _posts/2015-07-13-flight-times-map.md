@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Flight Time Map"
+title:  "Approximate Flight Time Map"
 description: "An iso-distance map showing approximate flight times between different locations on Earth"
 tags: javascript d3.js
 ---
