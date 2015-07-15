@@ -68,12 +68,6 @@ Other interesting facts that one can glean from this map:
 <li>It would take a commercial airliner about 22 hours to fly halfway around the globe.</li>
 </ul>
 
-<b>Challenges</b>
-
-<ul>
-    <li>Getting the labels to display on the contour lines</li>
-</ul>
-
 <b>Credits</b>
 
 Thanks to <a href=http://bl.ocks.org/patricksurry/6621971>patricksurry's
