@@ -216,7 +216,7 @@ function flightTimeMap() {
                         return false;
                     }
                     console.log('classed:', legendLine.classed('invisible'));
-                    return legendLine.classed('invisble');
+                    return legendLine.classed('invisible');
                 });
 
                 texts
