@@ -42,6 +42,8 @@ enough.
 The more observant of the viewers will notice that the distances and paths
 above are equivalent to rotated latitudes and longitudes where the 'topmost'
 point is not the north pole, but rather the location chosen as the starting point.
+If there is a proper name for these rotated meridians and parallels please let me
+know.
 <hr>
 
 <b> Background </b>
