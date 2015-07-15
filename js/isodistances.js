@@ -207,12 +207,17 @@ function flightTimeMap() {
                 .attr('x', function(d1) { return d1; })
                 .attr('dy', 5)
                 .attr("clip-path", "url(#text-clip)")
-                .classed('flight-time-text', true);
+                .classed('flight-time-text', true)
+                .classed('invisible', function(d) {
+                    var legendLine = d3.select('.legend-line-altitude');
+                    console.log('classed:', legendLine.classed('invisible');
+                    return legendLine.classed('invisble');
+                });
 
                 texts
                 .append("textPath")
                 .attr("xlink:href", function(d1) { return "#circle" + d; } )
-                .text(function(d1) { return (d / 7.5); });
+                .text(function(d1) { return (d / 7.5); })
                 //.text(function(d1) { return d1; });
             });
         }
