@@ -226,7 +226,7 @@ function flightTimeMap() {
             circlePathsG.selectAll('.azimuth-circle')
             .attr('d', function(d) { return path(d3.geo.circle().origin(d).angle(90)()); });
 
-            
+            drawText();
         }
 
         d3.json("/jsons/world-110m.json", function ready(error, world) {
