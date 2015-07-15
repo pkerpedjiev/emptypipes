@@ -1,5 +1,5 @@
 function flightTimeMap() {
-    var bottomMargin = 30;
+    var bottomMargin = 60;
 
     var width = 550,
     height = 400 - bottomMargin,
@@ -11,7 +11,7 @@ function flightTimeMap() {
         var projection = d3.geo.mercator()
         .rotate([rotate,0])
         .scale(1)           // we'll scale up to match viewport shortly.
-        .translate([width/2, height/2]);
+        .translate([width/2, height/2])
 
         // find the top left and bottom right of current projection
         function mercatorBounds(projection, maxlat) {
@@ -90,11 +90,54 @@ function flightTimeMap() {
         .attr('width', width- 2 * clipCircleEdgeWidth )
         .attr('height', height);
 
-        var lastPos = [-74.0, 40.7]; // New York, NY
+        var lastPos = [24.9, 60.17]; // New York, NY
+
+        function cutPath(pathTxt) {
+            var commands = pathTxt.match(/[MLQTCSAZ][^MLQTCSAZ]*/gi);
+        var newCommands=[];
+        var epsilon = 0.001;
+        var moved = false;
+
+        for (var i = 0; i < commands.length; i++) {
+            if (commands[i][0] == 'L' || commands[i][0] == 'M' ) {
+                cs = commands[i].slice(1, commands[i].length).split(',');
+                x = +cs[0];
+                y = +cs[1];
+
+                if ((Math.abs(x-width) < epsilon || Math.abs(x) < epsilon) ||
+                    (Math.abs(y-height) < epsilon || Math.abs(y) < epsilon)) {
+                    moved = true;
+
+                } else {
+                    if (moved) {
+                        commands[i] = "M" + commands[i].slice(1,commands[i].length);
+                    }
+                    newCommands.push(commands[i]);
+                    moved = false;
+                }
+            } else if (commands[i][0] != 'Z') {
+                newCommands.push(commands[i]);
+            }
+
+
+        }
+
+        firstC = newCommands[0].slice(1, newCommands[0].length).split(',');
+        lastC = newCommands[newCommands.length-1].slice(1, newCommands[newCommands.length-1].length).split(',');
+
+        var dist = Math.sqrt(Math.pow((firstC[0] - lastC[0]),2) + Math.pow((firstC[1] - lastC[1]),2));
+
+        if (dist < 30) {
+            //if the first and last are close enough, then close them
+            newCommands.push('L'+firstC[0]+","+firstC[1]);
+        }
+
+        return newCommands.join("");
+        }
 
         function drawCircles(coords) {
             var pathContainers = circlePathsG.selectAll('.path-g')
-            .data(d3.range(0, 180, 16))
+            .data(d3.range(0, 180, 15))
             //.data([100])
             .enter()
             .append("g")
@@ -102,17 +145,39 @@ function flightTimeMap() {
 
             pathContainers.append('path').classed('altitude-circle', true);
 
+            var pathTxt = path(circle.origin(coords).angle(165)());
+            var newPath = cutPath(pathTxt);
+
             circlePathsG.selectAll('.altitude-circle')
-            .attr("d", function(r) { return path(circle.origin(coords).angle(r)()); })
+            .attr("d", function(r) { return cutPath(path(circle.origin(coords).angle(r)())); })
             .attr('id', function(r) { return "circle" + r; })
             .attr("clip-path", "url(#circle-clip)")
             .on('mouseover', function(d) {
-                console.log('mouseover');
                 d3.select(this).classed('thick-path', true);
             })
             .on('mouseout', function(d) {
                 d3.select(this).classed('thick-path', false);
             });
+
+            circlePathsG.selectAll('#start-circle')
+            .data([lastPos])
+            .enter()
+            .append('path')
+            .attr('id', function(r) { return 'start-circle'; })
+            .attr("clip-path", "url(#circle-clip)");
+
+            circlePathsG.selectAll('#start-circle')
+            .attr('d', function(r) { return path(circle.origin(coords).angle(2)()); })
+
+            circlePathsG.selectAll('#end-circle')
+            .data([lastPos])
+            .enter()
+            .append('path')
+            .attr('id', function(r) { return 'end-circle'; })
+            .attr("clip-path", "url(#circle-clip)");
+
+            circlePathsG.selectAll('#end-circle')
+            .attr('d', function(r) { return path(circle.origin([coords[0] - 180, -coords[1]]).angle(2)()); });
 
             halfPath = d3.geo.circle().origin(coords).angle(90).precision(20);
 
@@ -125,14 +190,19 @@ function flightTimeMap() {
             circlePathsG.selectAll('.azimuth-circle')
             .attr('d', function(d) { return path(d3.geo.circle().origin(d).angle(90)()); });
 
+            pathContainers = circlePathsG.selectAll('.path-g');
             pathContainers.each(function(d) {
                 var path = d3.select(this).select('path');
 
-                var xPoss = d3.range(0, path.node().getTotalLength() - 100, 100) ;
+                var xPoss = d3.range(0, path.node().getTotalLength() - 50, 100) ;
 
-                var texts = d3.select(this).selectAll('text')
-                .data(xPoss)
-                .enter()
+                var textData = d3.select(this).selectAll('text')
+                .data(xPoss);
+
+                textData.exit().remove();
+
+
+                var texts = textData.enter()
                 .append('text')
                 .attr('x', function(d1) { return d1; })
                 .attr('dy', 5)
@@ -142,11 +212,12 @@ function flightTimeMap() {
                 texts
                 .append("textPath")
                 .attr("xlink:href", function(d1) { return "#circle" + d; } )
-                .text(function(d1) { return (d / 8); });
+                .text(function(d1) { return (d / 7.5); });
+                //.text(function(d1) { return d1; });
             });
         }
 
-        d3.json("jsons/world-110m.json", function ready(error, world) {
+        d3.json("/jsons/world-110m.json", function ready(error, world) {
 
             countriesG.selectAll('.world-map')
             .data(topojson.feature(world, world.objects.countries).features)
@@ -170,12 +241,18 @@ function flightTimeMap() {
 
         function updatePaths(coords) {
             circlePathsG.selectAll('.altitude-circle')
-            .attr("d", function(r) { return path(d3.geo.circle().origin(coords).angle(r)()); })
+            .attr("d", function(r) { return cutPath(path(d3.geo.circle().origin(coords).angle(r)())); })
             .attr("clip-path", "url(#map-clip)");
 
             circlePathsG.selectAll('.azimuth-circle')
             .attr("d", function(d) { return path(d3.geo.circle().origin(d).angle(90)()); })
                 .attr("clip-path", "url(#map-clip)");
+
+            circlePathsG.selectAll('#start-circle')
+            .attr('d', function(r) { return path(circle.origin(coords).angle(2)()); })
+
+            circlePathsG.selectAll('#end-circle')
+            .attr('d', function(r) { return path(circle.origin([coords[0] - 180, -coords[1]]).angle(2)()); });
         }
 
         function redraw() {
@@ -238,12 +315,14 @@ function flightTimeMap() {
 
         drawCircles(lastPos);
 
+        bottomMargin /= 2;
+
         legendG.append('path')
         .classed('legend-line-altitude', true)
-        .attr('d', function(x) { var path = 'M' + xScale(0) + "," + (bottomMargin / 2) + 'L' + (xScale(0) + legendRectWidth) + "," + (bottomMargin / 2); return path; });
+        .attr('d', function(x) { var path = 'M' + xScale(1) + "," + (bottomMargin / 2) + 'L' + (xScale(1) + legendRectWidth) + "," + (bottomMargin / 2); return path; });
 
         legendG.append('rect')
-        .attr('x', xScale(0))
+        .attr('x', xScale(1))
         .attr('y', (bottomMargin - legendRectWidth) / 2)
         .classed('legend-rect', true)
         .attr('fill', 'transparent')
@@ -256,18 +335,18 @@ function flightTimeMap() {
         });
 
         legendG.append('text')
-        .attr('x', xScale(0) + legendRectWidth + 8)
+        .attr('x', xScale(1) + legendRectWidth + 8)
         .attr('y', legendRectWidth + legendTextOffset)
         .text("Flight Times (isodistances)")
         .classed('legend-label', true);
 
         legendG.append('path')
         .classed('legend-line-azimuth', true)
-        .attr('d', function(x) { var path = 'M' + xScale(1) + "," + (bottomMargin / 2) + 'L' + (xScale(1) + legendRectWidth) + "," + (bottomMargin / 2); return path; });
+        .attr('d', function(x) { var path = 'M' + xScale(1) + "," + (bottomMargin + (bottomMargin / 2)) + 'L' + (xScale(1) + legendRectWidth) + "," + (bottomMargin + (bottomMargin / 2)); return path; });
 
         legendG.append('rect')
         .attr('x', xScale(1))
-        .attr('y', (bottomMargin - legendRectWidth) / 2)
+        .attr('y', bottomMargin + (bottomMargin - legendRectWidth) / 2)
         .classed('legend-rect', true)
         .attr('width', legendRectWidth)
         .attr('height', legendRectWidth)
@@ -278,8 +357,32 @@ function flightTimeMap() {
 
         legendG.append('text')
         .attr('x', xScale(1) + legendRectWidth + 8)
-        .attr('y', legendRectWidth + legendTextOffset)
+        .attr('y', bottomMargin + legendRectWidth + legendTextOffset)
         .text("Flight Paths (shortest paths)")
+        .classed('legend-label', true);
+
+        legendG.append('circle')
+        .attr('r', bottomMargin / 4)
+        .attr('cx', xScale(0))
+        .attr('cy', bottomMargin / 2)
+        .classed('legend-circle-start', true);
+
+        legendG.append('circle')
+        .attr('r', bottomMargin / 4)
+        .attr('cx', xScale(0))
+        .attr('cy', bottomMargin + bottomMargin / 2)
+        .classed('legend-circle-end', true);
+
+        legendG.append('text')
+        .attr('x', xScale(0) + legendRectWidth + 2)
+        .attr('y', 20)
+        .text("Start Point")
+        .classed('legend-label', true);
+
+        legendG.append('text')
+        .attr('x', xScale(0) + legendRectWidth + 2)
+        .attr('y', bottomMargin + 20)
+        .text("Opposite Point (antipode)")
         .classed('legend-label', true);
         
     };
