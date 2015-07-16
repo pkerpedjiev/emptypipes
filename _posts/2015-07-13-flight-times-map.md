@@ -8,7 +8,7 @@ The map below shows the approximate flight time (in hours) from any location on
 earth to any other.
 
 <ul>
-<li><b>Double click</b> to change the starting point.
+<li><b>Double click</b> to change the starting point (sorry mobile users!).
 <li>Click and drag to pan</li>
 <li>Scroll to zoom in and out</li>
 <li>Click on the <i>Flight Times</i> and <i>Flight Paths</i> checkboxes to toggle the displayed lines</li>
