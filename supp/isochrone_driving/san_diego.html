@@ -1,0 +1,12 @@
+---
+layout: isochrone_driving_details
+title:  "Isochrone Map for Train Travel from San Diego"
+tags: maps javascript leaflet isochrone
+city: San Diego
+latitude: 32.72
+longitude: -117.16
+---
+
+<script type="text/javascript">
+    drawIsochroneMap({{ page.latitude }}, {{ page.longitude }}, '/jsons/isochrone_driving_contours/san_diego.json');
+    </script>

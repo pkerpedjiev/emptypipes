@@ -1,0 +1,51 @@
+---
+layout: default
+---
+
+<link rel="stylesheet" href="/css/leaflet.css">
+<script src="/js/leaflet.js"></script>
+<script src="/js/isochrone_map.js"></script>
+<script src="/js/conrec.js"></script>
+<script src="/js/cubehelix.js"></script>
+<script src="/js/tile.stamen.js"></script>
+
+This map shows how long one would expect to travel to any point in Europe
+starting in {{ page.city }}, using only trains and walking at a brisk rate of 5 min / kilometer.
+<br>
+<br>
+
+<div id="isochroneMap" style="height: 400px; width: 550px;"></div>
+<div id="isochroneMapLegend" style="height: 40px; width: 550px;"></div>
+
+<hr>
+
+
+<hr>
+<b>Other Cities</b>
+<br>
+<br>
+
+{% include europe_isochrone_train_cities_list.html %}
+
+<hr>
+The origin of this map is described in slightly more detail <a href="/2015/05/20/europe-isochrone-map/">in the original blog post.</a>
+
+<hr>
+<b>Errata / Disclaimer</b>
+<br>
+Everything is an estimate. Rounding errors abound. Don't use this for anything but entertainment and curiosity. But you already know that.
+<br>
+<br>
+
+Some data may be missing. There may be faster connections.
+If you find issues, please let me know
+and I'll do my best to fix them.
+Thanks to <i>cuicuit</i> on reddit and
+<a href="https://twitter.com/yorksranter">@yorksranter</a> for pointing out missing data
+for Paris and London!
+<br>
+<br>
+
+Ireland and parts of Spain are not well represented due to missing data.
+
+{{ content }}
