@@ -4,12 +4,15 @@
     randomFinding.randomFindingLinear = function() {
         var width=200;
         var height=200;
+        var stepCounts = [];
 
         var numPointsX=6;
-        var numPointsY=2;
+        var numPointsY=4;
         var pointRadius=5;
+        var transitionDuration = 200;
 
         var margin=20;
+        var steps = 0;
 
         var chart = function(selection) {
            selection.each(function(data) {
@@ -51,7 +54,106 @@
                 .attr('r', function(d) { return pointRadius; })
                 .classed('grid-point', true);
 
+                gEnter.selectAll('chaser')
+                .data([randomPosition()])
+                .enter()
+                .append('circle')
+                .attr('cx', function(d) { return xScale(d[0]); })
+                .attr('cy', function(d) { return yScale(d[1]); })
+                .attr('r', function(d) { return pointRadius; })
+                .classed('chaser', true);
+
+                gEnter.selectAll('runner')
+                .data([randomPosition()])
+                .enter()
+                .append('circle')
+                .attr('cx', function(d) { return xScale(d[0]); })
+                .attr('cy', function(d) { return yScale(d[1]); })
+                .attr('r', function(d) { return pointRadius; })
+                .classed('runner', true);
+
+                function randomPosition() {
+                    return [Math.floor(Math.random() * numPointsX),
+                            Math.floor(Math.random() * numPointsY)];
+                }
+
+                function randomDirection() {
+                    return [Math.floor(Math.random() * 3) - 1,
+                            Math.floor(Math.random() * 3) - 1];
+                }
+
+                function isValidPosition(position) {
+                    if (position[0] < 0 || position[1] < [0])
+                        return false;
+                    if (position[0] >= numPointsX || position[1] >= numPointsY)
+                        return false;
+
+                    return true;
+                }
+
+                function addPosition(position, direction) {
+                    return [position[0] + direction[0],
+                            position[1] + direction[1]];
+                }
+
+                function step() {
+                    var chaser = d3.select('.chaser');
+                    var runner = d3.select('.runner');
+
+                    console.log('step:', step);
+
+                    if (chaser.data()[0][0] == runner.data()[0][0] &&
+                        chaser.data()[0][1] == runner.data()[0][1]) {
+                        stepCounts.push(steps);
+                        console.log('finished:', stepCounts);
+                        
+                        chaser.data([randomPosition()]);
+                        runner.data([randomPosition()]);
+                        steps = 0;
+
+                        chaser.data([randomPosition()]).transition()
+                        .duration(transitionDuration)
+                        .attr('cx', function(d) { return xScale(d[0]); })
+                        .attr('cy', function(d) { return yScale(d[1]); });
+
+                        runner.data([randomPosition()]).transition()
+                        .duration(transitionDuration)
+                        .attr('cx', function(d) { return xScale(d[0]); })
+                        .attr('cy', function(d) { return yScale(d[1]); });
+
+
+                        setTimeout(step, transitionDuration);
+
+                        return;
+                    }
+
+                    do {
+                        newChaserPosition = addPosition(chaser.data()[0],
+                                                            randomDirection());
+                    } while (!isValidPosition(newChaserPosition));
+
+                    do {
+                        newRunnerPosition = addPosition(runner.data()[0],
+                                                        randomDirection());
+                    } while (!isValidPosition(newRunnerPosition));
+
+                    chaser.data([newChaserPosition]).transition()
+                    .duration(transitionDuration)
+                    .attr('cx', function(d) { return xScale(d[0]); })
+                    .attr('cy', function(d) { return yScale(d[1]); });
+
+                    runner.data([newRunnerPosition]).transition()
+                    .duration(transitionDuration)
+                    .attr('cx', function(d) { return xScale(d[0]); })
+                    .attr('cy', function(d) { return yScale(d[1]); });
+
+                    steps += 1;
+                    setTimeout(step, transitionDuration);
+                }
+
                 console.log('points', points);
+                
+                step();
            });
         };
 
