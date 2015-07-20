@@ -59,7 +59,8 @@
                     .attr('stroke', 'black')
                     .attr('stroke-width', 2)
                     .transition()
-                    .duration(duration*3)
+                    .ease('linear')
+                    .duration(duration / 2)
                     .style('opacity', 0)
                     .remove()
 
@@ -77,18 +78,6 @@
 
         var points = [prevPos, newPos];
 
-        /*
-        var path = svg.append("path")
-        .data([points])
-        .attr("d", d3.svg.line())
-        .attr('stroke', 'black')
-        .attr('stroke-width', 2)
-        .transition()
-        .duration(duration)
-        .style('opacity', 0)
-        */
-
-        console.log('here')
         prevPos = newPos;
     }
 
