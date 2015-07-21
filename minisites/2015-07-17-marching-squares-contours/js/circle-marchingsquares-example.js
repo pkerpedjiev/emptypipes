@@ -16,8 +16,8 @@ function drawMarchingSquaresContours(divId) {
 
         var marginBottomLabel = 40;
 
-        var height = 200
-        var width = height * (xs.length / ys.length)
+        var width = 200;
+        var height = width * (ys.length / xs.length);
 
         xScale = d3.scale.linear()
         .range([0, width])

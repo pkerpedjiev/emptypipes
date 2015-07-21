@@ -20,9 +20,10 @@ function drawConrecContours(divId) {
 
         var xs = d3.range(0, data.length);
         var ys = d3.range(0, data[0].length);
-        var c = new Conrec,
-        height = 200,
-        width = height * ((xs.length-2) / (ys.length-2));
+        var c = new Conrec;
+
+        var width = 200;
+        var height = width * ((ys.length - 2) / (xs.length - 2));
 
         var marginBottomLabel = 40;
 
@@ -64,8 +65,7 @@ function drawConrecContours(divId) {
         .style("fill",function(d) { return colours(d.level);})
         .style("stroke","black")
         .style('opacity', 1.0)
-        .attr("d", d3.svg.line()
-              .x(function(d) { return x(d.x); })
+        .attr("d", d3.svg.line() .x(function(d) { return x(d.x); })
               .y(function(d) { return y(d.y); }))
               .on('mouseover', function(d) { 
                   d3.select(this).style('fill', '#888');})

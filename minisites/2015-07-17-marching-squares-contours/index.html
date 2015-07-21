@@ -5,9 +5,38 @@
 <link rel='stylesheet' href='/css/circle-contour-example.css'>
 </head>
 <body>
-<div id="marchingSquaresContourPlotDiv"></div>
-<div id="conrecContourPlotDiv"></div>
-<div id="turfContourPlotDiv"></div>
+<table>
+</table>
+<table>
+    <tr>
+        <col width="225">
+        <col width="225">
+    <td><div id="marchingSquaresContourPlotDiv"></div></td><td>
+        <b>Pros</b>: Simple. Adds contours to the edges of the data. True
+        iso-band support. Most 'correct' of the three.<br><br>
+            <b>Cons</b>: Works only on gridded data. No option for specifying
+                 x- and y- values.
+        </td>
+    </tr>
+    <tr>
+        <td><div id="conrecContourPlotDiv"></div></td>
+        <td>
+            <b>Pros</b>: Options for specifying x- and y- values.<br><br>
+            <b>Cons</b>: Works only on gridded data. Doesn't return
+            true iso-bands. Requires a extra values to draw a border.
+        </td>
+    </tr>
+    <tr>
+        <td><div id="turfContourPlotDiv"></div></td>
+        <td>
+            <b>Pros</b>: Interpolates the input data. Works with GeoJSON data
+            structures.<br> <br>
+            <b>Cons</b>: Interpolates the input data (can cause
+            distortions). Works with GeoJSON data structures. Doesn't return
+            actual iso-bands. Interpolation can distort the data.
+        </td>
+    </tr>
+</table>
 
 <script src="js/lib/d3.min.js"></script>
 <script src="js/lib/conrec.js"></script>
@@ -17,7 +46,7 @@
 <script src="js/circle-conrec-example.js"></script>
 <script src="js/circle-turf-example.js"></script>
 <script>
-//drawMarchingSquaresContours('#marchingSquaresContourPlotDiv');
+drawMarchingSquaresContours('#marchingSquaresContourPlotDiv');
 drawConrecContours('#conrecContourPlotDiv');
 drawTurfContours('#turfContourPlotDiv')
 </script>

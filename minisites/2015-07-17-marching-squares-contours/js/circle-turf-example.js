@@ -1,7 +1,5 @@
 function drawTurfContours(divId) {
     var zs = [0, 4.5, 9, 13.5, 18];
-    //var zs = [9, 13.5];
-    //var zs = [9];
 
     var data = [[18, 13, 10, 9, 10, 13, 18],
         [13, 8, 5, 4, 5, 8, 13],
@@ -12,6 +10,8 @@ function drawTurfContours(divId) {
         [18, 13, 10, 9, 10, 13, 18],
         [18, 13, 10, 9, 10, 13, 18]]
 
+        //add a set of high values around the so that values on the edge
+        //get their own contours
         var cliff = 1000;
         data.push(d3.range(data[0].length).map(function() { return cliff; }));
         data.unshift(d3.range(data[0].length).map(function() { return cliff; }));
@@ -36,24 +36,36 @@ function drawTurfContours(divId) {
             }
         }
 
-        console.log('points:', points);
         var isolined = turf.isobands(points, 'z', 20, zs);
-        console.log('isolined:', isolined);
 
         var xs = d3.range(0, data.length);
         var ys = d3.range(0, data[0].length);
-        var height = 200;
-        var width = height * ((xs.length - 2) / (ys.length - 2));
+        var width = 200;
+        var height = width * ((ys.length - 2) / (xs.length - 2));
 
         var marginBottomLabel = 40;
 
+        minX = Math.min.apply(null, isolined.features.map(function(d) {
+            return Math.min.apply(null, d.geometry.coordinates[0].map(function(d1) { return d1[0]; }))
+        }));
+        maxX = Math.max.apply(null, isolined.features.map(function(d) {
+            return Math.max.apply(null, d.geometry.coordinates[0].map(function(d1) { return d1[0]; }))
+        }));
+
+        minY = Math.min.apply(null, isolined.features.map(function(d) {
+            return Math.min.apply(null, d.geometry.coordinates[0].map(function(d1) { return d1[1]; }))
+        }));
+        maxY = Math.max.apply(null, isolined.features.map(function(d) {
+            return Math.max.apply(null, d.geometry.coordinates[0].map(function(d1) { return d1[1]; }))
+        }));
+
         var xScale = d3.scale.linear()
         .range([0, width])
-        .domain([1, Math.max.apply(null, xs)-1]);
+        .domain([minX, maxX]);
 
         var yScale = d3.scale.linear()
         .range([0, height])
-        .domain([1, Math.max.apply(null, ys)-1]);
+        .domain([minY, maxY]);
 
         var colours = d3.scale.linear().domain([zs[0], zs[zs.length - 1]]).range(["green", "red"]);
 
@@ -66,6 +78,8 @@ function drawTurfContours(divId) {
         .attr('text-anchor', 'middle')
         .text("turf.js");
 
+        // sort the contours by xValue in the hopes that they get drawn
+        // with a proper ordering
         Array.prototype.max = function() {
             return Math.max.apply(null, this);
         };
@@ -91,7 +105,11 @@ function drawTurfContours(divId) {
             return d3.svg.line()
             .x(function(dat) { return xScale(dat[0]); })
             .y(function(dat) { return yScale(dat[1]); }) 
-            (d.geometry.coordinates[0]);(d.geometry.coordinates[0]);
+            (d.geometry.coordinates[0]);
         })
+        .on('mouseover', function(d) { 
+            d3.select(this).style('fill', '#888');})
+            .on('mouseout', function(d) { 
+                d3.select(this).style('fill', function(d1) { return colours(d1.properties.z); })})
         .style('opacity', 1)
 }
