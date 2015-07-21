@@ -1,0 +1,31 @@
+<html>
+    <meta charset='utf-8'>
+    <link rel='stylesheet' href='/css/random_finding.css'>
+    <body>
+        <div id='random-finding-linear'></div>
+        <script type='text/javascript' src='js/lib/d3.min.js'></script>
+        <script src="js/require.js"></script>
+        <script type='text/javascript'>
+            requirejs.config({
+                //By default load any module IDs from js/lib
+                baseUrl: 'js',
+                paths: {
+                    lib: 'lib'
+                    }
+            });
+
+            // Start the main app logic.
+            requirejs(['lib/d3.min', 'random_finding'],
+            function   (d3, randomFinding) {
+            console.log('randomFinding:', randomFinding)
+            console.log('d3:', d3);
+                d3.select('#random-finding-linear')
+                .call(randomFinding.randomFindingLinear());
+                //jQuery, canvas and the app/sub module are all
+                //loaded and can be used here now.
+                //drawContours();
+            });
+
+        </script>
+    </body>
+</html>

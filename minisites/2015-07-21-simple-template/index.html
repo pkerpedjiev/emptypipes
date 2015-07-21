@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+    <meta charset='utf-8'>
+
+<style>
+    .background-rect {
+        fill: grey;
+    }
+</style>
+
+<body>
+    <script src="js/d3.min.js"></script>
+    <script>
+        var width = 400;
+        var height = 400;
+
+    var svg = d3.select('body')
+    .append('svg')
+
+    var fromX = 0;
+    var toX = 0;
+
+    svg.append('rect')
+    .attr('width', width)
+    .attr('height', height)
+    .classed('background-rect', true)
+    .on('click', moveCircle);
+
+
+    svg.append('circle')
+    .attr('cx', 0)
+    .attr('cy', 0)
+    .attr('r', 5)
+    .classed('tracker', true);
+    
+    function moveCircle() {
+        var mouseEvent = d3.mouse(this);
+
+        svg.select('.tracker')
+        .transition()
+        .attr('cx', mouseEvent[0])
+        .attr('cy', mouseEvent[1])
+    }
+
+    </script>
+</body>
