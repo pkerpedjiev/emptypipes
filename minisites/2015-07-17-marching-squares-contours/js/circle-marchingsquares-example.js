@@ -16,18 +16,18 @@ function drawMarchingSquaresContours(divId) {
 
         var marginBottomLabel = 40;
 
-        height = 200,
-        width = height * (xs.length / ys.length),
+        var height = 200
+        var width = height * (xs.length / ys.length)
 
         xScale = d3.scale.linear()
         .range([0, width])
-        .domain([Math.min.apply(null, xs), Math.max.apply(null, xs)]),
+        .domain([Math.min.apply(null, xs), Math.max.apply(null, xs)])
 
         yScale = d3.scale.linear()
         .range([0, height])
-        .domain([Math.min.apply(null, ys), Math.max.apply(null, ys)]),
+        .domain([Math.min.apply(null, ys), Math.max.apply(null, ys)])
 
-        colours = d3.scale.linear().domain([zs[0], zs[zs.length - 1]]).range(["green", "red"]);
+        var colours = d3.scale.linear().domain([zs[0], zs[zs.length - 1]]).range(["green", "red"]);
 
         var isoBands = [];
         for (var i = 1; i < zs.length; i++) {

@@ -26,15 +26,15 @@ function drawConrecContours(divId) {
 
         var marginBottomLabel = 40;
 
-        x = d3.scale.linear()
+        var x = d3.scale.linear()
         .range([0, width])
-        .domain([1, Math.max.apply(null, xs)-1]),
+        .domain([1, Math.max.apply(null, xs)-1]);
 
-        y = d3.scale.linear()
+        var y = d3.scale.linear()
         .range([0, height])
-        .domain([1, Math.max.apply(null, ys)-1]),
+        .domain([1, Math.max.apply(null, ys)-1]);
 
-        colours = d3.scale.linear().domain([zs[0], zs[zs.length - 1]]).range(["green", "red"]);
+        var colours = d3.scale.linear().domain([zs[0], zs[zs.length - 1]]).range(["green", "red"]);
         c.contour(data, 0, xs.length - 1, 0, ys.length - 1, xs, ys, zs.length, zs);
 
         Array.prototype.max = function() {
@@ -65,10 +65,9 @@ function drawConrecContours(divId) {
         .style("stroke","black")
         .style('opacity', 1.0)
         .attr("d", d3.svg.line()
-              .x(function(d) { console.log('d', d); return x(d.x); })
+              .x(function(d) { return x(d.x); })
               .y(function(d) { return y(d.y); }))
               .on('mouseover', function(d) { 
-                  console.log('this_data:', d3.select(this).datum());
                   d3.select(this).style('fill', '#888');})
                   .on('mouseout', function(d) { 
                       d3.select(this).style('fill', function(d1) { return colours(d1.level); })});
