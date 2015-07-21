@@ -1,4 +1,4 @@
-function drawConrecContours() {
+function drawConrecContours(divId) {
     var zs = [0, 4.5, 9, 13.5, 18];
     var data = [[18, 13, 10, 9, 10, 13, 18],
         [13, 8, 5, 4, 5, 8, 13],
@@ -49,7 +49,7 @@ function drawConrecContours() {
             return a.map(function(d) { return d.x; }).min() - b.map(function(d) { return d.x; }).min();
         });
 
-        var svg = d3.select("#conrecContourPlotDiv").append("svg")
+        var svg = d3.select(divId).append("svg")
         .attr("width", width)
         .attr("height", height + marginBottomLabel)
 

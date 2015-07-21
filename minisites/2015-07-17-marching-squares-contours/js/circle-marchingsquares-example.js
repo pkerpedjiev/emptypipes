@@ -1,4 +1,4 @@
-function drawMarchingSquaresContours() {
+function drawMarchingSquaresContours(divId) {
     zs = [0, 4.5, 9, 13.5, 18];
     data = [[18, 13, 10, 9, 10, 13, 18],
         [13, 8, 5, 4, 5, 8, 13],
@@ -39,7 +39,7 @@ function drawMarchingSquaresContours() {
             isoBands.push({"coords": band, "level": i, "val": zs[i]});
         }
 
-        var svg = d3.select("#marchingSquaresContourPlotDiv")
+        var svg = d3.select(divId)
         .append("svg")
         .attr("width", width)
         .attr("height", height + marginBottomLabel)

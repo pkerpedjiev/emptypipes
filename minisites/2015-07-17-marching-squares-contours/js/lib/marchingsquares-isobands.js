@@ -2913,8 +2913,7 @@ var MarchingSquaresJS = (function (my) {
     return areas;
   }
 
-  console.log('returning:', my);
-
   if (typeof define === "function" && define.amd) define(my);
+
   return my;
 }(MarchingSquaresJS || {}));
