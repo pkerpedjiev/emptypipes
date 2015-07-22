@@ -16,7 +16,7 @@ function drawMarchingSquaresContours(divId) {
 
         var marginBottomLabel = 0;
 
-        var width = 200;
+        var width = 150;
         var height = width * (ys.length / xs.length);
 
         xScale = d3.scale.linear()
@@ -27,7 +27,9 @@ function drawMarchingSquaresContours(divId) {
         .range([0, height])
         .domain([Math.min.apply(null, ys), Math.max.apply(null, ys)])
 
-        var colours = d3.scale.linear().domain([zs[0], zs[zs.length - 1]]).range(["green", "red"]);
+        var colours = d3.scale.linear().domain([zs[0], zs[zs.length - 1]])
+        .range([d3.rgb(85,165.75,103.785), 
+                d3.rgb(195.84, 77.775, 81.855)]);
 
         var isoBands = [];
         for (var i = 1; i < zs.length; i++) {
