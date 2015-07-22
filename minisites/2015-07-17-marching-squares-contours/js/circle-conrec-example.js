@@ -22,10 +22,10 @@ function drawConrecContours(divId) {
         var ys = d3.range(0, data[0].length);
         var c = new Conrec;
 
-        var width = 200;
+        var width = 150;
         var height = width * ((ys.length - 2) / (xs.length - 2));
 
-        var marginBottomLabel = 40;
+        var marginBottomLabel = 0;
 
         var x = d3.scale.linear()
         .range([0, width])
@@ -35,7 +35,10 @@ function drawConrecContours(divId) {
         .range([0, height])
         .domain([1, Math.max.apply(null, ys)-1]);
 
-        var colours = d3.scale.linear().domain([zs[0], zs[zs.length - 1]]).range(["green", "red"]);
+        var colours = d3.scale.linear().domain([zs[0], zs[zs.length - 1]])
+        .range([d3.rgb(0,0,0),
+               d3.rgb(200,200,200)]);
+
         c.contour(data, 0, xs.length - 1, 0, ys.length - 1, xs, ys, zs.length, zs);
 
         Array.prototype.max = function() {
@@ -54,10 +57,12 @@ function drawConrecContours(divId) {
         .attr("width", width)
         .attr("height", height + marginBottomLabel)
 
+        /*
         svg.append('text')
         .attr('transform', 'translate(' + (width/2) + ','+(height+15)+')')
         .attr('text-anchor', 'middle')
         .text("conrec.js");
+        */
 
         svg.selectAll("path")
         .data(contourList)
@@ -68,7 +73,7 @@ function drawConrecContours(divId) {
         .attr("d", d3.svg.line() .x(function(d) { return x(d.x); })
               .y(function(d) { return y(d.y); }))
               .on('mouseover', function(d) { 
-                  d3.select(this).style('fill', '#888');})
+            d3.select(this).style('fill', d3.rgb(204,  185,  116));})
                   .on('mouseout', function(d) { 
                       d3.select(this).style('fill', function(d1) { return colours(d1.level); })});
 }

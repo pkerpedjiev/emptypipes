@@ -40,10 +40,10 @@ function drawTurfContours(divId) {
 
         var xs = d3.range(0, data.length);
         var ys = d3.range(0, data[0].length);
-        var width = 200;
+        var width = 150;
         var height = width * ((ys.length - 2) / (xs.length - 2));
 
-        var marginBottomLabel = 40;
+        var marginBottomLabel = 0;
 
         minX = Math.min.apply(null, isolined.features.map(function(d) {
             return Math.min.apply(null, d.geometry.coordinates[0].map(function(d1) { return d1[0]; }))
@@ -67,16 +67,20 @@ function drawTurfContours(divId) {
         .range([0, height])
         .domain([minY, maxY]);
 
-        var colours = d3.scale.linear().domain([zs[0], zs[zs.length - 1]]).range(["green", "red"]);
+        var colours = d3.scale.linear().domain([zs[0], zs[zs.length - 1]])
+        .range([d3.rgb(0,0,0),
+               d3.rgb(200,200,200)]);
 
         var svg = d3.select(divId).append("svg")
         .attr("width", width)
         .attr("height", height + marginBottomLabel)
 
+        /*
         svg.append('text')
         .attr('transform', 'translate(' + (width/2) + ','+(height+15)+')')
         .attr('text-anchor', 'middle')
         .text("turf.js");
+        */
 
         // sort the contours by xValue in the hopes that they get drawn
         // with a proper ordering
@@ -108,7 +112,7 @@ function drawTurfContours(divId) {
             (d.geometry.coordinates[0]);
         })
         .on('mouseover', function(d) { 
-            d3.select(this).style('fill', '#888');})
+            d3.select(this).style('fill', d3.rgb(204,  185,  116));})
             .on('mouseout', function(d) { 
                 d3.select(this).style('fill', function(d1) { return colours(d1.properties.z); })})
         .style('opacity', 1)

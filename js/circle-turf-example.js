@@ -68,8 +68,8 @@ function drawTurfContours(divId) {
         .domain([minY, maxY]);
 
         var colours = d3.scale.linear().domain([zs[0], zs[zs.length - 1]])
-        .range([d3.rgb(85,165.75,103.785), 
-                d3.rgb(195.84, 77.775, 81.855)]);
+        .range([d3.rgb(0,0,0),
+               d3.rgb(200,200,200)]);
 
         var svg = d3.select(divId).append("svg")
         .attr("width", width)
@@ -112,7 +112,7 @@ function drawTurfContours(divId) {
             (d.geometry.coordinates[0]);
         })
         .on('mouseover', function(d) { 
-            d3.select(this).style('fill', '#888');})
+            d3.select(this).style('fill', d3.rgb(204,  185,  116));})
             .on('mouseout', function(d) { 
                 d3.select(this).style('fill', function(d1) { return colours(d1.properties.z); })})
         .style('opacity', 1)

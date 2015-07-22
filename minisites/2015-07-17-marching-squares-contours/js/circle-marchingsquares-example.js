@@ -14,9 +14,9 @@ function drawMarchingSquaresContours(divId) {
         var xs = d3.range(0, data[0].length);
         var ys = d3.range(0, data.length);
 
-        var marginBottomLabel = 40;
+        var marginBottomLabel = 0;
 
-        var width = 200;
+        var width = 150;
         var height = width * (ys.length / xs.length);
 
         xScale = d3.scale.linear()
@@ -27,7 +27,9 @@ function drawMarchingSquaresContours(divId) {
         .range([0, height])
         .domain([Math.min.apply(null, ys), Math.max.apply(null, ys)])
 
-        var colours = d3.scale.linear().domain([zs[0], zs[zs.length - 1]]).range(["green", "red"]);
+        var colours = d3.scale.linear().domain([zs[0], zs[zs.length - 1]])
+        .range([d3.rgb(0,0,0),
+               d3.rgb(200,200,200)]);
 
         var isoBands = [];
         for (var i = 1; i < zs.length; i++) {
@@ -44,10 +46,12 @@ function drawMarchingSquaresContours(divId) {
         .attr("width", width)
         .attr("height", height + marginBottomLabel)
 
+        /*
         svg.append('text')
         .attr('transform', 'translate(' + (width/2) + ','+(height+15)+')')
         .attr('text-anchor', 'middle')
         .text("MarchingSquares.js");
+        */
 
         svg.selectAll("path")
         .data(isoBands)
@@ -68,7 +72,7 @@ function drawMarchingSquaresContours(divId) {
         })
         .on('mouseover', function(d) { 
             console.log('this_data:', d3.select(this).datum());
-            d3.select(this).style('fill', '#888');})
+            d3.select(this).style('fill', d3.rgb(204,  185,  116));})
             .on('mouseout', function(d) { 
                 d3.select(this).style('fill', function(d1) { return colours(d1.val); })});
 

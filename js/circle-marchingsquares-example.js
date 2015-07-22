@@ -28,8 +28,8 @@ function drawMarchingSquaresContours(divId) {
         .domain([Math.min.apply(null, ys), Math.max.apply(null, ys)])
 
         var colours = d3.scale.linear().domain([zs[0], zs[zs.length - 1]])
-        .range([d3.rgb(85,165.75,103.785), 
-                d3.rgb(195.84, 77.775, 81.855)]);
+        .range([d3.rgb(0,0,0),
+               d3.rgb(200,200,200)]);
 
         var isoBands = [];
         for (var i = 1; i < zs.length; i++) {
@@ -72,7 +72,7 @@ function drawMarchingSquaresContours(divId) {
         })
         .on('mouseover', function(d) { 
             console.log('this_data:', d3.select(this).datum());
-            d3.select(this).style('fill', '#888');})
+            d3.select(this).style('fill', d3.rgb(204,  185,  116));})
             .on('mouseout', function(d) { 
                 d3.select(this).style('fill', function(d1) { return colours(d1.val); })});
 
