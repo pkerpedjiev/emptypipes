@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+    <meta charset='utf-8'>
+
+<style>
+    .background-rect {
+        fill: grey;
+    }
+</style>
+
+<body>
+    <script src="js/d3.min.js"></script>
+    <script>
+        var width = 400;
+        var height = 400;
+
+    var svg = d3.select('body')
+    .append('svg')
+
+    var prevPos = [0,0]
+
+    svg.append('rect')
+    .attr('width', width)
+    .attr('height', height)
+    .classed('background-rect', true)
+    .on('click', moveCircle);
+
+
+    svg.append('circle')
+    .attr('cx', 0)
+    .attr('cy', 0)
+    .attr('r', 5)
+    .classed('tracker', true);
+    
+    function moveCircle() {
+        var duration = 1000;
+        var newPos = d3.mouse(this);
+
+        var counter = 0;
+
+        svg.select('.tracker')
+        .transition()
+        .duration(duration)
+        .attrTween('transform', function() {
+            var prevX = prevPos[0];
+            var prevY = prevPos[1]
+
+            var prevTimeX = prevX;
+            var prevTimeY = prevY;
+
+            return function(d,i,a) {
+                return function(t) {
+
+                    var newX = prevX + (newPos[0] - prevX) * t
+                    var newY = prevY + (newPos[1] - prevY) * t
+
+                    svg.append('path')
+                    .datum([[prevTimeX, prevTimeY],[newX, newY]])
+                    .attr('d', d3.svg.line())
+                    .attr('stroke', 'black')
+                    .attr('stroke-width', 2)
+                    .transition()
+                    .ease('linear')
+                    .duration(duration / 2)
+                    .style('opacity', 0)
+                    .remove()
+
+                    prevT = t;
+                    var ret= 'translate(' + newX + ',' + newY + ')';
+                    //console.log('ret:', ret);
+
+                    prevTimeX = newX;
+                    prevTimeY = newY;
+
+                    return ret;
+                }
+            }
+            }());
+
+        var points = [prevPos, newPos];
+
+        prevPos = newPos;
+    }
+
+    </script>
+</body>

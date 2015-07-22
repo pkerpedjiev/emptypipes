@@ -1,0 +1,16 @@
+.grid-point {
+    stroke: black;
+    stroke-width: 1px;
+    fill: transparent;
+    opacity: 0.3;
+}
+
+.chaser {
+    fill: red;
+    opacity: 0.5;
+}
+
+.runner {
+    fill: green;
+    opacity: 0.5;
+}
