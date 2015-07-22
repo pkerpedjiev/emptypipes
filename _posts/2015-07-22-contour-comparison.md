@@ -96,7 +96,7 @@ outer section which corresponds to the same values (13.5 - 18).
 [Conrec.js](https://github.com/jasondavies/conrec.js) correctly outlines the regions, but the level returned for the
 second and third sections from the middle is the same although they should
 correspond to different iso-bands. To create the plot, it was also necessary 
-to add some artifically high values along the outside boundaries to that iso-lines
+to add some artifically high values along the outside boundaries so that iso-lines
 were drawn around the edges.
 
 [Turf.js](https://github.com/Turfjs/turf) interpolated the data onto another grid and drew iso-lines in the same
@@ -107,7 +107,7 @@ the x and y scales and re-interpolating already gridded data (as in the example
 above).
 
 Needless to say, of the three methods,
-[MarchingSquares.js](https://github.com/RaumZeit/MarchingSquares.js)was the
+[MarchingSquares.js](https://github.com/RaumZeit/MarchingSquares.js) was the
 easiest and most aesthetically pleasing to me so I will likely use it in the
 future.
 
