@@ -113,7 +113,7 @@ future.
 
 The code for all three of these examples can be found in a [github repository here](https://github.com/pkerpedjiev/d3-contouring-example).
 
-If you see any errors or omissions please let me know on [Twitter](https://twitter.com/pkerpedjiev) or by email.
+If you see any errors or omissions or know of a way to make the Turf.js example look more reasonable, please let me know on [Twitter](https://twitter.com/pkerpedjiev) or by email.
 
 <script src="/js/lib/d3.min.js"></script>
 <script src="/js/lib/conrec.js"></script>
