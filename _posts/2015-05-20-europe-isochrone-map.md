@@ -7,6 +7,11 @@ tags: maps javascript d3.js leaflet
 <meta charset="utf-8"> 
 <img itemprop="image" src="/img/isochrone_example.jpg" style='display:none' width=200 height=170>
 
+<b>Edit:</b> Any time you see 'train' below, it should technically be public transport. The vast
+vast majority of the travel used to make these maps is by train, but a very small percentage may
+involve ferries or buses.
+<br>
+<br>
 Below is a map showing how long one would expect to travel to any point in Europe
 starting in Vienna, using only trains and walking at a brisk rate of 5 min / kilometer.
 <br>

@@ -8,7 +8,7 @@ The map below shows the approximate flight time (in hours) from any location on
 earth to any other.
 
 <ul>
-<li><b>Double click</b> to change the starting point.
+<li><b>Double click</b> to change the starting point (sorry mobile users!).
 <li>Click and drag to pan</li>
 <li>Scroll to zoom in and out</li>
 <li>Click on the <i>Flight Times</i> and <i>Flight Paths</i> checkboxes to toggle the displayed lines</li>
@@ -31,8 +31,9 @@ d3.select('#flight-time-map')
 <hr>
 
 The red lines above indicate equal distances of approximately 1660 km, from the
-starting location. This distance corresponds to roughly two hours of flight
-time in a commercial airliner.
+starting location. This distance corresponds to (very) roughly two hours of flight
+time in a commercial airliner. The actual time would depend on the type of plane,
+wind conditions, trajectory and a host of other factors that are omitted for simplicity.
 
 The <i>flight paths</i> option, when checked, shows the path a flight might take when going
 to any point on the globe. Notice that no matter which direction it goes 
@@ -42,6 +43,8 @@ enough.
 The more observant of the viewers will notice that the distances and paths
 above are equivalent to rotated latitudes and longitudes where the 'topmost'
 point is not the north pole, but rather the location chosen as the starting point.
+If there is a proper name for these rotated meridians and parallels please let me
+know.
 <hr>
 
 <b> Background </b>
