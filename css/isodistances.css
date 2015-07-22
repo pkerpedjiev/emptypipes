@@ -1,0 +1,87 @@
+svg {
+}
+
+#start-circle {
+    fill: green;
+}
+
+#end-circle {
+    fill: red;
+}
+
+.legend-circle-start {
+    fill: green;
+}
+
+.legend-circle-end {
+    fill: red;
+}
+
+.visible {
+    visibility: visible;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+rect.map-background {
+  fill: lavender;
+  stroke: black;
+  stroke-width: .5px;
+}
+
+rect.legend-rect {
+    fill: transparent;
+    stroke: black;
+    stroke-width: 1;
+}
+
+svg.world-map {
+
+}
+
+path.world-map {
+  fill: oldlace;
+  stroke: #666;
+  stroke-width: .5px;
+}
+
+path.altitude-circle {
+    fill: transparent;
+    stroke: red;
+    stroke-width: .5px;
+}
+
+path.azimuth-circle {
+    fill: transparent;
+    stroke: blue;
+    stroke-width: .5px;
+    opacity: 0.5;
+}
+
+path.thick-path {
+    stroke-width: 2px;
+}
+
+text {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 12px;
+}
+
+text.legend-label {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+
+}
+
+path.legend-line-altitude {
+    stroke: red;
+    stroke-width: 1;
+}
+
+path.legend-line-azimuth {
+    stroke: blue;
+    stroke-width: 1;
+}
+
