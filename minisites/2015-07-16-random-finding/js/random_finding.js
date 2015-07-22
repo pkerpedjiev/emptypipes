@@ -58,19 +58,21 @@
                 .data([randomPosition()])
                 .enter()
                 .append('circle')
-                .attr('cx', function(d) { return xScale(d[0]); })
-                .attr('cy', function(d) { return yScale(d[1]); })
                 .attr('r', function(d) { return pointRadius; })
-                .classed('chaser', true);
+                .classed('chaser', true)
+                .attr('transform', function(d) {
+                    return 'translate(' + xScale(d[0]) + ',' + yScale(d[1]) + ')';
+                });
 
                 gEnter.selectAll('runner')
                 .data([randomPosition()])
                 .enter()
                 .append('circle')
-                .attr('cx', function(d) { return xScale(d[0]); })
-                .attr('cy', function(d) { return yScale(d[1]); })
                 .attr('r', function(d) { return pointRadius; })
-                .classed('runner', true);
+                .classed('runner', true)
+                .attr('transform', function(d) {
+                    return 'translate(' + xScale(d[0]) + ',' + yScale(d[1]) + ')';
+                });
 
                 function randomPosition() {
                     return [Math.floor(Math.random() * numPointsX),
@@ -100,6 +102,9 @@
                     var chaser = d3.select('.chaser');
                     var runner = d3.select('.runner');
 
+                    var prevPosRunner = runner.data()[0];
+                    var prevPosChaser = chaser.data()[0];
+
                     console.log('step:', step);
 
                     if (chaser.data()[0][0] == runner.data()[0][0] &&
@@ -113,14 +118,15 @@
 
                         chaser.data([randomPosition()]).transition()
                         .duration(transitionDuration)
-                        .attr('cx', function(d) { return xScale(d[0]); })
-                        .attr('cy', function(d) { return yScale(d[1]); });
+                        .attr('transform', function(d) {
+                            return 'translate(' + xScale(d[0]) + ',' + yScale(d[1]) + ')';
+                        });
 
                         runner.data([randomPosition()]).transition()
                         .duration(transitionDuration)
-                        .attr('cx', function(d) { return xScale(d[0]); })
-                        .attr('cy', function(d) { return yScale(d[1]); });
-
+                        .attr('transform', function(d) {
+                            return 'translate(' + xScale(d[0]) + ',' + yScale(d[1]) + ')';
+                        });
 
                         setTimeout(step, transitionDuration);
 
