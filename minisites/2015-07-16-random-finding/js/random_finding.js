@@ -244,16 +244,83 @@
     };
 
     randomFinding.randomFindingOptions = function() {
+        var selectXValues, selectYValues;
+        var optionsX, optionsY;
 
         var chart = function(selection) {
-            selection.each(function(data) {
-                var select  = d3.select("#shru").append("select").on("change", change),
-                    options = select.selectAll('option').data(dd); // Data join
+            var optionValues = [1,2,3,4,5,6];
+            var optionSpeedValues = [{'name': 'fast',
+                                     'value': 10},
+                                     {'name': 'medium',
+                                     'value': 200},
+                                     {'name': 'slow',
+                                      'value': 400}];
+            
+            var form = selection.append('table').append('tr');
 
-                    // Enter selection
-                    // options.enter().append("option").text(function(d) { return d.teamShotID; });
-            });
+            form.append('td')
+            .append('label')
+            .attr('for', 'xPosValues')
+            .text("Width:")
+            .style('margin-right', 10);
+                
+            selectXValues  = form.append('td').append("select")
+            .on("change", xChange)
+            .attr('id', 'xPosValues'),
+
+            form.append('label')
+            .attr('for', 'xPosValues')
+            .text("Height:")
+            .style('margin-right', 10)
+            .style('margin-left', 10);
+
+            selectYValues  = form.append("select")
+            .on("change", yChange)
+            .attr('id', 'yPosValues');
+
+            form.append('label')
+            .attr('for', 'speedValues')
+            .text("Speed:")
+            .style('margin-right', 10)
+            .style('margin-left', 10);
+
+            selectSpeedValues  = form.append("select")
+            .on("change", yChange)
+            .attr('id', 'yPosValues');
+
+            optionsX = selectXValues.selectAll('option')
+            .data(optionValues)
+            .enter()
+            .append('option')
+            .text(function(d) { return d; });
+
+            optionsY = selectYValues.selectAll('option')
+            .data(optionValues)
+            .enter()
+            .append('option')
+            .text(function(d) { return d; }); // Data join
+
+            optionsSpeed = selectSpeedValues.selectAll('option')
+            .data(optionSpeedValues)
+            .enter()
+            .append('option')
+            .text(function(d) { return d.name; }); // Data join
         };
+
+        function xChange() {
+            var selectedIndex = selectXValues.property('selectedIndex'),
+                    data          = optionsY[0][selectedIndex].__data__;
+
+                    console.log('data:', data);
+        }
+
+        function yChange() {
+            var selectedIndex = selectYValues.property('selectedIndex'),
+                    data          = optionsY[0][selectedIndex].__data__;
+                console.log('data:', data);
+        }
+
+        return chart;
     };
 
     randomFinding.randomFindingLinear = function() {

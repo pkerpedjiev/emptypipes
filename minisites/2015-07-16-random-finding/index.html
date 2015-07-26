@@ -10,13 +10,13 @@
         <script type='text/javascript'>
             var randomFindingLinearChart = randomFinding.randomFindingLinear();
 
-                d3.select('#random-finding-linear')
-                .call(randomFinding.randomFindingLinear());
+            d3.select('#random-finding-linear')
+            .call(randomFindingLinearChart);
 
-                /*
-                d3.select('#random-finding-options')
-                .call(randomFinding.
-                */
+            var optionsChart = randomFinding.randomFindingOptions();
+
+            d3.select('#random-finding-options')
+            .call(optionsChart);
         </script>
     </body>
 </html>
