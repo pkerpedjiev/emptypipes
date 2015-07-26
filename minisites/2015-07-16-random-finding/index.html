@@ -2,13 +2,21 @@
     <meta charset='utf-8'>
     <link rel='stylesheet' href='/css/random_finding.css'>
     <body>
+        <div id='random-finding-options'></div>
         <div id='random-finding-linear'></div>
         <script type='text/javascript' src='js/lib/d3.min.js'></script>
         <script type='text/javascript' src='js/random_finding.js'></script>
         <script src="js/require.js"></script>
         <script type='text/javascript'>
+            var randomFindingLinearChart = randomFinding.randomFindingLinear();
+
                 d3.select('#random-finding-linear')
                 .call(randomFinding.randomFindingLinear());
+
+                /*
+                d3.select('#random-finding-options')
+                .call(randomFinding.
+                */
         </script>
     </body>
 </html>

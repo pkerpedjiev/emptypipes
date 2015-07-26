@@ -41,7 +41,7 @@
 .axis .halo {
   fill: none;
   stroke: #ddd;
-  stroke-width: 8px;
+  stroke-width: 3px;
   stroke-linecap: round;
 }
 
@@ -52,3 +52,38 @@
   stroke-width: 1.25px;
   cursor: crosshair;
 }
+
+rect.bar {
+    fill: #000;
+    shape-rendering: crispEdges;
+    opacity: 0.3;
+}
+
+.bar text {
+    fill: #fff;
+  }
+
+  .histogram-axis {
+    font: 10px sans-serif;
+  }
+
+  .histogram-axis path, .histogram-axis line {
+      fill: none;
+      stroke: #000;
+      shape-rendering: crispEdges;
+    }
+
+    .speed-label, .histogram-label {
+        font: 12px sans-serif;
+    }
+
+    .move-counter-label {
+        font: 12px sans-serif "Helvetica Neue";
+        fill: #000;
+    }
+
+    .move-counter {
+        font: 12px sans-serif "Helvetica Neue";
+        fill: #000;
+    }
+

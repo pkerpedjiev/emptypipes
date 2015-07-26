@@ -2,19 +2,183 @@
     var randomFinding = {};
     var targetFunction = function(x) {};
 
+    randomFinding.histogramPlot = function() {
+        var margin = {top: 10, right: 30, bottom: 30, left: 40};
+        var width=420 - margin.left - margin.right;
+        var height=220 - margin.top - margin.bottom;
+
+        var transitionDuration = 100;
+
+        var xScale, yScale;
+        var svg;
+
+        var chart = function(selection) {
+
+            // Generate a Bates distribution of 10 random variables.
+
+            // A formatter for counts.
+            var formatCount = d3.format(",.0f");
+
+            xScale = d3.scale.linear()
+            .domain([0, 1])
+            .range([0, width]);
+
+            var values = []
+            var data = d3.layout.histogram()
+            .bins(xScale.ticks(20))
+            (values);
+
+            yScale = d3.scale.linear()
+            .domain([0, d3.max(data, function(d) { return d.y; })])
+            .range([height, 0]);
+
+            xAxis = d3.svg.axis()
+            .scale(xScale)
+            .ticks(3)
+            .orient("bottom");
+
+            yAxis = d3.svg.axis()
+            .scale(yScale)
+            .ticks(3)
+            .orient("left");
+
+            svg = selection.append("g")
+            .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+            var bar = svg.selectAll(".bar")
+            .data(data)
+            .enter().append("rect")
+            .attr("class", "bar")
+            .attr('x', function(d) { return xScale(d.x) + 1;} )
+            .attr('y', function(d) { return yScale(d.y) + 1;} )
+            .attr("width", xScale(data[0].dx) - 1)
+            .attr("height", function(d) { return height - yScale(d.y); });
+            //.attr("transform", function(d) { return "translate(" + xScale(d.x) + "," + yScale(d.y) + ")"; });
+
+            /*
+            bar.append("rect")
+            .attr("x", 1)
+            .attr("width", xScale(data[0].dx) - 1)
+            .attr("height", function(d) { return height - yScale(d.y); });
+            */
+
+            svg.append("g")
+            .attr('class', 'histogram-axis histogram-x-axis')
+            .attr("transform", "translate(0," + height + ")")
+            .call(xAxis);
+
+            svg.append('g')
+            .attr('class', 'histogram-axis histogram-y-axis')
+            .call(yAxis);
+
+            svg.append("text")
+            .attr("class", "histogram-label")
+            .attr("text-anchor", "middle")
+            .attr("x", width / 2)
+            .attr("y", height + 30)
+            .text('Moves to meeting');
+
+            svg.append("text")
+            .attr("class", "histogram-label")
+            .attr("text-anchor", "end")
+            .attr('x', 0)
+            .attr("y", -37)
+            .attr("dy", ".75em")
+            .attr("transform", "rotate(-90)")
+            .text("# of simulations");
+
+            svg.append("text")
+            .attr("class", 'move-counter-label')
+            .attr('text-anchor', 'start')
+            .attr('x', 0)
+            .attr('y', -38)
+            .text('Moves Taken:')
+
+            svg.append("text")
+            .attr("class", 'move-counter')
+            .attr('text-anchor', 'start')
+            .attr('x', 80)
+            .attr('y', -38)
+            .text('0')
+
+        };
+
+        chart.width = function(_) {
+            if (!arguments.length) return width + margin.left + margin.right;
+            width = _ - margin.left - margin.right;
+            return chart;
+        };
+
+        chart.height = function(_) {
+            if (!arguments.length) return height + margin.top + margin.bottom;
+            height = _ - margin.top - margin.bottom;
+            return chart;
+        };
+
+        chart.transitionDuration = function(_) {
+            if (!arguments.length) return transitionDuration;
+            transitionDuration = _;
+            return chart;
+        };
+
+        chart.updateMoves = function(newMoves) {
+            svg.select('.move-counter')
+            .text(newMoves);
+        }
+
+        chart.updateData = function(newValues) {
+            xScale.domain([-0.01, d3.max(newValues)]);
+
+            var data = d3.layout.histogram()
+            .bins(xScale.ticks(20))
+            (newValues);
+
+            yScale.domain([0, d3.max(data, function(d) { return d.y; })]);
+
+            var bar = svg.selectAll(".bar")
+            .data(data);
+
+            bar.exit().remove();
+
+            bar.transition()
+            .attr("class", "bar")
+            .attr('x', function(d) { return xScale(d.x) + 1;} )
+            .attr('y', function(d) { return yScale(d.y) + 1;} )
+            .attr("width", xScale(data[0].dx) - 1)
+            .attr("height", function(d) { return height - yScale(d.y); });
+
+            svg.select('.histogram-x-axis')
+            .call(xAxis);
+
+            svg.select('.histogram-y-axis')
+            .call(yAxis);
+
+            svg.select('.move-counter')
+            .transition()
+            .duration(transitionDuration)
+            .attr('x', xScale(newValues[newValues.length-1]))
+            .attr('y', height)
+            .transition()
+            .duration(0)
+            .attr('x', 80)
+            .attr('y', -38)
+        };
+
+        return chart;
+    };
+
     randomFinding.durationSlider = function() {
         var width = 100;
-        var margin = {top: 20, right: 20, bottom: 40 , left: 20};
 
         var chart = function(selection) {
             var xScale = d3.scale.linear()
-            .domain([.01, 0.6])
+            .domain([0.01, 0.6])
             .range([0, width])
             .clamp(true);
 
             var brush = d3.svg.brush()
             .x(xScale)
-            .extent([0.5, 0.5])
+            .extent([0.1, 0.1])   //default duration is set here
             .on("brush", brushed);
 
             selection.append("g")
@@ -35,7 +199,6 @@
             .attr("class", "slider")
             .call(brush);
 
-
             var handle = slider.append("circle")
             .attr("class", "handle")
             .attr("r", 6);
@@ -55,6 +218,14 @@
                 handle.attr("cx", xScale(value));
             }
 
+            // Add the label for the slider
+            selection.append("text")
+            .attr("class", "speed-label")
+            .attr("text-anchor", "middle")
+            .attr("x", width / 2)
+            .attr("y", 35)
+            .text('Speed per move (seconds)');
+
         };
 
         chart.targetFunction = function(_) {
@@ -72,15 +243,30 @@
         return chart;
     };
 
-    randomFinding.randomFindingLinear = function() {
-        var margin = {top: 20, right: 20, bottom: 40 , left: 20};
+    randomFinding.randomFindingOptions = function() {
 
-        var width=220 - margin.left - margin.right;
+        var chart = function(selection) {
+            selection.each(function(data) {
+                var select  = d3.select("#shru").append("select").on("change", change),
+                    options = select.selectAll('option').data(dd); // Data join
+
+                    // Enter selection
+                    // options.enter().append("option").text(function(d) { return d.teamShotID; });
+            });
+        };
+    };
+
+    randomFinding.randomFindingLinear = function() {
+        var histogramWidth = 170;
+
+        var margin = {top: 20, right: 20 + histogramWidth, bottom: 40 , left: 10};
+
+        var width=420 - margin.left - margin.right;
         var height=220 - margin.top - margin.bottom;
         var stepCounts = [];
 
-        var numPointsX=10;
-        var numPointsY=5;
+        var numPointsX=6;
+        var numPointsY=3;
         var pointRadius=5;
         var transitionDuration = 100;
 
@@ -94,13 +280,23 @@
                 .append('g')
                 .attr('transform', 'translate(' + margin.left + ',0)');
 
+
+                var hist = randomFinding.histogramPlot()
+                .width(histogramWidth)
+                .height(height - 50);
+
+                var gHistogram = svg.append('g')
+                .attr('transform', 'translate(' + (margin.left + width + 20 ) + ',' + (margin.bottom + 14 + 50) + ')')
+                .classed('histogram', true)
+                .call(hist);
+
                 var gSlider = gEnter.append('g')
                 .attr('transform', 'translate(0, ' + (height + margin.bottom/2) + ')')
                 .call(randomFinding.durationSlider().width(width)
                       .targetFunction(
                         function(x) { 
-                          console.log('x:', x);
                           transitionDuration = 1000 * x; 
+                          hist.transitionDuration = 1000 * x;
                       }
                       ));
 
@@ -195,6 +391,7 @@
 
                         //console.log('stepCounts:', stepCounts);
 
+                        hist.updateData(stepCounts);
                         explode(gEnter, [xScale(chaser.data()[0][0]),
                                       yScale(chaser.data()[0][1])],
                                transitionDuration * 2);
@@ -247,6 +444,8 @@
                         transitionDuration * 10));
 
                     steps += 1;
+                    hist.updateMoves(steps);
+                    
                     setTimeout(step, transitionDuration);
                 }
 
@@ -326,9 +525,6 @@
         };
     }
 
-    function brushed(d) {
-
-    }
 
     if (typeof define === "function" && define.amd) define(randomFinding); else if (typeof module === "object" && module.exports) module.exports = randomFinding;
         this.d3 = d3;
