@@ -87,3 +87,6 @@ rect.bar {
         fill: #000;
     }
 
+#options-table {
+    font: 12px sans-serif;
+}

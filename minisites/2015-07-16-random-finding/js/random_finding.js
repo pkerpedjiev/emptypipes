@@ -3,13 +3,14 @@
     var targetFunction = function(x) {};
 
     randomFinding.histogramPlot = function() {
-        var margin = {top: 10, right: 30, bottom: 30, left: 40};
+        var margin = {top: 20, right: 30, bottom: 20, left: 40};
         var width=420 - margin.left - margin.right;
         var height=220 - margin.top - margin.bottom;
+        var gEnter, xScale, yScale;
 
         var transitionDuration = 100;
 
-        var xScale, yScale;
+        var xScale, yScale;;
         var svg;
 
         var chart = function(selection) {
@@ -140,6 +141,20 @@
 
             bar.exit().remove();
 
+            bar.enter().append("rect")
+            .attr("class", "bar")
+            .attr('x', function(d) { return xScale(d.x) + 1;} )
+            .attr('y', function(d) { return yScale(d.y) + 1;} )
+            .attr("width", xScale(data[0].dx) - 1)
+            .attr("height", function(d) { return height - yScale(d.y); });
+
+            bar.transition()
+            .attr("class", "bar")
+            .attr('x', function(d) { return xScale(d.x) + 1;} )
+            .attr('y', function(d) { return yScale(d.y) + 1;} )
+            .attr("width", xScale(data[0].dx) - 1)
+            .attr("height", function(d) { return height - yScale(d.y); });
+
             bar.transition()
             .attr("class", "bar")
             .attr('x', function(d) { return xScale(d.x) + 1;} )
@@ -244,58 +259,71 @@
     };
 
     randomFinding.randomFindingOptions = function() {
-        var selectXValues, selectYValues;
-        var optionsX, optionsY;
+        var selectXValues, selectYValues, selectSpeedValues;
+        var optionsX, optionsY, optionsSpeed;
+        var targetChartDiv='#random-finding-linear';
+        var oldChart = null;
 
         var chart = function(selection) {
-            var optionValues = [1,2,3,4,5,6];
-            var optionSpeedValues = [{'name': 'fast',
-                                     'value': 10},
+            var heightOptionValues = [1,2,3,4,5,6];
+            var widthOptionValues = [1,2,3,4,5,6,7,8];
+            var optionSpeedValues = [{'name': 'slow',
+                                     'value': 400},
                                      {'name': 'medium',
                                      'value': 200},
-                                     {'name': 'slow',
-                                      'value': 400}];
+                                     {'name': 'fast',
+                                      'value': 10}];
             
-            var form = selection.append('table').append('tr');
+            var form = selection.append('table')
+            .attr('id', 'options-table')
+            .style('width', 400).append('tr');
 
-            form.append('td')
-            .append('label')
+            var td1 = form.append('td');
+
+            td1.append('label')
             .attr('for', 'xPosValues')
             .text("Width:")
             .style('margin-right', 10);
                 
-            selectXValues  = form.append('td').append("select")
+            selectXValues  = td1.append("select")
             .on("change", xChange)
-            .attr('id', 'xPosValues'),
+            .attr('id', 'xPosValues');
 
-            form.append('label')
+            var td2 = form.append('td');
+
+            td2.append('label')
             .attr('for', 'xPosValues')
             .text("Height:")
             .style('margin-right', 10)
-            .style('margin-left', 10);
 
-            selectYValues  = form.append("select")
+            selectYValues  = td2.append("select")
             .on("change", yChange)
             .attr('id', 'yPosValues');
 
-            form.append('label')
+            var td3 = form.append('td');
+            td3.append('label')
             .attr('for', 'speedValues')
             .text("Speed:")
             .style('margin-right', 10)
-            .style('margin-left', 10);
 
-            selectSpeedValues  = form.append("select")
-            .on("change", yChange)
-            .attr('id', 'yPosValues');
+            var td4 = form.append('td');
+
+            td4.append('button')
+            .text('Restart')
+            .on('click', reloadClicked);
+
+            selectSpeedValues  = td3.append("select")
+            .on("change", speedChange)
+            .attr('id', 'speedValues');
 
             optionsX = selectXValues.selectAll('option')
-            .data(optionValues)
+            .data(widthOptionValues)
             .enter()
             .append('option')
             .text(function(d) { return d; });
 
             optionsY = selectYValues.selectAll('option')
-            .data(optionValues)
+            .data(heightOptionValues)
             .enter()
             .append('option')
             .text(function(d) { return d; }); // Data join
@@ -304,21 +332,82 @@
             .data(optionSpeedValues)
             .enter()
             .append('option')
-            .text(function(d) { return d.name; }); // Data join
+            .text(function(d) { return d.name; });
         };
+
+        function reloadClicked() {
+            var newChart = randomFinding.randomFindingLinear();
+
+            var selectedIndex = selectXValues.property('selectedIndex'),
+                data           = optionsX[0][selectedIndex].__data__;
+
+            newChart.numPointsX(data);
+
+            selectedIndex = selectYValues.property('selectedIndex');
+            data           = optionsY[0][selectedIndex].__data__;
+
+            newChart.numPointsY(data);
+
+            selectedIndex = selectSpeedValues.property('selectedIndex');
+            data           = optionsSpeed[0][selectedIndex].__data__;
+
+            newChart.transitionDuration(data.value);
+
+            if (oldChart !== null)
+                oldChart.running(false);
+
+            d3.select(targetChartDiv)
+            .selectAll('svg')
+            .remove();
+
+            oldChart = newChart;
+
+            d3.select(targetChartDiv)
+            .call(newChart);
+        }
 
         function xChange() {
             var selectedIndex = selectXValues.property('selectedIndex'),
                     data          = optionsY[0][selectedIndex].__data__;
 
-                    console.log('data:', data);
+                if (oldChart !== null) {
+                    oldChart.numPointsX(data);
+                    oldChart.redrawGrid();
+                }
         }
 
         function yChange() {
             var selectedIndex = selectYValues.property('selectedIndex'),
                     data          = optionsY[0][selectedIndex].__data__;
                 console.log('data:', data);
+
+                if (oldChart !== null) {
+                    oldChart.numPointsY(data);
+                    oldChart.redrawGrid();
+                }
         }
+
+        function speedChange() {
+            var selectedIndex = selectSpeedValues.property('selectedIndex'),
+                    data          = optionsSpeed[0][selectedIndex].__data__;
+
+                    console.log('data', data)
+                    if (oldChart !== null) {
+                        oldChart.transitionDuration(data.value);
+                    }
+        }
+        
+        chart.targetChartDiv = function(_) {
+            if (!arguments.length) return targetChartDiv;
+            targetChartDiv = _;
+            return chart;
+        };
+
+        chart.oldChart = function(_) {
+            if (!arguments.length) return oldChart;
+            oldChart = _;
+            return chart;
+        };
 
         return chart;
     };
@@ -326,26 +415,28 @@
     randomFinding.randomFindingLinear = function() {
         var histogramWidth = 170;
 
-        var margin = {top: 20, right: 20 + histogramWidth, bottom: 40 , left: 10};
+        var margin = {top: 20, right: 20 + histogramWidth, bottom: 20 , left: 10};
 
         var width=420 - margin.left - margin.right;
         var height=220 - margin.top - margin.bottom;
         var stepCounts = [];
 
-        var numPointsX=6;
-        var numPointsY=3;
+        var numPointsX=1;
+        var numPointsY=6;
         var pointRadius=5;
         var transitionDuration = 100;
+        var running = true;
 
         var steps = 0;
+        var xScale, yScale;
 
         var chart = function(selection) {
            selection.each(function(data) {
                 var svg = d3.select(this).selectAll('svg').data([data]);
 
-                var gEnter = svg.enter().append('svg')
+                gEnter = svg.enter().append('svg')
                 .append('g')
-                .attr('transform', 'translate(' + margin.left + ',0)');
+                .attr('transform', 'translate(' + margin.left + ',' +  margin.top + ')');
 
 
                 var hist = randomFinding.histogramPlot()
@@ -353,10 +444,11 @@
                 .height(height - 50);
 
                 var gHistogram = svg.append('g')
-                .attr('transform', 'translate(' + (margin.left + width + 20 ) + ',' + (margin.bottom + 14 + 50) + ')')
+                .attr('transform', 'translate(' + (margin.left + width + 20 ) + ',' + (margin.bottom + 14 + 20) + ')')
                 .classed('histogram', true)
                 .call(hist);
 
+                /*
                 var gSlider = gEnter.append('g')
                 .attr('transform', 'translate(0, ' + (height + margin.bottom/2) + ')')
                 .call(randomFinding.durationSlider().width(width)
@@ -366,40 +458,12 @@
                           hist.transitionDuration = 1000 * x;
                       }
                       ));
+                      */
 
                 svg.attr('width', width + margin.left + margin.right)
                 .attr('height', height + margin.top + margin.bottom);
 
-                var gridWidthX = (width) / numPointsX;
-                var gridWidthY = (height) / numPointsY;
-
-                if (gridWidthX < gridWidthY) {
-                    //xPoints are more tightly packed than yPoints
-                    xMargin = 0;
-                    yMargin = (height - (numPointsY - 1) * gridWidthX) / 2;
-                } else {
-                    yMargin = 0;
-                    xMargin = (width - (numPointsX - 1) * gridWidthY) / 2;
-                }
-
-                var xScale = d3.scale.ordinal().domain(d3.range(numPointsX))
-                 .rangePoints([xMargin,width-xMargin]);
-                var yScale = d3.scale.ordinal().domain(d3.range(numPointsY))
-                .rangePoints([yMargin,height-yMargin]);
-
-                var points = [];
-                for (var i = 0; i < numPointsX; i++)
-                    for (var j = 0; j < numPointsY; j++)
-                        points.push([i, j]);
-
-                gEnter.selectAll('grid-point')
-                .data(points)
-                .enter()
-                .append('circle')
-                .attr('cx', function(d) { return xScale(d[0]); })
-                .attr('cy', function(d) { return yScale(d[1]); })
-                .attr('r', function(d) { return pointRadius; })
-                .classed('grid-point', true);
+                drawGrid();
 
                 gEnter.selectAll('chaser')
                 .data([randomPosition()])
@@ -421,10 +485,6 @@
                     return 'translate(' + xScale(d[0]) + ',' + yScale(d[1]) + ')';
                 });
 
-                function randomPosition() {
-                    return [Math.floor(Math.random() * numPointsX),
-                            Math.floor(Math.random() * numPointsY)];
-                }
 
                 function randomDirection() {
                     return [Math.floor(Math.random() * 3) - 1,
@@ -446,11 +506,15 @@
                 }
 
                 function step() {
+                    if (!running)
+                        return;
+
                     var chaser = d3.select('.chaser');
                     var runner = d3.select('.runner');
 
                     var prevPosRunner = runner.data()[0];
                     var prevPosChaser = chaser.data()[0];
+
 
                     if (chaser.data()[0][0] == runner.data()[0][0] &&
                         chaser.data()[0][1] == runner.data()[0][1]) {
@@ -487,11 +551,13 @@
                     do {
                         newChaserPosition = addPosition(chaser.data()[0],
                                                             randomDirection());
+
                     } while (!isValidPosition(newChaserPosition));
 
                     do {
                         newRunnerPosition = addPosition(runner.data()[0],
                                                         randomDirection());
+
                     } while (!isValidPosition(newRunnerPosition));
 
                     chaser.data([newChaserPosition]).transition()
@@ -516,11 +582,69 @@
                     setTimeout(step, transitionDuration);
                 }
 
-                console.log('points', points);
-                
                 step();
            });
         };
+
+        function randomPosition() {
+            return [Math.floor(Math.random() * numPointsX),
+                Math.floor(Math.random() * numPointsY)];
+        }
+
+    drawGrid = function() {
+            var gridWidthX = (width) / numPointsX;
+            var gridWidthY = (height) / numPointsY;
+
+            if (gridWidthX < gridWidthY) {
+                //xPoints are more tightly packed than yPoints
+                xMargin = 0;
+                yMargin = (height - (numPointsY - 1) * gridWidthX) / 2;
+            } else {
+                yMargin = 0;
+                xMargin = (width - (numPointsX - 1) * gridWidthY) / 2;
+            }
+
+            console.log('yMargin', yMargin);
+
+            xScale = d3.scale.ordinal().domain(d3.range(numPointsX))
+             .rangePoints([xMargin,width-xMargin]);
+            yScale = d3.scale.ordinal().domain(d3.range(numPointsY))
+            .rangePoints([yMargin,height-yMargin]);
+
+            var points = [];
+            for (var i = 0; i < numPointsX; i++)
+                for (var j = 0; j < numPointsY; j++)
+                    points.push([i, j]);
+
+            var pointSelection = gEnter.selectAll('.grid-point')
+            .data(points);
+
+
+            var exitSelection = pointSelection.exit();
+            exitSelection.remove();
+
+            pointSelection.enter()
+            .append('circle')
+            .attr('cx', function(d) { return xScale(d[0]); })
+            .attr('cy', function(d) { return yScale(d[1]); })
+            .attr('r', function(d) { return pointRadius; })
+            .classed('grid-point', true);
+            
+            pointSelection
+            .attr('cx', function(d) { return xScale(d[0]); })
+            .attr('cy', function(d) { return yScale(d[1]); })
+            .attr('r', function(d) { return pointRadius; });
+    };
+
+    chart.redrawGrid = function() {
+        var chaser = d3.select('.chaser');
+        var runner = d3.select('.runner');
+
+        chaser.data([randomPosition()]);
+        runner.data([randomPosition()]);
+
+        drawGrid();    
+    };
 
         chart.width = function(_) {
             if (!arguments.length) return width + margin.left + margin.right;
@@ -531,6 +655,30 @@
         chart.height = function(_) {
             if (!arguments.length) return height + margin.top + margin.bottom;
             height = _ - margin.top - margin.bottom;
+            return chart;
+        };
+
+        chart.numPointsX = function(_) {
+            if (!arguments.length) return numPointsX;
+            numPointsX = _;
+            return chart;
+        };
+        
+        chart.numPointsY = function(_) {
+            if (!arguments.length) return numPointsY;
+            numPointsY = _;
+            return chart;
+        };
+
+        chart.running = function(_) {
+            if (!arguments.length) return running;
+            running = _;
+            return chart;
+        };
+
+        chart.transitionDuration = function(_) {
+            if (!arguments.length) return transitionDuration;
+            transitionDuration = _;
             return chart;
         };
 

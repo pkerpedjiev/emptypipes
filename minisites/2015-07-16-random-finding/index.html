@@ -13,7 +13,8 @@
             d3.select('#random-finding-linear')
             .call(randomFindingLinearChart);
 
-            var optionsChart = randomFinding.randomFindingOptions();
+            var optionsChart = randomFinding.randomFindingOptions()
+                .oldChart(randomFindingLinearChart);
 
             d3.select('#random-finding-options')
             .call(optionsChart);
