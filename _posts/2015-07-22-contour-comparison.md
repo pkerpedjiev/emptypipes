@@ -123,6 +123,7 @@ If you see any errors or omissions or know of a way to make the Turf.js example 
 <script src="/js/circle-conrec-example.js"></script>
 <script src="/js/circle-turf-example.js"></script>
 <script>
+
 drawMarchingSquaresContours('#marchingSquaresContourPlotDiv');
 drawConrecContours('#conrecContourPlotDiv');
 drawTurfContours('#turfContourPlotDiv')
