@@ -1,6 +1,6 @@
 name: Empty Pipes
 markdown: redcarpet
-highlight: pygments
+pygments: true
 paginate: 3
 permalink: pretty
 url: http://emptypipes.org
