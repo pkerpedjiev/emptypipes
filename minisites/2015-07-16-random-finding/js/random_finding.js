@@ -320,19 +320,22 @@
             .data(widthOptionValues)
             .enter()
             .append('option')
-            .text(function(d) { return d; });
+            .text(function(d) { return d; })
+            .property('selected', function(d) { return d === oldChart.numPointsX(); });
 
             optionsY = selectYValues.selectAll('option')
             .data(heightOptionValues)
             .enter()
             .append('option')
-            .text(function(d) { return d; }); // Data join
+            .text(function(d) { return d; })
+            .property('selected', function(d) { return d === oldChart.numPointsY(); }); // Data join
 
             optionsSpeed = selectSpeedValues.selectAll('option')
             .data(optionSpeedValues)
             .enter()
             .append('option')
-            .text(function(d) { return d.name; });
+            .text(function(d) { return d.name; })
+            .property('selected', function(d) { return d.value === oldChart.transitionDuration(); });
         };
 
         function reloadClicked() {
@@ -368,11 +371,17 @@
 
         function xChange() {
             var selectedIndex = selectXValues.property('selectedIndex'),
-                    data          = optionsY[0][selectedIndex].__data__;
+                    data          = optionsX[0][selectedIndex].__data__;
+
+                    console.log('data:', data);
 
                 if (oldChart !== null) {
+                    /*
                     oldChart.numPointsX(data);
                     oldChart.redrawGrid();
+                    */
+
+                    reloadClicked();
                 }
         }
 
@@ -382,8 +391,12 @@
                 console.log('data:', data);
 
                 if (oldChart !== null) {
+                    /*
                     oldChart.numPointsY(data);
                     oldChart.redrawGrid();
+                    */
+
+                    reloadClicked();
                 }
         }
 
@@ -421,10 +434,10 @@
         var height=220 - margin.top - margin.bottom;
         var stepCounts = [];
 
-        var numPointsX=1;
-        var numPointsY=6;
+        var numPointsX=6;
+        var numPointsY=2;
         var pointRadius=5;
-        var transitionDuration = 100;
+        var transitionDuration = 200;
         var running = true;
 
         var steps = 0;
