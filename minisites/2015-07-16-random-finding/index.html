@@ -2,7 +2,20 @@
     <meta charset='utf-8'>
     <link rel='stylesheet' href='/css/random_finding.css'>
     <body>
-        <div id='random-finding-options'></div>
+        <div id='random-finding-options'>
+            <table id='options-table' style='width: 400'>
+                <tr>
+                    <td colspan=2>
+                        <label>Strategy Person 1:</label>
+                        <select id='selectStrategy1'> </select>
+                    </td>
+                    <td colspan=2>
+                        <label>Strategy Person 2:</label>
+                        <select id='selectStrategy2'> </select>
+                    </td>
+                </tr>
+            </table>
+        </div>
         <div id='random-finding-linear'></div>
         <script type='text/javascript' src='js/lib/d3.min.js'></script>
         <script type='text/javascript' src='js/lib/math.min.js'></script>

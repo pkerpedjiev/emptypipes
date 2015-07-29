@@ -318,12 +318,17 @@
 
     randomFinding.randomFindingOptions = function() {
         var selectXValues, selectYValues, selectSpeedValues;
+        var selectStrategyRunner, selectStrategyChaser;
+
         var optionsX, optionsY, optionsSpeed;
+        var optionsStrategy1, optionsStrategy2;
+
+        var radioWaiting;
         var targetChartDiv='#random-finding-linear';
         var oldChart = null;
 
         var chart = function(selection) {
-            var heightOptionValues = [1,2,3,4,5,6];
+            var heightOptionValues = [1,2,3,4,5,6,7,8];
             var widthOptionValues = [1,2,3,4,5,6,7,8];
             var optionSpeedValues = [{'name': 'slow',
                                      'value': 400},
@@ -331,12 +336,12 @@
                                      'value': 200},
                                      {'name': 'fast',
                                       'value': 10}];
+            var optionStrategies = ['standing', 'random', 'avoiding', 'scanning'];
             
-            var form = selection.append('table')
-            .attr('id', 'options-table')
-            .style('width', 400).append('tr');
+           var table = selection.select('#options-table') ;
+            row = table.append('tr');
 
-            var td1 = form.append('td');
+            var td1 = row.append('td');
 
             td1.append('label')
             .attr('for', 'xPosValues')
@@ -347,7 +352,7 @@
             .on("change", xChange)
             .attr('id', 'xPosValues');
 
-            var td2 = form.append('td');
+            var td2 = row.append('td');
 
             td2.append('label')
             .attr('for', 'xPosValues')
@@ -358,13 +363,13 @@
             .on("change", yChange)
             .attr('id', 'yPosValues');
 
-            var td3 = form.append('td');
+            var td3 = row.append('td');
             td3.append('label')
             .attr('for', 'speedValues')
             .text("Speed:")
             .style('margin-right', 10)
 
-            var td4 = form.append('td');
+            var td4 = row.append('td');
 
             td4.append('button')
             .text('Restart')
@@ -373,6 +378,11 @@
             selectSpeedValues  = td3.append("select")
             .on("change", speedChange)
             .attr('id', 'speedValues');
+
+            selectStrategy1 = selection.select('#selectStrategy1')
+            .on('change', reloadClicked);
+            selectStrategy2 = selection.select('#selectStrategy2')
+            .on('change', reloadClicked);
 
             optionsX = selectXValues.selectAll('option')
             .data(widthOptionValues)
@@ -394,6 +404,21 @@
             .append('option')
             .text(function(d) { return d.name; })
             .property('selected', function(d) { return d.value === oldChart.transitionDuration(); });
+
+            console.log(oldChart.strategyRunner());
+            optionsStrategy1 = selectStrategy1.selectAll('option')
+            .data(optionStrategies)
+            .enter()
+            .append('option')
+            .text(function(d) { return d; })
+            .property('selected', function(d) { return d == oldChart.strategyRunner(); });
+
+            optionsStrategy2 = selectStrategy2.selectAll('option')
+            .data(optionStrategies)
+            .enter()
+            .append('option')
+            .text(function(d) { return d; })
+            .property('selected', function(d) { return d == oldChart.strategyChaser(); });
         };
 
         function reloadClicked() {
@@ -411,8 +436,20 @@
 
             selectedIndex = selectSpeedValues.property('selectedIndex');
             data           = optionsSpeed[0][selectedIndex].__data__;
-
             newChart.transitionDuration(data.value);
+
+            selectedIndex = selectStrategy1.property('selectedIndex');
+            data           = optionsStrategy1[0][selectedIndex].__data__;
+
+            console.log('data:', data);
+            newChart.strategyRunner(data);
+
+            selectedIndex = selectStrategy2.property('selectedIndex');
+            data           = optionsStrategy2[0][selectedIndex].__data__;
+
+            console.log('dataChaser:', data);
+            newChart.strategyChaser(data);
+
 
             if (oldChart !== null)
                 oldChart.running(false);
@@ -486,12 +523,11 @@
     randomFinding.randomFindingLinear = function() {
         var histogramWidth = 170;
 
-        var margin = {top: 20, right: 20 + histogramWidth, bottom: 20 , left: 10};
+        var margin = {top: 20, right: 40 + histogramWidth, bottom: 20 , left: 10};
 
         var width=420 - margin.left - margin.right;
         var height=220 - margin.top - margin.bottom;
         var stepCounts = [];
-        var runnerFixed = false;
 
         var numPointsX=6;
         var numPointsY=2;
@@ -502,6 +538,27 @@
         var steps = 0;
         var xScale, yScale;
         var gEnter;
+
+        var strategyRunner = 'standing';
+        var strategyChaser = 'random';
+
+        var timesVisitedRunner;
+        var timesVisitedChaser;
+
+
+        function createEmptyGrid() {
+            var emptyGrid = [];
+            for (var i = 0; i < numPointsX; i++) {
+                var thisRow = [];
+
+                for (var j = 0; j < numPointsY; j++) 
+                    thisRow.push(0);
+
+                emptyGrid.push(thisRow);
+            }
+
+            return emptyGrid;
+        }
 
         var chart = function(selection) {
             var svg = selection.append('svg');
@@ -514,8 +571,9 @@
             .width(histogramWidth)
             .height(height - 50);
 
+            console.log('blah 2;');
             var gHistogram = svg.append('g')
-            .attr('transform', 'translate(' + (margin.left + width + 20 ) + ',' + (margin.bottom + 14 + 20) + ')')
+            .attr('transform', 'translate(' + (margin.left + width + 40 ) + ',' + (margin.bottom + 14 + 20) + ')')
             .classed('histogram', true)
             .call(hist);
 
@@ -576,6 +634,22 @@
                     position[1] + direction[1]];
             }
 
+            function potentialMoves(currentPosition) {
+                var moves = [[-1,-1],[-1,0],[-1,1],
+                                      [0,1],[0,-1],
+                                      [1,-1],[1,0],[1,0]];
+                moves = moves.map(function(d) {
+                    return addPosition(currentPosition, d);
+                });
+
+                return moves.filter(function(d) {
+                    return isValidPosition(d);
+                });
+            }
+
+            timesVisitedRunner = createEmptyGrid();
+            timesVisitedChaser = createEmptyGrid();
+
             function step() {
                 if (!running)
                     return;
@@ -586,9 +660,15 @@
                 var prevPosRunner = runner.data()[0];
                 var prevPosChaser = chaser.data()[0];
 
+                timesVisitedRunner[prevPosRunner[0]][prevPosRunner[1]] += 1;
+                timesVisitedChaser[prevPosChaser[0]][prevPosChaser[1]] += 1;
+
                 if (chaser.data()[0][0] == runner.data()[0][0] &&
                     chaser.data()[0][1] == runner.data()[0][1]) {
                     stepCounts.push(steps);
+
+                timesVisitedRunner = createEmptyGrid();
+                timesVisitedChaser = createEmptyGrid();
 
                 //console.log('stepCounts:', stepCounts);
 
@@ -619,17 +699,39 @@
                 }
 
                 do {
-                    newChaserPosition = addPosition(chaser.data()[0],
-                                                    randomDirection());
+                    if (strategyChaser == 'standing') {
+                        newChaserPosition = chaser.data()[0];
+                    } else if (strategyChaser == 'random') {
+                        newChaserPosition = addPosition(chaser.data()[0],
+                                                        randomDirection());
+                        console.log('newChaserPosition', newChaserPosition);
+                    } else if (strategyChaser == 'avoiding') {
+                        var validPositions = potentialMoves(chaser.data()[0]);
+                        validPositions = validPositions.map(function(d) {
+                            return [d, timesVisitedChaser[d[0]][d[1]]];
+                        }).sort(function(a,b) { return a[1] - b[1]; });
 
+                        console.log('validPositions:', validPositions[0], validPositions[1], validPositions[2]);
+                        newChaserPosition = validPositions[0][0];
+                        console.log('newChaserPosition', newChaserPosition);
+                    }
                 } while (!isValidPosition(newChaserPosition));
 
                 do {
-                    if (!runnerFixed) {
+                    if (strategyRunner == 'standing') {
+                        newRunnerPosition = runner.data()[0];
+                    } else if (strategyRunner == 'random') {
                         newRunnerPosition = addPosition(runner.data()[0],
                                                         randomDirection());
-                    } else {
-                        newRunnerPosition = runner.data()[0];
+                    } else if (strategyRunner == 'avoiding') {
+                        var validPositions = potentialMoves(runner.data()[0]);
+                        validPositions = validPositions.map(function(d) {
+                            return [d, timesVisitedRunner[d[0]][d[1]]];
+                        }).sort(function(a,b) { return a[1] - b[1]; });
+
+                        console.log('validPositions:', validPositions[0], validPositions[1], validPositions[2]);
+                        newRunnerPosition = validPositions[0][0];
+                        console.log('newRunnerPosition', newRunnerPosition);
                     }
 
                 } while (!isValidPosition(newRunnerPosition));
@@ -718,6 +820,18 @@
 
         drawGrid();    
     };
+
+        chart.strategyRunner = function(_) {
+            if (!arguments.length) return strategyRunner;
+            strategyRunner = _;
+            return chart;
+        };
+
+        chart.strategyChaser = function(_) {
+            if (!arguments.length) return strategyChaser;
+            strategyChaser = _;
+            return chart;
+        };
 
         chart.width = function(_) {
             if (!arguments.length) return width + margin.left + margin.right;

@@ -72,3 +72,66 @@ d3.select('#bothPeopleMove')
 
 To save you some time, I took the liberty of repeating these simulations for a
 variety of grid sizes and recorded the results.
+
+<table>
+<tr>
+<th>Grid Size</th>
+<th>One Person Moving</th>
+<th>One Person Still</th>
+</tr>
+<tr>
+<td>2x2</td>
+<td>
+Median: 2.0
+Mean: 3.0
+Std: 3.5
+</td>
+<td>
+Median: 2.0
+Mean: 3.0
+Std: 3.4
+</td>
+</tr>
+<tr>
+<td>4x4</td>
+<td>
+Median: 11.0
+Mean: 15.8
+Std: 16.6
+</td>
+<td>
+Median: 14.0
+Mean: 23.9
+Std: 27.9
+</td>
+</tr>
+<tr>
+<td>6x6</td>
+<td>
+Median: 28.0
+Mean: 40.6
+Std: 41.7
+</td>
+<td>
+Median: 44.0
+Mean: 68.2
+Std: 79.2
+</td>
+</tr>
+
+<tr>
+<td>8x8</td>
+<td>
+Median: 53.0
+Mean: 78.5
+Std: 79.4
+</td>
+<td>
+Median: 73.0
+Mean: 127.9
+Std: 152.8
+</td>
+</tr>
+
+</table>
+

@@ -486,7 +486,7 @@
     randomFinding.randomFindingLinear = function() {
         var histogramWidth = 170;
 
-        var margin = {top: 20, right: 20 + histogramWidth, bottom: 20 , left: 10};
+        var margin = {top: 20, right: 40 + histogramWidth, bottom: 20 , left: 10};
 
         var width=420 - margin.left - margin.right;
         var height=220 - margin.top - margin.bottom;
@@ -503,6 +503,38 @@
         var xScale, yScale;
         var gEnter;
 
+        var strategyRunner = 'random';
+        var strategyChaser = 'random';
+
+        var timesVisitedRunner;
+        var timesVisitedChaser;
+
+        chart.strategyRunner = function(_) {
+            if (!arguments.length) return strategyRunner;
+            strategyRunner = _;
+            return chart;
+        };
+
+        chart.strategyChaser = function(_) {
+            if (!arguments.length) return strategyChaser;
+            strategyChaser = _;
+            return chart;
+        };
+
+        function createEmptyGrid() {
+            var emptyGrid = [];
+            for (var i = 0; i < numPointsX; i++) {
+                var thisRow = [];
+
+                for (var j = 0; j < numPointsY; j++) 
+                    thisRow.push(0);
+
+                emptyGrid.push(thisRow);
+            }
+
+            return emptyGrid;
+        }
+
         var chart = function(selection) {
             var svg = selection.append('svg');
 
@@ -514,8 +546,9 @@
             .width(histogramWidth)
             .height(height - 50);
 
+            console.log('blah 2;');
             var gHistogram = svg.append('g')
-            .attr('transform', 'translate(' + (margin.left + width + 20 ) + ',' + (margin.bottom + 14 + 20) + ')')
+            .attr('transform', 'translate(' + (margin.left + width + 40 ) + ',' + (margin.bottom + 14 + 20) + ')')
             .classed('histogram', true)
             .call(hist);
 
@@ -576,6 +609,22 @@
                     position[1] + direction[1]];
             }
 
+            function potentialMoves(currentPosition) {
+                var moves = [[-1,-1],[-1,0],[-1,1],
+                                      [0,1],[0,-1],
+                                      [1,-1],[1,0],[1,0]];
+                moves = moves.map(function(d) {
+                    return addPosition(currentPosition, d);
+                });
+
+                return moves.filter(function(d) {
+                    return isValidPosition(d);
+                });
+            }
+
+            timesVisitedRunner = createEmptyGrid();
+            timesVisitedChaser = createEmptyGrid();
+
             function step() {
                 if (!running)
                     return;
@@ -585,6 +634,9 @@
 
                 var prevPosRunner = runner.data()[0];
                 var prevPosChaser = chaser.data()[0];
+
+                timesVisitedRunner[prevPosRunner[0]][prevPosRunner[1]] += 1;
+                timesVisitedChaser[prevPosChaser[0]][prevPosChaser[1]] += 1;
 
                 if (chaser.data()[0][0] == runner.data()[0][0] &&
                     chaser.data()[0][1] == runner.data()[0][1]) {
@@ -617,10 +669,23 @@
 
                         return;
                 }
+                console.log('here');
 
                 do {
-                    newChaserPosition = addPosition(chaser.data()[0],
-                                                    randomDirection());
+                    if (strategyChaser == 'random') {
+                        newChaserPosition = addPosition(chaser.data()[0],
+                                                        randomDirection());
+
+                        var validPositions = potentialMoves(chaser.data()[0]);
+                        validPositions = validPositions.map(function(d) {
+                            return [d, timesVisitedChaser[d[0]][d[1]]];
+                        });
+
+                        console.log('validPositions:', validPositions);
+                    } else if (strategyChaser == 'avoiding') {
+
+                    }
+
 
                 } while (!isValidPosition(newChaserPosition));
 
@@ -763,6 +828,7 @@
 
         return chart;
     };
+
 
     function explode(targetSelection, pos, duration) {
         //Create an exploding circle at position pos
