@@ -540,7 +540,7 @@
         var gEnter;
 
         var strategyRunner = 'standing';
-        var strategyChaser = 'random';
+        var strategyChaser = 'avoiding';
 
         var timesVisitedRunner;
         var timesVisitedChaser;
@@ -650,6 +650,25 @@
             timesVisitedRunner = createEmptyGrid();
             timesVisitedChaser = createEmptyGrid();
 
+            function shuffle(o){
+                for(var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+                return o;
+            }
+
+            function getAvoidingMove(currentPosition, timesVisited) {
+                var validPositions = potentialMoves(currentPosition);
+                validPositions = validPositions.map(function(d) {
+                    return [d, timesVisited[d[0]][d[1]]];
+                }).sort(function(a,b) { return a[1] - b[1]; })
+
+                //take all equally good positions
+                validPositions = validPositions.filter(function(d) { return d[1] == validPositions[0][1]; });
+                shuffle(validPositions);
+                
+                console.log('validPositions:', validPositions[0], validPositions[1], validPositions[2]);
+                return validPositions[0][0];
+            }
+
             function step() {
                 if (!running)
                     return;
@@ -706,14 +725,8 @@
                                                         randomDirection());
                         console.log('newChaserPosition', newChaserPosition);
                     } else if (strategyChaser == 'avoiding') {
-                        var validPositions = potentialMoves(chaser.data()[0]);
-                        validPositions = validPositions.map(function(d) {
-                            return [d, timesVisitedChaser[d[0]][d[1]]];
-                        }).sort(function(a,b) { return a[1] - b[1]; });
-
-                        console.log('validPositions:', validPositions[0], validPositions[1], validPositions[2]);
-                        newChaserPosition = validPositions[0][0];
-                        console.log('newChaserPosition', newChaserPosition);
+                        newChaserPosition = getAvoidingMove(chaser.data()[0],
+                                                           timesVisitedChaser);
                     }
                 } while (!isValidPosition(newChaserPosition));
 
@@ -724,14 +737,8 @@
                         newRunnerPosition = addPosition(runner.data()[0],
                                                         randomDirection());
                     } else if (strategyRunner == 'avoiding') {
-                        var validPositions = potentialMoves(runner.data()[0]);
-                        validPositions = validPositions.map(function(d) {
-                            return [d, timesVisitedRunner[d[0]][d[1]]];
-                        }).sort(function(a,b) { return a[1] - b[1]; });
-
-                        console.log('validPositions:', validPositions[0], validPositions[1], validPositions[2]);
-                        newRunnerPosition = validPositions[0][0];
-                        console.log('newRunnerPosition', newRunnerPosition);
+                        newRunnerPosition = getAvoidingMove(runner.data()[0],
+                                                            timesVisitedRunner);
                     }
 
                 } while (!isValidPosition(newRunnerPosition));
