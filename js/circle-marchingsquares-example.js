@@ -37,7 +37,6 @@ function drawMarchingSquaresContours(divId) {
             var upperBand = zs[i];
 
             var band = MarchingSquaresJS.IsoBands(data, lowerBand, upperBand - lowerBand);
-            console.log('band', band);
             isoBands.push({"coords": band, "level": i, "val": zs[i]});
         }
 

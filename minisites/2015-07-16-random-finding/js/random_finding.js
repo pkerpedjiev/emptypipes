@@ -328,8 +328,8 @@
         var oldChart = null;
 
         var chart = function(selection) {
-            var heightOptionValues = [1,2,3,4,5,6,7,8];
-            var widthOptionValues = [1,2,3,4,5,6,7,8];
+            var heightOptionValues = [1,2,3,4,5,6,7,8,16];
+            var widthOptionValues = [1,2,3,4,5,6,7,8,16];
             var optionSpeedValues = [{'name': 'slow',
                                      'value': 400},
                                      {'name': 'medium',
@@ -542,6 +542,9 @@
         var strategyRunner = 'standing';
         var strategyChaser = 'avoiding';
 
+        var runnerDirection = [1,1];
+        var chaserDirection = [-1,-1];
+
         var timesVisitedRunner;
         var timesVisitedChaser;
 
@@ -669,6 +672,27 @@
                 return validPositions[0][0];
             }
 
+            function getScanningMove(currentPosition, previousDirection) {
+                // move in the y direction
+                var newPosition = addPosition(currentPosition, [0, previousDirection[1]]);
+                
+                if (!isValidPosition(newPosition)) {
+                    // didn't work, move in the x-direction
+                    // and reverse the y-direction for the next move
+                    newPosition = addPosition(currentPosition, [previousDirection[0], 0]);
+                    previousDirection[1] = -previousDirection[1];
+                }
+
+                if (!isValidPosition(newPosition)) {
+                    //didn't work move back in the x direction, keep the
+                    //reversed y direction and reverse the x-direction 
+                    newPosition = addPosition(currentPosition, [-previousDirection[0], 0]);
+                    previousDirection[0] = -previousDirection[0];
+                }
+
+                return [newPosition, previousDirection];
+            }
+
             function step() {
                 if (!running)
                     return;
@@ -727,6 +751,10 @@
                     } else if (strategyChaser == 'avoiding') {
                         newChaserPosition = getAvoidingMove(chaser.data()[0],
                                                            timesVisitedChaser);
+                    } else if (strategyChaser = 'scanning') {
+                        var ret = getScanningMove(chaser.data()[0], chaserDirection);
+                        newChaserPosition = ret[0];
+                        chaserDirection = ret[1];
                     }
                 } while (!isValidPosition(newChaserPosition));
 
@@ -739,6 +767,10 @@
                     } else if (strategyRunner == 'avoiding') {
                         newRunnerPosition = getAvoidingMove(runner.data()[0],
                                                             timesVisitedRunner);
+                    } else if (strategyRunner = 'scanning') {
+                        var ret = getScanningMove(runner.data()[0], runnerDirection);
+                        newRunnerPosition = ret[0];
+                        runnerDirection = ret[1];
                     }
 
                 } while (!isValidPosition(newRunnerPosition));

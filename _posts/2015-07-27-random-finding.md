@@ -48,7 +48,8 @@ start at random positions at the start of each simulation.
 <script>
 var onePersonWaits = randomFinding.randomFindingLinear()
 .transitionDuration(100)
-.runnerFixed(true);
+.strategyRunner('standing')
+.strategyChaser('random')
 
 d3.select('#onePersonWaits')
 .call(onePersonWaits);
@@ -63,9 +64,11 @@ at the start of each simulation.
 <script>
 var bothPeopleMove = randomFinding.randomFindingLinear()
 .transitionDuration(100)
+.strategyRunner('random')
+.strategyChaser('random');
 
 d3.select('#bothPeopleMove')
-.call(bothPeopleMove);
+.call(bothPeopleMove)
 </script>
 
 #### Verdict ####
@@ -73,65 +76,124 @@ d3.select('#bothPeopleMove')
 To save you some time, I took the liberty of repeating these simulations for a
 variety of grid sizes and recorded the results.
 
-<table>
+<table width=400 align=center>
 <tr>
-<th>Grid Size</th>
-<th>One Person Moving</th>
-<th>One Person Still</th>
+<th rowspan=2>Grid Size</th>
+<th>Measure</th>
+<th>Both People</th>
+<th>One Person</th>
 </tr>
 <tr>
-<td>2x2</td>
-<td>
-Median: 2.0
-Mean: 3.0
-Std: 3.5
-</td>
-<td>
-Median: 2.0
-Mean: 3.0
-Std: 3.4
-</td>
+<th>
+<th>Moving</th>
+<th>Waits</th>
+</tr>
+
+
+<tr>
+<td rowspan=3>2x2</td>
+<td>Median</td>
+<td class='number-cell'>2.0</td>
+<td class='number-cell'>2.0</td>
 </tr>
 <tr>
-<td>4x4</td>
-<td>
-Median: 11.0
-Mean: 15.8
-Std: 16.6
-</td>
-<td>
-Median: 14.0
-Mean: 23.9
-Std: 27.9
-</td>
+<td>Mean</td>
+<td class='number-cell'>3.0</td>
+<td class='number-cell'>3.0</td>
 </tr>
 <tr>
-<td>6x6</td>
-<td>
-Median: 28.0
-Mean: 40.6
-Std: 41.7
-</td>
-<td>
-Median: 44.0
-Mean: 68.2
-Std: 79.2
-</td>
+<td>Std</td>
+<td class='number-cell'>3.5</td>
+<td class='number-cell'>3.4</td>
 </tr>
 
 <tr>
-<td>8x8</td>
-<td>
-Median: 53.0
-Mean: 78.5
-Std: 79.4
-</td>
-<td>
-Median: 73.0
-Mean: 127.9
-Std: 152.8
-</td>
+<td rowspan=3>4x4</td>
+<td>Median</td>
+<td class='number-cell'>11.0</td>
+<td class='number-cell'>14.0</td>
+</tr>
+<tr>
+<td>Mean</td>
+<td class='number-cell'>15.8</td>
+<td class='number-cell'>23.9</td>
+</tr>
+<tr>
+<td>Std</td>
+<td class='number-cell'>16.6</td>
+<td class='number-cell'>27.9</td>
+</tr>
+
+<tr>
+<td rowspan=3>8x8</td>
+<td>Median</td>
+<td class='number-cell'>53.0</td>
+<td class='number-cell'>73.0</td>
+</tr>
+<tr>
+<td>Mean</td>
+<td class='number-cell'>78.5</td>
+<td class='number-cell'>127.9</td>
+</tr>
+<tr>
+<td>Std</td>
+<td class='number-cell'>79.4</td>
+<td class='number-cell'>152.8</td>
 </tr>
 
 </table>
 
+It's clear that the better strategy is for both people to move at
+random than to have one person wait while the other moves randomly.
+
+
+But wait... 
+
+
+Is this really a realistic scenario? How often do people just
+move around randomly? In most cases, when people are looking 
+for something, they search in some methodic manner. The rest 
+of this post will explore two fundamentally similar strategies
+and how they affect the search time.
+
+#### Scanning Strategy ####
+
+The first strategy involves simply scanning the grid up and 
+down, left to right.
+
+<div id='scanningStrategySimple' style="width: 250px; margin-left: auto; margin-right: auto;"></div>
+<script>
+var scanningStrategySimple = randomFinding.randomFindingLinear()
+.transitionDuration(100)
+.histogramWidth(0)
+.height(150)
+.width(400)
+.strategyRunner('standing')
+.strategyChaser('scanning')
+.numPointsY(4);
+
+d3.select('#scanningStrategySimple')
+.call(scanningStrategySimple);
+</script>
+
+#### Avoiding Strategy ####
+
+The avoiding strategy involves keeping track of where
+the person has been, and at every point, visiting 
+the least visited neighbor. There is more than one
+least visited neighbor, pick one at random and continue.
+
+<div id='avoidingStrategySimple' style="width: 250px; margin-left: auto; margin-right: auto;"></div>
+<script>
+var avoidingStrategySimple = randomFinding.randomFindingLinear()
+.transitionDuration(100)
+.histogramWidth(0)
+.height(150)
+.width(400)
+.strategyRunner('standing')
+.strategyChaser('avoiding')
+.numPointsY(4);
+
+d3.select('#avoidingStrategySimple')
+.call(avoidingStrategySimple);
+</script>

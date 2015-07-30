@@ -105,7 +105,6 @@ function drawTurfContours(divId) {
         //.style('fill', 'transparent')
         .style("stroke","black")
         .attr("d", function(d) { 
-            console.log('d', d);
             return d3.svg.line()
             .x(function(dat) { return xScale(dat[0]); })
             .y(function(dat) { return yScale(dat[1]); }) 
