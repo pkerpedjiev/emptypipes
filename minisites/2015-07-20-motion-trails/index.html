@@ -16,7 +16,7 @@
     var svg = d3.select('body')
     .append('svg')
 
-    var prevPos = [0,0]
+    //var prevPos = [0,0]
 
     svg.append('rect')
     .attr('width', width)
@@ -24,23 +24,22 @@
     .classed('background-rect', true)
     .on('click', moveCircle);
 
-
     svg.append('circle')
-    .attr('cx', 0)
-    .attr('cy', 0)
     .attr('r', 5)
+    .attr('transform', 'translate(0,0)')
     .classed('tracker', true);
     
     function moveCircle() {
         var duration = 1000;
+        var prevPosFromTransform = d3.transform(svg.select('.tracker')
+        .attr('transform')).translate;
+
+        console.log('prevPosFromTransform', prevPosFromTransform);
         var newPos = d3.mouse(this);
 
         var counter = 0;
 
-        svg.select('.tracker')
-        .transition()
-        .duration(duration)
-        .attrTween('transform', function() {
+        function motionTrailTween(prevPos) {
             var prevX = prevPos[0];
             var prevY = prevPos[1]
 
@@ -74,11 +73,12 @@
                     return ret;
                 }
             }
-            }());
+        }
 
-        var points = [prevPos, newPos];
-
-        prevPos = newPos;
+        svg.select('.tracker')
+        .transition()
+        .duration(duration)
+        .attrTween('transform', motionTrailTween(prevPosFromTransform));
     }
 
     </script>

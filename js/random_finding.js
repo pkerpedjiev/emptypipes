@@ -2,6 +2,20 @@
     var randomFinding = {};
     var targetFunction = function(x) {};
 
+    randomFinding.emptyHistogram = function() {
+        var blah = {};
+
+        blah.updateData = function(data) {
+
+        };
+
+        blah.updateMoves = function(data) {
+
+        };
+
+        return blah;
+    };
+
     randomFinding.histogramPlot = function() {
         var margin = {top: 20, right: 30, bottom: 20, left: 40};
         var width=420 - margin.left - margin.right;
@@ -405,7 +419,6 @@
             .text(function(d) { return d.name; })
             .property('selected', function(d) { return d.value === oldChart.transitionDuration(); });
 
-            console.log(oldChart.strategyRunner());
             optionsStrategy1 = selectStrategy1.selectAll('option')
             .data(optionStrategies)
             .enter()
@@ -548,6 +561,9 @@
         var timesVisitedRunner;
         var timesVisitedChaser;
 
+        var initialRunnerPosition = randomPosition();
+        var initialChaserPosition = randomPosition();
+
 
         function createEmptyGrid() {
             var emptyGrid = [];
@@ -570,15 +586,20 @@
             .attr('transform', 'translate(' + margin.left + ',' +  margin.top + ')');
 
 
-            var hist = randomFinding.histogramPlot()
-            .width(histogramWidth)
-            .height(height - 50);
+            var hist;
+            if (histogramWidth > 0) {
+                hist = randomFinding.histogramPlot()
+                .width(histogramWidth)
+                .height(height - 50);
 
-            console.log('blah 2;');
-            var gHistogram = svg.append('g')
-            .attr('transform', 'translate(' + (margin.left + width + 40 ) + ',' + (margin.bottom + 14 + 20) + ')')
-            .classed('histogram', true)
-            .call(hist);
+                console.log('blah 2;');
+                var gHistogram = svg.append('g')
+                .attr('transform', 'translate(' + (margin.left + width + 40 ) + ',' + (margin.bottom + 14 + 20) + ')')
+                .classed('histogram', true)
+                .call(hist);
+            } else {
+                hist = randomFinding.emptyHistogram();
+            }
 
             /*
                var gSlider = gEnter.append('g')
@@ -598,7 +619,7 @@
             drawGrid();
 
             gEnter.selectAll('.chaser')
-            .data([randomPosition()])
+            .data([initialChaserPosition])
             .enter()
             .append('circle')
             .attr('r', function(d) { return pointRadius; })
@@ -608,7 +629,7 @@
             });
 
             gEnter.selectAll('runner')
-            .data([randomPosition()])
+            .data([initialRunnerPosition])
             .enter()
             .append('circle')
             .attr('r', function(d) { return pointRadius; })
@@ -668,7 +689,6 @@
                 validPositions = validPositions.filter(function(d) { return d[1] == validPositions[0][1]; });
                 shuffle(validPositions);
                 
-                console.log('validPositions:', validPositions[0], validPositions[1], validPositions[2]);
                 return validPositions[0][0];
             }
 
@@ -747,7 +767,6 @@
                     } else if (strategyChaser == 'random') {
                         newChaserPosition = addPosition(chaser.data()[0],
                                                         randomDirection());
-                        console.log('newChaserPosition', newChaserPosition);
                     } else if (strategyChaser == 'avoiding') {
                         newChaserPosition = getAvoidingMove(chaser.data()[0],
                                                            timesVisitedChaser);
@@ -911,6 +930,24 @@
         chart.runnerFixed = function(_) {
             if (!arguments.length) return runnerFixed;
             runnerFixed = _;
+            return chart;
+        };
+
+        chart.histogramWidth = function(_) {
+            if (!arguments.length) return histogramWidth;
+            histogramWidth = _;
+            return chart;
+        };
+
+        chart.initialRunnerPosition = function(_) {
+            if (!arguments.length) return initialRunnerPosition;
+            initialRunnerPosition = _;
+            return chart;
+        };
+
+        chart.initialChaserPosition = function(_) {
+            if (!arguments.length) return initialChaserPosition;
+            initialChaserPosition = _;
             return chart;
         };
 
