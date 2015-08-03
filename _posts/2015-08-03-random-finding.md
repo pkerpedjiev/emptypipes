@@ -15,12 +15,12 @@ tags: javascript d3.js
 A few months ago somebody asked the [following question on
 AskReddit](https://www.reddit.com/r/askscience/comments/35uljq/if_i_wanted_to_randomly_find_someone_in_an/?limit=500):
 
-<hr>
+<br>
+
 >"If I wanted to randomly find someone in an amusement park, would my odds of
 >finding them be greater if I stood still or roamed around?"
 
-
-<hr>
+<br>
 
 As usual, the comments were highly informative with various users
 running simulations to show that two people would generally find each
@@ -29,13 +29,13 @@ of my mind until a recent late-night conversation after a bioinformatics
 conference. The context in this conversation was different but the underlying
 question was the same. 
 
-<hr>
+<br>
+
 >"Are two proteins more likely to encounter each
 >other when both are mobile or when one is attached to a cell membrance
 >while the other is free to float around the interior of the cell?"
 
-
-<hr>
+<br>
 
  After bringing up the reddit post, I tried
 my best to explain why it would make sense that fixing the position of
@@ -189,7 +189,7 @@ d3.select('#scanningStrategySimple')
 
 The avoiding strategy involves keeping track of where
 the person has been, and at every point, visiting 
-the least visited neighbor. There is more than one
+the least visited neighbor. If there is more than one
 least visited neighbor, pick one at random and continue.
 
 <div id='avoidingStrategySimple' style="width: 200px; margin-left: auto; margin-right: auto;"></div>
@@ -372,7 +372,7 @@ exorbitantly long search time.
 
 #### Make Your Own Simulation ####
 
-Finally, here's an application that you can use to run your own simulation.
+Here's an application that you can use to run your own simulation.
 
 <div id='random-finding-options' style='width: 400px; margin-left: auto; margin-right: auto'>
 <table id='options-table' style='width: 400px'>
@@ -402,4 +402,8 @@ d3.select('#random-finding-options')
 .call(optionsChart);
 
 </script>
+
+#### Source ####
+
+The source code for the application to run these simulations can be found [on github](https://github.com/pkerpedjiev/random_finding).
 
