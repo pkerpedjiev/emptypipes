@@ -561,6 +561,9 @@
         var timesVisitedRunner;
         var timesVisitedChaser;
 
+        var initialRunnerPosition = randomPosition();
+        var initialChaserPosition = randomPosition();
+
 
         function createEmptyGrid() {
             var emptyGrid = [];
@@ -616,7 +619,7 @@
             drawGrid();
 
             gEnter.selectAll('.chaser')
-            .data([randomPosition()])
+            .data([initialChaserPosition])
             .enter()
             .append('circle')
             .attr('r', function(d) { return pointRadius; })
@@ -626,7 +629,7 @@
             });
 
             gEnter.selectAll('runner')
-            .data([randomPosition()])
+            .data([initialRunnerPosition])
             .enter()
             .append('circle')
             .attr('r', function(d) { return pointRadius; })
@@ -934,7 +937,19 @@
             if (!arguments.length) return histogramWidth;
             histogramWidth = _;
             return chart;
-        }
+        };
+
+        chart.initialRunnerPosition = function(_) {
+            if (!arguments.length) return initialRunnerPosition;
+            initialRunnerPosition = _;
+            return chart;
+        };
+
+        chart.initialChaserPosition = function(_) {
+            if (!arguments.length) return initialChaserPosition;
+            initialChaserPosition = _;
+            return chart;
+        };
 
         return chart;
     };
