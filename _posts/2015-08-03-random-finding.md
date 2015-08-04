@@ -360,6 +360,7 @@ that made all of this possible.
 <td> Random </td>
 <td> Scanning </td>
 <td> Avoiding </td>
+<td> Centering </td>
 </tr>
 
 <tr>
