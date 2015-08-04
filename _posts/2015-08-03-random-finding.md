@@ -505,6 +505,7 @@ the histograms below show the distribution of search lengths on a 3D grid.
 </tr>
 </table>
 <hr>
+<br>
 #### Make Your Own Simulation ####
 
 Here's an application that you can use to run your own simulation.
