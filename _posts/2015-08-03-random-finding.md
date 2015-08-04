@@ -207,6 +207,30 @@ d3.select('#avoidingStrategySimple')
 .call(avoidingStrategySimple);
 </script>
 
+#### Centering Strategy ####
+
+A reddit user recently pointed out that a reasonable strategy
+might be for one person to just go to the center because there
+they would have a larger chance of being found by randomly 
+moving person. An illustration of this appears below where
+the red person moves to the center and green person wanders
+around randomly.
+
+<div id='centeringStrategySimple' style="width: 200px; margin-left: auto; margin-right: auto;"></div>
+<script>
+var centeringStrategySimple = randomFinding.randomFindingLinear()
+.transitionDuration(100)
+.histogramWidth(0)
+.height(150)
+.width(400)
+.strategyRunner('random')
+.strategyChaser('center')
+.numPointsY(4);
+
+d3.select('#centeringStrategySimple')
+.call(centeringStrategySimple);
+</script>
+
 ### Pairwise Comparison of Strategies ###
 
 To determine what the best course of action is when two people are separated
@@ -223,6 +247,7 @@ somewhere, we need to do a pairwise comparison of the strategies on an 8x8 grid:
 <td> Random </td>
 <td> Scanning </td>
 <td> Avoiding </td>
+<td> Centering </td>
 </tr>
 
 <tr>
@@ -231,6 +256,7 @@ somewhere, we need to do a pairwise comparison of the strategies on an 8x8 grid:
 <td class='number-cell'>82</td>
 <td class='number-cell'>34</td>
 <td class='number-cell'>33</td>
+<td class='number-cell'>*</td>
 </tr>
 <tr>
 <td>Random</td>
@@ -238,6 +264,7 @@ somewhere, we need to do a pairwise comparison of the strategies on an 8x8 grid:
 <td class='number-cell'>60</td>
 <td class='number-cell'>51</td>
 <td class='number-cell'>51</td>
+<td class='number-cell'>54</td>
 </tr>
 <tr>
 <td>Scanning</td>
@@ -245,6 +272,7 @@ somewhere, we need to do a pairwise comparison of the strategies on an 8x8 grid:
 <td class='number-cell'></td>
 <td class='number-cell'>*</td>
 <td class='number-cell'>52</td>
+<td class='number-cell'>15</td>
 </tr>
 <tr>
 <td>Avoiding</td>
@@ -252,17 +280,26 @@ somewhere, we need to do a pairwise comparison of the strategies on an 8x8 grid:
 <td class='number-cell'></td>
 <td class='number-cell'></td>
 <td class='number-cell'>57</td>
+<td class='number-cell'>30</td>
+</tr>
+<td>Centering</td>
+<td class='number-cell'></td>
+<td class='number-cell'></td>
+<td class='number-cell'></td>
+<td class='number-cell'></td>
+<td class='number-cell'>3</td>
 </tr>
 </table>
 
-<hr>
-<br>
-Oviously, standing still is the best strategy if the other person is using
-a form of a self-avoiding walk (33 and 34 median moves). Moving around 
-randomly is never the optimal strategy, no matter what the other person is
-doing, while scanning and avoiding work well in general with one major
-caveat: if both people are scanning, it can lead to a situation where
-the two peole never meet, no matter how long they walk.
+<hr> <br> 
+
+Generally, standing still is the best strategy if the other person is
+**not** moving around randomly. Even if they are, the best strategy appears to
+be to first go the center and stay put there.  Moving around randomly is only
+optimal if the other person is doing an avoiding walk.  Scanning and avoiding
+work well in general with one major caveat: if both people are scanning, it can
+lead to a situation where the two peole never meet, no matter how long they
+walk.
 
 <div id='scanningScanningStrategy' style="width: 250px; margin-left: auto; margin-right: auto;"></div>
 <script>
@@ -288,16 +325,24 @@ go to when there are equally many least visited options available.
 
 ### Conclusion ###
 
-The best strategy, which isn't illustrated here, is for people to choose a
-point at which they meet if they get lost. Often times, however, this doesn't
-enter the conversation and an ad-hoc strategy must be selected. The second
-best option is for one person to stop moving and for the other to scan the
-search area looking for them. This also requires a certain amount
-of prior coordination to determine who will stop. If both people decide to 
-stop, then it stands to reason that they'll never find each other. Thus, when
-there is no agreed upon strategy, it appears that the best choice is to walk
-around avoiding places that you've already been and taking a random turn 
-here or there. Good luck!
+The best strategy is for people to choose a point at which they meet if they
+get lost. When both people go to the center, it takes a median of 3 moves and
+will never take more than four moves (on an 8x8 grid).
+
+Often times, however, this doesn't enter the conversation and an ad-hoc
+strategy must be selected. The second best option is for one person to stop
+moving and for the other to scan the search area looking for them. This also
+requires a certain amount of prior coordination to determine who will stop. If
+both people decide to stop, then it stands to reason that they'll never find
+each other. Thus, when there is no agreed upon strategy, it appears that the
+best choice is to walk around avoiding places that you've already been and
+taking a random turn here or there. 
+
+Finally, if you're really lazy it pays off to walk to the center and wait
+there. This will actually lead to a faster rendezvous when the other person
+is walking around randomly than walking around randomly yourself.
+
+Good luck!
 
 Read on for a look at the distributions of finding times and the application
 that made all of this possible.
@@ -323,6 +368,7 @@ that made all of this possible.
 <td ><img width=100 src="/img/random_finding/8_8_standing_random.png" /></td>
 <td class='number-cell'><img width=100 src="/img/random_finding/8_8_standing_scanning.png" /></td>
 <td class='number-cell'><img width=100 src="/img/random_finding/8_8_standing_avoiding.png" /></td>
+<td class='number-cell'><img width=100 src="/img/random_finding/8_8_scanning_scanning.png" /></td>
 </tr>
 <tr>
 <td>Random</td>
@@ -330,6 +376,7 @@ that made all of this possible.
 <td class='number-cell'><img width=100 src="/img/random_finding/8_8_random_random.png" /></td>
 <td class='number-cell'><img width=100 src="/img/random_finding/8_8_random_scanning.png" /></td>
 <td class='number-cell'><img width=100 src="/img/random_finding/8_8_random_avoiding.png" /></td>
+<td class='number-cell'><img width=100 src="/img/random_finding/8_8_centering_random.png" /></td>
 </tr>
 <tr>
 <td>Scanning</td>
@@ -337,6 +384,7 @@ that made all of this possible.
 <td class='number-cell'></td>
 <td class='number-cell'><img width=100 src="/img/random_finding/8_8_scanning_scanning.png" /></td>
 <td class='number-cell'><img width=100 src="/img/random_finding/8_8_avoiding_scanning.png" /></td>
+<td class='number-cell'><img width=100 src="/img/random_finding/8_8_centering_scanning.png" /></td>
 </tr>
 <tr>
 <td>Avoiding</td>
@@ -344,6 +392,14 @@ that made all of this possible.
 <td class='number-cell'></td>
 <td class='number-cell'></td>
 <td class='number-cell'><img width=100 src="/img/random_finding/8_8_avoiding_avoiding.png" /></td>
+<td class='number-cell'><img width=100 src="/img/random_finding/8_8_centering_avoiding.png" /></td>
+</tr>
+<td>Centering</td>
+<td class='number-cell'></td>
+<td class='number-cell'></td>
+<td class='number-cell'></td>
+<td class='number-cell'></td>
+<td class='number-cell'><img width=100 src="/img/random_finding/8_8_centering_centering.png" /></td>
 </tr>
 </table>
 <hr>

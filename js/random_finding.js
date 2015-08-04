@@ -350,7 +350,7 @@
                                      'value': 200},
                                      {'name': 'fast',
                                       'value': 10}];
-            var optionStrategies = ['standing', 'random', 'avoiding', 'scanning'];
+            var optionStrategies = ['standing', 'random', 'avoiding', 'scanning', 'center'];
             
            var table = selection.select('#options-table') ;
             row = table.append('tr');
@@ -454,13 +454,11 @@
             selectedIndex = selectStrategy1.property('selectedIndex');
             data           = optionsStrategy1[0][selectedIndex].__data__;
 
-            console.log('data:', data);
             newChart.strategyRunner(data);
 
             selectedIndex = selectStrategy2.property('selectedIndex');
             data           = optionsStrategy2[0][selectedIndex].__data__;
 
-            console.log('dataChaser:', data);
             newChart.strategyChaser(data);
 
 
@@ -481,7 +479,6 @@
             var selectedIndex = selectXValues.property('selectedIndex'),
                     data          = optionsX[0][selectedIndex].__data__;
 
-                    console.log('data:', data);
 
                 if (oldChart !== null) {
                     /*
@@ -496,7 +493,6 @@
         function yChange() {
             var selectedIndex = selectYValues.property('selectedIndex'),
                     data          = optionsY[0][selectedIndex].__data__;
-                console.log('data:', data);
 
                 if (oldChart !== null) {
                     /*
@@ -512,7 +508,6 @@
             var selectedIndex = selectSpeedValues.property('selectedIndex'),
                     data          = optionsSpeed[0][selectedIndex].__data__;
 
-                    console.log('data', data)
                     if (oldChart !== null) {
                         oldChart.transitionDuration(data.value);
                     }
@@ -592,7 +587,6 @@
                 .width(histogramWidth)
                 .height(height - 50);
 
-                console.log('blah 2;');
                 var gHistogram = svg.append('g')
                 .attr('transform', 'translate(' + (margin.left + width + 40 ) + ',' + (margin.bottom + 14 + 20) + ')')
                 .classed('histogram', true)
@@ -692,6 +686,21 @@
                 return validPositions[0][0];
             }
 
+            function getCenterMove(currentPosition) {
+                var newPos = [0,0];
+                var targetPosition = [numPointsX / 2, numPointsY / 2]
+                for (var i = 0; i < 2; i++) {
+                    if (currentPosition[i] < targetPosition[i])
+                        newPos[i] = currentPosition[i] + 1;
+                    else if (currentPosition[i] > targetPosition[i])
+                        newPos[i] = currentPosition[i] - 1;
+                    else
+                        newPos[i] = currentPosition[i];
+                }
+
+                return newPos;
+            }
+
             function getScanningMove(currentPosition, previousDirection) {
                 // move in the y direction
                 var newPosition = addPosition(currentPosition, [0, previousDirection[1]]);
@@ -733,7 +742,6 @@
                 timesVisitedRunner = createEmptyGrid();
                 timesVisitedChaser = createEmptyGrid();
 
-                //console.log('stepCounts:', stepCounts);
 
                 hist.updateData(stepCounts);
                 explode(gEnter, [xScale(chaser.data()[0][0]),
@@ -770,6 +778,8 @@
                     } else if (strategyChaser == 'avoiding') {
                         newChaserPosition = getAvoidingMove(chaser.data()[0],
                                                            timesVisitedChaser);
+                    } else if (strategyChaser == 'center') {
+                        newChaserPosition = getCenterMove(chaser.data()[0]);
                     } else if (strategyChaser = 'scanning') {
                         var ret = getScanningMove(chaser.data()[0], chaserDirection);
                         newChaserPosition = ret[0];
@@ -786,6 +796,8 @@
                     } else if (strategyRunner == 'avoiding') {
                         newRunnerPosition = getAvoidingMove(runner.data()[0],
                                                             timesVisitedRunner);
+                    } else if (strategyRunner == 'center') {
+                        newRunnerPosition = getCenterMove(runner.data()[0]);
                     } else if (strategyRunner = 'scanning') {
                         var ret = getScanningMove(runner.data()[0], runnerDirection);
                         newRunnerPosition = ret[0];
@@ -837,7 +849,6 @@
                 xMargin = (width - (numPointsX - 1) * gridWidthY) / 2;
             }
 
-            console.log('yMargin', yMargin);
 
             xScale = d3.scale.ordinal().domain(d3.range(numPointsX))
              .rangePoints([xMargin,width-xMargin]);
@@ -978,7 +989,6 @@
 
         return function(d,i,a) {
             var dThis = this;
-            //console.log('d3.select(dThis)', d3.select(dThis).attr('fill'));
 
             return function(t) {
 
