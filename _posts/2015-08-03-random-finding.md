@@ -427,6 +427,84 @@ exorbitantly long search time.
     </li>
     </ul>
 
+#### In Three Dimensions ####
+
+A [few people](https://www.reddit.com/r/dataisbeautiful/comments/3flifw/animation_and_analysis_of_the_randomly_finding/ctpw7zd) wondered how different the results would be on a 3D grid. It's large-ish step to add 3D rendering to the current animations, but changing the code to use 3D dimensions wasn't a huge deal. The results are in the table below.
+
+<hr>
+<h5 align=center> Median Moves Requires to Meet </h5>
+<hr>
+
+<table id='pairwise3DStrategyComparison' align=center>
+<tr>
+<td></td>
+<td> Standing </td>
+<td> Random </td>
+<td> Avoiding </td>
+</tr>
+
+<tr>
+<td>Standing</td>
+<td class='number-cell'>*</td>
+<td class='number-cell'>438</td>
+<td class='number-cell'>253</td>
+</tr>
+<tr>
+<td>Random</td>
+<td class='number-cell'></td>
+<td class='number-cell'>380</td>
+<td class='number-cell'>375</td>
+</tr>
+<tr>
+<td>Avoiding</td>
+<td class='number-cell'></td>
+<td class='number-cell'></td>
+<td class='number-cell'>344</td>
+</tr>
+</table>
+
+<hr>
+<br>
+
+The results a roughly analagous to those on the 2D grid. Naturally, it takes
+more moves for people to find each other in 3D, but the best strategy remains
+standing - avoiding, and moving in a random fashion is better than standing
+when the other person is also moving randomly. For those that are interested,
+the histograms below show the distribution of search lengths on a 3D grid.
+
+<hr>
+<h5 align=center> The Distribution of the Number of Moves Required to Meet on a 3D Grid </h5>
+<hr>
+
+<table id='pairwiseStrategyComparisonHistograms' align=center>
+<tr>
+<td></td>
+<td> Standing </td>
+<td> Random </td>
+<td> Avoiding </td>
+</tr>
+
+<tr>
+<td>Standing</td>
+<td ><img width=100 src="/img/random_finding/8_8_scanning_scanning.png" /></td>
+<td ><img width=100 src="/img/random_finding/3d_8_8_standing_random.png" /></td>
+<td ><img width=100 src="/img/random_finding/3d_8_8_standing_avoiding.png" /></td>
+</tr>
+<tr>
+<td>Random</td>
+<td ></td>
+<td ><img width=100 src="/img/random_finding/3d_8_8_random_random.png" /></td>
+<td ><img width=100 src="/img/random_finding/3d_8_8_random_avoiding.png" /></td>
+</tr>
+<tr>
+<tr>
+<td>Avoiding</td>
+<td ></td>
+<td ></td>
+<td ><img width=100 src="/img/random_finding/3d_8_8_avoiding_avoiding.png" /></td>
+</tr>
+</table>
+<hr>
 #### Make Your Own Simulation ####
 
 Here's an application that you can use to run your own simulation.
