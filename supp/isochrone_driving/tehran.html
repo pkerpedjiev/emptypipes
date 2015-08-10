@@ -1,0 +1,13 @@
+---
+layout: isochrone_driving_details
+title:  "Isochrone Map for Driving from Tehran"
+tags: maps javascript leaflet isochrone
+city: tehran 
+latitude: 35.686172
+longitude: 51.4223519
+---
+
+<script type="text/javascript">
+        drawIsochroneMap({{ page.latitude }}, {{ page.longitude }}, '/jsons/isochrone_driving_contours/{{page.city | downcase}}.json');
+        </script>
+

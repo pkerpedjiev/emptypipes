@@ -1,0 +1,13 @@
+---
+layout: isochrone_driving_details
+title:  "Isochrone Map for Driving from Jerusalem"
+tags: maps javascript leaflet isochrone
+city: jerusalem 
+latitude: 31.7968155
+longitude: 35.2137815559
+---
+
+<script type="text/javascript">
+        drawIsochroneMap({{ page.latitude }}, {{ page.longitude }}, '/jsons/isochrone_driving_contours/{{page.city | downcase}}.json');
+        </script>
+

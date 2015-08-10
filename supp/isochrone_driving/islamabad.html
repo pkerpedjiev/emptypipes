@@ -1,0 +1,13 @@
+---
+layout: isochrone_driving_details
+title:  "Isochrone Map for Driving from Islamabad"
+tags: maps javascript leaflet isochrone
+city: islamabad 
+latitude: 33.6945756
+longitude: 73.0643744
+---
+
+<script type="text/javascript">
+        drawIsochroneMap({{ page.latitude }}, {{ page.longitude }}, '/jsons/isochrone_driving_contours/{{page.city | downcase}}.json');
+        </script>
+

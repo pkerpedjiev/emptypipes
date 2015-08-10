@@ -1,0 +1,13 @@
+---
+layout: isochrone_driving_details
+title:  "Isochrone Map for Driving from Kigali"
+tags: maps javascript leaflet isochrone
+city: kigali 
+latitude: -1.9508511
+longitude: 30.0615075
+---
+
+<script type="text/javascript">
+        drawIsochroneMap({{ page.latitude }}, {{ page.longitude }}, '/jsons/isochrone_driving_contours/{{page.city | downcase}}.json');
+        </script>
+

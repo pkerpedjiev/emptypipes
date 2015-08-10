@@ -1,0 +1,13 @@
+---
+layout: isochrone_driving_details
+title:  "Isochrone Map for Driving from Karachi"
+tags: maps javascript leaflet isochrone
+city: karachi 
+latitude: 24.8667795
+longitude: 67.0311286
+---
+
+<script type="text/javascript">
+        drawIsochroneMap({{ page.latitude }}, {{ page.longitude }}, '/jsons/isochrone_driving_contours/{{page.city | downcase}}.json');
+        </script>
+

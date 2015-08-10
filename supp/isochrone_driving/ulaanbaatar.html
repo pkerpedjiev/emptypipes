@@ -1,0 +1,13 @@
+---
+layout: isochrone_driving_details
+title:  "Isochrone Map for Driving from Ulaanbaatar"
+tags: maps javascript leaflet isochrone
+city: ulaanbaatar 
+latitude: 47.949809
+longitude: 106.966724194
+---
+
+<script type="text/javascript">
+        drawIsochroneMap({{ page.latitude }}, {{ page.longitude }}, '/jsons/isochrone_driving_contours/{{page.city | downcase}}.json');
+        </script>
+

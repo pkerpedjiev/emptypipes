@@ -1,0 +1,13 @@
+---
+layout: isochrone_driving_details
+title:  "Isochrone Map for Driving from Dar Es Salaam"
+tags: maps javascript leaflet isochrone
+city: dar_es_salaam 
+latitude: -6.8142737
+longitude: 39.2803756
+---
+
+<script type="text/javascript">
+        drawIsochroneMap({{ page.latitude }}, {{ page.longitude }}, '/jsons/isochrone_driving_contours/{{page.city | downcase}}.json');
+        </script>
+

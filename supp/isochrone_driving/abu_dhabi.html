@@ -1,0 +1,13 @@
+---
+layout: isochrone_driving_details
+title:  "Isochrone Map for Driving from Abu Dhabi"
+tags: maps javascript leaflet isochrone
+city: abu_dhabi 
+latitude: 48.4593031
+longitude: 35.0670472
+---
+
+<script type="text/javascript">
+        drawIsochroneMap({{ page.latitude }}, {{ page.longitude }}, '/jsons/isochrone_driving_contours/{{page.city | downcase}}.json');
+        </script>
+
