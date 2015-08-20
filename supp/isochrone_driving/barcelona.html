@@ -1,12 +1,13 @@
 ---
 layout: isochrone_driving_details
-title:  "Isochrone Map for Train Travel from Barcelona"
+title:  "Isochrone Map for Driving from Barcelona"
 tags: maps javascript leaflet isochrone
-city: Barcelona
-latitude: 41.38
-longitude: 2.18
+city: barcelona 
+latitude: 41.3825596
+longitude: 2.1771353
 ---
 
 <script type="text/javascript">
-    drawIsochroneMap({{ page.latitude }}, {{ page.longitude }}, '/jsons/isochrone_driving_contours/{{page.city | downcase}}.json');
-    </script>
+        drawIsochroneMap({{ page.latitude }}, {{ page.longitude }}, '/jsons/isochrone_driving_contours/{{page.city | downcase}}.json');
+        </script>
+

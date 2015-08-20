@@ -1,12 +1,13 @@
 ---
 layout: isochrone_driving_details
-title:  "Isochrone Map for Train Travel from Bratislava"
+title:  "Isochrone Map for Driving from Bratislava"
 tags: maps javascript leaflet isochrone
-city: Bratislava 
-latitude: 48.14
-longitude: 17.11
+city: bratislava 
+latitude: 48.1359085
+longitude: 17.1597440625
 ---
 
 <script type="text/javascript">
-    drawIsochroneMap({{ page.latitude }}, {{ page.longitude }}, '/jsons/isochrone_driving_contours/{{page.city | downcase}}.json');
-    </script>
+        drawIsochroneMap({{ page.latitude }}, {{ page.longitude }}, '/jsons/isochrone_driving_contours/{{page.city | downcase}}.json');
+        </script>
+

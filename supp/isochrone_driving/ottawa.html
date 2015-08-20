@@ -1,12 +1,13 @@
 ---
 layout: isochrone_driving_details
-title:  "Isochrone Map for Train Travel from Montreal"
+title:  "Isochrone Map for Driving from Ottawa"
 tags: maps javascript leaflet isochrone
-city: Montreal
-latitude: 45.42
-longitude: -75.69
+city: ottawa 
+latitude: 47.5929905
+longitude: -79.2917576
 ---
 
 <script type="text/javascript">
-    drawIsochroneMap({{ page.latitude }}, {{ page.longitude }}, '/jsons/isochrone_driving_contours/{{page.city | downcase}}.json');
-    </script>
+        drawIsochroneMap({{ page.latitude }}, {{ page.longitude }}, '/jsons/isochrone_driving_contours/{{page.city | downcase}}.json');
+        </script>
+

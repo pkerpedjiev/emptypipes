@@ -1,12 +1,13 @@
 ---
-layout: isochrone_details
-title:  "Isochrone Map for Train Travel from Budapest"
+layout: isochrone_driving_details
+title:  "Isochrone Map for Driving from Budapest"
 tags: maps javascript leaflet isochrone
-city: Budapest
-latitude: 47.49
-longitude: 19.05
+city: budapest 
+latitude: 47.4983815
+longitude: 19.0404707
 ---
 
 <script type="text/javascript">
-    drawIsochroneMap({{ page.latitude }}, {{ page.longitude }}, '/jsons/isochrone_driving_contours/{{page.city | downcase}}.json');
-    </script>
+        drawIsochroneMap({{ page.latitude }}, {{ page.longitude }}, '/jsons/isochrone_driving_contours/{{page.city | downcase}}.json');
+        </script>
+

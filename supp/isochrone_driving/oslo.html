@@ -1,12 +1,13 @@
 ---
 layout: isochrone_driving_details
-title:  "Isochrone Map for Train Travel from Oslo"
+title:  "Isochrone Map for Driving from Oslo"
 tags: maps javascript leaflet isochrone
-city: Oslo
-latitude: 59.95
-longitude: 10.75
+city: oslo 
+latitude: 59.9132694
+longitude: 10.7391112
 ---
 
 <script type="text/javascript">
-    drawIsochroneMap({{ page.latitude }}, {{ page.longitude }}, '/jsons/isochrone_driving_contours/{{page.city | downcase}}.json');
-    </script>
+        drawIsochroneMap({{ page.latitude }}, {{ page.longitude }}, '/jsons/isochrone_driving_contours/{{page.city | downcase}}.json');
+        </script>
+

@@ -1,12 +1,13 @@
 ---
 layout: isochrone_driving_details
-title:  "Isochrone Map for Train Travel from Pittsburgh"
+title:  "Isochrone Map for Driving from Pittsburgh"
 tags: maps javascript leaflet isochrone
-city: Pittsburgh 
-latitude: 40.44
-longitude: -79.99
+city: pittsburgh 
+latitude: 40.4416941
+longitude: -79.9900861
 ---
 
 <script type="text/javascript">
-    drawIsochroneMap({{ page.latitude }}, {{ page.longitude }}, '/jsons/isochrone_driving_contours/{{page.city | downcase}}.json');
-    </script>
+        drawIsochroneMap({{ page.latitude }}, {{ page.longitude }}, '/jsons/isochrone_driving_contours/{{page.city | downcase}}.json');
+        </script>
+

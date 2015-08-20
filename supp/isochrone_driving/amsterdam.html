@@ -1,12 +1,13 @@
 ---
 layout: isochrone_driving_details
-title:  "Isochrone Map for Train Travel from Amsterdam"
+title:  "Isochrone Map for Driving from Amsterdam"
 tags: maps javascript leaflet isochrone
-city: Amsterdam
-latitude: 52.37
-longitude: 4.9
+city: amsterdam 
+latitude: 52.374436
+longitude: 4.89799560337
 ---
 
 <script type="text/javascript">
-    drawIsochroneMap({{ page.latitude }}, {{ page.longitude }}, '/jsons/isochrone_driving_contours/{{page.city | downcase}}.json');
-    </script>
+        drawIsochroneMap({{ page.latitude }}, {{ page.longitude }}, '/jsons/isochrone_driving_contours/{{page.city | downcase}}.json');
+        </script>
+

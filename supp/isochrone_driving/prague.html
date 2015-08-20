@@ -1,12 +1,13 @@
 ---
 layout: isochrone_driving_details
-title:  "Isochrone Map for Train Travel from Prague"
+title:  "Isochrone Map for Driving from Prague"
 tags: maps javascript leaflet isochrone
-city: Prague 
-latitude: 50.01
-longitude: 14.42
+city: prague 
+latitude: 50.0874401
+longitude: 14.4212556
 ---
 
 <script type="text/javascript">
-    drawIsochroneMap({{ page.latitude }}, {{ page.longitude }}, '/jsons/isochrone_driving_contours/{{page.city | downcase}}.json');
-    </script>
+        drawIsochroneMap({{ page.latitude }}, {{ page.longitude }}, '/jsons/isochrone_driving_contours/{{page.city | downcase}}.json');
+        </script>
+

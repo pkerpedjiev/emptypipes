@@ -1,12 +1,13 @@
 ---
 layout: isochrone_driving_details
-title:  "Isochrone Map for Train Travel from Antwerp"
+title:  "Isochrone Map for Driving from Antwerp"
 tags: maps javascript leaflet isochrone
-city: Antwerp
-latitude: 51.22
-longitude: 4.40
+city: antwerp 
+latitude: 51.2211097
+longitude: 4.3997081
 ---
 
 <script type="text/javascript">
-    drawIsochroneMap({{ page.latitude }}, {{ page.longitude }}, '/jsons/isochrone_driving_contours/{{page.city | downcase}}.json');
-    </script>
+        drawIsochroneMap({{ page.latitude }}, {{ page.longitude }}, '/jsons/isochrone_driving_contours/{{page.city | downcase}}.json');
+        </script>
+

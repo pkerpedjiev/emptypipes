@@ -1,12 +1,13 @@
 ---
 layout: isochrone_driving_details
-title:  "Isochrone Map for Train Travel from Minsk"
+title:  "Isochrone Map for Driving from Minsk"
 tags: maps javascript leaflet isochrone
-city: Minsk 
-latitude: 53.90
-longitude: 27.57
+city: minsk 
+latitude: 53.9023386
+longitude: 27.5619023
 ---
 
 <script type="text/javascript">
-    drawIsochroneMap({{ page.latitude }}, {{ page.longitude }}, '/jsons/isochrone_driving_contours/{{page.city | downcase}}.json');
-    </script>
+        drawIsochroneMap({{ page.latitude }}, {{ page.longitude }}, '/jsons/isochrone_driving_contours/{{page.city | downcase}}.json');
+        </script>
+

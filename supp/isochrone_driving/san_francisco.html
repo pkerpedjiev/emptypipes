@@ -1,12 +1,13 @@
 ---
 layout: isochrone_driving_details
-title:  "Isochrone Map for Train Travel from San Francisco"
+title:  "Isochrone Map for Driving from San Francisco"
 tags: maps javascript leaflet isochrone
-city: San Francisco 
-latitude: 37.78
-longitude: -122.42
+city: san_francisco 
+latitude: 37.7792768
+longitude: -122.4192704
 ---
 
 <script type="text/javascript">
-    drawIsochroneMap({{ page.latitude }}, {{ page.longitude }}, '/jsons/isochrone_driving_contours/san_francisco.json');
-    </script>
+        drawIsochroneMap({{ page.latitude }}, {{ page.longitude }}, '/jsons/isochrone_driving_contours/{{page.city | downcase}}.json');
+        </script>
+

@@ -1,12 +1,13 @@
 ---
 layout: isochrone_driving_details
-title:  "Isochrone Map for Train Travel from Paris"
+title:  "Isochrone Map for Driving from Paris"
 tags: maps javascript leaflet isochrone
-city: Paris
-latitude: 48.85
-longitude: 2.35
+city: paris 
+latitude: 48.8565056
+longitude: 2.3521334
 ---
 
 <script type="text/javascript">
-    drawIsochroneMap({{ page.latitude }}, {{ page.longitude }}, '/jsons/isochrone_driving_contours/{{page.city | downcase}}.json');
-    </script>
+        drawIsochroneMap({{ page.latitude }}, {{ page.longitude }}, '/jsons/isochrone_driving_contours/{{page.city | downcase}}.json');
+        </script>
+

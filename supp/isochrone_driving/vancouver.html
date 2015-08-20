@@ -1,12 +1,13 @@
 ---
 layout: isochrone_driving_details
-title:  "Isochrone Map for Train Travel from Vancouver"
+title:  "Isochrone Map for Driving from Vancouver"
 tags: maps javascript leaflet isochrone
-city: Vancouver 
-latitude: 49.28
-longitude: -123.12
+city: vancouver 
+latitude: 49.2608944
+longitude: -123.1139383
 ---
 
 <script type="text/javascript">
-    drawIsochroneMap({{ page.latitude }}, {{ page.longitude }}, '/jsons/isochrone_driving_contours/{{page.city | downcase}}.json');
-    </script>
+        drawIsochroneMap({{ page.latitude }}, {{ page.longitude }}, '/jsons/isochrone_driving_contours/{{page.city | downcase}}.json');
+        </script>
+

@@ -1,12 +1,13 @@
 ---
 layout: isochrone_driving_details
-title:  "Isochrone Map for Train Travel from Madrid"
+title:  "Isochrone Map for Driving from Madrid"
 tags: maps javascript leaflet isochrone
-city: Madrid
-latitude: 40.40
-longitude: 3.72
+city: madrid 
+latitude: 40.4167047
+longitude: -3.7035825
 ---
 
 <script type="text/javascript">
-    drawIsochroneMap({{ page.latitude }}, {{ page.longitude }}, '/jsons/isochrone_driving_contours/{{page.city | downcase}}.json');
-    </script>
+        drawIsochroneMap({{ page.latitude }}, {{ page.longitude }}, '/jsons/isochrone_driving_contours/{{page.city | downcase}}.json');
+        </script>
+

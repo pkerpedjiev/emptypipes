@@ -1,12 +1,13 @@
 ---
 layout: isochrone_driving_details
-title:  "Isochrone Map for Train Travel from Winnipeg"
+title:  "Isochrone Map for Driving from Winnipeg"
 tags: maps javascript leaflet isochrone
-city: Winnipeg
-latitude: 49.90
-longitude: -97.14
+city: winnipeg 
+latitude: 49.8936462906
+longitude: -97.1424532607
 ---
 
 <script type="text/javascript">
-    drawIsochroneMap({{ page.latitude }}, {{ page.longitude }}, '/jsons/isochrone_driving_contours/{{page.city | downcase}}.json');
-    </script>
+        drawIsochroneMap({{ page.latitude }}, {{ page.longitude }}, '/jsons/isochrone_driving_contours/{{page.city | downcase}}.json');
+        </script>
+

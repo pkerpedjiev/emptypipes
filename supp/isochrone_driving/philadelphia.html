@@ -1,12 +1,13 @@
 ---
 layout: isochrone_driving_details
-title:  "Isochrone Map for Train Travel from Philadelphia"
+title:  "Isochrone Map for Driving from Philadelphia"
 tags: maps javascript leaflet isochrone
-city: Philadelphia 
-latitude: 39.95
-longitude: -75.17
+city: philadelphia 
+latitude: 39.952335
+longitude: -75.163789
 ---
 
 <script type="text/javascript">
-    drawIsochroneMap({{ page.latitude }}, {{ page.longitude }}, '/jsons/isochrone_driving_contours/{{page.city | downcase}}.json');
-    </script>
+        drawIsochroneMap({{ page.latitude }}, {{ page.longitude }}, '/jsons/isochrone_driving_contours/{{page.city | downcase}}.json');
+        </script>
+

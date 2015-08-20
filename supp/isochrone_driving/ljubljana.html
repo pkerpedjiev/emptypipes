@@ -1,12 +1,13 @@
 ---
 layout: isochrone_driving_details
-title:  "Isochrone Map for Train Travel from Ljubljana"
+title:  "Isochrone Map for Driving from Ljubljana"
 tags: maps javascript leaflet isochrone
-city: Ljubljana 
-latitude: 46.06
-longitude: 14.51
+city: ljubljana 
+latitude: 46.049865
+longitude: 14.5068921
 ---
 
 <script type="text/javascript">
-    drawIsochroneMap({{ page.latitude }}, {{ page.longitude }}, '/jsons/isochrone_driving_contours/{{page.city | downcase}}.json');
-    </script>
+        drawIsochroneMap({{ page.latitude }}, {{ page.longitude }}, '/jsons/isochrone_driving_contours/{{page.city | downcase}}.json');
+        </script>
+

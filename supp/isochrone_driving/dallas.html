@@ -1,12 +1,13 @@
 ---
 layout: isochrone_driving_details
-title:  "Isochrone Map for Train Travel from Dallas"
+title:  "Isochrone Map for Driving from Dallas"
 tags: maps javascript leaflet isochrone
-city: Dallas 
-latitude: 32.78
-longitude: -96.79
+city: dallas 
+latitude: 32.7762719
+longitude: -96.7968559
 ---
 
 <script type="text/javascript">
-    drawIsochroneMap({{ page.latitude }}, {{ page.longitude }}, '/jsons/isochrone_driving_contours/{{page.city | downcase}}.json');
-    </script>
+        drawIsochroneMap({{ page.latitude }}, {{ page.longitude }}, '/jsons/isochrone_driving_contours/{{page.city | downcase}}.json');
+        </script>
+

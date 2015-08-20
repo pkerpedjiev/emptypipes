@@ -1,12 +1,13 @@
 ---
 layout: isochrone_driving_details
-title:  "Isochrone Map for Train Travel from Atlanta"
+title:  "Isochrone Map for Driving from Atlanta"
 tags: maps javascript leaflet isochrone
-city: Atlanta
-latitude: 33.75
-longitude: -84.39
+city: atlanta 
+latitude: 33.748543
+longitude: -84.391464
 ---
 
 <script type="text/javascript">
-    drawIsochroneMap({{ page.latitude }}, {{ page.longitude }}, '/jsons/isochrone_driving_contours/{{page.city | downcase}}.json');
-    </script>
+        drawIsochroneMap({{ page.latitude }}, {{ page.longitude }}, '/jsons/isochrone_driving_contours/{{page.city | downcase}}.json');
+        </script>
+

@@ -1,12 +1,13 @@
 ---
 layout: isochrone_driving_details
-title:  "Isochrone Map for Train Travel from Los Angeles"
+title:  "Isochrone Map for Driving from Los Angeles"
 tags: maps javascript leaflet isochrone
-city: Los Angeles 
-latitude: 34.05
-longitude: -118.25
+city: los_angeles 
+latitude: 34.053717
+longitude: -118.2427266
 ---
 
 <script type="text/javascript">
-    drawIsochroneMap({{ page.latitude }}, {{ page.longitude }}, '/jsons/isochrone_driving_contours/los_angeles.json');
-    </script>
+        drawIsochroneMap({{ page.latitude }}, {{ page.longitude }}, '/jsons/isochrone_driving_contours/{{page.city | downcase}}.json');
+        </script>
+

@@ -1,0 +1,13 @@
+---
+layout: isochrone_driving_details
+title:  "Isochrone Map for Driving from Rio De Janeiro"
+tags: maps javascript leaflet isochrone
+city: rio_de_janeiro 
+latitude: -22.9110137
+longitude: -43.2093727
+---
+
+<script type="text/javascript">
+        drawIsochroneMap({{ page.latitude }}, {{ page.longitude }}, '/jsons/isochrone_driving_contours/{{page.city | downcase}}.json');
+        </script>
+

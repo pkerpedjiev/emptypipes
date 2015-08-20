@@ -1,12 +1,13 @@
 ---
 layout: isochrone_driving_details
-title:  "Isochrone Map for Train Travel from Minneapolis"
+title:  "Isochrone Map for Driving from Minneapolis"
 tags: maps javascript leaflet isochrone
-city: Minneapolis
-latitude: 44.98
-longitude: -93.27
+city: minneapolis 
+latitude: 44.9772995
+longitude: -93.2654692
 ---
 
 <script type="text/javascript">
-    drawIsochroneMap({{ page.latitude }}, {{ page.longitude }}, '/jsons/isochrone_driving_contours/{{page.city | downcase}}.json');
-    </script>
+        drawIsochroneMap({{ page.latitude }}, {{ page.longitude }}, '/jsons/isochrone_driving_contours/{{page.city | downcase}}.json');
+        </script>
+

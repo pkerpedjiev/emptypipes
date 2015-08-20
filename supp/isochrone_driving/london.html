@@ -1,12 +1,13 @@
 ---
 layout: isochrone_driving_details
-title:  "Isochrone Map for Train Travel from London"
+title:  "Isochrone Map for Driving from London"
 tags: maps javascript leaflet isochrone
-city: London
-latitude: 51.51
-longitude: 0.13
+city: london 
+latitude: 51.5073219
+longitude: -0.1276474
 ---
 
 <script type="text/javascript">
-    drawIsochroneMap({{ page.latitude }}, {{ page.longitude }}, '/jsons/isochrone_driving_contours/{{page.city | downcase}}.json');
-    </script>
+        drawIsochroneMap({{ page.latitude }}, {{ page.longitude }}, '/jsons/isochrone_driving_contours/{{page.city | downcase}}.json');
+        </script>
+

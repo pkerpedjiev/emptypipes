@@ -1,12 +1,13 @@
 ---
 layout: isochrone_driving_details
-title:  "Isochrone Map for Train Travel from Denver"
+title:  "Isochrone Map for Driving from Denver"
 tags: maps javascript leaflet isochrone
-city: Denver 
-latitude: 39.74
-longitude: -104.99
+city: denver 
+latitude: 39.7391536
+longitude: -104.9847034
 ---
 
 <script type="text/javascript">
-    drawIsochroneMap({{ page.latitude }}, {{ page.longitude }}, '/jsons/isochrone_driving_contours/{{page.city | downcase}}.json');
-    </script>
+        drawIsochroneMap({{ page.latitude }}, {{ page.longitude }}, '/jsons/isochrone_driving_contours/{{page.city | downcase}}.json');
+        </script>
+
