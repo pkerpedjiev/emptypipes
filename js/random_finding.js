@@ -509,17 +509,6 @@
         var timesVisitedRunner;
         var timesVisitedChaser;
 
-        chart.strategyRunner = function(_) {
-            if (!arguments.length) return strategyRunner;
-            strategyRunner = _;
-            return chart;
-        };
-
-        chart.strategyChaser = function(_) {
-            if (!arguments.length) return strategyChaser;
-            strategyChaser = _;
-            return chart;
-        };
 
         function createEmptyGrid() {
             var emptyGrid = [];
@@ -823,6 +812,18 @@
         chart.runnerFixed = function(_) {
             if (!arguments.length) return runnerFixed;
             runnerFixed = _;
+            return chart;
+        };
+
+        chart.strategyRunner = function(_) {
+            if (!arguments.length) return strategyRunner;
+            strategyRunner = _;
+            return chart;
+        };
+
+        chart.strategyChaser = function(_) {
+            if (!arguments.length) return strategyChaser;
+            strategyChaser = _;
             return chart;
         };
 

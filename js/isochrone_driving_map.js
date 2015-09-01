@@ -1,6 +1,6 @@
 function drawIsochroneMap(initialLat, initialLon, travelTimeGridJson) {
     //var map = L.map('isochroneMap').setView([48.2858, 6.7868], 4);
-    var map = new L.Map("isochroneMap", {
+    var map = new L.Map("isochroneDrivingMap", {
         center: new L.LatLng(initialLat, initialLon),
         zoom: 5
     });
@@ -54,8 +54,7 @@ function drawIsochroneMap(initialLat, initialLon, travelTimeGridJson) {
     function drawLegend() {
         var legendHeight = 40;
 
-        var svgLegend = d3.select("#isochroneMapLegend").append("svg");
-
+        var svgLegend = d3.select("#isochroneDrivingMapLegend").append("svg");
 
         svgLegend.attr("width", width)
         .attr("height", legendHeight);
