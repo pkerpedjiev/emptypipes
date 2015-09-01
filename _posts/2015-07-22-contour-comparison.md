@@ -96,7 +96,7 @@ outer section which corresponds to the same values (13.5 - 18).
 [Conrec.js](https://github.com/jasondavies/conrec.js) correctly outlines the regions, but the level returned for the
 second and third sections from the middle is the same although they should
 correspond to different iso-bands. To create the plot, it was also necessary 
-to add some artifically high values along the outside boundaries to that iso-lines
+to add some artifically high values along the outside boundaries so that iso-lines
 were drawn around the edges.
 
 [Turf.js](https://github.com/Turfjs/turf) interpolated the data onto another grid and drew iso-lines in the same
@@ -107,13 +107,13 @@ the x and y scales and re-interpolating already gridded data (as in the example
 above).
 
 Needless to say, of the three methods,
-[MarchingSquares.js](https://github.com/RaumZeit/MarchingSquares.js)was the
+[MarchingSquares.js](https://github.com/RaumZeit/MarchingSquares.js) was the
 easiest and most aesthetically pleasing to me so I will likely use it in the
 future.
 
 The code for all three of these examples can be found in a [github repository here](https://github.com/pkerpedjiev/d3-contouring-example).
 
-If you see any errors or omissions please let me know on [Twitter](https://twitter.com/pkerpedjiev) or by email.
+If you see any errors or omissions or know of a way to make the Turf.js example look more reasonable, please let me know on [Twitter](https://twitter.com/pkerpedjiev) or by email.
 
 <script src="/js/lib/d3.min.js"></script>
 <script src="/js/lib/conrec.js"></script>
@@ -123,6 +123,7 @@ If you see any errors or omissions please let me know on [Twitter](https://twitt
 <script src="/js/circle-conrec-example.js"></script>
 <script src="/js/circle-turf-example.js"></script>
 <script>
+
 drawMarchingSquaresContours('#marchingSquaresContourPlotDiv');
 drawConrecContours('#conrecContourPlotDiv');
 drawTurfContours('#turfContourPlotDiv')

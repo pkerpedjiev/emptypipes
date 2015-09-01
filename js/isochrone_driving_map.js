@@ -39,17 +39,14 @@ function drawIsochroneMap(initialLat, initialLon, travelTimeGridJson) {
     map._initPathRoot();
 
     // We pick up the SVG from the map object
-    var svg = d3.select("#isochroneMap").select("svg");
+    var svg = d3.select("#isochroneDrivingMap").select("svg");
     var g = svg.append("g").attr("class", "leaflet-zoom-hide").attr('opacity', 0.8);
     
     var times = [2,4,6,8,10,12,14,16,18,20,22,24];
     var zs = times.map(function(d) { return Math.log(d * 60); });
 
-    console.log('zs:', zs);
     //var colours = d3.scale.cubehelix().domain([Math.exp(zs[0]), Math.exp(zs[zs.length-1])]);
     var colours = d3.scale.cubehelix().domain([11, 0]);
-
-    console.log('colours.domain()', colours.domain());
 
     function drawLegend() {
         var legendHeight = 40;
@@ -63,8 +60,6 @@ function drawIsochroneMap(initialLat, initialLon, travelTimeGridJson) {
         var numColumns = 6;
         var perColumn = newTimes.length / numColumns;
         var numRows = newTimes.length / numColumns;
-
-        console.log('newTimes', newTimes);
 
         columnBands = d3.scale.ordinal().domain(d3.range(numColumns))
         .rangeRoundBands([0, width], 0.1);
@@ -108,6 +103,7 @@ function drawIsochroneMap(initialLat, initialLon, travelTimeGridJson) {
     }
 
     d3.json(travelTimeGridJson, function(jsonStruct) {
+        console.log('jsonStruct:', jsonStruct);
         var transform = d3.geo.transform({
             point: projectPoint
         });
@@ -152,14 +148,11 @@ function drawIsochroneMap(initialLat, initialLon, travelTimeGridJson) {
         drawLegend();
 
         function resetView() {
-            console.log('reset:', map.options.center);
             contourPath.attr("d", function(d) {
                 var pathStr = d.map(function(d1) {
                     var point = map.latLngToLayerPoint(new L.LatLng(d1[2], d1[1]));
                     return d1[0] + point.x + "," + point.y;
                 }).join('');
-
-                //console.log('d', d); 
 
                 return pathStr;
             });

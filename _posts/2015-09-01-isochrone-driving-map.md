@@ -1,6 +1,11 @@
 ---
-layout: default
+layout: post
+title:  "Isochrone Driving Maps of the World"
+description: "A contour map of driving times from various cities. Otherwise known as an isochrone map."
+tags: maps javascript d3.js leaflet 
 ---
+<meta charset="utf-8"> 
+<img itemprop="image" src="/img/isochrone_example.jpg" style='display:none' width=200 height=170>
 
 <link rel="stylesheet" href="/css/leaflet.css">
 <script src="/js/leaflet.js"></script>
@@ -15,6 +20,10 @@ starting in {{ page.city }}.
 
 <div id="isochroneDrivingMap" style="height: 400px; width: 550px;"></div>
 <div id="isochroneDrivingMapLegend" style="height: 40px; width: 550px;"></div>
+
+<script type="text/javascript">
+        drawIsochroneMap(48.200, 16.3666, '/jsons/isochrone_driving_contours/vienna.json');
+        </script>
 
 {% include isochrone_driving_cities_list.html %}
 
@@ -32,5 +41,3 @@ If you find issues, please let me know
 and I'll do my best to fix them.
 <br>
 <br>
-
-{{ content }}

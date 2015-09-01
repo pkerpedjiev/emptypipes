@@ -41,6 +41,7 @@ to most users of desktop computers:
 Finally, the cursor is changed to a crosshair when the user presses
 the shift key.
 
-The code for this example is available as a [github gist](https://gist.github.com/pkerpedjiev/0389e39fad95e1cf29ce).
+The code for this example is available on [bl.ocks.org](http://bl.ocks.org/pkerpedjiev/0389e39fad95e1cf29ce) or
+directly from [github gist](https://gist.github.com/pkerpedjiev/0389e39fad95e1cf29ce).
 An example of its use is found in this [RNA secondary structure visualization tool](http://nibiru.tbi.univie.ac.at/forna/).
 

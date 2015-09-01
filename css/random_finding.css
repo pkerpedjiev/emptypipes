@@ -95,3 +95,7 @@ rect.bar {
 #options-table {
     font: 12px sans-serif;
 }
+ 
+.number-cell {
+    text-align: right;
+}

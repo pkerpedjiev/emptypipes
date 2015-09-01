@@ -328,8 +328,8 @@
         var oldChart = null;
 
         var chart = function(selection) {
-            var heightOptionValues = [1,2,3,4,5,6,7,8];
-            var widthOptionValues = [1,2,3,4,5,6,7,8];
+            var heightOptionValues = [1,2,3,4,5,6,7,8,16];
+            var widthOptionValues = [1,2,3,4,5,6,7,8,16];
             var optionSpeedValues = [{'name': 'slow',
                                      'value': 400},
                                      {'name': 'medium',
@@ -540,7 +540,10 @@
         var gEnter;
 
         var strategyRunner = 'standing';
-        var strategyChaser = 'random';
+        var strategyChaser = 'avoiding';
+
+        var runnerDirection = [1,1];
+        var chaserDirection = [-1,-1];
 
         var timesVisitedRunner;
         var timesVisitedChaser;
@@ -650,6 +653,46 @@
             timesVisitedRunner = createEmptyGrid();
             timesVisitedChaser = createEmptyGrid();
 
+            function shuffle(o){
+                for(var j, x, i = o.length; i; j = Math.floor(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+                return o;
+            }
+
+            function getAvoidingMove(currentPosition, timesVisited) {
+                var validPositions = potentialMoves(currentPosition);
+                validPositions = validPositions.map(function(d) {
+                    return [d, timesVisited[d[0]][d[1]]];
+                }).sort(function(a,b) { return a[1] - b[1]; })
+
+                //take all equally good positions
+                validPositions = validPositions.filter(function(d) { return d[1] == validPositions[0][1]; });
+                shuffle(validPositions);
+                
+                console.log('validPositions:', validPositions[0], validPositions[1], validPositions[2]);
+                return validPositions[0][0];
+            }
+
+            function getScanningMove(currentPosition, previousDirection) {
+                // move in the y direction
+                var newPosition = addPosition(currentPosition, [0, previousDirection[1]]);
+                
+                if (!isValidPosition(newPosition)) {
+                    // didn't work, move in the x-direction
+                    // and reverse the y-direction for the next move
+                    newPosition = addPosition(currentPosition, [previousDirection[0], 0]);
+                    previousDirection[1] = -previousDirection[1];
+                }
+
+                if (!isValidPosition(newPosition)) {
+                    //didn't work move back in the x direction, keep the
+                    //reversed y direction and reverse the x-direction 
+                    newPosition = addPosition(currentPosition, [-previousDirection[0], 0]);
+                    previousDirection[0] = -previousDirection[0];
+                }
+
+                return [newPosition, previousDirection];
+            }
+
             function step() {
                 if (!running)
                     return;
@@ -706,14 +749,12 @@
                                                         randomDirection());
                         console.log('newChaserPosition', newChaserPosition);
                     } else if (strategyChaser == 'avoiding') {
-                        var validPositions = potentialMoves(chaser.data()[0]);
-                        validPositions = validPositions.map(function(d) {
-                            return [d, timesVisitedChaser[d[0]][d[1]]];
-                        }).sort(function(a,b) { return a[1] - b[1]; });
-
-                        console.log('validPositions:', validPositions[0], validPositions[1], validPositions[2]);
-                        newChaserPosition = validPositions[0][0];
-                        console.log('newChaserPosition', newChaserPosition);
+                        newChaserPosition = getAvoidingMove(chaser.data()[0],
+                                                           timesVisitedChaser);
+                    } else if (strategyChaser = 'scanning') {
+                        var ret = getScanningMove(chaser.data()[0], chaserDirection);
+                        newChaserPosition = ret[0];
+                        chaserDirection = ret[1];
                     }
                 } while (!isValidPosition(newChaserPosition));
 
@@ -724,14 +765,12 @@
                         newRunnerPosition = addPosition(runner.data()[0],
                                                         randomDirection());
                     } else if (strategyRunner == 'avoiding') {
-                        var validPositions = potentialMoves(runner.data()[0]);
-                        validPositions = validPositions.map(function(d) {
-                            return [d, timesVisitedRunner[d[0]][d[1]]];
-                        }).sort(function(a,b) { return a[1] - b[1]; });
-
-                        console.log('validPositions:', validPositions[0], validPositions[1], validPositions[2]);
-                        newRunnerPosition = validPositions[0][0];
-                        console.log('newRunnerPosition', newRunnerPosition);
+                        newRunnerPosition = getAvoidingMove(runner.data()[0],
+                                                            timesVisitedRunner);
+                    } else if (strategyRunner = 'scanning') {
+                        var ret = getScanningMove(runner.data()[0], runnerDirection);
+                        newRunnerPosition = ret[0];
+                        runnerDirection = ret[1];
                     }
 
                 } while (!isValidPosition(newRunnerPosition));
