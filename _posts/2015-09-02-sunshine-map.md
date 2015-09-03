@@ -1,0 +1,76 @@
+---
+layout: post
+title:  "Wikipedia's Climate Data on an Interactive Map"
+description: "A map showing climate data such as sunshine, precipitation and snow taken from wikipedia."
+tags: maps javascript d3.js leaflet 
+---
+<meta charset="utf-8"> 
+<img itemprop="image" src="/img/isochrone_example.jpg" style='display:none' width=200 height=170>
+
+One of my favorite things about Wikipedia is that most cities have a 'weather box'
+which shows historical climate data such as sunshine hours, maximum and minimum
+temperatures, precipitation and various other interesting statistics:
+
+<hr>
+<img src="img/sunshine_map/grytviken_weatherbox.jpg"/ width="500px">
+<hr>
+
+It's a lot of fun to compare the values for different cities. Are summers in
+Vienna warmer than in Zürich? Is Seattle rainier than New York? This often involves
+jumping from page to page or opening up two browser windows to compare values.
+Couldn't we make it easier? What if we could see all the values for every place
+for which there was data at once?
+
+That's precisely what I set out to do with the climate map below. The overlay is
+a voronoi diagram where each cell is filled in according to the climate data for
+the location defining that point (default is sunshine). Moving the mouse over
+any cell will show the city it corresponds to as well as its climate data.
+
+A time range can be selected using the circular control on the bottom right corner.
+The letters refer to the months of the year. Dragging one of the handles will extend
+or contract the range, whereas dragging on the range itself will translate it.
+
+Different climate data overlays can be selected via the icon in the upper right corner.
+
+<link rel="stylesheet" href="/css/leaflet.css">
+<link rel="stylesheet" href="/css/sunshine.css">
+
+<script src="/js/lib/jquery.min.js"></script>
+<script src="/js/lib/underscore-min.js"></script>
+<script src="/js/lib/backbone.js"></script>
+<script src="/js/lib/d3.min.js"></script>
+<script src="/js/lib/queue.min.js"></script>
+<script src="/js/lib/topojson.v1.min.js"></script>
+<script src="/js/lib/d3.geo.voronoi.js"></script>
+<script src="/js/lib/d3.svg.circularbrush.js"></script>
+<script src="/js/lib/leaflet.js"></script>
+<script src="/js/lib/tile.stamen.js"></script>
+<script src="/js/climate-map.js"></script>
+
+<hr>
+<div id="climate-map" style="height: 400px; width: 550px;"></div>
+<hr>
+
+<script type="text/javascript">
+
+var cm = new ClimateMapViewer();
+cm.drawClimateMap('climate-map')
+
+</script>
+
+<b> How It's Made </b>
+<hr>
+<b>Data Preparation</b>
+
+1. Wikipedia dumps for all the pages are calculated.  
+2. For each article that
+has an assicated location and weatherbox, we extract the name, latitude,
+longitude and weatherbox data and store it in a JSON file.
+3. This file is filtered for for any entries that don't have sun,
+precipitation, high and low temperatures
+4. The final file is used as input to climate-map.js
+5. All of the code for parsing wikipedia is [on github](https://github.com/pkerpedjiev/sunshine-map)
+<hr>
+<b>Interactive Map</b>
+1. Country outlines were obtained from...
+2. The circular brush was obtained from...

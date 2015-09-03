@@ -2,142 +2,12 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 <title>United States of Voronoi</title>
-<style>
-
-@import url(/css/maps.css);
-
-
-img.leaflet-tile{
-        pointer-events: none;
-    }
-
-.layer-image {
-    margin: 5px 5px 2px 5px;
-}
-
-.city-point {
-    visibility: hidden;
-    background: white;
-
-    pointer-events: none;
-}
-
-.city-circle {
-    fill: transparent;
-    stroke: #000000;
-    stroke-width: 2;
-}
-
-text.label-text {
-    fill: #FFFFFF;
-    stroke: #000000;
-    stroke-width: 1.0;
-    font: 14px/1.5 Tahoma, Geneva, sans-serif;
-    font-weight: 900;
-}
-
-.weather-toggle {
-    position: relative;
-    background: white;
-    border-radius: 5px;
-    box-shadow: 2px 2px 3px #333333;
-}
-
-.weather-type {
-    border-radius: 5px;
-    background: white;
-    box-shadow: 2px 2px 3px #333333;
-    /* visibility: hidden; */
-}
-
-.weather-form {
-    margin: 5px 5px 5px 5px;
-}
-
-path {
-  stroke-linejoin: round;
-}
-
-.land {
-  stroke: #000;
-  stroke-width: .5px;
-  fill: none;
-}
-
-.voronoi-border {
-  stroke: #fff;
-  stroke-width: .1px;
-}
-
-.points {
-  pointer-events: none;
-}
-
-.states {
-  stroke: #000;
-  stroke-width: .5px;
-  fill: none;
-}
-
-.map-lines {
-    fill: transparent;
-    stroke-width: 1;
-    stroke: black;
-    pointer-events: none;
-}
-
-    .resize {
-    fill-opacity: .5;
-    cursor: move;
-    stroke: black;
-    stroke-width: 1px;
-  }
-
-  .extent {
-    fill-opacity: .25;
-    fill: rgb(205,130,42);
-    cursor: hand;
-    stroke: black;
-    stroke-width: 1px;
-  }
-
-  .e {
-    fill: rgb(111,111,111);
-    cursor: move;
-  }
-
-  .w {
-    fill: rgb(169,169,169);
-    cursor: move;
-  }
-
-  path.piemonths {
-      fill: rgb(231,231,231);
-      stroke: black;
-      stroke-width: 0.5;
-  }
-
-  path.piemonths.selected {
-     fill: rgb(241,90,64);
-  }
-
-  textpath.month-label {
-      font-family: Verdana;
-      font-size: 12;
-  }
-
-.selected {
-    stroke-width: 2px;
-    visibility: visible;
-}
-
-</style>
-
+<link rel='stylesheet' href='/css/sunshine.css'>
+<link rel="stylesheet" href="/css/leaflet.css">
 <h1>United States of Voronoi</h1>
 
 <div id="climate-map" style="height: 400px; width: 550px;"></div>
 
-<link rel="stylesheet" href="/css/leaflet.css">
 
 <script src="/js/lib/jquery.js"></script>
 <script src="/js/lib/underscore-min.js"></script>
@@ -152,7 +22,8 @@ path {
 <script src="/js/climate-map.js"></script>
 <script>
 
-drawClimateMap('climate-map')
+var cm = new ClimateMapViewer();
+cm.drawClimateMap('climate-map')
 
 </script>
 

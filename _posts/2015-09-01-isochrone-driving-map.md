@@ -14,7 +14,7 @@ tags: maps javascript d3.js leaflet
 <script src="/js/tile.stamen.js"></script>
 
 This map shows how far one may expect to drive in less than 24 hours
-starting in {{ page.city }}.
+starting in Vienna.
 <br>
 <br>
 

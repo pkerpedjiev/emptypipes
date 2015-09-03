@@ -321,7 +321,7 @@ function ClimateMapViewer() {
         var weatherTypes = ['sun', 'precipitation mm', 'high C', 'low C', 'snow cm'];
         radioHtml = '';
         for (var i = 0; i < weatherTypes.length; i++) {
-            radioHtml += '<label style="display: block;"><input type="radio" style="position: relative" name="weatherTypeRadio" value="' + weatherTypes[i] + '"><span>' + weatherTypes[i] + '</span></label>';
+            radioHtml += '<label style="display: block;"><input type="radio" style="position: relative" name="weatherTypeRadio" value="' + weatherTypes[i] + '"><span class="weather-type-option">' + weatherTypes[i] + '</span></label>';
         }
 
         group.innerHTML += radioHtml;
@@ -353,7 +353,7 @@ function ClimateMapViewer() {
 
         //var layer = new L.StamenTileLayer("toner");
         //map.addLayer(layer);
-        cartoDbBaseLayer = L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}.png',{
+        cartoDbBaseLayer = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png',{
             attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
         }).addTo(map);
 
@@ -367,7 +367,7 @@ function ClimateMapViewer() {
         //topPane.appendChild(topLayerLines.getContainer());
         //topLayerLines.setZIndex(7);
 
-        var topLayerLabels = new L.tileLayer('http://{s}.basemaps.cartocdn.com/dark_only_labels/{z}/{x}/{y}.png', {
+        var topLayerLabels = new L.tileLayer('http://{s}.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}.png', {
             maxZoom: 17
         }).addTo(map);
         topPane.appendChild(topLayerLabels.getContainer());
@@ -384,7 +384,7 @@ function ClimateMapViewer() {
 
         // We pick up the SVG from the map object
         var svg = d3.select("#" + divName).select("svg");
-        var gMain = svg.append("g").attr("class", "leaflet-zoom-hide").attr('opacity', 0.8);
+        var gMain = svg.append("g").attr("class", "leaflet-zoom-hide").attr('opacity', 1.0);
 
         var otherSvg = d3.select("#" + divName).append('svg').attr('width', width).attr('height', height).style('position', 'relative').style('z-index', 7).attr('pointer-events', 'none');
 
@@ -440,9 +440,8 @@ function ClimateMapViewer() {
         */
 
         queue()
-        .defer(d3.json, "/data/countries.geo.json")
-        .defer(d3.csv, "/data/us-state-capitals.csv")
-        .defer(d3.json, "/data/climate_consolidated.json")
+        .defer(d3.json, "/jsons/sunshine_map/countries.geo.json")
+        .defer(d3.json, "/jsons/sunshine_map/climate_consolidated.json")
         .await(ready);
 
         var fill = d3.scale.category10();
@@ -452,9 +451,8 @@ function ClimateMapViewer() {
         .y(function(d) { return d.y; });
         //.clipExtent([[0, 0], [width, height]]);
 
-        function ready(error, us, capitals, climate) {
-            console.log('error:', error);
-            console.log(us, capitals, climate);
+        function ready(error, us, climate) {
+            console.log(us,  climate);
 
             climate.forEach(function(d) {
                 var latlng = new L.LatLng(d.lat, d.lon);
