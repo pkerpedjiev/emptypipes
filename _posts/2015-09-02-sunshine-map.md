@@ -12,7 +12,7 @@ which shows historical climate data such as sunshine hours, maximum and minimum
 temperatures, precipitation and various other interesting statistics:
 
 <hr>
-<img src="img/sunshine_map/grytviken_weatherbox.jpg"/ width="500px">
+<a href="https://en.wikipedia.org/wiki/Grytviken#Climate"><img src="img/sunshine_map/grytviken_weatherbox.jpg"/ width="500px"></a>
 <hr>
 
 It's a lot of fun to compare the values for different cities. Are summers in
@@ -21,10 +21,10 @@ jumping from page to page or opening up two browser windows to compare values.
 Couldn't we make it easier? What if we could see all the values for every place
 for which there was data at once?
 
-That's precisely what I set out to do with the climate map below. The overlay is
-a voronoi diagram where each cell is filled in according to the climate data for
-the location defining that point (default is sunshine). Moving the mouse over
-any cell will show the city it corresponds to as well as its climate data.
+The map below contains a vornoi diagram overlay where each cell is filled in
+according to the climate data for the location defining that point (default is
+sunshine). Moving the mouse over any cell will show the city it corresponds to
+as well as its climate data.
 
 A time range can be selected using the circular control on the bottom right corner.
 The letters refer to the months of the year. Dragging one of the handles will extend
@@ -58,8 +58,8 @@ cm.drawClimateMap('climate-map')
 
 </script>
 
-<b> How It's Made </b>
-<hr>
+<h4> How It's Made </h4>
+
 <b>Data Preparation</b>
 
 1. Wikipedia dumps for all the pages are calculated.  
@@ -70,7 +70,13 @@ longitude and weatherbox data and store it in a JSON file.
 precipitation, high and low temperatures
 4. The final file is used as input to climate-map.js
 5. All of the code for parsing wikipedia is [on github](https://github.com/pkerpedjiev/sunshine-map)
-<hr>
+
 <b>Interactive Map</b>
-1. Country outlines were obtained from...
-2. The circular brush was obtained from...
+
+1. Country outlines were obtained from [Johan Sundström's `world.geo.json` github repository](https://github.com/johan/world.geo.json)
+2. The circular brush was obtained from [Elijah Meeks' bl.ock](http://bl.ocks.org/emeeks/ccc0368f6fb127d60b7c)
+3. There's a bottom layer using [CartoDB's Positron Layer](https://cartodb.com/basemaps), although this is usually covered by up the SVG containing the voronoi diagram.
+4. There's a middle layer containing the SVG element with all of the voronoi cells.
+5. Then there is a label-only [CaroDB Position Layer](https://cartodb.com/basemaps).
+6. Finally, on top of that, the circular brush is used to create the month selector control on the bottom right corner.
+7. The layer selector control on the upper right hand corner is a hacked facsimile of [Leaflet.js's Layers Control](http://leafletjs.com/examples/layers-control.html). It's hacked because the different layers aren't actually Leaflet layers, but rather different cross sections of the data. Selecting different options triggers a different data bind for the voronoi cells in the SVG layer.
