@@ -394,26 +394,31 @@ function ClimateMapViewer() {
         var gCityPoints = gMain.append('g');
         var gLayerControl = otherSvg.append('g');
 
-        var divWeatherType = d3.select('#' + divName)
-        .select('.weather-type')
-        .on('mouseleave', function(d1) {
-            var thisNode = d3.select(this);
-
-            d3.event.stopPropagation();
-            thisNode.classed('leaflet-control-layers-expanded', false);
-        });
-
-        divWeatherType
-        .classed('leaflet-control-layers', true)
-        .classed('leaflet-control', true)
-        .attr('aria-haspopup', 'true');
-
         function showWeatherTypeSelector(d) {
             var thisParent = d3.select(this.parentNode);
 
             d3.event.stopPropagation();
             thisParent.classed('leaflet-control-layers-expanded', true);
         }
+
+        function hideWeatherTypeSelector(d) {
+            //var thisNode = d3.select('.leaflet-control-layers-toggle');
+            var thisNode = d3.select('#' + divName)
+            .select('.weather-type');
+
+            d3.event.stopPropagation();
+            thisNode.classed('leaflet-control-layers-expanded', false);
+        }
+
+        var divWeatherType = d3.select('#' + divName)
+        .select('.weather-type')
+        .on('mouseleave', hideWeatherTypeSelector);
+
+        divWeatherType
+        .classed('leaflet-control-layers', true)
+        .classed('leaflet-control', true)
+        .attr('aria-haspopup', 'true');
+
 
         d3.select('.leaflet-control-layers-toggle')
         .on('mouseenter', showWeatherTypeSelector)
@@ -568,14 +573,12 @@ function ClimateMapViewer() {
                     selectedLabels.classed('selected', false);
                 })
                 .on('click', function(d) {
+                    hideWeatherTypeSelector(null);
                     var allPaths = gVoronoi.selectAll('.voronoi-border-path').classed('selected', false);
                     var selectedLabels = gCityPoints.selectAll('.city-point');
                     selectedLabels.classed('selected', false);
 
-                    console.log('selectedLabels:', selectedLabels);
-                    
                     //classed('selected', false);
-
                     d3.select(this).classed('selected', true);
                     var labelSelect = d3.select('.d' + d.point.lat.toString().replace('.', '_') + d.point.lon.toString().replace('.','_'));
                     labelSelect.selectAll('.label-text-climate').text(self.monthFilteredText(myMonthSelectorChart.monthFilterPrev()));
