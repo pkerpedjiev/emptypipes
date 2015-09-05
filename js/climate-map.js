@@ -77,11 +77,7 @@ function ClimateMapViewer() {
 
 
     self.monthFilteredText = function(monthFilter) {
-        console.log('getting monthFilter');
-
         return function(point) {
-            console.log('point:', point);
-
             if (typeof(point) == 'undefined')
                 return '';
 
@@ -199,7 +195,6 @@ function ClimateMapViewer() {
                     .call(piebrush);
 
                     gCircularSelector.selectAll('path.circularbrush')
-                    .each(function(d) { console.log('x', d); })
                     .data(startBrushData);
 
                     function pieBrush() {
@@ -422,23 +417,6 @@ function ClimateMapViewer() {
             thisParent.classed('leaflet-control-layers-expanded', true);
         });
 
-        /*
-        var divLayerControl = d3.select('#' + divName)
-        .select('.leaflet-control-container')
-        .selectAll('.leaflet-top')
-        .filter('.leaflet-right')
-        .append('div')
-        .on('mouseover', function(d) {
-            console.log('hey');
-        })
-        .classed('weather-toggle', true)
-        .classed('leaflet-control', true)
-        .append('img')
-        .classed('layer-image', true)
-        .attr('src', '/img/layers.svg')
-        .attr('pointer-events', 'all')
-        */
-
        map.spin(true);
 
         queue()
@@ -455,7 +433,6 @@ function ClimateMapViewer() {
 
         function ready(error, us, climate) {
             map.spin(false);
-            console.log(us,  climate);
 
             climate.forEach(function(d) {
                 var latlng = new L.LatLng(d.lat, d.lon);
@@ -581,7 +558,6 @@ function ClimateMapViewer() {
                     d3.select(this).classed('selected', false);
                     d3.select('.d' + d.point.lat.toString().replace('.', '_') + d.point.lon.toString().replace('.', '_')).classed('selected', false);
                 })
-                .on('click', function(d) { console.log('d', d.point); }); 
                 //.attr('fill',  cellPathFill)
                 //
                 self.updateMonthFilter(myMonthSelectorChart.monthFilterPrev());
