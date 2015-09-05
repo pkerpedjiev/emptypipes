@@ -439,6 +439,8 @@ function ClimateMapViewer() {
         .attr('pointer-events', 'all')
         */
 
+       map.spin(true);
+
         queue()
         .defer(d3.json, "/jsons/sunshine_map/countries.geo.json")
         .defer(d3.json, "/jsons/sunshine_map/climate_consolidated.json")
@@ -452,6 +454,7 @@ function ClimateMapViewer() {
         //.clipExtent([[0, 0], [width, height]]);
 
         function ready(error, us, climate) {
+            map.spin(false);
             console.log(us,  climate);
 
             climate.forEach(function(d) {

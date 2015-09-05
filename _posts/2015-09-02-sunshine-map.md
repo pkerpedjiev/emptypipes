@@ -12,7 +12,7 @@ which shows historical climate data such as sunshine hours, maximum and minimum
 temperatures, precipitation and various other interesting statistics:
 
 <hr>
-<a href="https://en.wikipedia.org/wiki/Grytviken#Climate"><img src="img/sunshine_map/grytviken_weatherbox.jpg"/ width="500px"></a>
+<a href="https://en.wikipedia.org/wiki/Grytviken#Climate"><img src="/img/sunshine_map/grytviken_weatherbox.jpg"/ width="500px"></a>
 <hr>
 
 It's a lot of fun to compare the values for different cities. Are summers in
@@ -45,6 +45,8 @@ Different climate data overlays can be selected via the icon in the upper right 
 <script src="/js/lib/d3.svg.circularbrush.js"></script>
 <script src="/js/lib/leaflet.js"></script>
 <script src="/js/lib/tile.stamen.js"></script>
+<script src="/js/lib/spin.min.js"></script>
+<script src="/js/lib/leaflet.spin.js"></script>
 <script src="/js/climate-map.js"></script>
 
 <hr>
