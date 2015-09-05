@@ -408,14 +408,16 @@ function ClimateMapViewer() {
         .classed('leaflet-control', true)
         .attr('aria-haspopup', 'true');
 
-
-        d3.select('.leaflet-control-layers-toggle')
-        .on('mouseenter', function(d) {
+        function showWeatherTypeSelector(d) {
             var thisParent = d3.select(this.parentNode);
 
             d3.event.stopPropagation();
             thisParent.classed('leaflet-control-layers-expanded', true);
-        });
+        }
+
+        d3.select('.leaflet-control-layers-toggle')
+        .on('mouseenter', showWeatherTypeSelector)
+        .on('click', showWeatherTypeSelector);
 
        map.spin(true);
 
