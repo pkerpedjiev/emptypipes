@@ -555,9 +555,32 @@ function ClimateMapViewer() {
                     labelSelect.classed('selected', true);
                 })
                 .on('mouseout', function(d) {
+                    /*
                     d3.select(this).classed('selected', false);
                     d3.select('.d' + d.point.lat.toString().replace('.', '_') + d.point.lon.toString().replace('.', '_')).classed('selected', false);
+                    */
+
+                    var allPaths = gVoronoi.selectAll('.voronoi-border-path').classed('selected', false);
+
+                    var selectedLabels = gCityPoints.selectAll('.city-point');
+                    selectedLabels.classed('selected', false);
                 })
+                .on('click', function(d) {
+                    var allPaths = gVoronoi.selectAll('.voronoi-border-path').classed('selected', false);
+                    var selectedLabels = gCityPoints.selectAll('.city-point');
+                    selectedLabels.classed('selected', false);
+
+                    console.log('selectedLabels:', selectedLabels);
+                    
+                    //classed('selected', false);
+
+                    d3.select(this).classed('selected', true);
+                    var labelSelect = d3.select('.d' + d.point.lat.toString().replace('.', '_') + d.point.lon.toString().replace('.','_'));
+                    labelSelect.selectAll('.label-text-climate').text(self.monthFilteredText(myMonthSelectorChart.monthFilterPrev()));
+
+                    labelSelect.classed('selected', true);
+
+                });
                 //.attr('fill',  cellPathFill)
                 //
                 self.updateMonthFilter(myMonthSelectorChart.monthFilterPrev());
