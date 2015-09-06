@@ -176,8 +176,7 @@ function ClimateMapViewer() {
                     .attr("class", "piemonths")
                     .classed('selected', true)
                     .attr("d", pieArc)
-                    .attr('id', function(d) { return 'arc' + d.data; })
-                    .on("click", function(d) {console.log(d)});
+                    .attr('id', function(d) { return 'arc' + d.data; });
 
                     gCircularSelector.selectAll('text')
                     .data(months)
@@ -382,7 +381,7 @@ function ClimateMapViewer() {
         var gMain = svg.append("g").attr("class", "leaflet-zoom-hide").attr('opacity', 1.0);
 
         var otherSvg = d3.select("#" + divName).append('svg').attr('width', width).attr('height', height).style('position', 'relative').style('z-index', 7).attr('pointer-events', 'none');
-
+        var otherOtherSvg = d3.select("#" + divName).append('svg').attr('width', width).attr('height', height).style('position', 'absolute').style('left', 0).style('top', 0).style('z-index', 7).attr('pointer-events', 'none');
 
         otherSvg.append('g')
         .attr('transform', 'translate(508,340)')
@@ -391,17 +390,30 @@ function ClimateMapViewer() {
 
         var gVoronoi = gMain.append('g');
         var gMapLines = gMain.append('g');
-        var gCityPoints = gMain.append('g');
+        var gCityPoints = otherOtherSvg.append('g');
         var gLayerControl = otherSvg.append('g');
 
-        var divWeatherType = d3.select('#' + divName)
-        .select('.weather-type')
-        .on('mouseleave', function(d1) {
-            var thisNode = d3.select(this);
+        var selectableCity = true;
+
+        function showWeatherTypeSelector(d) {
+            var thisParent = d3.select(this.parentNode);
+
+            d3.event.stopPropagation();
+            thisParent.classed('leaflet-control-layers-expanded', true);
+        }
+
+        function hideWeatherTypeSelector(d) {
+            //var thisNode = d3.select('.leaflet-control-layers-toggle');
+            var thisNode = d3.select('#' + divName)
+            .select('.weather-type');
 
             d3.event.stopPropagation();
             thisNode.classed('leaflet-control-layers-expanded', false);
-        });
+        }
+
+        var divWeatherType = d3.select('#' + divName)
+        .select('.weather-type')
+        .on('mouseleave', hideWeatherTypeSelector);
 
         divWeatherType
         .classed('leaflet-control-layers', true)
@@ -410,12 +422,8 @@ function ClimateMapViewer() {
 
 
         d3.select('.leaflet-control-layers-toggle')
-        .on('mouseenter', function(d) {
-            var thisParent = d3.select(this.parentNode);
-
-            d3.event.stopPropagation();
-            thisParent.classed('leaflet-control-layers-expanded', true);
-        });
+        .on('mouseenter', showWeatherTypeSelector)
+        .on('click', showWeatherTypeSelector);
 
        map.spin(true);
 
@@ -443,6 +451,7 @@ function ClimateMapViewer() {
             });
 
 
+            //gCityPoints.attr('transform', 'translate(' + (-map.getPixelBounds().min.x) + ',' + (-map.getPixelBounds().min.y) + ')');
             var cityPointsGs = gCityPoints.selectAll('.city-point')
             .data(climate)
             .enter()
@@ -475,14 +484,14 @@ function ClimateMapViewer() {
             labelText
             .append('tspan')
             .attr('x', labelPositionX)
-            .attr('y', -10)
+            .attr('y', -0)
             .classed('label-text-name', true)
             .text(function(d) { return d.name; });
 
             labelText
             .append('tspan')
             .attr('x', labelPositionX)
-            .attr('y', 10)
+            .attr('y', 20)
             .classed('label-text-climate', true);
 
             //.text(function(d) { return d.name; });
@@ -512,14 +521,22 @@ function ClimateMapViewer() {
             .enter().append("path")
             .classed('map-lines', true);
 
-            function resetView() {
+            function recalcPoints() {
                 climate.forEach(function(d) {
                     var latlng = new L.LatLng(d.lat, d.lon);
                     var point = map.latLngToLayerPoint(new L.LatLng(+d.lat, +d.lon));
+                    var cPoint = map.latLngToContainerPoint(new L.LatLng(+d.lat, +d.lon));
 
                     d.x = point.x;
                     d.y = point.y;
+
+                    d.cx = cPoint.x;
+                    d.cy = cPoint.y;
                 });
+            }
+
+            function resetView() {
+                recalcPoints();
 
                 var counter = 0;
                 var voronoiPoints = voronoi(climate);
@@ -548,6 +565,9 @@ function ClimateMapViewer() {
                 gVoronoi.selectAll('.voronoi-border').select('path')
                 .attr("d", buildPathFromPoint)
                 .on('mouseover', function(d) {
+                    if (!selectableCity)
+                        return;
+
                     d3.select(this).classed('selected', true);
                     var labelSelect = d3.select('.d' + d.point.lat.toString().replace('.', '_') + d.point.lon.toString().replace('.','_'));
                     labelSelect.selectAll('.label-text-climate').text(self.monthFilteredText(myMonthSelectorChart.monthFilterPrev()));
@@ -555,20 +575,56 @@ function ClimateMapViewer() {
                     labelSelect.classed('selected', true);
                 })
                 .on('mouseout', function(d) {
+                    /*
                     d3.select(this).classed('selected', false);
                     d3.select('.d' + d.point.lat.toString().replace('.', '_') + d.point.lon.toString().replace('.', '_')).classed('selected', false);
+                    */
+
+                    var allPaths = gVoronoi.selectAll('.voronoi-border-path').classed('selected', false);
+
+                    var selectedLabels = gCityPoints.selectAll('.city-point');
+                    selectedLabels.classed('selected', false);
                 })
+                .on('click', function(d) {
+                    hideWeatherTypeSelector(null);
+                    var allPaths = gVoronoi.selectAll('.voronoi-border-path').classed('selected', false);
+                    var selectedLabels = gCityPoints.selectAll('.city-point');
+                    selectedLabels.classed('selected', false);
+
+                    //classed('selected', false);
+                    d3.select(this).classed('selected', true);
+                    var labelSelect = d3.select('.d' + d.point.lat.toString().replace('.', '_') + d.point.lon.toString().replace('.','_'));
+                    labelSelect.selectAll('.label-text-climate').text(self.monthFilteredText(myMonthSelectorChart.monthFilterPrev()));
+
+                    labelSelect.classed('selected', true);
+
+                });
                 //.attr('fill',  cellPathFill)
                 //
                 self.updateMonthFilter(myMonthSelectorChart.monthFilterPrev());
 
                 gCityPoints.selectAll('.city-point')
-                .attr('transform', function(d) { return 'translate(' + d.x + ',' + d.y + ')';});
+                .attr('transform', function(d) { return 'translate(' + d.cx + ',' + d.cy + ')';});
 
                 feature.attr("d", path);
+                map.spin(false);
             }
 
+            map.on('movestart', function() {
+                    var selectedLabels = gCityPoints.selectAll('.city-point');
+                    selectedLabels.classed('selected', false);
+                    selectableCity = false;
+
+            });
+            map.on('moveend', function() { 
+                recalcPoints();
+                selectableCity = true;
+
+                gCityPoints.selectAll('.city-point')
+                .attr('transform', function(d) {  return 'translate(' + d.cx + ',' + d.cy + ')';});
+            });
             map.on("viewreset", resetView);
+            map.on("zoomstart", function() { map.spin(true); });
             resetView();
         }
     }
