@@ -5,7 +5,7 @@ description: "A map showing climate data such as sunshine, precipitation and sno
 tags: maps javascript d3.js leaflet 
 ---
 <meta charset="utf-8"> 
-<img itemprop="image" src="/img/isochrone_example.jpg" style='display:none' width=200 height=170>
+<img itemprop="image" src="/img/sunshine_map/sunshine_map_itemprop.jpg" style='display:none' width=200 height=170>
 
 One of my favorite things about Wikipedia is that most cities have a 'weather box'
 which shows historical climate data such as sunshine hours, maximum and minimum
@@ -15,20 +15,21 @@ temperatures, precipitation and various other interesting statistics:
 <a href="https://en.wikipedia.org/wiki/Grytviken#Climate"><img src="/img/sunshine_map/grytviken_weatherbox.jpg"/ width="500px"></a>
 <hr>
 
-It's a lot of fun to compare the values for different cities. Are summers in
-Vienna warmer than in Zürich? Is Seattle rainier than New York? This often involves
-jumping from page to page or opening up two browser windows to compare values.
-Couldn't we make it easier? What if we could see all the values for every place
-for which there was data at once?
+It's informative to compare the values for different cities. Are summers in
+Vienna warmer than in Zürich (yes)? Is Seattle rainier than New York City
+(no!)? This often involves jumping from page to page or opening up two browser
+windows to compare values.  Couldn't we make it easier? What if we could see
+all the values for every place for which there was data at once?
 
-The map below contains a vornoi diagram overlay where each cell is filled in
+The map below contains a Voronoi diagram overlay where each cell is color coded 
 according to the climate data for the location defining that point (default is
 sunshine). Moving the mouse over any cell will show the city it corresponds to
 as well as its climate data.
 
-A time range can be selected using the circular control on the bottom right corner.
-The letters refer to the months of the year. Dragging one of the handles will extend
-or contract the range, whereas dragging on the range itself will translate it.
+A time range can be selected using the circular control on the bottom right
+corner (only works on the desktop version).  The letters refer to the months of
+the year. Dragging one of the handles will extend or contract the range,
+whereas dragging on the range itself will translate it.
 
 Different climate data overlays can be selected via the icon in the upper right corner.
 
@@ -79,6 +80,6 @@ precipitation, high and low temperatures
 2. The circular brush was obtained from [Elijah Meeks' bl.ock](http://bl.ocks.org/emeeks/ccc0368f6fb127d60b7c)
 3. There's a bottom layer using [CartoDB's Positron Layer](https://cartodb.com/basemaps), although this is usually covered by up the SVG containing the voronoi diagram.
 4. There's a middle layer containing the SVG element with all of the voronoi cells.
-5. Then there is a label-only [CaroDB Position Layer](https://cartodb.com/basemaps).
+5. Then there is a label-only [CartoDB Position Layer](https://cartodb.com/basemaps).
 6. Finally, on top of that, the circular brush is used to create the month selector control on the bottom right corner.
 7. The layer selector control on the upper right hand corner is a hacked facsimile of [Leaflet.js's Layers Control](http://leafletjs.com/examples/layers-control.html). It's hacked because the different layers aren't actually Leaflet layers, but rather different cross sections of the data. Selecting different options triggers a different data bind for the voronoi cells in the SVG layer.

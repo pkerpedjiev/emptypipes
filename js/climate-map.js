@@ -594,9 +594,11 @@ function ClimateMapViewer() {
                 .attr('transform', function(d) { return 'translate(' + d.x + ',' + d.y + ')';});
 
                 feature.attr("d", path);
+                map.spin(false);
             }
 
             map.on("viewreset", resetView);
+            map.on("zoomstart", function() { map.spin(true); });
             resetView();
         }
     }
