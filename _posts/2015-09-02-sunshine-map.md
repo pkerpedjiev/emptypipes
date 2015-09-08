@@ -7,7 +7,7 @@ tags: maps javascript d3.js leaflet
 <meta charset="utf-8"> 
 <img itemprop="image" src="/img/sunshine_map/sunshine_map_itemprop.jpg" style='display:none' width=200 height=170>
 
-<b>Introduction</b>
+<h4>Introduction</h4>
 
 One of my favorite things about Wikipedia is that most cities have a 'weather box'
 which shows historical climate data such as sunshine hours, maximum and minimum
@@ -71,7 +71,7 @@ Tibet due to its high elevation.
 These animations were created by recording interactions with the map described
 below.
 
-<b>The Map</b>
+<a name="themap"></a><h4>The Map</h4>
 
 The map below contains a Voronoi diagram overlay where each cell is color coded 
 according to the climate data for the location defining that point (default is
