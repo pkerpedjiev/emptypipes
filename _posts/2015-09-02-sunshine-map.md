@@ -7,6 +7,8 @@ tags: maps javascript d3.js leaflet
 <meta charset="utf-8"> 
 <img itemprop="image" src="/img/sunshine_map/sunshine_map_itemprop.jpg" style='display:none' width=200 height=170>
 
+<b>Introduction</b>
+
 One of my favorite things about Wikipedia is that most cities have a 'weather box'
 which shows historical climate data such as sunshine hours, maximum and minimum
 temperatures, precipitation and various other interesting statistics:
@@ -19,7 +21,57 @@ It's informative to compare the values for different cities. Are summers in
 Vienna warmer than in Zürich (yes)? Is Seattle rainier than New York City
 (no!)? This often involves jumping from page to page or opening up two browser
 windows to compare values.  Couldn't we make it easier? What if we could see
-all the values for every place for which there was data at once?
+all the values for every place for which there was data at once? What if we
+could show how the weather changes over the course of the year for the
+whole world at once?
+
+<hr>
+<table>
+<tr>
+<td>
+<img src="/img/sunshine_map/sunshine_animation.gif"/>
+</td>
+<td>
+<img src="/img/sunshine_map/precipitation_animation.gif"/>
+</td>
+<td>
+<img src="/img/sunshine_map/temperature_animation.gif"/>
+</td>
+</tr>
+<tr>
+<td style="text-align: center">Sunshine</td>
+<td style="text-align: center">Precipitation</td>
+<td style="text-align: center">Daily High</td>
+</tr>
+</table>
+<hr>
+
+The animations above show how the world's climate changes over the year, as
+documented in Wikipedia's weather boxes. The sunshine mostly follows the a
+predictable pattern following the seasons. Bright in the northern hemisphere
+from November to March and vice versa. A few exceptions stick out, such as the
+prominently cloudier regions over the equatorial land masses, which largely
+correspond to the rainforests of the Amazon, Mid-Western Africa and Indonesia,
+Malaysia, and Papua New Guinea. 
+
+These rainy regions can be more easily recognized in the middle animation above
+which show how the precipitation changes over the year. As expected the
+rainiest regions are where we find rainforests near the equator, as well as
+along the coast of British Columbia and northern Washington in the US. A few
+rainy islands in the Pacific and South Atlantic are shown with
+disproportionately large areas due to the lack of any other weather stations
+nearby (see the description of the map below).
+
+Finally, the temperature map is also as expected, wherein the temperatures
+follow the seasons. Most striking, perhaps, is how much the temperatures change
+over the large landmasses of North America and Siberia, as compared to the
+oceanic regions. The astutue eye may also notice persistently colder
+temperatures over Tibet due to its high elevation.
+
+These animations were created by recording interactions with the map described
+below.
+
+<b>The Map</b>
 
 The map below contains a Voronoi diagram overlay where each cell is color coded 
 according to the climate data for the location defining that point (default is
@@ -65,9 +117,9 @@ cm.drawClimateMap('climate-map')
 
 <b>Data Preparation</b>
 
-1. Wikipedia dumps for all the pages are calculated.  
+1. Wikipedia dumps for all the pages are downloaded.  
 2. For each article that
-has an assicated location and weatherbox, we extract the name, latitude,
+has an associated location and weatherbox, I extract the name, latitude,
 longitude and weatherbox data and store it in a JSON file.
 3. This file is filtered for for any entries that don't have sun,
 precipitation, high and low temperatures
