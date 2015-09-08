@@ -130,11 +130,12 @@ precipitation, high and low temperatures
 
 1. Country outlines were obtained from [Johan Sundström's `world.geo.json` github repository](https://github.com/johan/world.geo.json)
 2. The circular brush was obtained from [Elijah Meeks' bl.ock](http://bl.ocks.org/emeeks/ccc0368f6fb127d60b7c)
-3. There's a bottom layer using [CartoDB's Positron Layer](https://cartodb.com/basemaps), although this is usually covered by up the SVG containing the voronoi diagram.
-4. There's a middle layer containing the SVG element with all of the voronoi cells.
-5. Then there is a label-only [CartoDB Position Layer](https://cartodb.com/basemaps).
-6. Finally, on top of that, the circular brush is used to create the month selector control on the bottom right corner.
-7. The layer selector control on the upper right hand corner is a hacked facsimile of [Leaflet.js's Layers Control](http://leafletjs.com/examples/layers-control.html). It's hacked because the different layers aren't actually Leaflet layers, but rather different cross sections of the data. Selecting different options triggers a different data bind for the Voronoi cells in the SVG layer.
+3. The map itself is displayed using [leaflet.js](http://leafletjs.com/).
+4. There's a bottom layer using [CartoDB's Positron Layer](https://cartodb.com/basemaps), although this is usually covered by up the SVG containing the voronoi diagram.
+5. There's a middle layer containing the SVG element with all of the voronoi cells.
+6. There's a label-only [CartoDB Position Layer](https://cartodb.com/basemaps).
+7. Finally, on top of that, the circular brush is used to create the month selector control on the bottom right corner.
+8. The layer selector control on the upper right hand corner is a hacked facsimile of [Leaflet.js's Layers Control](http://leafletjs.com/examples/layers-control.html). It's hacked because the different layers aren't actually Leaflet layers, but rather different cross sections of the data. Selecting different options triggers a different data bind for the Voronoi cells in the SVG layer.
 
 <b>Related</b>
 
