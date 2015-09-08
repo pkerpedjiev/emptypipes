@@ -49,7 +49,7 @@ whole world at once?
 The animations above show how the world's climate changes over the year, as
 documented in Wikipedia's weather boxes. The sunshine mostly follows the a
 predictable pattern following the seasons. Bright in the northern hemisphere
-from November to March and vice versa. A few exceptions stick out, such as the
+from April to October and vice versa. A few exceptions stick out, such as the
 prominently cloudier regions over the equatorial land masses, which largely
 correspond to the rainforests of the Amazon, Mid-Western Africa and Indonesia,
 Malaysia, and Papua New Guinea. 
