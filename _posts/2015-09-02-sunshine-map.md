@@ -62,11 +62,11 @@ rainy islands in the Pacific and South Atlantic are shown with
 disproportionately large areas due to the lack of any other weather stations
 nearby (see the description of the map below).
 
-Finally, the temperature map is also as expected, wherein the temperatures
-follow the seasons. Most striking, perhaps, is how much the temperatures change
-over the large landmasses of North America and Siberia, as compared to the
-oceanic regions. The astutue eye may also notice persistently colder
-temperatures over Tibet due to its high elevation.
+The temperature map is also as expected, wherein the temperatures follow the
+seasons. Most striking, perhaps, is how much the temperatures change over the
+large landmasses of North America and Siberia, as compared to the oceanic
+regions. The astutue eye may also notice persistently colder temperatures over
+Tibet due to its high elevation.
 
 These animations were created by recording interactions with the map described
 below.
