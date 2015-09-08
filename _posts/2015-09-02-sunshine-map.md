@@ -49,7 +49,7 @@ whole world at once?
 The animations above show how the world's climate changes over the year, as
 documented in Wikipedia's weather boxes. The sunshine mostly follows the a
 predictable pattern following the seasons. Bright in the northern hemisphere
-from November to March and vice versa. A few exceptions stick out, such as the
+from April to October and vice versa. A few exceptions stick out, such as the
 prominently cloudier regions over the equatorial land masses, which largely
 correspond to the rainforests of the Amazon, Mid-Western Africa and Indonesia,
 Malaysia, and Papua New Guinea. 
@@ -135,3 +135,7 @@ precipitation, high and low temperatures
 5. Then there is a label-only [CartoDB Position Layer](https://cartodb.com/basemaps).
 6. Finally, on top of that, the circular brush is used to create the month selector control on the bottom right corner.
 7. The layer selector control on the upper right hand corner is a hacked facsimile of [Leaflet.js's Layers Control](http://leafletjs.com/examples/layers-control.html). It's hacked because the different layers aren't actually Leaflet layers, but rather different cross sections of the data. Selecting different options triggers a different data bind for the Voronoi cells in the SVG layer.
+
+<b>Related</b>
+
+A similar map is available for historical temperatures at [halftone.co](http://halftone.co/projects/temperatures/).
