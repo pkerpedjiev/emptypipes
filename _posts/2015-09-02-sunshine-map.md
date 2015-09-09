@@ -17,13 +17,13 @@ temperatures, precipitation and various other interesting statistics:
 <a href="https://en.wikipedia.org/wiki/Grytviken#Climate"><img src="/img/sunshine_map/grytviken_weatherbox.jpg"/ width="500px"></a>
 <hr>
 
-It's informative to compare the values for different cities. Are summers in
-Vienna warmer than in Zürich (yes)? Is Seattle rainier than New York City
-(no!)? This often involves jumping from page to page or opening up two browser
-windows to compare values.  Couldn't we make it easier? What if we could see
-all the values for every place for which there was data at once? What if we
-could show how the weather changes over the course of the year for the
-whole world at once?
+It's fun to compare the values for different cities. Are summers in Vienna
+warmer than in Zürich (yes)? Is Seattle rainier than New York City (no!)? What
+are the sunniest regions in the world? What about the rainiest? This often
+involves jumping from page to page or opening up two browser windows to compare
+values.  Couldn't we make it easier? What if we could see all the values for
+every place for which there was data at once? What if we could show how the
+global weather changes over the course of the year?
 
 <hr>
 <table>
@@ -47,14 +47,14 @@ whole world at once?
 <hr>
 
 The animations above show how the world's climate changes over the year, as
-documented in Wikipedia's weather boxes. The sunshine mostly follows the a
-predictable pattern following the seasons. Bright in the northern hemisphere
+documented in Wikipedia's weather boxes. Sunshine mostly follows a
+predictable pattern following the seasons, bright in the northern hemisphere
 from April to October and vice versa. A few exceptions stick out, such as the
 prominently cloudier regions over the equatorial land masses, which largely
 correspond to the rainforests of the Amazon, Mid-Western Africa and Indonesia,
 Malaysia, and Papua New Guinea. 
 
-These rainy regions can be more easily recognized in the middle animation above
+These rainy regions are easily recognized in the middle animation above
 which show how the precipitation changes over the year. As expected the
 rainiest regions are where we find rainforests near the equator, as well as
 along the coast of British Columbia and northern Washington in the US. A few
