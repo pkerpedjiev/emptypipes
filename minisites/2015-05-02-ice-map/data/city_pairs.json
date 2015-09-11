@@ -1,0 +1,4570 @@
+{
+  "type": "FeatureCollection", 
+  "features": [
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "15.625912", 
+            "48.207683"
+          ], 
+          [
+            "14.877444", 
+            "48.121908"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 490", 
+          "EN 237", 
+          "EN 466", 
+          "EN 421", 
+          "EN 466", 
+          "EN 491", 
+          "EN 420", 
+          "EN 246", 
+          "EN 247"
+        ], 
+        "speed": 116, 
+        "name": "St. Pölten Hbf :: Amstetten"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "19.049877", 
+            "47.471188"
+          ], 
+          [
+            "18.380027", 
+            "47.595716"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 346", 
+          "EN 463", 
+          "EN 462", 
+          "EN 347", 
+          "EN 60466", 
+          "EN 60467"
+        ], 
+        "speed": 94, 
+        "name": "Budapest-Kelenföld :: Tatabánya"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "18.269092", 
+            "49.852215"
+          ], 
+          [
+            "17.27092", 
+            "49.602477"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 445", 
+          "EN 444"
+        ], 
+        "speed": 79, 
+        "name": "Ostrava Hlavni Nadrazi :: Olomouc hl. n."
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "14.436037", 
+            "50.083058"
+          ], 
+          [
+            "15.75871", 
+            "50.031262"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 476", 
+          "EN 60406", 
+          "EN 60477"
+        ], 
+        "speed": 75, 
+        "name": "Praha hl. n. :: Pardubice"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "10.763881", 
+            "47.217872"
+          ], 
+          [
+            "10.862142", 
+            "47.239338"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 246", 
+          "EN 247"
+        ], 
+        "speed": 46, 
+        "name": "Imst-Pitztal :: Ötztal"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "21.250805", 
+            "46.434139"
+          ], 
+          [
+            "21.304209", 
+            "46.341954"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 347", 
+          "EN 473"
+        ], 
+        "speed": 9, 
+        "name": "Lökösháza :: Curtici"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "11.343406", 
+            "44.506141"
+          ], 
+          [
+            "11.603833", 
+            "44.84312"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 234", 
+          "EN 1236", 
+          "EN 235", 
+          "EN 1237"
+        ], 
+        "speed": 95, 
+        "name": "Bologna Centrale :: Ferrara"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "16.336123", 
+            "48.174999"
+          ], 
+          [
+            "16.235282", 
+            "47.814873"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 234", 
+          "EN 235", 
+          "EN 1237"
+        ], 
+        "speed": 97, 
+        "name": "Wien Meidling :: Wiener Neustadt Hbf"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "15.75871", 
+            "50.031262"
+          ], 
+          [
+            "16.612775", 
+            "49.190537"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 476", 
+          "EN 60406", 
+          "EN 60477"
+        ], 
+        "speed": 69, 
+        "name": "Pardubice :: Brno hl. n."
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "20.143441", 
+            "44.98061"
+          ], 
+          [
+            "20.40927", 
+            "44.818399"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 415"
+        ], 
+        "speed": 61, 
+        "name": "Stara Pazova (SRB) :: Novi Beograd"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "7.588648", 
+            "50.35108"
+          ], 
+          [
+            "8.258722", 
+            "50.001112"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 420", 
+          "EN 421"
+        ], 
+        "speed": 67, 
+        "name": "Koblenz Hbf :: Mainz Hbf"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "13.720559", 
+            "48.012815"
+          ], 
+          [
+            "13.045945", 
+            "47.813138"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 237", 
+          "EN 467", 
+          "EN 466", 
+          "EN 247", 
+          "EN 466", 
+          "EN 236", 
+          "EN 246"
+        ], 
+        "speed": 71, 
+        "name": "Attnang-Puchheim :: Salzburg Hbf"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "15.314715", 
+            "46.00992"
+          ], 
+          [
+            "15.497277", 
+            "45.960074"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 415", 
+          "EN 498"
+        ], 
+        "speed": 69, 
+        "name": "Sevnica :: Krsko"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "9.807105", 
+            "47.161896"
+          ], 
+          [
+            "11.400749", 
+            "47.26289"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 467", 
+          "EN 466", 
+          "EN 60467", 
+          "EN 466"
+        ], 
+        "speed": 71, 
+        "name": "Bludenz :: Innsbruck Hbf"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "17.109088", 
+            "48.157514"
+          ], 
+          [
+            "17.048303", 
+            "48.659868"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 476", 
+          "EN 477"
+        ], 
+        "speed": 82, 
+        "name": "Bratislava hlavna stanica :: Kuty"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "14.546506", 
+            "52.336159"
+          ], 
+          [
+            "8.532722", 
+            "52.029258"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 446", 
+          "EN 447"
+        ], 
+        "speed": 72, 
+        "name": "Frankfurt (Oder) :: Bielefeld Hbf"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "12.2319", 
+            "45.481902"
+          ], 
+          [
+            "11.603833", 
+            "44.84312"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 234", 
+          "EN 235"
+        ], 
+        "speed": 92, 
+        "name": "Venezia Mestre :: Ferrara"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "16.232217", 
+            "45.803168"
+          ], 
+          [
+            "15.957983", 
+            "45.772883"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 415", 
+          "EN 414"
+        ], 
+        "speed": 71, 
+        "name": "Dugo Selo :: Zagreb Glavni Kol"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "13.847603", 
+            "46.618004"
+          ], 
+          [
+            "14.312391", 
+            "46.615802"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 234", 
+          "EN 1236", 
+          "EN 235", 
+          "EN 1237"
+        ], 
+        "speed": 96, 
+        "name": "Villach Hbf :: Klagenfurt Hbf"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "13.847603", 
+            "46.618004"
+          ], 
+          [
+            "13.487415", 
+            "46.795703"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 415", 
+          "EN 237", 
+          "EN 414", 
+          "EN 499", 
+          "EN 498", 
+          "EN 236"
+        ], 
+        "speed": 88, 
+        "name": "Villach Hbf :: Spittal-Millstätter See"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "14.44001", 
+            "50.110214"
+          ], 
+          [
+            "14.436037", 
+            "50.083058"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 476", 
+          "EN 60406", 
+          "EN 60477"
+        ], 
+        "speed": 20, 
+        "name": "Praha-Holesovice :: Praha hl. n."
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "17.531706", 
+            "49.20234"
+          ], 
+          [
+            "16.893239", 
+            "48.753904"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 477"
+        ], 
+        "speed": 113, 
+        "name": "Otrokovice :: Breclav"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "17.048303", 
+            "48.659868"
+          ], 
+          [
+            "16.893239", 
+            "48.753904"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 476", 
+          "EN 477"
+        ], 
+        "speed": 71, 
+        "name": "Kuty :: Breclav"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "19.941822", 
+            "50.065628"
+          ], 
+          [
+            "19.441339", 
+            "50.156509"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 444"
+        ], 
+        "speed": 39, 
+        "name": "Kraków Glówny Osobowy :: Trzebinia"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "16.778581", 
+            "45.474082"
+          ], 
+          [
+            "16.907828", 
+            "45.443294"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 415", 
+          "EN 414"
+        ], 
+        "speed": 70, 
+        "name": "Kutina :: Banova Jaruga"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "17.148379", 
+            "47.910257"
+          ], 
+          [
+            "17.636673", 
+            "47.681014"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 463", 
+          "EN 60467"
+        ], 
+        "speed": 121, 
+        "name": "Hegyeshalom :: Györ"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "11.957891", 
+            "43.002471"
+          ], 
+          [
+            "11.875379", 
+            "43.461073"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 234", 
+          "EN 235"
+        ], 
+        "speed": 102, 
+        "name": "Chiusi-Chianciano Terme :: Arezzo"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "23.513713", 
+            "45.999861"
+          ], 
+          [
+            "23.586625", 
+            "45.964075"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 473"
+        ], 
+        "speed": 31, 
+        "name": "Vintu de Jos :: Sebes Alba"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "9.604102", 
+            "47.240974"
+          ], 
+          [
+            "9.807105", 
+            "47.161896"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 415", 
+          "EN 467", 
+          "EN 465", 
+          "EN 466", 
+          "EN 247", 
+          "EN 414", 
+          "EN 466", 
+          "EN 60467", 
+          "EN 246"
+        ], 
+        "speed": 75, 
+        "name": "Feldkirch :: Bludenz"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "18.012962", 
+            "45.164107"
+          ], 
+          [
+            "17.669053", 
+            "45.187281"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 415", 
+          "EN 414"
+        ], 
+        "speed": 77, 
+        "name": "Slavonski Brod :: Nova Kapela-Batrina"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "16.97202", 
+            "45.327818"
+          ], 
+          [
+            "17.199591", 
+            "45.257019"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 415"
+        ], 
+        "speed": 89, 
+        "name": "Novska :: Okucani"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "19.228483", 
+            "45.113812"
+          ], 
+          [
+            "19.624476", 
+            "44.983378"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 415", 
+          "EN 414"
+        ], 
+        "speed": 82, 
+        "name": "Sid (SRB) :: Sremska Mitrovica"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "19.127579", 
+            "50.276119"
+          ], 
+          [
+            "19.054686", 
+            "50.250572"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 477"
+        ], 
+        "speed": 32, 
+        "name": "Sosnowiec Glowny :: Katowice"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "17.446983", 
+            "49.444815"
+          ], 
+          [
+            "17.531706", 
+            "49.20234"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 477"
+        ], 
+        "speed": 103, 
+        "name": "Prerov :: Otrokovice"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "14.516194", 
+            "46.060151"
+          ], 
+          [
+            "15.17656", 
+            "46.08907"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 415", 
+          "EN 498", 
+          "EN 499", 
+          "EN 414"
+        ], 
+        "speed": 60, 
+        "name": "Ljubljana :: Zidani Most"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "19.818949", 
+            "44.987531"
+          ], 
+          [
+            "20.143441", 
+            "44.98061"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 415", 
+          "EN 414"
+        ], 
+        "speed": 69, 
+        "name": "Ruma :: Stara Pazova (SRB)"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "14.026561", 
+            "48.165874"
+          ], 
+          [
+            "13.720559", 
+            "48.012815"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 237", 
+          "EN 467", 
+          "EN 466", 
+          "EN 247", 
+          "EN 466", 
+          "EN 236", 
+          "EN 246"
+        ], 
+        "speed": 100, 
+        "name": "Wels Hbf :: Attnang-Puchheim"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "13.242162", 
+            "46.055783"
+          ], 
+          [
+            "11.88062", 
+            "45.417827"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 1236", 
+          "EN 1237"
+        ], 
+        "speed": 65, 
+        "name": "Udine :: Padova"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "13.154463", 
+            "47.318533"
+          ], 
+          [
+            "13.104798", 
+            "47.200343"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 415", 
+          "EN 414"
+        ], 
+        "speed": 48, 
+        "name": "Schwarzach-St.Veit :: Bad Hofgastein"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "20.964939", 
+            "52.219983"
+          ], 
+          [
+            "19.416879", 
+            "50.479464"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 477"
+        ], 
+        "speed": 109, 
+        "name": "Warszawa Zachodnia :: Zawiercie"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "19.624476", 
+            "44.983378"
+          ], 
+          [
+            "19.818949", 
+            "44.987531"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 415", 
+          "EN 414"
+        ], 
+        "speed": 57, 
+        "name": "Sremska Mitrovica :: Ruma"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "21.003215", 
+            "52.228864"
+          ], 
+          [
+            "20.964939", 
+            "52.219983"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 477"
+        ], 
+        "speed": 33, 
+        "name": "Warszawa Centralna :: Warszawa Zachodnia"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "15.415655", 
+            "47.067842"
+          ], 
+          [
+            "15.278192", 
+            "47.41319"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 464", 
+          "EN 465"
+        ], 
+        "speed": 62, 
+        "name": "Graz Hbf :: Bruck/Mur"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "13.177386", 
+            "46.981051"
+          ], 
+          [
+            "13.487415", 
+            "46.795703"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 415", 
+          "EN 414"
+        ], 
+        "speed": 75, 
+        "name": "Mallnitz-Obervellach :: Spittal-Millstätter See"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "15.497277", 
+            "45.960074"
+          ], 
+          [
+            "15.668971", 
+            "45.897366"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 415", 
+          "EN 498"
+        ], 
+        "speed": 69, 
+        "name": "Krsko :: Dobova"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "16.336123", 
+            "48.174999"
+          ], 
+          [
+            "15.625912", 
+            "48.207683"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 490", 
+          "EN 237", 
+          "EN 467", 
+          "EN 466", 
+          "EN 421", 
+          "EN 463", 
+          "EN 466", 
+          "EN 462", 
+          "EN 491", 
+          "EN 236", 
+          "EN 420", 
+          "EN 60467", 
+          "EN 246", 
+          "EN 247"
+        ], 
+        "speed": 131, 
+        "name": "Wien Meidling :: St. Pölten Hbf"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "21.051613", 
+            "52.251957"
+          ], 
+          [
+            "21.003215", 
+            "52.228864"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 477", 
+          "EN 404"
+        ], 
+        "speed": 31, 
+        "name": "Warszawa Wschodnia :: Warszawa Centralna"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "13.678687", 
+            "47.393863"
+          ], 
+          [
+            "14.107805", 
+            "47.528926"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 465"
+        ], 
+        "speed": 68, 
+        "name": "Schladming :: Stainach-Irdning"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "19.117314", 
+            "47.375974"
+          ], 
+          [
+            "20.175074", 
+            "47.172099"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 347", 
+          "EN 473"
+        ], 
+        "speed": 59, 
+        "name": "Budapest-Keleti :: Szolnok"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "13.732029", 
+            "51.040562"
+          ], 
+          [
+            "14.201248", 
+            "50.773411"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 476", 
+          "EN 60406", 
+          "EN 60477"
+        ], 
+        "speed": 56, 
+        "name": "Dresden Hbf :: Decín hl. n."
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "19.197489", 
+            "50.04062"
+          ], 
+          [
+            "19.007484", 
+            "49.913279"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 444"
+        ], 
+        "speed": 21, 
+        "name": "Oswiecim :: Czechowice Dziedzice"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "15.090227", 
+            "47.38642"
+          ], 
+          [
+            "14.312391", 
+            "46.615802"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 234", 
+          "EN 1236", 
+          "EN 1237"
+        ], 
+        "speed": 60, 
+        "name": "Leoben Hbf :: Klagenfurt Hbf"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "14.44001", 
+            "50.110214"
+          ], 
+          [
+            "14.044728", 
+            "50.659563"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 476", 
+          "EN 60406", 
+          "EN 60477"
+        ], 
+        "speed": 65, 
+        "name": "Praha-Holesovice :: Ustí nad Labem hl. n."
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "10.12126", 
+            "47.131477"
+          ], 
+          [
+            "10.264485", 
+            "47.129679"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 415", 
+          "EN 414", 
+          "EN 465", 
+          "EN 246", 
+          "EN 247"
+        ], 
+        "speed": 72, 
+        "name": "Langen am Arlberg :: St. Anton am Arlberg"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "25.561276", 
+            "45.352242"
+          ], 
+          [
+            "25.547576", 
+            "45.412595"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 472", 
+          "EN 473"
+        ], 
+        "speed": 45, 
+        "name": "Sinaia :: Busteni"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "17.669053", 
+            "45.187281"
+          ], 
+          [
+            "17.385497", 
+            "45.252012"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 415", 
+          "EN 414"
+        ], 
+        "speed": 100, 
+        "name": "Nova Kapela-Batrina :: Nova Gradiska"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "11.247806", 
+            "43.77681"
+          ], 
+          [
+            "11.875379", 
+            "43.461073"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 234", 
+          "EN 235"
+        ], 
+        "speed": 94, 
+        "name": "Firenze S. M. N. :: Arezzo"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "15.090227", 
+            "47.38642"
+          ], 
+          [
+            "15.278192", 
+            "47.41319"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 234", 
+          "EN 465", 
+          "EN 1236", 
+          "EN 235", 
+          "EN 1237"
+        ], 
+        "speed": 72, 
+        "name": "Leoben Hbf :: Bruck/Mur"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "18.269092", 
+            "49.852215"
+          ], 
+          [
+            "18.363119", 
+            "49.901557"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 477", 
+          "EN 445"
+        ], 
+        "speed": 65, 
+        "name": "Ostrava Hlavni Nadrazi :: Bohumín"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "15.278192", 
+            "47.41319"
+          ], 
+          [
+            "16.235282", 
+            "47.814873"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 234", 
+          "EN 1236", 
+          "EN 235", 
+          "EN 1237"
+        ], 
+        "speed": 61, 
+        "name": "Bruck/Mur :: Wiener Neustadt Hbf"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "20.45872", 
+            "44.804116"
+          ], 
+          [
+            "20.143441", 
+            "44.98061"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 414"
+        ], 
+        "speed": 48, 
+        "name": "Beograd :: Stara Pazova (SRB)"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "12.2319", 
+            "45.481902"
+          ], 
+          [
+            "13.607214", 
+            "46.506358"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 234", 
+          "EN 235"
+        ], 
+        "speed": 116, 
+        "name": "Venezia Mestre :: Tarvisio Boscoverde"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "19.158421", 
+            "47.803654"
+          ], 
+          [
+            "18.681723", 
+            "47.798809"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 476", 
+          "EN 477"
+        ], 
+        "speed": 62, 
+        "name": "Vác :: Sturovo"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "13.045945", 
+            "47.813138"
+          ], 
+          [
+            "13.154463", 
+            "47.318533"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 498", 
+          "EN 237", 
+          "EN 499", 
+          "EN 236"
+        ], 
+        "speed": 66, 
+        "name": "Salzburg Hbf :: Schwarzach-St.Veit"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "10.578811", 
+            "47.14861"
+          ], 
+          [
+            "10.763881", 
+            "47.217872"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 246", 
+          "EN 247"
+        ], 
+        "speed": 73, 
+        "name": "Landeck-Zams :: Imst-Pitztal"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "26.001891", 
+            "44.92369"
+          ], 
+          [
+            "25.561276", 
+            "45.352242"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 347", 
+          "EN 472", 
+          "EN 473"
+        ], 
+        "speed": 73, 
+        "name": "Ploiesti Vest :: Sinaia"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "17.264835", 
+            "47.849643"
+          ], 
+          [
+            "17.636673", 
+            "47.681014"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 347", 
+          "EN 462", 
+          "EN 60466", 
+          "EN 346"
+        ], 
+        "speed": 118, 
+        "name": "Mosonmagyaróvár :: Györ"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "20.175074", 
+            "47.172099"
+          ], 
+          [
+            "20.640491", 
+            "47.00667"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 473"
+        ], 
+        "speed": 95, 
+        "name": "Szolnok :: Mezötúr"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "21.02255", 
+            "46.820378"
+          ], 
+          [
+            "21.094599", 
+            "46.668523"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 473"
+        ], 
+        "speed": 76, 
+        "name": "Mezöberény :: Békéscsaba"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "9.738805", 
+            "47.417693"
+          ], 
+          [
+            "9.739623", 
+            "47.503001"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 246"
+        ], 
+        "speed": 63, 
+        "name": "Dornbirn :: Bregenz"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "13.607214", 
+            "46.506358"
+          ], 
+          [
+            "13.242162", 
+            "46.055783"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 1236", 
+          "EN 1237"
+        ], 
+        "speed": 62, 
+        "name": "Tarvisio Boscoverde :: Udine"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "18.629721", 
+            "49.869879"
+          ], 
+          [
+            "18.363119", 
+            "49.901557"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 477", 
+          "EN 404", 
+          "EN 444"
+        ], 
+        "speed": 77, 
+        "name": "Zebrzydowice :: Bohumín"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "25.581646", 
+            "45.50282"
+          ], 
+          [
+            "25.561276", 
+            "45.352242"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 347"
+        ], 
+        "speed": 50, 
+        "name": "Predeal :: Sinaia"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "14.292129", 
+            "48.290177"
+          ], 
+          [
+            "14.877444", 
+            "48.121908"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 490", 
+          "EN 237", 
+          "EN 466", 
+          "EN 421", 
+          "EN 466", 
+          "EN 491", 
+          "EN 420"
+        ], 
+        "speed": 91, 
+        "name": "Linz/Donau Hbf :: Amstetten"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "21.094599", 
+            "46.668523"
+          ], 
+          [
+            "21.174459", 
+            "46.541191"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 473"
+        ], 
+        "speed": 71, 
+        "name": "Békéscsaba :: Kétegyháza"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "23.586625", 
+            "45.964075"
+          ], 
+          [
+            "24.160316", 
+            "45.802997"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 473"
+        ], 
+        "speed": 30, 
+        "name": "Sebes Alba :: Sibiu"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "20.29464", 
+            "49.059951"
+          ], 
+          [
+            "20.560685", 
+            "48.950723"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 445"
+        ], 
+        "speed": 76, 
+        "name": "Poprad-Tatry :: Spisska Nova Ves"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "18.419697", 
+            "45.22695"
+          ], 
+          [
+            "18.807474", 
+            "45.301012"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 415", 
+          "EN 414"
+        ], 
+        "speed": 110, 
+        "name": "Strizivojna-Vrpolje :: Vinkovci"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "26.063872", 
+            "44.450057"
+          ], 
+          [
+            "26.001891", 
+            "44.92369"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 347", 
+          "EN 472", 
+          "EN 473"
+        ], 
+        "speed": 77, 
+        "name": "Bucuresti Nord Gr. A :: Ploiesti Vest"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "15.314715", 
+            "46.00992"
+          ], 
+          [
+            "15.668971", 
+            "45.897366"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 414", 
+          "EN 499"
+        ], 
+        "speed": 75, 
+        "name": "Sevnica :: Dobova"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "26.027079", 
+            "53.142608"
+          ], 
+          [
+            "23.680301", 
+            "52.101145"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 404", 
+          "EN 24JI 24"
+        ], 
+        "speed": 107, 
+        "name": "Baranovichi-Centralnye :: Brest-Centralnyi"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "11.781064", 
+            "45.076983"
+          ], 
+          [
+            "11.603833", 
+            "44.84312"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 1236", 
+          "EN 1237"
+        ], 
+        "speed": 88, 
+        "name": "Rovigo :: Ferrara"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "18.269092", 
+            "49.852215"
+          ], 
+          [
+            "18.209745", 
+            "49.821472"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 477"
+        ], 
+        "speed": 40, 
+        "name": "Ostrava Hlavni Nadrazi :: Ostrava-Svinov"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "10.578811", 
+            "47.14861"
+          ], 
+          [
+            "11.400749", 
+            "47.26289"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 415", 
+          "EN 414", 
+          "EN 465"
+        ], 
+        "speed": 82, 
+        "name": "Landeck-Zams :: Innsbruck Hbf"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "19.141162", 
+            "45.153005"
+          ], 
+          [
+            "19.228483", 
+            "45.113812"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 415", 
+          "EN 414"
+        ], 
+        "speed": 60, 
+        "name": "Tovarnik :: Sid (SRB)"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "11.957891", 
+            "43.002471"
+          ], 
+          [
+            "12.126753", 
+            "42.723931"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 234", 
+          "EN 235"
+        ], 
+        "speed": 81, 
+        "name": "Chiusi-Chianciano Terme :: Orvieto"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "14.041869", 
+            "46.442499"
+          ], 
+          [
+            "13.847603", 
+            "46.618004"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 415", 
+          "EN 414", 
+          "EN 499", 
+          "EN 498"
+        ], 
+        "speed": 37, 
+        "name": "Jesenice (SLO) :: Villach Hbf"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "12.50279", 
+            "41.900492"
+          ], 
+          [
+            "12.126753", 
+            "42.723931"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 234", 
+          "EN 235"
+        ], 
+        "speed": 86, 
+        "name": "Roma Termini :: Orvieto"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "19.054686", 
+            "50.250572"
+          ], 
+          [
+            "18.629721", 
+            "49.869879"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 477", 
+          "EN 404"
+        ], 
+        "speed": 57, 
+        "name": "Katowice :: Zebrzydowice"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "21.174459", 
+            "46.541191"
+          ], 
+          [
+            "21.250805", 
+            "46.434139"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 473"
+        ], 
+        "speed": 79, 
+        "name": "Kétegyháza :: Lökösháza"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "14.107805", 
+            "47.528926"
+          ], 
+          [
+            "14.312292", 
+            "47.550347"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 465"
+        ], 
+        "speed": 51, 
+        "name": "Stainach-Irdning :: Selzthal"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "13.045945", 
+            "47.813138"
+          ], 
+          [
+            "11.400749", 
+            "47.26289"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 60467", 
+          "EN 466", 
+          "EN 247", 
+          "EN 466", 
+          "EN 467", 
+          "EN 246"
+        ], 
+        "speed": 71, 
+        "name": "Salzburg Hbf :: Innsbruck Hbf"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "23.034273", 
+            "45.847098"
+          ], 
+          [
+            "23.513713", 
+            "45.999861"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 347"
+        ], 
+        "speed": 35, 
+        "name": "Simeria :: Vintu de Jos"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "13.145555", 
+            "47.119773"
+          ], 
+          [
+            "13.177386", 
+            "46.981051"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 415", 
+          "EN 414"
+        ], 
+        "speed": 62, 
+        "name": "Bad Gastein :: Mallnitz-Obervellach"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "13.154463", 
+            "47.318533"
+          ], 
+          [
+            "11.400749", 
+            "47.26289"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 414"
+        ], 
+        "speed": 57, 
+        "name": "Schwarzach-St.Veit :: Innsbruck Hbf"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "25.619616", 
+            "45.657875"
+          ], 
+          [
+            "25.464183", 
+            "45.700025"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 472", 
+          "EN 473"
+        ], 
+        "speed": 48, 
+        "name": "Brasov :: Codlea"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "13.045945", 
+            "47.813138"
+          ], 
+          [
+            "11.604966", 
+            "48.127437"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 498", 
+          "EN 462", 
+          "EN 499", 
+          "EN 463"
+        ], 
+        "speed": 75, 
+        "name": "Salzburg Hbf :: München Ost"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "9.604102", 
+            "47.240974"
+          ], 
+          [
+            "9.738805", 
+            "47.417693"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 246"
+        ], 
+        "speed": 69, 
+        "name": "Feldkirch :: Dornbirn"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "21.325532", 
+            "46.187888"
+          ], 
+          [
+            "22.918519", 
+            "45.889923"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 347", 
+          "EN 473"
+        ], 
+        "speed": 54, 
+        "name": "Arad :: Deva"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "21.304209", 
+            "46.341954"
+          ], 
+          [
+            "21.325532", 
+            "46.187888"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 347", 
+          "EN 473"
+        ], 
+        "speed": 64, 
+        "name": "Curtici :: Arad"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "18.363119", 
+            "49.901557"
+          ], 
+          [
+            "18.746868", 
+            "49.22795"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 445"
+        ], 
+        "speed": 57, 
+        "name": "Bohumín :: Zilina"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "13.450775", 
+            "48.573634"
+          ], 
+          [
+            "8.686303", 
+            "50.09958"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 420", 
+          "EN 421"
+        ], 
+        "speed": 76, 
+        "name": "Passau Hbf :: Frankfurt (Main) Süd"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "14.292129", 
+            "48.290177"
+          ], 
+          [
+            "13.045945", 
+            "47.813138"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 463", 
+          "EN 462", 
+          "EN 60467"
+        ], 
+        "speed": 94, 
+        "name": "Linz/Donau Hbf :: Salzburg Hbf"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "14.026561", 
+            "48.165874"
+          ], 
+          [
+            "13.450775", 
+            "48.573634"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 420", 
+          "EN 490", 
+          "EN 491", 
+          "EN 421"
+        ], 
+        "speed": 73, 
+        "name": "Wels Hbf :: Passau Hbf"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "18.419697", 
+            "45.22695"
+          ], 
+          [
+            "18.012962", 
+            "45.164107"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 415", 
+          "EN 414"
+        ], 
+        "speed": 108, 
+        "name": "Strizivojna-Vrpolje :: Slavonski Brod"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "21.003215", 
+            "52.228864"
+          ], 
+          [
+            "19.054686", 
+            "50.250572"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 404"
+        ], 
+        "speed": 93, 
+        "name": "Warszawa Centralna :: Katowice"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "6.958729", 
+            "50.943029"
+          ], 
+          [
+            "7.097136", 
+            "50.732007"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 420", 
+          "EN 421"
+        ], 
+        "speed": 80, 
+        "name": "Köln Hbf :: Bonn Hbf"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "7.588648", 
+            "50.35108"
+          ], 
+          [
+            "7.097136", 
+            "50.732007"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 420", 
+          "EN 421"
+        ], 
+        "speed": 106, 
+        "name": "Koblenz Hbf :: Bonn Hbf"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "25.581646", 
+            "45.50282"
+          ], 
+          [
+            "25.547576", 
+            "45.412595"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 472", 
+          "EN 473"
+        ], 
+        "speed": 47, 
+        "name": "Predeal :: Busteni"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "14.201248", 
+            "50.773411"
+          ], 
+          [
+            "14.044728", 
+            "50.659563"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 476", 
+          "EN 60406", 
+          "EN 60477"
+        ], 
+        "speed": 62, 
+        "name": "Decín hl. n. :: Ustí nad Labem hl. n."
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "24.968509", 
+            "45.837785"
+          ], 
+          [
+            "25.619616", 
+            "45.657875"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 347"
+        ], 
+        "speed": 41, 
+        "name": "Fagaras :: Brasov"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "16.893239", 
+            "48.753904"
+          ], 
+          [
+            "16.612775", 
+            "49.190537"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 476", 
+          "EN 60406", 
+          "EN 60477"
+        ], 
+        "speed": 87, 
+        "name": "Breclav :: Brno hl. n."
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "14.351539", 
+            "46.241662"
+          ], 
+          [
+            "14.516194", 
+            "46.060151"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 415", 
+          "EN 498", 
+          "EN 499", 
+          "EN 414"
+        ], 
+        "speed": 68, 
+        "name": "Kranj :: Ljubljana"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "19.416879", 
+            "50.479464"
+          ], 
+          [
+            "19.127579", 
+            "50.276119"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 477"
+        ], 
+        "speed": 79, 
+        "name": "Zawiercie :: Sosnowiec Glowny"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "19.441339", 
+            "50.156509"
+          ], 
+          [
+            "19.197489", 
+            "50.04062"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 444"
+        ], 
+        "speed": 31, 
+        "name": "Trzebinia :: Oswiecim"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "23.351593", 
+            "45.935866"
+          ], 
+          [
+            "23.513713", 
+            "45.999861"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 473"
+        ], 
+        "speed": 33, 
+        "name": "Sibot :: Vintu de Jos"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "14.519592", 
+            "48.18192"
+          ], 
+          [
+            "14.877444", 
+            "48.121908"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 246", 
+          "EN 247"
+        ], 
+        "speed": 82, 
+        "name": "St.Valentin :: Amstetten"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "11.777882", 
+            "47.388901"
+          ], 
+          [
+            "12.060818", 
+            "47.492007"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 415", 
+          "EN 465"
+        ], 
+        "speed": 80, 
+        "name": "Jenbach :: Wörgl Hbf"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "16.337067", 
+            "48.197597"
+          ], 
+          [
+            "16.336123", 
+            "48.174999"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 347", 
+          "EN 346"
+        ], 
+        "speed": 11, 
+        "name": "Wien Westbahnhof :: Wien Meidling"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "17.109088", 
+            "48.157514"
+          ], 
+          [
+            "18.17386", 
+            "47.993911"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 477", 
+          "EN 476"
+        ], 
+        "speed": 88, 
+        "name": "Bratislava hlavna stanica :: Nové Zámky"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "18.363119", 
+            "49.901557"
+          ], 
+          [
+            "23.680301", 
+            "52.101145"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 405"
+        ], 
+        "speed": 39, 
+        "name": "Bohumín :: Brest-Centralnyi"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "9.204711", 
+            "45.486388"
+          ], 
+          [
+            "5.02781", 
+            "47.320897"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 220", 
+          "EN 221"
+        ], 
+        "speed": 52, 
+        "name": "Milano Centrale :: Dijon Ville"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "15.17656", 
+            "46.08907"
+          ], 
+          [
+            "15.314715", 
+            "46.00992"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 415", 
+          "EN 498", 
+          "EN 499", 
+          "EN 414"
+        ], 
+        "speed": 55, 
+        "name": "Zidani Most :: Sevnica"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "13.450775", 
+            "48.573634"
+          ], 
+          [
+            "11.082989", 
+            "49.445615"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 490", 
+          "EN 491"
+        ], 
+        "speed": 93, 
+        "name": "Passau Hbf :: Nürnberg Hbf"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "14.837963", 
+            "47.215957"
+          ], 
+          [
+            "14.417726", 
+            "46.954758"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 235"
+        ], 
+        "speed": 46, 
+        "name": "Knittelfeld :: Friesach in Kärnten"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "20.560685", 
+            "48.950723"
+          ], 
+          [
+            "21.225841", 
+            "48.85096"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 445"
+        ], 
+        "speed": 76, 
+        "name": "Spisska Nova Ves :: Kysak"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "18.926662", 
+            "49.113931"
+          ], 
+          [
+            "19.306959", 
+            "49.084509"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 445"
+        ], 
+        "speed": 61, 
+        "name": "Vrutky :: Ruzomberok"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "23.513713", 
+            "45.999861"
+          ], 
+          [
+            "24.160316", 
+            "45.802997"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 347"
+        ], 
+        "speed": 30, 
+        "name": "Vintu de Jos :: Sibiu"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "17.199591", 
+            "45.257019"
+          ], 
+          [
+            "17.385497", 
+            "45.252012"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 415"
+        ], 
+        "speed": 87, 
+        "name": "Okucani :: Nova Gradiska"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "30.411496", 
+            "54.51589"
+          ], 
+          [
+            "27.582914", 
+            "53.876119"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 404"
+        ], 
+        "speed": 82, 
+        "name": "Orsha-Centralnaia :: Minsk (BY)"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "19.007484", 
+            "49.913279"
+          ], 
+          [
+            "18.629721", 
+            "49.869879"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 444"
+        ], 
+        "speed": 63, 
+        "name": "Czechowice Dziedzice :: Zebrzydowice"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "8.57125", 
+            "50.051218"
+          ], 
+          [
+            "8.686303", 
+            "50.09958"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 420", 
+          "EN 421"
+        ], 
+        "speed": 49, 
+        "name": "Frankfurt (M) Flughafen Regio :: Frankfurt (Main) Süd"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "18.209745", 
+            "49.821472"
+          ], 
+          [
+            "17.446983", 
+            "49.444815"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 477"
+        ], 
+        "speed": 101, 
+        "name": "Ostrava-Svinov :: Prerov"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "14.159089", 
+            "46.354395"
+          ], 
+          [
+            "14.041869", 
+            "46.442499"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 415", 
+          "EN 498", 
+          "EN 499", 
+          "EN 414"
+        ], 
+        "speed": 66, 
+        "name": "Lesce Bled :: Jesenice (SLO)"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "14.292129", 
+            "48.290177"
+          ], 
+          [
+            "15.625912", 
+            "48.207683"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 463", 
+          "EN 462", 
+          "EN 60467", 
+          "EN 467", 
+          "EN 236"
+        ], 
+        "speed": 114, 
+        "name": "Linz/Donau Hbf :: St. Pölten Hbf"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "14.519592", 
+            "48.18192"
+          ], 
+          [
+            "14.292129", 
+            "48.290177"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 246", 
+          "EN 247"
+        ], 
+        "speed": 73, 
+        "name": "St.Valentin :: Linz/Donau Hbf"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "2.375947", 
+            "48.843724"
+          ], 
+          [
+            "5.02781", 
+            "47.320897"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 221"
+        ], 
+        "speed": 95, 
+        "name": "Paris-Gare de Lyon :: Dijon Ville"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "16.379712", 
+            "48.185651"
+          ], 
+          [
+            "17.148379", 
+            "47.910257"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 463", 
+          "EN 347", 
+          "EN 462", 
+          "EN 346"
+        ], 
+        "speed": 88, 
+        "name": "Wien Hbf :: Hegyeshalom"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "13.154463", 
+            "47.318533"
+          ], 
+          [
+            "13.487415", 
+            "46.795703"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 498", 
+          "EN 237", 
+          "EN 499", 
+          "EN 236"
+        ], 
+        "speed": 62, 
+        "name": "Schwarzach-St.Veit :: Spittal-Millstätter See"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "19.601131", 
+            "49.093085"
+          ], 
+          [
+            "20.29464", 
+            "49.059951"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 445"
+        ], 
+        "speed": 74, 
+        "name": "Liptovský Mikulás :: Poprad-Tatry"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "15.090227", 
+            "47.38642"
+          ], 
+          [
+            "14.837963", 
+            "47.215957"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 235"
+        ], 
+        "speed": 73, 
+        "name": "Leoben Hbf :: Knittelfeld"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "23.034273", 
+            "45.847098"
+          ], 
+          [
+            "23.351593", 
+            "45.935866"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 473"
+        ], 
+        "speed": 29, 
+        "name": "Simeria :: Sibot"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "23.601484", 
+            "52.074106"
+          ], 
+          [
+            "23.680301", 
+            "52.101145"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 404", 
+          "EN 24JI 24"
+        ], 
+        "speed": 2, 
+        "name": "Terespol :: Brest-Centralnyi"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "27.582914", 
+            "53.876119"
+          ], 
+          [
+            "26.027079", 
+            "53.142608"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 404", 
+          "EN 24JI 24"
+        ], 
+        "speed": 80, 
+        "name": "Minsk (BY) :: Baranovichi-Centralnye"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "11.400749", 
+            "47.26289"
+          ], 
+          [
+            "11.777882", 
+            "47.388901"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 415", 
+          "EN 465"
+        ], 
+        "speed": 86, 
+        "name": "Innsbruck Hbf :: Jenbach"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "17.385497", 
+            "45.252012"
+          ], 
+          [
+            "16.97202", 
+            "45.327818"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 414"
+        ], 
+        "speed": 87, 
+        "name": "Nova Gradiska :: Novska"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "13.154463", 
+            "47.318533"
+          ], 
+          [
+            "13.220084", 
+            "47.417361"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 465"
+        ], 
+        "speed": 55, 
+        "name": "Schwarzach-St.Veit :: Bischofshofen"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "11.247806", 
+            "43.77681"
+          ], 
+          [
+            "11.343406", 
+            "44.506141"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 234", 
+          "EN 235", 
+          "EN 1237"
+        ], 
+        "speed": 88, 
+        "name": "Firenze S. M. N. :: Bologna Centrale"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "18.17386", 
+            "47.993911"
+          ], 
+          [
+            "18.681723", 
+            "47.798809"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 477", 
+          "EN 476"
+        ], 
+        "speed": 96, 
+        "name": "Nové Zámky :: Sturovo"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "24.968509", 
+            "45.837785"
+          ], 
+          [
+            "24.160316", 
+            "45.802997"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 347", 
+          "EN 472", 
+          "EN 473"
+        ], 
+        "speed": 47, 
+        "name": "Fagaras :: Sibiu"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "14.417726", 
+            "46.954758"
+          ], 
+          [
+            "14.312391", 
+            "46.615802"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 235"
+        ], 
+        "speed": 66, 
+        "name": "Friesach in Kärnten :: Klagenfurt Hbf"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "25.464183", 
+            "45.700025"
+          ], 
+          [
+            "24.968509", 
+            "45.837785"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 472", 
+          "EN 473"
+        ], 
+        "speed": 45, 
+        "name": "Codlea :: Fagaras"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "20.640491", 
+            "47.00667"
+          ], 
+          [
+            "20.819358", 
+            "46.933076"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 473"
+        ], 
+        "speed": 73, 
+        "name": "Mezötúr :: Gyoma"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "13.145555", 
+            "47.119773"
+          ], 
+          [
+            "13.104798", 
+            "47.200343"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 415", 
+          "EN 414"
+        ], 
+        "speed": 40, 
+        "name": "Bad Gastein :: Bad Hofgastein"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "20.40927", 
+            "44.818399"
+          ], 
+          [
+            "20.45872", 
+            "44.804116"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 415"
+        ], 
+        "speed": 19, 
+        "name": "Novi Beograd :: Beograd"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "10.264485", 
+            "47.129679"
+          ], 
+          [
+            "10.578811", 
+            "47.14861"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 415", 
+          "EN 414", 
+          "EN 465", 
+          "EN 246", 
+          "EN 247"
+        ], 
+        "speed": 62, 
+        "name": "St. Anton am Arlberg :: Landeck-Zams"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "14.312292", 
+            "47.550347"
+          ], 
+          [
+            "15.009603", 
+            "47.34747"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 465"
+        ], 
+        "speed": 90, 
+        "name": "Selzthal :: St.Michael in Oberstmk"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "20.819358", 
+            "46.933076"
+          ], 
+          [
+            "21.02255", 
+            "46.820378"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 473"
+        ], 
+        "speed": 91, 
+        "name": "Gyoma :: Mezöberény"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "16.379712", 
+            "48.185651"
+          ], 
+          [
+            "16.893239", 
+            "48.753904"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 60477", 
+          "EN 60406"
+        ], 
+        "speed": 67, 
+        "name": "Wien Hbf :: Breclav"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "19.306959", 
+            "49.084509"
+          ], 
+          [
+            "19.601131", 
+            "49.093085"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 445"
+        ], 
+        "speed": 67, 
+        "name": "Ruzomberok :: Liptovský Mikulás"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "17.148379", 
+            "47.910257"
+          ], 
+          [
+            "9.604102", 
+            "47.240974"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 60466", 
+          "EN 60467"
+        ], 
+        "speed": 73, 
+        "name": "Hegyeshalom :: Feldkirch"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "22.918519", 
+            "45.889923"
+          ], 
+          [
+            "23.034273", 
+            "45.847098"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 347", 
+          "EN 473"
+        ], 
+        "speed": 46, 
+        "name": "Deva :: Simeria"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "13.607214", 
+            "46.506358"
+          ], 
+          [
+            "13.847603", 
+            "46.618004"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 237", 
+          "EN 235", 
+          "EN 1237", 
+          "EN 234", 
+          "EN 236", 
+          "EN 1236"
+        ], 
+        "speed": 57, 
+        "name": "Tarvisio Boscoverde :: Villach Hbf"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "10.12126", 
+            "47.131477"
+          ], 
+          [
+            "9.807105", 
+            "47.161896"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 415", 
+          "EN 414", 
+          "EN 246", 
+          "EN 465", 
+          "EN 247"
+        ], 
+        "speed": 55, 
+        "name": "Langen am Arlberg :: Bludenz"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "9.604102", 
+            "47.240974"
+          ], 
+          [
+            "9.47863", 
+            "47.168404"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 415", 
+          "EN 467", 
+          "EN 466", 
+          "EN 414", 
+          "EN 465", 
+          "EN 60467", 
+          "EN 464", 
+          "EN 60466", 
+          "EN 60467"
+        ], 
+        "speed": 46, 
+        "name": "Feldkirch :: Buchs SG"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "19.117314", 
+            "47.375974"
+          ], 
+          [
+            "19.158421", 
+            "47.803654"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 476", 
+          "EN 477"
+        ], 
+        "speed": 66, 
+        "name": "Budapest-Keleti :: Vác"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "16.336123", 
+            "48.174999"
+          ], 
+          [
+            "16.379712", 
+            "48.185651"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 237", 
+          "EN 235", 
+          "EN 1237", 
+          "EN 346", 
+          "EN 60477", 
+          "EN 466", 
+          "EN 463", 
+          "EN 466", 
+          "EN 462", 
+          "EN 236", 
+          "EN 60467", 
+          "EN 246", 
+          "EN 60406", 
+          "EN 347"
+        ], 
+        "speed": 34, 
+        "name": "Wien Meidling :: Wien Hbf"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "15.009603", 
+            "47.34747"
+          ], 
+          [
+            "15.090227", 
+            "47.38642"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 465"
+        ], 
+        "speed": 49, 
+        "name": "St.Michael in Oberstmk :: Leoben Hbf"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "8.258722", 
+            "50.001112"
+          ], 
+          [
+            "8.57125", 
+            "50.051218"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 420", 
+          "EN 421"
+        ], 
+        "speed": 43, 
+        "name": "Mainz Hbf :: Frankfurt (M) Flughafen Regio"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "16.32548", 
+            "45.76793"
+          ], 
+          [
+            "16.778581", 
+            "45.474082"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 415", 
+          "EN 414"
+        ], 
+        "speed": 61, 
+        "name": "Ivanic Grad :: Kutina"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "14.351539", 
+            "46.241662"
+          ], 
+          [
+            "14.159089", 
+            "46.354395"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 415", 
+          "EN 498", 
+          "EN 499", 
+          "EN 414"
+        ], 
+        "speed": 58, 
+        "name": "Kranj :: Lesce Bled"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "11.400749", 
+            "47.26289"
+          ], 
+          [
+            "10.862142", 
+            "47.239338"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 246", 
+          "EN 247"
+        ], 
+        "speed": 94, 
+        "name": "Innsbruck Hbf :: Ötztal"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "25.619616", 
+            "45.657875"
+          ], 
+          [
+            "25.581646", 
+            "45.50282"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 347", 
+          "EN 472", 
+          "EN 473"
+        ], 
+        "speed": 32, 
+        "name": "Brasov :: Predeal"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "17.148379", 
+            "47.910257"
+          ], 
+          [
+            "17.264835", 
+            "47.849643"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 347", 
+          "EN 462", 
+          "EN 60466", 
+          "EN 346"
+        ], 
+        "speed": 94, 
+        "name": "Hegyeshalom :: Mosonmagyaróvár"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "14.292129", 
+            "48.290177"
+          ], 
+          [
+            "14.026561", 
+            "48.165874"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 490", 
+          "EN 237", 
+          "EN 467", 
+          "EN 466", 
+          "EN 421", 
+          "EN 466", 
+          "EN 491", 
+          "EN 236", 
+          "EN 420", 
+          "EN 246", 
+          "EN 247"
+        ], 
+        "speed": 90, 
+        "name": "Linz/Donau Hbf :: Wels Hbf"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "18.380027", 
+            "47.595716"
+          ], 
+          [
+            "17.636673", 
+            "47.681014"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 346", 
+          "EN 463", 
+          "EN 462", 
+          "EN 347", 
+          "EN 60466", 
+          "EN 60467"
+        ], 
+        "speed": 99, 
+        "name": "Tatabánya :: Györ"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "16.232217", 
+            "45.803168"
+          ], 
+          [
+            "16.32548", 
+            "45.76793"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 415", 
+          "EN 414"
+        ], 
+        "speed": 24, 
+        "name": "Dugo Selo :: Ivanic Grad"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "18.746868", 
+            "49.22795"
+          ], 
+          [
+            "18.926662", 
+            "49.113931"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 445"
+        ], 
+        "speed": 60, 
+        "name": "Zilina :: Vrutky"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "20.175074", 
+            "47.172099"
+          ], 
+          [
+            "21.094599", 
+            "46.668523"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 347"
+        ], 
+        "speed": 86, 
+        "name": "Szolnok :: Békéscsaba"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "13.220084", 
+            "47.417361"
+          ], 
+          [
+            "13.678687", 
+            "47.393863"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 465"
+        ], 
+        "speed": 54, 
+        "name": "Bischofshofen :: Schladming"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "12.060818", 
+            "47.492007"
+          ], 
+          [
+            "13.154463", 
+            "47.318533"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 415", 
+          "EN 465"
+        ], 
+        "speed": 50, 
+        "name": "Wörgl Hbf :: Schwarzach-St.Veit"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "15.668971", 
+            "45.897366"
+          ], 
+          [
+            "15.957983", 
+            "45.772883"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 415", 
+          "EN 498", 
+          "EN 499", 
+          "EN 414"
+        ], 
+        "speed": 47, 
+        "name": "Dobova :: Zagreb Glavni Kol"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "11.88062", 
+            "45.417827"
+          ], 
+          [
+            "11.781064", 
+            "45.076983"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 1236", 
+          "EN 1237"
+        ], 
+        "speed": 89, 
+        "name": "Padova :: Rovigo"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "16.97202", 
+            "45.327818"
+          ], 
+          [
+            "16.907828", 
+            "45.443294"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 415", 
+          "EN 414"
+        ], 
+        "speed": 45, 
+        "name": "Novska :: Banova Jaruga"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "19.141162", 
+            "45.153005"
+          ], 
+          [
+            "18.807474", 
+            "45.301012"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 415", 
+          "EN 414"
+        ], 
+        "speed": 108, 
+        "name": "Tovarnik :: Vinkovci"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "LineString", 
+        "coordinates": [
+          [
+            "19.117314", 
+            "47.375974"
+          ], 
+          [
+            "19.049877", 
+            "47.471188"
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "lines": [
+          "EN 347", 
+          "EN 346"
+        ], 
+        "speed": 50, 
+        "name": "Budapest-Keleti :: Budapest-Kelenföld"
+      }
+    }
+  ]
+}
