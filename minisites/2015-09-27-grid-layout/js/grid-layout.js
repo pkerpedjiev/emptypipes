@@ -17,8 +17,16 @@ d3.layout.grid = function() {
         var maxNx = Math.ceil(widthTotal / widthIndividual);
         var minNy = Math.ceil(numCells / maxNx);
 
+        /*
         var horizontalWidth = Math.min((widthTotal / maxNx),
                                        (aspect * heightTotal / minNy ));
+                                       */
+        while (widthTotal / maxNx / aspect * minNy > heightTotal ) {
+            maxNx += 1;
+            minNy = Math.ceil(numCells / maxNx);
+        }
+
+        var horizontalWidth = widthTotal / maxNx;
         var horizontalHeight = horizontalWidth / aspect;
 
         var verticalHeight = (heightTotal / maxNy);
@@ -27,10 +35,13 @@ d3.layout.grid = function() {
         var totalAreaHorizontal = numCells * horizontalWidth * horizontalHeight;
         var totalAreaVertical = numCells * verticalHeight * verticalWidth;
 
+        /*
         console.log('totalAreaHorizontal:', totalAreaHorizontal);
         console.log('totalAreaVertical:', totalAreaVertical);
+        */
 
-        if (totalAreaHorizontal > totalAreaVertical) {
+        //if (totalAreaHorizontal > totalAreaVertical) {
+        if (true) {
             widthI = horizontalWidth;
             heightI = horizontalHeight;
 
@@ -44,9 +55,11 @@ d3.layout.grid = function() {
             numY = maxNy;
         }
 
+        /*
         console.log('horizontalHeight:', horizontalHeight);
         console.log('verticalHeight:', verticalHeight);
         console.log('heightI', heightI);
+        */
 
         return d.map(function(d1, i) {
             return {
