@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 <title>Grid Layout</title>
+<link rel='stylesheet' href='/css/page.css'>
 <link rel='stylesheet' href='/css/grid-layout.css'>
 <h1>Grid Layout</h1>
 
@@ -9,69 +10,9 @@
 
 <script src="/js/lib/d3.min.js"></script>
 <script src="/js/grid-layout.js"></script>
+<script src="/js/page.js"></script>
 
 <script type='text/javascript'>
-    var chart = gridLayout([1,2,3,4,5,6,7], 3);
-
-var gridLayout = d3.layout.grid()
-    .size([550, 300])
-    .aspect(1.0);
-
-//when called on an array of objects, gridLayout
-//will return another array, each of whose members
-//contain the 'pos' and 'data' members
-
-    var svg = d3.select('#grid-area')
-    .append('svg')
-    .attr('width', 550)
-    .attr('height', 300)
-
-    svg.append('rect')
-    .attr('width', 550)
-    .attr('height', 300)
-    .style('fill', 'red')
-    .style('opacity', 0.2)
-
-    if (false) {
-    svg.selectAll('.grid-rect')
-    .data(gridLayout([1]))
-    .enter()
-    .append('rect')
-    .attr('x', function(d) { return d.pos.x; })
-    .attr('y', function(d) { return d.pos.y; })
-    .attr('width', function(d) { return d.pos.width; })
-    .attr('height', function(d) { return d.pos.height; })
-    .classed('grid-rect', true);
-    } else {
-    
-    numbers = [1];
-    function push() {
-        if (numbers.length > 135)
-            return;
-
-
-        d3.selectAll('.grid-rect')
-        .transition()
-        .attr('x', function(d) { return d.pos.x; })
-        .attr('y', function(d) { return d.pos.y; })
-        .attr('width', function(d) { return d.pos.width; })
-        .attr('height', function(d) { return d.pos.height; })
-
-         var rectEnter = svg.selectAll('.grid-rect')
-            .data(gridLayout(numbers))
-            .enter()
-
-            .append('rect')
-            .classed('grid-rect', true);
-
-        console.log('length:', numbers.length);
-
-        numbers.push(numbers[numbers.length-1]+1);
-        setTimeout(push, 250)
-    }
-    
-    push();
-    }
 
     //.call(chart)
 </script>
