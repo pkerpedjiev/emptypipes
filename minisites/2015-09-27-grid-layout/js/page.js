@@ -3,7 +3,7 @@
     var totalWidth = 550;
     var totalHeight = 300;
 
-    var margin = {'top': 40, 'left': 20, 'right':20};
+    var margin = {'top': 55, 'left': 20, 'right':20};
 
     var width = totalWidth - margin.left - margin.right;
     var height = totalHeight - margin.top;
@@ -34,7 +34,7 @@ var gridLayout = d3.layout.grid()
 
 
 var x = d3.scale.log()
-        .domain([0.1, 10])
+        .domain([0.2, 5])
         .range([0, width])
         .clamp(true);
 
@@ -50,14 +50,14 @@ var brush = d3.svg.brush()
 
         var formatTick = function(d) {
             if (d < 1)
-                return d3.format("00f")(d);
+                return "." + d3.format("1f")(d * 10);
             else
                 return d;
         };
 
         sliderG.append("g")
         .attr("class", "x axis")
-        .attr("transform", "translate(" + 0 + "," + margin.top / 2 + ")")
+        .attr("transform", "translate(" + 0 + "," + (13 + margin.top / 2) + ")")
         .call(d3.svg.axis()
               .scale(x)
               .orient("top")
@@ -67,6 +67,12 @@ var brush = d3.svg.brush()
               .select(".domain")
               .select(function() { return this.parentNode.appendChild(this.cloneNode(true)); })
               .attr("class", "halo");
+        sliderG.append('text')
+        .attr('text-anchor', 'middle')
+        .attr('x', width / 2)
+        .attr('y', 13)
+        .text('Aspect Ratio:')
+
 
 var slider = sliderG.append("g")
     .attr("class", "slider")
@@ -80,11 +86,11 @@ slider.selectAll(".extent,.resize")
 var handle = slider.
     append("circle")
     .attr("class", "handle")
-    .attr("transform", "translate(0," + margin.top / 2 + ")")
+    .attr("transform", "translate(0," + ( 13 + margin.top / 2 ) + ")")
     .attr("r", 9);
 
     slider
-    .call(brush.extent([70, 70]))
+    .call(brush.extent([1, 1]))
     .call(brush.event);
 
     var brushing = false;
@@ -109,6 +115,7 @@ var handle = slider.
         console.log('handle:', handle);
         console.log('value:', value);
 
+        gridLayout.aspect(value);
         numbers = [];
         handle.attr("cx", x(value));
     }
@@ -161,5 +168,4 @@ var handle = slider.
         numbers.push(numbers[numbers.length-1]+1);
         setTimeout(push, duration)
     }
-    push();
     }
