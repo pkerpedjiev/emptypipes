@@ -57,3 +57,7 @@ xis {
   cursor: crosshair;
 }
 
+.background-rect {
+    fill: grey;
+    opacity: 0.2;
+}
