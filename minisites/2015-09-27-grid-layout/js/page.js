@@ -11,6 +11,8 @@ function gridLayoutExample() {
     .size([width, height])
     .aspect(1.0);
 
+    console.log(gridLayout([1,2,3]));
+
     //when called on an array of objects, gridLayout
     //will return another array, each of whose members
     //contain the 'pos' and 'data' members
