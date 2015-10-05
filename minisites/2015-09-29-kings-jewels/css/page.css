@@ -24,3 +24,26 @@
           font-weight: bold;
       }
 
+      .axis-label {
+            font: 12px sans-serif;
+          text-anchor: middle;
+          /* font-weight: bold; */
+      }
+
+      .line-label {
+            font: 12px sans-serif;
+          text-anchor: start;
+          /* font-weight: bold; */
+      }
+
+      .line-best {
+            fill: none;
+              stroke: steelblue;
+                stroke-width: 1.5px;
+            }
+
+      .line-mean {
+            fill: none;
+              stroke: #e6550d;
+                stroke-width: 1.5px;
+            }

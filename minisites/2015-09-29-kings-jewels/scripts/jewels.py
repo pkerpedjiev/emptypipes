@@ -95,7 +95,7 @@ def main():
     best_l25 = sorted(stats, key=lambda x: -x['l25'])[0]['num']
 
     if not options.full_output:
-        print options.number, best_best, best_mean, best_median, best_l25
+        print ",".join(map(str, [options.number, best_best, best_mean, best_median, best_l25]))
 
 
 if __name__ == '__main__':
