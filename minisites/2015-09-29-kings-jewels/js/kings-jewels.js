@@ -153,7 +153,7 @@ function kingsJewelsExample() {
         .attr('transform', 'translate(' + width/2 + ',' + (Math.ceil(jewelPicks.length / numCols) * rectGrid.nodeSize()[1] + 20) + ')')
         .append('text')
         .classed('main-title', true)
-        .text('Jewel Value')
+        .text('Picked Jewel Value')
 
         for (var i=0, seq=[]; i < jewelPicks.length+1; i++) seq.push(i);
 
