@@ -1,5 +1,6 @@
 #!/usr/bin/python
 
+import json
 import numpy as np
 import random
 import scipy.stats as ss
@@ -20,6 +21,8 @@ def main():
     parser.add_option('-i', '--iterations', dest='iterations', default=100, help="The number of times to run the simulation", type='int')
     parser.add_option('-f', '--full-output', dest='full_output', default=False,
                       help="Output all of the numbers", action="store_true")
+    parser.add_option('-s', '--summary-output', dest='summary_output', default=False,
+                      help="Print a summary of the output", action='store_true')
     #parser.add_option('-u', '--useless', dest='uselesss', default=False, action='store_true', help='Another useless option')
 
     (options, args) = parser.parse_args()
@@ -32,13 +35,13 @@ def main():
     jewels = [i for i in range(options.number)]
     random.shuffle(jewels)
 
-    print "jewels:", jewels
-
     picked = []
     for i in range(options.iterations):
         picked += [jewels[0]]
         random.shuffle(jewels)
         
+    all_picked = []
+    stats = []
     for i in range(0, options.number):
         picked = []
         best = 0
@@ -70,14 +73,29 @@ def main():
             picked += [picked_here]
 
         #print "picked:", picked
+        all_picked += [picked]
 
-        if options.full_output:
-            print "{}".format(" ".join(map(str, picked)))
 
-        if not options.full_output:
-            print "i: {}, best: {} (25,50,70): [{:.1f} | {:.1f} | {:.1f}] mean: {:.1f} median: {:.1f} std: {:.1f}".format(i, best,
+        if options.summary_output:
+            print "i: {}, best: {} (25,50,70): [{:.1f} | {:.1f} | {:.1f}] mean: {:.1f} median: {:.1f} std: {:.1f} zscore: {:.1f}".format(i, best, np.percentile(picked, 25), np.percentile(picked, 50), np.percentile(picked, 75), np.mean(picked), np.median(picked), np.std(picked), (np.median(picked) - options.number / 2.) / np.std(picked))
+        stats += [{'mean': np.mean(picked),
+                  'median': np.median(picked),
+                  'best': best,
+                  'std': np.std(picked),
+                  'l25': np.percentile(picked, 25),
+                  'num': i }]
 
-                                                                                           np.percentile(picked, 25), np.percentile(picked, 50), np.percentile(picked, 75), np.mean(picked), np.median(picked), np.std(picked))
+            
+    if options.full_output:
+        print json.dumps(all_picked)
+
+    best_best = sorted(stats, key=lambda x: -x['best'])[0]['num']
+    best_mean = sorted(stats, key=lambda x: -x['mean'])[0]['num']
+    best_median = sorted(stats, key=lambda x: -x['median'])[0]['num']
+    best_l25 = sorted(stats, key=lambda x: -x['l25'])[0]['num']
+
+    if not options.full_output:
+        print options.number, best_best, best_mean, best_median, best_l25
 
 
 if __name__ == '__main__':
