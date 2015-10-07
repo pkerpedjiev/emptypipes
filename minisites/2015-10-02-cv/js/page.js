@@ -15,10 +15,12 @@ var svg = d3.select("body").append("svg")
     .attr("width", width)
     .attr("height", height);
 
+    /*
 svg.append("path")
     .datum(graticule)
     .attr("class", "graticule")
     .attr("d", path);
+    */
 
 d3.json("/jsons/world-110m.json", function(error, world) {
   if (error) throw error;
@@ -26,12 +28,17 @@ d3.json("/jsons/world-110m.json", function(error, world) {
   svg.insert("path", ".graticule")
       .datum(topojson.feature(world, world.objects.land))
       .attr("class", "land")
-      .attr("d", path);
+      .attr("d", path)
+      .style('opacity', 0.2);
 
   svg.insert("path", ".graticule")
       .datum(topojson.mesh(world, world.objects.countries, function(a, b) { return a !== b; }))
       .attr("class", "boundary")
       .attr("d", path);
+
+      d3.json("/jsons/cv.json", function(error1, cvJson) {
+        console.log('cvJson:', cvJson);
+      });
 });
 
 d3.select(self.frameElement).style("height", height + "px");
