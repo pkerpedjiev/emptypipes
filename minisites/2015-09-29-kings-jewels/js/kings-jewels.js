@@ -109,13 +109,13 @@ function histogramChart() {
 }
 
 
-function jewelsMultHistogram() {
-    var margin = {top: 30, left: 80, right: 20, bottom: 20};
+function jewelsMultiHistogram(divName, filename) {
+    var margin = {top: 30, left: 20, right: 20, bottom: 20};
 
     var width = 550 - margin.left - margin.right;
-    var height = 800 - margin.top - margin.bottom;
+    var height = 400 - margin.top - margin.bottom;
 
-    var svg = d3.select("#plotting-area")
+    var svg = d3.select(divName)
     .append('svg')
     .attr('width', width + margin.left + margin.right)
     .attr('height', height + margin.top + margin.bottom);
@@ -136,7 +136,7 @@ function jewelsMultHistogram() {
         .cols(numCols)
         .nodeSize([width/numCols, 100]);
 
-    d3.json('jsons/10.json', function(jewelPicks) {
+    d3.json(filename, function(jewelPicks) {
         var rectGs = mainG.selectAll('g')
         .data(rectGrid(jewelPicks));
 
@@ -324,7 +324,8 @@ function jewelsRegressionLineChart() {
 }
 
 function kingsJewelsExample() {
-    //jewelsMultiHistogram();
+    jewelsMultiHistogram('#plotting-area', '/jsons/10.json');
+    jewelsMultiHistogram('#plotting-area1', '/jsons/10_normal.json');
     jewelsRegressionLineChart();
 }
 

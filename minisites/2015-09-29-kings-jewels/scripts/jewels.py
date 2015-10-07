@@ -23,6 +23,8 @@ def main():
                       help="Output all of the numbers", action="store_true")
     parser.add_option('-s', '--summary-output', dest='summary_output', default=False,
                       help="Print a summary of the output", action='store_true')
+    parser.add_option('-d', '--distributin', dest='distribution', default='uniform',
+            help='The type of distribution to use for the jewels', type='str')
     #parser.add_option('-u', '--useless', dest='uselesss', default=False, action='store_true', help='Another useless option')
 
     (options, args) = parser.parse_args()
@@ -32,7 +34,13 @@ def main():
 
         sys.exit(1)
 
-    jewels = [i for i in range(options.number)]
+    normal_std_divisor = 5.
+
+    if options.distribution == 'uniform':
+        jewels = [i for i in range(options.number)]
+    elif options.distribution == 'normal':
+        jewels = map(int, np.random.normal(options.number / 2, options.number / normal_std_divisor, options.number))
+
     random.shuffle(jewels)
 
     picked = []
@@ -47,7 +55,13 @@ def main():
         best = 0
 
         for j in range(options.iterations):
+            if options.distribution == 'uniform':
+                jewels = [i for i in range(options.number)]
+            elif options.distribution == 'normal':
+                jewels = map(int, np.random.normal(options.number / 2, options.number / normal_std_divisor, options.number))
+
             random.shuffle(jewels)
+            #random.shuffle(jewels)
             #print "jewels[:i]", jewels[:i]
             if i == 0:
                 max_to_i = -1

@@ -9,3 +9,7 @@ Calcualting the outcomes of the King's Jewels Problem:
 num=20; python scripts/jewels.py --number $num --iterations 1000 -f -b 1 > jsons/${num}.json
 
 for i in $(seq 800); do python scripts/jewels.py --number $i --iterations 1000 -b 1; done | tee > output/all_stats.ssv
+
+## Normal Distribution ##
+
+num=10; python scripts/jewels.py --number $num --iterations 1000 -f -b 1 -d normal > jsons/10_normal.json
