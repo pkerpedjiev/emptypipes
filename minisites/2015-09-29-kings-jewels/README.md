@@ -13,3 +13,4 @@ for i in $(seq 800); do python scripts/jewels.py --number $i --iterations 1000 -
 ## Normal Distribution ##
 
 num=10; python scripts/jewels.py --number $num --iterations 1000 -f -b 1 -d normal > jsons/10_normal.json
+for i in $(seq 40); do python scripts/jewels.py --number $i --iterations 10000 -d normal -b 1; done | tee > output/all_stats_normal.csv

@@ -308,16 +308,16 @@ function regressionPlot() {
     return chart;
 }
 
-function jewelsRegressionLineChart() {
+function jewelsRegressionLineChart(divName, filename) {
     var regressionChart = regressionPlot();
 
     /*
     */
 
-    d3.csv('/jsons/all_stats.csv', function(data) {
+    d3.csv(filename, function(data) {
         console.log('data', data);
 
-        d3.select('#regression-area')
+        d3.select(divName)
         .datum(data)
         .call(regressionChart);
     });
@@ -325,7 +325,9 @@ function jewelsRegressionLineChart() {
 
 function kingsJewelsExample() {
     jewelsMultiHistogram('#plotting-area', '/jsons/10.json');
-    jewelsMultiHistogram('#plotting-area1', '/jsons/10_normal.json');
-    jewelsRegressionLineChart();
+    jewelsMultiHistogram('#plotting-area-normal', '/jsons/10_normal.json');
+
+    jewelsRegressionLineChart('#regression-area', '/jsons/all_stats.csv');
+    jewelsRegressionLineChart('#regression-area-normal', '/jsons/all_stats_normal.csv');
 }
 
