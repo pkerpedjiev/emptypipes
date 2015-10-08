@@ -1,9 +1,9 @@
 {
 	"name" : "Peter Kerpedjiev",
 	"email" : "pkerpedjiev@gmail.com",
-    "Citizenship" : ["USA", "Bulgaria"],
-    "Lived": ["Bulgaria", "USA", "Canada", "Denmark", "Germany", "Austria"],
-    "Visited": ["Bulgaria", "USA", "Canada", "Italy", "Spain", "Denmark", "Norway", "Sweden",
+    "citizenship" : ["USA", "Bulgaria"],
+    "lived": ["Bulgaria", "USA", "Canada", "Denmark", "Germany", "Austria"],
+    "visited": ["Bulgaria", "USA", "Canada", "Italy", "Spain", "Denmark", "Norway", "Sweden",
         "England", "Ireland", "Iceland", "France", "Germany", "Switzerland", "Austria", 
         "Belgium", "Netherlands", "Czech Republic", "Slovenia", "Slovakia", "Hungary",
         "Estonia", "Turkey", "Greece", "Georgia", "Croatia", "Russia", "Mongolia", "China",
@@ -11,7 +11,7 @@
     "birthDate": "1984-09-22",
     "currentDate": "2015-10-06",
     "blog": "http://emptypipes.org",
-    "Employment" : [ 
+    "employment" : [ 
         { "employer": "McKesson Corporation",
           "title": "Software Engineer",
           "start": "2006-06-14",
@@ -29,7 +29,7 @@
                          "lon": 6.9833 },
           "skills" : ["R", "Python", "Gene Expression Data"]}
     ],
-    "Education" : [
+    "education" : [
         { "institution": "Georgia Institute of Technology",
             "degree": "",
             "start": "2002-09-01" ,
@@ -55,7 +55,7 @@
             "skills": ["Python", "PDB", "Javascript"]
 		}
     ],
-    "Open Source Software": [
+    "open source software": [
         {}
     ]
 }

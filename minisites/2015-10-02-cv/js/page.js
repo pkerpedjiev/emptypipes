@@ -1,3 +1,5 @@
+var currentDate = '2015-10-08';
+
 var width = 550,
     height = 550;
 
@@ -37,7 +39,23 @@ d3.json("/jsons/world-110m.json", function(error, world) {
       .attr("d", path);
 
       d3.json("/jsons/cv.json", function(error1, cvJson) {
+        var dateFormat = d3.time.format('%Y-%m-%d');
+
+        var education = cvJson.education.map(function(d) {
+            d.start = dateFormat.parse(d.start);
+            d.end = dateFormat.parse(d.end);
+            return d;
+        });
+
+        var minStart = d3.min(education.map(function(d) { return d.start; }));
+        var maxStart = d3.max(education.map(function(d) { return d.end; }));
+
+        dateScale = d3.time.scale()
+        .domain([dateFormat.parse('1984-09-22'), dateFormat.parse(currentDate)])
+        .range([-180,180]);
+
         console.log('cvJson:', cvJson);
+        console.log('minStartLat:', dateScale(minStart), dateScale(maxStart));
       });
 });
 
