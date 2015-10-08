@@ -326,6 +326,7 @@ function jewelsRegressionLineChart(divName, filename) {
 function kingsJewelsExample() {
     jewelsMultiHistogram('#plotting-area', '/jsons/10.json');
     jewelsMultiHistogram('#plotting-area-normal', '/jsons/10_normal.json');
+    jewelsMultiHistogram('#plotting-area-exponential', '/jsons/10_exponential.json');
 
     jewelsRegressionLineChart('#regression-area', '/jsons/all_stats.csv');
     jewelsRegressionLineChart('#regression-area-normal', '/jsons/all_stats_normal.csv');

@@ -40,6 +40,8 @@ def main():
         jewels = [i for i in range(options.number)]
     elif options.distribution == 'normal':
         jewels = map(int, np.random.normal(options.number / 2, options.number / normal_std_divisor, options.number))
+    elif options.distribution == 'exponential':
+        jewels = map(int, np.random.exponential(options.number / normal_std_divisor, options.number))
 
     random.shuffle(jewels)
 
@@ -59,6 +61,8 @@ def main():
                 jewels = [i for i in range(options.number)]
             elif options.distribution == 'normal':
                 jewels = map(int, np.random.normal(options.number / 2, options.number / normal_std_divisor, options.number))
+            elif options.distribution == 'exponential':
+                jewels = map(int, np.random.exponential(options.number / normal_std_divisor, options.number))
 
             random.shuffle(jewels)
             #random.shuffle(jewels)
