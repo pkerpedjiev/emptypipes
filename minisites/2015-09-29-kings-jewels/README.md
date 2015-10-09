@@ -19,3 +19,7 @@ for i in $(seq 40); do python scripts/jewels.py --number $i --iterations 10000 -
 
 num=10; python scripts/jewels.py --number $num --iterations 1000 -f -b 1 -d exponential > jsons/10_exponential.json
 for i in $(seq 40); do python scripts/jewels.py --number $i --iterations 10000 -d exponential -b 1; done | tee > output/all_stats_exponential.csv
+
+## TODO ##
+
+* Calculate the regression coefficients the normal and exponential best cases

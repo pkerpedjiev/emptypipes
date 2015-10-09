@@ -330,5 +330,6 @@ function kingsJewelsExample() {
 
     jewelsRegressionLineChart('#regression-area', '/jsons/all_stats.csv');
     jewelsRegressionLineChart('#regression-area-normal', '/jsons/all_stats_normal.csv');
+    jewelsRegressionLineChart('#regression-area-exponential', '/jsons/all_stats_exponential.csv');
 }
 

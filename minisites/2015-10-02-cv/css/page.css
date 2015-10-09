@@ -14,3 +14,8 @@
   stroke: #fff;
   stroke-width: .5px;
 }
+
+.education {
+    stroke: black;
+    stroke-width: 3px;
+}

@@ -38,6 +38,8 @@ d3.json("/jsons/world-110m.json", function(error, world) {
       .attr("class", "boundary")
       .attr("d", path);
 
+  var gMain = svg.append('g');
+
       d3.json("/jsons/cv.json", function(error1, cvJson) {
         var dateFormat = d3.time.format('%Y-%m-%d');
 
@@ -52,10 +54,26 @@ d3.json("/jsons/world-110m.json", function(error, world) {
 
         dateScale = d3.time.scale()
         .domain([dateFormat.parse('1984-09-22'), dateFormat.parse(currentDate)])
-        .range([-180,180]);
+        .range([0,width]);
 
         console.log('cvJson:', cvJson);
         console.log('minStartLat:', dateScale(minStart), dateScale(maxStart));
+
+        gMain.selectAll('.education')
+        .data(education)
+        .enter()
+        .append('line')
+        .attr('y1', function(d) { return dateScale(d.start); })
+        .attr('y2', function(d) { return dateScale(d.end); })
+        .attr('x1', function(d) { 
+            var proj = projection([d.location.lon, d.location.lat]);
+            return proj[0];
+        })
+        .attr('x2', function(d) { 
+            var proj = projection([d.location.lon, d.location.lat]);
+            return proj[0];
+        })
+        .classed('education', true);
       });
 });
 
