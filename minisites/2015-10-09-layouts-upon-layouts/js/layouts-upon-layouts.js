@@ -35,13 +35,14 @@ function layoutsUponLayouts(divName) {
 
     // create an svg as a child of the #rna_ss div
     // and then a g for each grid cell
-    d3.select(divName)
+    var gMain = d3.select(divName)
     .append('svg')
     .attr('width', svgWidth + margin.left + margin.right)
     .attr('height', svgHeight + margin.top + margin.bottom)
     .append('g')
     .attr('transform', 'translate(' + margin.left + "," + margin.top + ")")
-    .selectAll('.rna-treemap')
+
+    gMain.selectAll('.rna-treemap')
     .data(rectData)
     .enter()
     .append('g')

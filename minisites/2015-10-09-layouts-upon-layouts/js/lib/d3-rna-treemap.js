@@ -27,7 +27,6 @@ function rnaTreemapChart() {
 
     var chart = function(selection) {
         selection.each(function(data) {
-            console.log('data:', data)
             // initialize the treemap structure
             // sample input
             // { 'name': 'blah',
