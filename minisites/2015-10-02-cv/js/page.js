@@ -1,5 +1,7 @@
 var currentDate = '2015-10-08';
 
+var margin = {top: 10, right: 10, left: 10, bottom: 10}
+
 var width = 550,
     height = 550;
 
@@ -14,8 +16,10 @@ var path = d3.geo.path()
 var graticule = d3.geo.graticule();
 
 var svg = d3.select("body").append("svg")
-    .attr("width", width)
-    .attr("height", height);
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+    .append('g')
+    .attr('transform', 'translate(' + margin.left + "," + margin.right + ")");
 
     /*
 svg.append("path")
@@ -38,29 +42,32 @@ d3.json("/jsons/world-110m.json", function(error, world) {
       .attr("class", "boundary")
       .attr("d", path);
 
-  var gMain = svg.append('g');
+        var gMain = svg.append('g');
 
-      d3.json("/jsons/cv.json", function(error1, cvJson) {
+      d3.json("/jsons/cv.json?23", function(error1, cvJson) {
         var dateFormat = d3.time.format('%Y-%m-%d');
 
-        var education = cvJson.education.map(function(d) {
+        var activities = cvJson.activities.map(function(d) {
             d.start = dateFormat.parse(d.start);
             d.end = dateFormat.parse(d.end);
             return d;
         });
 
-        var minStart = d3.min(education.map(function(d) { return d.start; }));
-        var maxStart = d3.max(education.map(function(d) { return d.end; }));
+        var minStart = d3.min(activities.map(function(d) { return d.start; }));
+        var maxStart = d3.max(activities.map(function(d) { return d.end; }));
 
         dateScale = d3.time.scale()
-        .domain([dateFormat.parse('1984-09-22'), dateFormat.parse(currentDate)])
-        .range([0,width]);
+        .domain([dateFormat.parse('1983-12-30'), 
+                dateFormat.parse('2001-12-30'), dateFormat.parse(currentDate)])
+        .range([width,3*width/4,0]);
 
         console.log('cvJson:', cvJson);
         console.log('minStartLat:', dateScale(minStart), dateScale(maxStart));
 
-        gMain.selectAll('.education')
-        .data(education)
+        //plot lines indicating the period along with a particular activity
+        //took place
+        gMain.selectAll('.activities-line')
+        .data(activities)
         .enter()
         .append('line')
         .attr('y1', function(d) { return dateScale(d.start); })
@@ -73,7 +80,94 @@ d3.json("/jsons/world-110m.json", function(error, world) {
             var proj = projection([d.location.lon, d.location.lat]);
             return proj[0];
         })
-        .classed('education', true);
+        .classed('activities-line', true);
+
+        //Add labels for each activity
+        gMain.selectAll('.activity-text')
+        .data(activities)
+        .enter()
+        .append('text')
+        .attr('y', function(d) { 
+            return (dateScale(d.start) + dateScale(d.end)) / 2;
+        })
+        .attr('dy', '.3em')
+        .attr('x', function(d) {
+            var proj = projection([d.location.lon, d.location.lat]);
+
+            // place the text on either the left or right hand side
+            // of the activity line
+            if (d.text_align == 'left')
+                return proj[0] - (ACTIVITY_TEXT_OFFSET = 10);
+            else
+                return proj[0] + (ACTIVITY_TEXT_OFFSET = 10);
+        })
+        .classed('activity-text', true)
+        .attr('text-anchor', function(d) {
+            if (d.text_align == 'left')
+                return 'end';
+            else
+                return 'start';
+        })
+        .text(function(d) { return  d.host; });
+
+        var yearDateFormat = d3.time.format('%Y');
+		// add an axis for the year
+		var xAxis = d3.svg.axis()
+        .scale(dateScale)
+        .orient('right')
+        .ticks(d3.time.years, 1)
+        .tickFormat(function(d) {
+            var year = d.getFullYear();
+
+            if (year < 2002) {
+                if (year % 2 === 0)
+                    return d3.time.format('%Y')(d);
+                else
+                    return '';
+            }
+
+            return d3.time.format('%Y')(d);
+        })
+        .tickSize(0)
+        .tickPadding(8);
+	  
+     // add the axes with the years
+        // on the left
+  	  svg.append('g')
+      .attr('class', 'year axis')
+  	  .attr('transform', 'translate(0,0)')
+  	  .call(xAxis);
+
+      // and on the right, the orientation is the way the
+      // labels face
+      svg.append('g')
+      .attr('class', 'year axis')
+  	  .attr('transform', 'translate(' + width + ',0)')
+  	  .call(xAxis.orient('left'));
+
+      var textFromTop = height - 50;  //where to start the name, email, blog header
+      var emailOffset = 18;  //how far from the name to offset the email
+
+      svg.append('text')
+      .attr('x', width - 40)
+      .attr('y', textFromTop)
+      .classed('name-label', true)
+      .text(cvJson.name);
+
+      svg.append('text')
+      .attr('x', width - 40)
+      .attr('y', textFromTop) 
+      .attr('dy', emailOffset)
+      .classed('email-label', true)
+      .text(cvJson.email);
+
+      svg.append('text')
+      .attr('x', width - 40)
+      .attr('y', textFromTop) 
+      .attr('dy', 2 * emailOffset)
+      .classed('email-label', true)
+      .text(cvJson.blog);
+
       });
 });
 

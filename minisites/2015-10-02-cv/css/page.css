@@ -1,3 +1,37 @@
+.axis text {
+  font: 10px sans-serif;
+}
+
+.axis path, .axis line {
+    fill: none;
+    stroke: none;
+    shape-rendering: crispEdges;
+      }
+
+      .main-title {
+    font: 13px sans-serif;
+          text-anchor: middle;
+          font-weight: bold;
+      }
+
+      .name-label {
+          font-size: 150%;
+          font-family: Impact, Charcoal, sans-serif;
+          text-anchor: end;
+      }
+
+      .email-label {
+          font: 12px sans-serif;
+          font-style: italic;
+          text-anchor: end;
+      }
+
+      .axis-label {
+            font: 12px sans-serif;
+          text-anchor: middle;
+          /* font-weight: bold; */
+      }
+
 .graticule {
   fill: none;
   stroke: #777;
@@ -15,7 +49,11 @@
   stroke-width: .5px;
 }
 
-.education {
+.activities-line {
     stroke: black;
-    stroke-width: 3px;
+    stroke-width: 5px;
 }
+
+.activity-text {
+            font: 13px sans-serif;
+        }
