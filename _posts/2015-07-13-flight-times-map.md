@@ -2,7 +2,7 @@
 layout: post
 title:  "Approximate Flight Time Map"
 description: "An iso-distance map showing approximate flight times between different locations on Earth"
-tags: javascript d3.js
+tags: javascript d3.js maps
 ---
 The map below shows the approximate flight time (in hours) from any location on
 earth to any other.

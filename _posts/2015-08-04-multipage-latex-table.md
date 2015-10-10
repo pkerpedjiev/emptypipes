@@ -2,7 +2,7 @@
 layout: post
 title:  "Multi-Page Vertically Centered Latex Table"
 description: "How to create a latex table which spans multiple pages and has the text centered vertically in the cells."
-tags: matplotlib python colormap
+tags: latex
 ---
 
 Say we wanted to create a latex table that had vertically centered text.  Say

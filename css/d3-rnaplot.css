@@ -4,13 +4,6 @@
     fill: transparent;
 }
 
-svg {
-  display: block;
-  min-width: 100%;
-  width: 100%;
-  min-height: 100%;
-}
-
 circle.rnaBase {
   stroke: #ccc;
   stroke-width: 1px;

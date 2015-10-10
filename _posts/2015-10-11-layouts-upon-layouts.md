@@ -2,7 +2,7 @@
 layout: post
 title:  "Layouts Upon Layouts"
 description: "An example of how to create nested d3 layouts."
-tags: javascript d3.js
+tags: javascript d3.js rna
 ---
 <meta charset="utf-8"> 
 <img itemprop="image" src="/img/layouts_upon_layouts_itemprop.png" style='display:none' width=200 height=130>
@@ -87,9 +87,9 @@ function chart(selection) {
 {% endhighlight %}
 
 And that's it! Create layout function. Create child nodes bound to the data.
-Call layout function. Rinse, repeat! Definitely take a look at the <a
+Call layout function. Rinse, repeat! Take a look at the <a
 href="http://bost.ocks.org/mike/chart/">"Towards Reusable Charts"</a> tutorial
-for information about how to create a layout.
+for an excellent introduction to creating a custom layout.
 
 <link rel='stylesheet' type='text/css' href='/css/d3-rnaplot.css' />
 
