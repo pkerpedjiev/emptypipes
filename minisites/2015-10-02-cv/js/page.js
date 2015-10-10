@@ -44,7 +44,7 @@ d3.json("/jsons/world-110m.json", function(error, world) {
 
         var gMain = svg.append('g');
 
-      d3.json("/jsons/cv.json?23", function(error1, cvJson) {
+      d3.json("/jsons/cv.json?25", function(error1, cvJson) {
         var dateFormat = d3.time.format('%Y-%m-%d');
 
         var activities = cvJson.activities.map(function(d) {
@@ -59,10 +59,29 @@ d3.json("/jsons/world-110m.json", function(error, world) {
         dateScale = d3.time.scale()
         .domain([dateFormat.parse('1983-12-30'), 
                 dateFormat.parse('2001-12-30'), dateFormat.parse(currentDate)])
-        .range([width,3*width/4,0]);
+        //.range([width,3*width/4,0]);
+        .range([0, width / 3.5,width]);
 
         console.log('cvJson:', cvJson);
         console.log('minStartLat:', dateScale(minStart), dateScale(maxStart));
+
+
+        gMain.selectAll('activity-connection')
+        .data(activities.filter(function(d) { return d.displayConnection != "false"; }))
+        .enter()
+        .append('line')
+        .attr('y1', function(d) { return dateScale(d.start); })
+        .attr('y2', function(d) {
+            var proj = projection([d.location.lon, d.location.lat]);
+            return proj[1]; })
+        .attr('x1', function(d) {
+            var proj = projection([d.location.lon, d.location.lat]);
+            return proj[0]; })
+        .attr('x2', function(d) {
+            var proj = projection([d.location.lon, d.location.lat]);
+            return proj[0]; })
+        .attr('stroke-dasharray', '5,5')
+        .classed('activity-connection', true);
 
         //plot lines indicating the period along with a particular activity
         //took place
@@ -80,7 +99,21 @@ d3.json("/jsons/world-110m.json", function(error, world) {
             var proj = projection([d.location.lon, d.location.lat]);
             return proj[0];
         })
+        .attr('stroke-linecap', 'round')
         .classed('activities-line', true);
+
+        gMain.selectAll('activity-point')
+        .data(activities.filter(function(d) { return d.displayConnection != "false"; }))
+        .enter()
+        .append('circle')
+        .attr('cx', function(d) {
+            var proj = projection([d.location.lon, d.location.lat]);
+            return proj[0]; })
+        .attr('cy', function(d) {
+            var proj = projection([d.location.lon, d.location.lat]);
+            return proj[1]; })
+        .attr('r', 3)
+        .classed('activity-point', true);
 
         //Add labels for each activity
         gMain.selectAll('.activity-text')
@@ -145,7 +178,8 @@ d3.json("/jsons/world-110m.json", function(error, world) {
   	  .attr('transform', 'translate(' + width + ',0)')
   	  .call(xAxis.orient('left'));
 
-      var textFromTop = height - 50;  //where to start the name, email, blog header
+      //var textFromTop = height - 50;  //where to start the name, email, blog header
+      var textFromTop = 10;  //where to start the name, email, blog header
       var emailOffset = 18;  //how far from the name to offset the email
 
       svg.append('text')
