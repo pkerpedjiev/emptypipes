@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Linkage Clustering</title>
+<link rel='stylesheet' href='/css/linkage-clustering.css'>
+<h1>Linkage Clustering</h1>
+
+<body>
+<div id="clustering-field" ></div>
+
+<script src="/js/lib/d3.min.js"></script>
+<script src="/js/linkage-clustering.js"></script>
+
+<script type='text/javascript'>
+    var chart = linkageClustering()
+    d3.select('#clustering-field')
+    .call(chart)
+</script>
+</body>

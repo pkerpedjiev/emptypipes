@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Layouts Upon Layouts</title>
+<body>
+<h1>Layouts Upon Layouts</h1>
+
+One of the truly beautiful things about d3.js is how easy it is to combine
+multiple layouts into one graphic. The example presented below combines
+three different layout to data along *** dimensions of data:
+
+1. RNA secondary structure. RNA is a molecule similar to DNA with the property
+that it folds back onto itself to form pairs with bases in its own sequence.
+Its secondary structure is often displayed as an eponymous diagram.
+
+2. Some quantity associated with each molecule. We can display this by scaling
+the secondary structure diagrams using a treemap layout.
+
+3. Multiples of the above quantities.
+
+We can display all of this information in one plot by combining three different
+layouts: an <a href="https://github.com/pkerpedjiev/rnaplot">rnaplot</a> layout
+to display the secondary structure of an RNA, a <a
+href="http://bl.ocks.org/mbostock/4063582">treemap</a> to display the relative
+quantities, and a <a href="https://github.com/interactivethings/d3-grid">grid
+layout</a> to arrange the individual images.
+
+<div id='layouts-upon-layouts-div'> </div>
+
+So how do we create this layout chaining? We start with the d3-grid layout:
+
+    var rnaTreemap = rnaTreemapChart()
+        .width(treemapWidth)
+        .height(treemapHeight);
+
+    // the grid layout that will determine the position of each
+    // treemap
+     var rectGrid = d3.layout.grid()
+              .bands()
+              .size([svgWidth, svgHeight])
+              .cols(numCols)
+              .padding(padding)
+              .nodeSize([treemapWidth, treemapHeight]);
+    var rectData = rectGrid(root)
+
+The `rectGrid` function adds the `x` and `y` properties to each element of the
+list that is passed in as an argument (`root`, in this case). We then
+create the `svg` element and a `g` element within our margins.
+
+    var gMain = d3.select(divName)
+    .append('svg')
+    .attr('width', svgWidth + margin.left + margin.right)
+    .attr('height', svgHeight + margin.top + margin.bottom)
+    .append('g')    // place holder element within the margins
+    .attr('transform', 'translate(' + margin.left + "," + margin.top + ")")
+
+Within this element, we join the data and create `g` elements which will
+be filled with a `d3-rna-treemap` layout:
+
+    var rnaTreemap = rnaTreemapChart()
+        .width(treemapWidth)
+        .height(treemapHeight);
+
+    gMain.selectAll('.rna-treemap')
+    .data(rectData)
+    .enter()  // we presumably have no existing elements to join on
+    .append('g') // add a g for each grid element
+    .attr('transform', function(d) { return 'translate(' + d.x + ',' + d.y + ')'; })
+    .classed('rna-treemap', true)
+    .call(rnaTreemap); // draw a treemap within each element
+
+The `d3-rna-treemap` layout simply iterates over each node in
+the selection and appends a set of `g` elements corresponding
+to the rectangles in the treemap:
+
+    var chart = function(selection) {
+        selection.each(function(data) {
+            // initialize the treemap structure
+            // sample input
+            // { 'name': 'blah',
+            // 'children: [{'structure': '..((..))',
+            //               'sequence': 'ACCGGCC',
+            //               'size': 50}]
+            // }
+            var treemap = d3.layout.treemap()
+            .size([width, height])
+            .sticky(false)
+            .value(function(d) { return d.size; });
+
+            // create a new <g> for each node in the treemap
+            var gEnter = d3.select(this).append('g');
+            var treemapGnodes = gEnter.datum(data).selectAll(".treemapNode")
+            .data(treemap.nodes)
+            .enter()
+            .append('g')
+            .attr('class', 'treemapNode')
+            .call(rnaTreemapNode);
+
+        });
+
+Each treemap node then positions the `g` element it was called on, and then
+appends a `d3-rna-plot`. Notice that it sets the size of the `rna-plot`.
+
+    function rnaTreemapNode(selection) {
+        // create a background rectangle for each RNA structure
+        selection.each(function(d) {
+            d3.select(this)
+            .attr('transform', function(d) { return 'translate(' + d.x + "," + d.y + ')' })
+            .append('rect')
+            .classed('structure-background-rect', true)
+            .attr("width", function(d) { return Math.max(0, d.dx); })
+            .attr("height", function(d) { return Math.max(0, d.dy); })
+
+            // draw the actual RNA structure
+            var chart = rnaPlot()
+            .width( Math.max(0, d.dx))
+            .height( Math.max(0, d.dy))
+            .labelInterval(0)
+            .rnaEdgePadding(10)
+            .showNucleotideLabels(false);
+
+            if ('structure' in d) d3.select(this).call(chart)
+
+        });
+    }
+
+Finally, the `d3-rna-plot` layout, appends a `g` to the nodes it was
+called on and fills them with an RNA structure:
+
+    function chart(selection) {
+        selection.each(function(data) {
+            // data should be a dictionary containing at least a structure
+            // and possibly a sequence
+            rg = new RNAGraph(data.sequence, data.structure, data.name)
+                    .recalculateElements()
+                    .elementsToJson();
+
+            ...
+
+            var gTransform = d3.select(this)
+            .append('g')
+            .attr('transform', fillViewportTransform);
+
+And that's it! At the end, using this simple modular approach, we created
+a complex diagram which displays a *** different parameters of data.
+
+
+<link rel='stylesheet' type='text/css' href='/css/d3-rnaplot.css' />
+
+<script type='text/javascript' src='/js/lib/d3.min.js'></script>
+<script type='text/javascript' src='/js/lib/d3-rnaplot.js'></script>
+<script type='text/javascript' src='/js/lib/d3-rna-treemap.js'></script>
+<script type='text/javascript' src='/js/lib/d3-grid.js'></script>
+<script type='text/javascript' src='/js/layouts-upon-layouts.js'></script>
+<script type='text/javascript'>
+    layoutsUponLayouts('#layouts-upon-layouts-div');
+</script>
+</body>

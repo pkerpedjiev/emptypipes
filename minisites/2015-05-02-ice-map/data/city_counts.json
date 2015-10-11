@@ -1,0 +1,3165 @@
+{
+  "type": "FeatureCollection", 
+  "features": [
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "45.257019", 
+          "17.199591"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 1, 
+        "lines": [
+          "EN 415"
+        ], 
+        "name": "Okucani"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "49.084509", 
+          "19.306959"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 1, 
+        "lines": [
+          "EN 445"
+        ], 
+        "name": "Ruzomberok"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "50.04062", 
+          "19.197489"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 1, 
+        "lines": [
+          "EN 444"
+        ], 
+        "name": "Oswiecim"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "49.444815", 
+          "17.446983"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 1, 
+        "lines": [
+          "EN 477"
+        ], 
+        "name": "Prerov"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "46.933076", 
+          "20.819358"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 1, 
+        "lines": [
+          "EN 473"
+        ], 
+        "name": "Gyoma"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "50.065628", 
+          "19.941822"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 1, 
+        "lines": [
+          "EN 444"
+        ], 
+        "name": "Kraków Glówny Osobowy"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "50.276119", 
+          "19.127579"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 1, 
+        "lines": [
+          "EN 477"
+        ], 
+        "name": "Sosnowiec Glowny"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "49.821472", 
+          "18.209745"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 1, 
+        "lines": [
+          "EN 477"
+        ], 
+        "name": "Ostrava-Svinov"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "47.00667", 
+          "20.640491"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 1, 
+        "lines": [
+          "EN 473"
+        ], 
+        "name": "Mezötúr"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "49.059951", 
+          "20.29464"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 1, 
+        "lines": [
+          "EN 445"
+        ], 
+        "name": "Poprad-Tatry"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "50.156509", 
+          "19.441339"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 1, 
+        "lines": [
+          "EN 444"
+        ], 
+        "name": "Trzebinia"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "49.113931", 
+          "18.926662"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 1, 
+        "lines": [
+          "EN 445"
+        ], 
+        "name": "Vrutky"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "50.479464", 
+          "19.416879"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 1, 
+        "lines": [
+          "EN 477"
+        ], 
+        "name": "Zawiercie"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "47.393863", 
+          "13.678687"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 1, 
+        "lines": [
+          "EN 465"
+        ], 
+        "name": "Schladming"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "49.20234", 
+          "17.531706"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 1, 
+        "lines": [
+          "EN 477"
+        ], 
+        "name": "Otrokovice"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "54.51589", 
+          "30.411496"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 1, 
+        "lines": [
+          "EN 404"
+        ], 
+        "name": "Orsha-Centralnaia"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "49.22795", 
+          "18.746868"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 1, 
+        "lines": [
+          "EN 445"
+        ], 
+        "name": "Zilina"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "49.093085", 
+          "19.601131"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 1, 
+        "lines": [
+          "EN 445"
+        ], 
+        "name": "Liptovský Mikulás"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "47.528926", 
+          "14.107805"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 1, 
+        "lines": [
+          "EN 465"
+        ], 
+        "name": "Stainach-Irdning"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "45.935866", 
+          "23.351593"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 1, 
+        "lines": [
+          "EN 473"
+        ], 
+        "name": "Sibot"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "47.215957", 
+          "14.837963"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 1, 
+        "lines": [
+          "EN 235"
+        ], 
+        "name": "Knittelfeld"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "49.913279", 
+          "19.007484"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 1, 
+        "lines": [
+          "EN 444"
+        ], 
+        "name": "Czechowice Dziedzice"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "44.818399", 
+          "20.40927"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 1, 
+        "lines": [
+          "EN 415"
+        ], 
+        "name": "Novi Beograd"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "47.417693", 
+          "9.738805"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 1, 
+        "lines": [
+          "EN 246"
+        ], 
+        "name": "Dornbirn"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "46.820378", 
+          "21.02255"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 1, 
+        "lines": [
+          "EN 473"
+        ], 
+        "name": "Mezöberény"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "46.954758", 
+          "14.417726"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 1, 
+        "lines": [
+          "EN 235"
+        ], 
+        "name": "Friesach in Kärnten"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "48.843724", 
+          "2.375947"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 1, 
+        "lines": [
+          "EN 221"
+        ], 
+        "name": "Paris-Gare de Lyon"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "47.34747", 
+          "15.009603"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 1, 
+        "lines": [
+          "EN 465"
+        ], 
+        "name": "St.Michael in Oberstmk"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "48.950723", 
+          "20.560685"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 1, 
+        "lines": [
+          "EN 445"
+        ], 
+        "name": "Spisska Nova Ves"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "52.219983", 
+          "20.964939"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 1, 
+        "lines": [
+          "EN 477"
+        ], 
+        "name": "Warszawa Zachodnia"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "47.417361", 
+          "13.220084"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 1, 
+        "lines": [
+          "EN 465"
+        ], 
+        "name": "Bischofshofen"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "47.503001", 
+          "9.739623"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 1, 
+        "lines": [
+          "EN 246"
+        ], 
+        "name": "Bregenz"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "46.541191", 
+          "21.174459"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 1, 
+        "lines": [
+          "EN 473"
+        ], 
+        "name": "Kétegyháza"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "48.85096", 
+          "21.225841"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 1, 
+        "lines": [
+          "EN 445"
+        ], 
+        "name": "Kysak"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "47.550347", 
+          "14.312292"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 1, 
+        "lines": [
+          "EN 465"
+        ], 
+        "name": "Selzthal"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "45.964075", 
+          "23.586625"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 1, 
+        "lines": [
+          "EN 473"
+        ], 
+        "name": "Sebes Alba"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "48.157514", 
+          "17.109088"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 2, 
+        "lines": [
+          "EN 476", 
+          "EN 477"
+        ], 
+        "name": "Bratislava hlavna stanica"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "52.228864", 
+          "21.003215"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 2, 
+        "lines": [
+          "EN 477", 
+          "EN 404"
+        ], 
+        "name": "Warszawa Centralna"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "50.051218", 
+          "8.57125"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 2, 
+        "lines": [
+          "EN 420", 
+          "EN 421"
+        ], 
+        "name": "Frankfurt (M) Flughafen Regio"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "46.055783", 
+          "13.242162"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 2, 
+        "lines": [
+          "EN 1236", 
+          "EN 1237"
+        ], 
+        "name": "Udine"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "45.412595", 
+          "25.547576"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 2, 
+        "lines": [
+          "EN 472", 
+          "EN 473"
+        ], 
+        "name": "Busteni"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "50.09958", 
+          "8.686303"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 2, 
+        "lines": [
+          "EN 420", 
+          "EN 421"
+        ], 
+        "name": "Frankfurt (Main) Süd"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "45.803168", 
+          "16.232217"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 2, 
+        "lines": [
+          "EN 415", 
+          "EN 414"
+        ], 
+        "name": "Dugo Selo"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "47.067842", 
+          "15.415655"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 2, 
+        "lines": [
+          "EN 464", 
+          "EN 465"
+        ], 
+        "name": "Graz Hbf"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "45.474082", 
+          "16.778581"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 2, 
+        "lines": [
+          "EN 415", 
+          "EN 414"
+        ], 
+        "name": "Kutina"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "45.960074", 
+          "15.497277"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 2, 
+        "lines": [
+          "EN 415", 
+          "EN 498"
+        ], 
+        "name": "Krsko"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "49.602477", 
+          "17.27092"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 2, 
+        "lines": [
+          "EN 445", 
+          "EN 444"
+        ], 
+        "name": "Olomouc hl. n."
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "45.113812", 
+          "19.228483"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 2, 
+        "lines": [
+          "EN 415", 
+          "EN 414"
+        ], 
+        "name": "Sid (SRB)"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "47.217872", 
+          "10.763881"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 2, 
+        "lines": [
+          "EN 246", 
+          "EN 247"
+        ], 
+        "name": "Imst-Pitztal"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "45.486388", 
+          "9.204711"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 2, 
+        "lines": [
+          "EN 220", 
+          "EN 221"
+        ], 
+        "name": "Milano Centrale"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "46.187888", 
+          "21.325532"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 2, 
+        "lines": [
+          "EN 347", 
+          "EN 473"
+        ], 
+        "name": "Arad"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "46.341954", 
+          "21.304209"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 2, 
+        "lines": [
+          "EN 347", 
+          "EN 473"
+        ], 
+        "name": "Curtici"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "45.999861", 
+          "23.513713"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 2, 
+        "lines": [
+          "EN 347", 
+          "EN 473"
+        ], 
+        "name": "Vintu de Jos"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "50.001112", 
+          "8.258722"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 2, 
+        "lines": [
+          "EN 420", 
+          "EN 421"
+        ], 
+        "name": "Mainz Hbf"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "52.251957", 
+          "21.051613"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 2, 
+        "lines": [
+          "EN 477", 
+          "EN 404"
+        ], 
+        "name": "Warszawa Wschodnia"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "50.732007", 
+          "7.097136"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 2, 
+        "lines": [
+          "EN 420", 
+          "EN 421"
+        ], 
+        "name": "Bonn Hbf"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "45.22695", 
+          "18.419697"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 2, 
+        "lines": [
+          "EN 415", 
+          "EN 414"
+        ], 
+        "name": "Strizivojna-Vrpolje"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "45.252012", 
+          "17.385497"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 2, 
+        "lines": [
+          "EN 415", 
+          "EN 414"
+        ], 
+        "name": "Nova Gradiska"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "47.492007", 
+          "12.060818"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 2, 
+        "lines": [
+          "EN 415", 
+          "EN 465"
+        ], 
+        "name": "Wörgl Hbf"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "44.98061", 
+          "20.143441"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 2, 
+        "lines": [
+          "EN 415", 
+          "EN 414"
+        ], 
+        "name": "Stara Pazova (SRB)"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "45.327818", 
+          "16.97202"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 2, 
+        "lines": [
+          "EN 415", 
+          "EN 414"
+        ], 
+        "name": "Novska"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "41.900492", 
+          "12.50279"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 2, 
+        "lines": [
+          "EN 234", 
+          "EN 235"
+        ], 
+        "name": "Roma Termini"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "44.804116", 
+          "20.45872"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 2, 
+        "lines": [
+          "EN 415", 
+          "EN 414"
+        ], 
+        "name": "Beograd"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "45.481902", 
+          "12.2319"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 2, 
+        "lines": [
+          "EN 234", 
+          "EN 235"
+        ], 
+        "name": "Venezia Mestre"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "47.239338", 
+          "10.862142"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 2, 
+        "lines": [
+          "EN 246", 
+          "EN 247"
+        ], 
+        "name": "Ötztal"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "49.445615", 
+          "11.082989"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 2, 
+        "lines": [
+          "EN 490", 
+          "EN 491"
+        ], 
+        "name": "Nürnberg Hbf"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "47.993911", 
+          "18.17386"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 2, 
+        "lines": [
+          "EN 476", 
+          "EN 477"
+        ], 
+        "name": "Nové Zámky"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "43.461073", 
+          "11.875379"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 2, 
+        "lines": [
+          "EN 234", 
+          "EN 235"
+        ], 
+        "name": "Arezzo"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "46.981051", 
+          "13.177386"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 2, 
+        "lines": [
+          "EN 415", 
+          "EN 414"
+        ], 
+        "name": "Mallnitz-Obervellach"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "50.250572", 
+          "19.054686"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 2, 
+        "lines": [
+          "EN 477", 
+          "EN 404"
+        ], 
+        "name": "Katowice"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "45.847098", 
+          "23.034273"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 2, 
+        "lines": [
+          "EN 347", 
+          "EN 473"
+        ], 
+        "name": "Simeria"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "47.200343", 
+          "13.104798"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 2, 
+        "lines": [
+          "EN 415", 
+          "EN 414"
+        ], 
+        "name": "Bad Hofgastein"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "45.889923", 
+          "22.918519"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 2, 
+        "lines": [
+          "EN 347", 
+          "EN 473"
+        ], 
+        "name": "Deva"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "45.417827", 
+          "11.88062"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 2, 
+        "lines": [
+          "EN 1236", 
+          "EN 1237"
+        ], 
+        "name": "Padova"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "47.388901", 
+          "11.777882"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 2, 
+        "lines": [
+          "EN 415", 
+          "EN 465"
+        ], 
+        "name": "Jenbach"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "45.187281", 
+          "17.669053"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 2, 
+        "lines": [
+          "EN 415", 
+          "EN 414"
+        ], 
+        "name": "Nova Kapela-Batrina"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "48.659868", 
+          "17.048303"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 2, 
+        "lines": [
+          "EN 476", 
+          "EN 477"
+        ], 
+        "name": "Kuty"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "46.434139", 
+          "21.250805"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 2, 
+        "lines": [
+          "EN 347", 
+          "EN 473"
+        ], 
+        "name": "Lökösháza"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "53.876119", 
+          "27.582914"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 2, 
+        "lines": [
+          "EN 404", 
+          "EN 24JI 24"
+        ], 
+        "name": "Minsk (BY)"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "52.336159", 
+          "14.546506"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 2, 
+        "lines": [
+          "EN 446", 
+          "EN 447"
+        ], 
+        "name": "Frankfurt (Oder)"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "48.197597", 
+          "16.337067"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 2, 
+        "lines": [
+          "EN 347", 
+          "EN 346"
+        ], 
+        "name": "Wien Westbahnhof"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "52.074106", 
+          "23.601484"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 2, 
+        "lines": [
+          "EN 404", 
+          "EN 24JI 24"
+        ], 
+        "name": "Terespol"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "44.983378", 
+          "19.624476"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 2, 
+        "lines": [
+          "EN 415", 
+          "EN 414"
+        ], 
+        "name": "Sremska Mitrovica"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "47.172099", 
+          "20.175074"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 2, 
+        "lines": [
+          "EN 347", 
+          "EN 473"
+        ], 
+        "name": "Szolnok"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "45.164107", 
+          "18.012962"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 2, 
+        "lines": [
+          "EN 415", 
+          "EN 414"
+        ], 
+        "name": "Slavonski Brod"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "52.029258", 
+          "8.532722"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 2, 
+        "lines": [
+          "EN 446", 
+          "EN 447"
+        ], 
+        "name": "Bielefeld Hbf"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "47.798809", 
+          "18.681723"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 2, 
+        "lines": [
+          "EN 476", 
+          "EN 477"
+        ], 
+        "name": "Sturovo"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "47.320897", 
+          "5.02781"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 2, 
+        "lines": [
+          "EN 220", 
+          "EN 221"
+        ], 
+        "name": "Dijon Ville"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "45.443294", 
+          "16.907828"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 2, 
+        "lines": [
+          "EN 415", 
+          "EN 414"
+        ], 
+        "name": "Banova Jaruga"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "45.700025", 
+          "25.464183"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 2, 
+        "lines": [
+          "EN 472", 
+          "EN 473"
+        ], 
+        "name": "Codlea"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "45.76793", 
+          "16.32548"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 2, 
+        "lines": [
+          "EN 415", 
+          "EN 414"
+        ], 
+        "name": "Ivanic Grad"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "50.943029", 
+          "6.958729"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 2, 
+        "lines": [
+          "EN 420", 
+          "EN 421"
+        ], 
+        "name": "Köln Hbf"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "45.301012", 
+          "18.807474"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 2, 
+        "lines": [
+          "EN 415", 
+          "EN 414"
+        ], 
+        "name": "Vinkovci"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "47.803654", 
+          "19.158421"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 2, 
+        "lines": [
+          "EN 476", 
+          "EN 477"
+        ], 
+        "name": "Vác"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "43.002471", 
+          "11.957891"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 2, 
+        "lines": [
+          "EN 234", 
+          "EN 235"
+        ], 
+        "name": "Chiusi-Chianciano Terme"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "53.142608", 
+          "26.027079"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 2, 
+        "lines": [
+          "EN 404", 
+          "EN 24JI 24"
+        ], 
+        "name": "Baranovichi-Centralnye"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "45.153005", 
+          "19.141162"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 2, 
+        "lines": [
+          "EN 415", 
+          "EN 414"
+        ], 
+        "name": "Tovarnik"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "42.723931", 
+          "12.126753"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 2, 
+        "lines": [
+          "EN 234", 
+          "EN 235"
+        ], 
+        "name": "Orvieto"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "48.18192", 
+          "14.519592"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 2, 
+        "lines": [
+          "EN 246", 
+          "EN 247"
+        ], 
+        "name": "St.Valentin"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "45.076983", 
+          "11.781064"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 2, 
+        "lines": [
+          "EN 1236", 
+          "EN 1237"
+        ], 
+        "name": "Rovigo"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "47.119773", 
+          "13.145555"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 2, 
+        "lines": [
+          "EN 415", 
+          "EN 414"
+        ], 
+        "name": "Bad Gastein"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "50.35108", 
+          "7.588648"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 2, 
+        "lines": [
+          "EN 420", 
+          "EN 421"
+        ], 
+        "name": "Koblenz Hbf"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "44.987531", 
+          "19.818949"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 2, 
+        "lines": [
+          "EN 415", 
+          "EN 414"
+        ], 
+        "name": "Ruma"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "46.668523", 
+          "21.094599"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 2, 
+        "lines": [
+          "EN 347", 
+          "EN 473"
+        ], 
+        "name": "Békéscsaba"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "51.040562", 
+          "13.732029"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 3, 
+        "lines": [
+          "EN 476", 
+          "EN 60406", 
+          "EN 60477"
+        ], 
+        "name": "Dresden Hbf"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "43.77681", 
+          "11.247806"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 3, 
+        "lines": [
+          "EN 234", 
+          "EN 235", 
+          "EN 1237"
+        ], 
+        "name": "Firenze S. M. N."
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "50.110214", 
+          "14.44001"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 3, 
+        "lines": [
+          "EN 476", 
+          "EN 60406", 
+          "EN 60477"
+        ], 
+        "name": "Praha-Holesovice"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "49.852215", 
+          "18.269092"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 3, 
+        "lines": [
+          "EN 477", 
+          "EN 445", 
+          "EN 444"
+        ], 
+        "name": "Ostrava Hlavni Nadrazi"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "44.92369", 
+          "26.001891"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 3, 
+        "lines": [
+          "EN 347", 
+          "EN 472", 
+          "EN 473"
+        ], 
+        "name": "Ploiesti Vest"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "45.837785", 
+          "24.968509"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 3, 
+        "lines": [
+          "EN 347", 
+          "EN 472", 
+          "EN 473"
+        ], 
+        "name": "Fagaras"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "49.869879", 
+          "18.629721"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 3, 
+        "lines": [
+          "EN 477", 
+          "EN 404", 
+          "EN 444"
+        ], 
+        "name": "Zebrzydowice"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "50.659563", 
+          "14.044728"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 3, 
+        "lines": [
+          "EN 476", 
+          "EN 60406", 
+          "EN 60477"
+        ], 
+        "name": "Ustí nad Labem hl. n."
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "45.50282", 
+          "25.581646"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 3, 
+        "lines": [
+          "EN 347", 
+          "EN 472", 
+          "EN 473"
+        ], 
+        "name": "Predeal"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "50.773411", 
+          "14.201248"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 3, 
+        "lines": [
+          "EN 476", 
+          "EN 60406", 
+          "EN 60477"
+        ], 
+        "name": "Decín hl. n."
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "45.657875", 
+          "25.619616"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 3, 
+        "lines": [
+          "EN 347", 
+          "EN 472", 
+          "EN 473"
+        ], 
+        "name": "Brasov"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "49.190537", 
+          "16.612775"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 3, 
+        "lines": [
+          "EN 476", 
+          "EN 60406", 
+          "EN 60477"
+        ], 
+        "name": "Brno hl. n."
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "50.083058", 
+          "14.436037"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 3, 
+        "lines": [
+          "EN 476", 
+          "EN 60406", 
+          "EN 60477"
+        ], 
+        "name": "Praha hl. n."
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "50.031262", 
+          "15.75871"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 3, 
+        "lines": [
+          "EN 476", 
+          "EN 60406", 
+          "EN 60477"
+        ], 
+        "name": "Pardubice"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "44.450057", 
+          "26.063872"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 3, 
+        "lines": [
+          "EN 347", 
+          "EN 472", 
+          "EN 473"
+        ], 
+        "name": "Bucuresti Nord Gr. A"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "52.101145", 
+          "23.680301"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 3, 
+        "lines": [
+          "EN 405", 
+          "EN 404", 
+          "EN 24JI 24"
+        ], 
+        "name": "Brest-Centralnyi"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "45.352242", 
+          "25.561276"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 3, 
+        "lines": [
+          "EN 347", 
+          "EN 472", 
+          "EN 473"
+        ], 
+        "name": "Sinaia"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "45.802997", 
+          "24.160316"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 3, 
+        "lines": [
+          "EN 347", 
+          "EN 472", 
+          "EN 473"
+        ], 
+        "name": "Sibiu"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "46.615802", 
+          "14.312391"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 4, 
+        "lines": [
+          "EN 234", 
+          "EN 1236", 
+          "EN 235", 
+          "EN 1237"
+        ], 
+        "name": "Klagenfurt Hbf"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "47.849643", 
+          "17.264835"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 4, 
+        "lines": [
+          "EN 347", 
+          "EN 462", 
+          "EN 60466", 
+          "EN 346"
+        ], 
+        "name": "Mosonmagyaróvár"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "45.897366", 
+          "15.668971"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 4, 
+        "lines": [
+          "EN 415", 
+          "EN 414", 
+          "EN 499", 
+          "EN 498"
+        ], 
+        "name": "Dobova"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "45.772883", 
+          "15.957983"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 4, 
+        "lines": [
+          "EN 415", 
+          "EN 414", 
+          "EN 499", 
+          "EN 498"
+        ], 
+        "name": "Zagreb Glavni Kol"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "46.060151", 
+          "14.516194"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 4, 
+        "lines": [
+          "EN 415", 
+          "EN 414", 
+          "EN 499", 
+          "EN 498"
+        ], 
+        "name": "Ljubljana"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "44.506141", 
+          "11.343406"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 4, 
+        "lines": [
+          "EN 234", 
+          "EN 1236", 
+          "EN 235", 
+          "EN 1237"
+        ], 
+        "name": "Bologna Centrale"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "48.573634", 
+          "13.450775"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 4, 
+        "lines": [
+          "EN 420", 
+          "EN 490", 
+          "EN 491", 
+          "EN 421"
+        ], 
+        "name": "Passau Hbf"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "44.84312", 
+          "11.603833"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 4, 
+        "lines": [
+          "EN 234", 
+          "EN 1236", 
+          "EN 235", 
+          "EN 1237"
+        ], 
+        "name": "Ferrara"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "46.08907", 
+          "15.17656"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 4, 
+        "lines": [
+          "EN 415", 
+          "EN 414", 
+          "EN 499", 
+          "EN 498"
+        ], 
+        "name": "Zidani Most"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "46.442499", 
+          "14.041869"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 4, 
+        "lines": [
+          "EN 415", 
+          "EN 414", 
+          "EN 499", 
+          "EN 498"
+        ], 
+        "name": "Jesenice (SLO)"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "46.354395", 
+          "14.159089"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 4, 
+        "lines": [
+          "EN 415", 
+          "EN 414", 
+          "EN 499", 
+          "EN 498"
+        ], 
+        "name": "Lesce Bled"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "46.241662", 
+          "14.351539"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 4, 
+        "lines": [
+          "EN 415", 
+          "EN 414", 
+          "EN 499", 
+          "EN 498"
+        ], 
+        "name": "Kranj"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "47.814873", 
+          "16.235282"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 4, 
+        "lines": [
+          "EN 234", 
+          "EN 1236", 
+          "EN 235", 
+          "EN 1237"
+        ], 
+        "name": "Wiener Neustadt Hbf"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "48.753904", 
+          "16.893239"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 4, 
+        "lines": [
+          "EN 476", 
+          "EN 477", 
+          "EN 60406", 
+          "EN 60477"
+        ], 
+        "name": "Breclav"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "48.127437", 
+          "11.604966"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 4, 
+        "lines": [
+          "EN 463", 
+          "EN 462", 
+          "EN 499", 
+          "EN 498"
+        ], 
+        "name": "München Ost"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "46.00992", 
+          "15.314715"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 4, 
+        "lines": [
+          "EN 415", 
+          "EN 414", 
+          "EN 499", 
+          "EN 498"
+        ], 
+        "name": "Sevnica"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "47.129679", 
+          "10.264485"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 5, 
+        "lines": [
+          "EN 415", 
+          "EN 414", 
+          "EN 246", 
+          "EN 465", 
+          "EN 247"
+        ], 
+        "name": "St. Anton am Arlberg"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "47.38642", 
+          "15.090227"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 5, 
+        "lines": [
+          "EN 234", 
+          "EN 465", 
+          "EN 1236", 
+          "EN 235", 
+          "EN 1237"
+        ], 
+        "name": "Leoben Hbf"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "47.131477", 
+          "10.12126"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 5, 
+        "lines": [
+          "EN 415", 
+          "EN 414", 
+          "EN 246", 
+          "EN 465", 
+          "EN 247"
+        ], 
+        "name": "Langen am Arlberg"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "49.901557", 
+          "18.363119"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 5, 
+        "lines": [
+          "EN 477", 
+          "EN 405", 
+          "EN 404", 
+          "EN 445", 
+          "EN 444"
+        ], 
+        "name": "Bohumín"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "47.14861", 
+          "10.578811"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 5, 
+        "lines": [
+          "EN 415", 
+          "EN 414", 
+          "EN 246", 
+          "EN 465", 
+          "EN 247"
+        ], 
+        "name": "Landeck-Zams"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "47.375974", 
+          "19.117314"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 5, 
+        "lines": [
+          "EN 476", 
+          "EN 477", 
+          "EN 347", 
+          "EN 473", 
+          "EN 346"
+        ], 
+        "name": "Budapest-Keleti"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "47.681014", 
+          "17.636673"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 6, 
+        "lines": [
+          "EN 346", 
+          "EN 463", 
+          "EN 462", 
+          "EN 347", 
+          "EN 60466", 
+          "EN 60467"
+        ], 
+        "name": "Györ"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "47.910257", 
+          "17.148379"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 6, 
+        "lines": [
+          "EN 346", 
+          "EN 463", 
+          "EN 462", 
+          "EN 347", 
+          "EN 60466", 
+          "EN 60467"
+        ], 
+        "name": "Hegyeshalom"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "46.795703", 
+          "13.487415"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 6, 
+        "lines": [
+          "EN 415", 
+          "EN 237", 
+          "EN 498", 
+          "EN 499", 
+          "EN 414", 
+          "EN 236"
+        ], 
+        "name": "Spittal-Millstätter See"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "46.506358", 
+          "13.607214"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 6, 
+        "lines": [
+          "EN 237", 
+          "EN 235", 
+          "EN 1237", 
+          "EN 234", 
+          "EN 236", 
+          "EN 1236"
+        ], 
+        "name": "Tarvisio Boscoverde"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "47.41319", 
+          "15.278192"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 6, 
+        "lines": [
+          "EN 464", 
+          "EN 235", 
+          "EN 1237", 
+          "EN 234", 
+          "EN 465", 
+          "EN 1236"
+        ], 
+        "name": "Bruck/Mur"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "47.595716", 
+          "18.380027"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 6, 
+        "lines": [
+          "EN 346", 
+          "EN 463", 
+          "EN 462", 
+          "EN 347", 
+          "EN 60466", 
+          "EN 60467"
+        ], 
+        "name": "Tatabánya"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "47.471188", 
+          "19.049877"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 6, 
+        "lines": [
+          "EN 346", 
+          "EN 463", 
+          "EN 462", 
+          "EN 347", 
+          "EN 60466", 
+          "EN 60467"
+        ], 
+        "name": "Budapest-Kelenföld"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "47.318533", 
+          "13.154463"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 7, 
+        "lines": [
+          "EN 415", 
+          "EN 237", 
+          "EN 498", 
+          "EN 499", 
+          "EN 414", 
+          "EN 465", 
+          "EN 236"
+        ], 
+        "name": "Schwarzach-St.Veit"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "48.012815", 
+          "13.720559"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 7, 
+        "lines": [
+          "EN 237", 
+          "EN 467", 
+          "EN 466", 
+          "EN 247", 
+          "EN 466", 
+          "EN 236", 
+          "EN 246"
+        ], 
+        "name": "Attnang-Puchheim"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "47.168404", 
+          "9.47863"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 9, 
+        "lines": [
+          "EN 415", 
+          "EN 467", 
+          "EN 465", 
+          "EN 414", 
+          "EN 466", 
+          "EN 60467", 
+          "EN 464", 
+          "EN 60466", 
+          "EN 60467"
+        ], 
+        "name": "Buchs SG"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "47.26289", 
+          "11.400749"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 9, 
+        "lines": [
+          "EN 415", 
+          "EN 467", 
+          "EN 465", 
+          "EN 466", 
+          "EN 247", 
+          "EN 414", 
+          "EN 466", 
+          "EN 60467", 
+          "EN 246"
+        ], 
+        "name": "Innsbruck Hbf"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "47.161896", 
+          "9.807105"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 9, 
+        "lines": [
+          "EN 415", 
+          "EN 467", 
+          "EN 465", 
+          "EN 466", 
+          "EN 247", 
+          "EN 414", 
+          "EN 466", 
+          "EN 60467", 
+          "EN 246"
+        ], 
+        "name": "Bludenz"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "48.121908", 
+          "14.877444"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 9, 
+        "lines": [
+          "EN 490", 
+          "EN 237", 
+          "EN 466", 
+          "EN 421", 
+          "EN 466", 
+          "EN 491", 
+          "EN 420", 
+          "EN 246", 
+          "EN 247"
+        ], 
+        "name": "Amstetten"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "46.618004", 
+          "13.847603"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 10, 
+        "lines": [
+          "EN 415", 
+          "EN 237", 
+          "EN 235", 
+          "EN 1237", 
+          "EN 498", 
+          "EN 234", 
+          "EN 499", 
+          "EN 414", 
+          "EN 236", 
+          "EN 1236"
+        ], 
+        "name": "Villach Hbf"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "48.165874", 
+          "14.026561"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 11, 
+        "lines": [
+          "EN 490", 
+          "EN 237", 
+          "EN 467", 
+          "EN 466", 
+          "EN 421", 
+          "EN 466", 
+          "EN 491", 
+          "EN 236", 
+          "EN 420", 
+          "EN 246", 
+          "EN 247"
+        ], 
+        "name": "Wels Hbf"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "47.813138", 
+          "13.045945"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 12, 
+        "lines": [
+          "EN 237", 
+          "EN 467", 
+          "EN 498", 
+          "EN 499", 
+          "EN 466", 
+          "EN 247", 
+          "EN 463", 
+          "EN 466", 
+          "EN 462", 
+          "EN 236", 
+          "EN 60467", 
+          "EN 246"
+        ], 
+        "name": "Salzburg Hbf"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "47.240974", 
+          "9.604102"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 12, 
+        "lines": [
+          "EN 415", 
+          "EN 467", 
+          "EN 465", 
+          "EN 466", 
+          "EN 247", 
+          "EN 414", 
+          "EN 466", 
+          "EN 60467", 
+          "EN 246", 
+          "EN 464", 
+          "EN 60466", 
+          "EN 60467"
+        ], 
+        "name": "Feldkirch"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "48.290177", 
+          "14.292129"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 14, 
+        "lines": [
+          "EN 490", 
+          "EN 237", 
+          "EN 467", 
+          "EN 466", 
+          "EN 421", 
+          "EN 463", 
+          "EN 466", 
+          "EN 462", 
+          "EN 491", 
+          "EN 236", 
+          "EN 420", 
+          "EN 60467", 
+          "EN 246", 
+          "EN 247"
+        ], 
+        "name": "Linz/Donau Hbf"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "48.185651", 
+          "16.379712"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 14, 
+        "lines": [
+          "EN 237", 
+          "EN 235", 
+          "EN 1237", 
+          "EN 346", 
+          "EN 60477", 
+          "EN 466", 
+          "EN 463", 
+          "EN 466", 
+          "EN 462", 
+          "EN 236", 
+          "EN 60467", 
+          "EN 347", 
+          "EN 60406", 
+          "EN 246"
+        ], 
+        "name": "Wien Hbf"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "48.207683", 
+          "15.625912"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 14, 
+        "lines": [
+          "EN 490", 
+          "EN 237", 
+          "EN 467", 
+          "EN 466", 
+          "EN 421", 
+          "EN 463", 
+          "EN 466", 
+          "EN 462", 
+          "EN 491", 
+          "EN 236", 
+          "EN 420", 
+          "EN 60467", 
+          "EN 246", 
+          "EN 247"
+        ], 
+        "name": "St. Pölten Hbf"
+      }
+    }, 
+    {
+      "geometry": {
+        "type": "Point", 
+        "coordinates": [
+          "48.174999", 
+          "16.336123"
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "width": 21, 
+        "lines": [
+          "EN 490", 
+          "EN 237", 
+          "EN 467", 
+          "EN 346", 
+          "EN 1237", 
+          "EN 421", 
+          "EN 234", 
+          "EN 60477", 
+          "EN 60467", 
+          "EN 466", 
+          "EN 247", 
+          "EN 463", 
+          "EN 466", 
+          "EN 462", 
+          "EN 491", 
+          "EN 236", 
+          "EN 420", 
+          "EN 235", 
+          "EN 347", 
+          "EN 60406", 
+          "EN 246"
+        ], 
+        "name": "Wien Meidling"
+      }
+    }
+  ]
+}

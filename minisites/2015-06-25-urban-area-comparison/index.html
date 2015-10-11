@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>City extent based on Natural Earth Urban Areas </title>
+        <meta name="viewport" content="width=device-width">
+        
+
+        <!-- syntax highlighting CSS -->
+        <!-- Custom CSS -->
+        <!-- link rel="stylesheet" href="/css/main.css" -->
+
+    <script src="/js/d3.js"></script>
+
+    </head>
+  <body>
+
+    <link rel="stylesheet" href="/css/leaflet.css">
+<script src="/js/d3.v3.min.js"></script>
+<script src="/js/leaflet.js"></script>
+<script src="/js/urban_areas.js"></script>
+
+The city boundaries as displayed by the Natural Earth Urban Areas data set.
+<br>
+<br>
+
+<div id="cityBoundaryMap" style="height: 600px; width: 950px;"></div>
+
+<script type="text/javascript">
+    drawCityUrbanAreas('largest_20.json', 'cityBoundaryMap');
+    </script>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+  </body>
+</html>
+
