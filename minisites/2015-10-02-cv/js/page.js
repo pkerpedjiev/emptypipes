@@ -50,23 +50,6 @@ d3.json("/jsons/world-110m.json", function(error, world) {
       d3.json("/jsons/cv.json?30", function(error1, cvJson) {
         var dateFormat = d3.time.format('%Y-%m-%d');
 
-        // color in the countries according to citizenship, lived
-        // and visited
-          svg.selectAll(".country")
-          .data(topojson.feature(world, world.objects.countries).features)
-          .enter().append("path")
-          .attr("class", 'country')
-          .attr("d", path)
-          .attr('fill', function(d) {
-              console.log('d:', d.id);
-              if (d.id == 840) {
-                  console.log('here:');
-                  return 'green';
-              }
-              return 'transparent';
-          })
-          .attr('opacity', 0.3);
-
         var activities = cvJson.activities.map(function(d) {
             d.start = dateFormat.parse(d.start);
             d.end = dateFormat.parse(d.end);

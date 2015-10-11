@@ -8,6 +8,7 @@ function histogramChart() {
       y = d3.scale.linear(),
       xAxis = d3.svg.axis().scale(x).orient("bottom").tickSize(6, 0);
 
+
   function chart(selection) {
     selection.each(function(data, index) {
         numbers = { 0: 'None',
@@ -25,12 +26,8 @@ function histogramChart() {
       // Compute the histogram.
       data = histogram(data);
       var numValues = data.reduce(function(previousValue, currentValue, index, array) {
-                      console.log('previousValue', previousValue, currentValue);
                         return previousValue + currentValue.y;
                   }, 0);
-
-        console.log('numValues:', numValues);
-      //console.log('data:', data);
 
       // Update the x-scale.
       x   .domain(data.map(function(d) { return d.x; }))
@@ -164,23 +161,12 @@ function jewelsMultiHistogram(divName, filename) {
         rectGs.enter().append('g')
         .attr('transform', function(d) { return 'translate(' + d.x + "," + d.y + ")" })
         .call(chart)
-        /*
-        .append('rect')
-        .attr("class", "rect")
-        .attr("width", rectGrid.nodeSize()[0])
-        .attr("height", rectGrid.nodeSize()[1])
-        //.attr("transform", function(d) { return "translate(" + (d.x)+ "," + d.y + ")"; })
-        .style("opacity", 1)
-        .style('fill', 'transparent')
-        .style('stroke', 'black');
-        */
 
         rectGs.each(function(d) {
             var data = d3.layout.histogram()
             .bins(seq)
             (d);
 
-            //console.log('data:', data);
         });
 
     });
@@ -193,6 +179,36 @@ function regressionPlot() {
     var width = 400, height=200;
     width = width - margin.left - margin.right;
     height = height - margin.top - margin.bottom;
+
+    function linearRegression(y,x){
+        /* Courtesy Trent Richardson
+         *
+         * http://trentrichardson.com/2010/04/06/compute-linear-regressions-in-javascript/
+         */
+        var lr = {};
+        var n = y.length;
+        var sum_x = 0;
+        var sum_y = 0;
+        var sum_xy = 0;
+        var sum_xx = 0;
+        var sum_yy = 0;
+
+        for (var i = 0; i < y.length; i++) {
+            
+            sum_x += x[i];
+            sum_y += y[i];
+            sum_xy += (x[i]*y[i]);
+            sum_xx += (x[i]*x[i]);
+            sum_yy += (y[i]*y[i]);
+        } 
+        
+        lr['slope'] = (n * sum_xy - sum_x * sum_y) / (n*sum_xx - sum_x * sum_x);
+        lr['intercept'] = (sum_y - lr.slope * sum_x)/n;
+        lr['r2'] = Math.pow((n*sum_xy - sum_x*sum_y)/Math.sqrt((n*sum_xx-sum_x*sum_x)*(n*sum_yy-sum_y*sum_y)),2);
+        lr['fn'] = function (x) { return this.slope * x + this.intercept; };
+        
+        return lr;
+    }
 
     function chart(selection) {
         selection.each(function(data, index) {
@@ -264,31 +280,77 @@ function regressionPlot() {
             .append('text')
             .attr('transform', 'rotate(-90)')
             .classed('axis-label', true)
-            .text('Ideal Number to Throw Out')
+            .text('Ideal Number to Throw Out');
+
+
+            //add the descriptory labels
+            gEnter.append('text')
+            .attr('x', xScale(101))
+            .attr('y', yScale(data[data.length-1].best))
+            .classed('line-label', true)
+            .text('Maximizing');
 
             gEnter.append('text')
-            .attr('x', xScale(41))
-            .attr('y', yScale(15.5))
+            .attr('x', xScale(101))
+            .attr('y', yScale(data[data.length-1].best))
+            .attr('dy', 13)
             .classed('line-label', true)
-            .text('Maximizing')
+            .text('Best Value');
 
             gEnter.append('text')
-            .attr('x', xScale(41))
-            .attr('y', yScale(14))
+            .attr('x', xScale(101))
+            .attr('y', yScale(data[data.length-1].mean))
             .classed('line-label', true)
-            .text('Best Value')
+            .html('Maximizing');
 
             gEnter.append('text')
-            .attr('x', xScale(41))
-            .attr('y', yScale(6.5))
+            .attr('x', xScale(101))
+            .attr('y', yScale(data[data.length-1].mean))
+            .attr('dy', 13)
             .classed('line-label', true)
-            .html('Maximizing')
+            .html('Mean Value');
+
+            // calculate the regressions
+            var regBest = linearRegression(
+                data.map(function(d) { return +d.best; }),
+                data.map(function(d) { return +d.num; }));
+            var regMean = linearRegression(
+                data.map(function(d) { return +d.mean; }),
+                data.map(function(d) { return +d.num; }));
+
+            console.log('regBest:', regBest);
+            console.log('regBest:', regMean);
+
+            gEnter.append('line')
+            .attr('x1', xScale(0))
+            .attr('y1', yScale(regBest.fn(0)))
+            .attr('x2', xScale(data[data.length-1].num))
+            .attr('y2', yScale(regBest.fn(data[data.length-1].num)))
+            .attr('class', 'line-best')
+            .attr('stroke-dasharray', '2,2')
+
+            gEnter.append('line')
+            .attr('x1', xScale(0))
+            .attr('y1', yScale(regMean.fn(0)))
+            .attr('x2', xScale(data[data.length-1].num))
+            .attr('y2', yScale(regMean.fn(data[data.length-1].num)))
+            .attr('class', 'line-mean')
+            .attr('stroke-dasharray', '2,2')
 
             gEnter.append('text')
-            .attr('x', xScale(41))
-            .attr('y', yScale(5))
+            .attr('x', xScale(data[data.length / 2].num))
+            .attr('y', yScale(data[data.length / 2].mean))
+            .attr('dy', 16)
             .classed('line-label', true)
-            .html('Mean Value')
+            .text('Slope: ' + d3.format('.2f')(regMean.slope) + ' (r=' + d3.format('.2f')(Math.sqrt(regMean.r2)) + ')');
+
+            gEnter.append('text')
+            .attr('x', xScale(data[3 * data.length / 5].num))
+            .attr('y', yScale(data[data.length / 2].best))
+            .attr('dy', -18)
+            .classed('line-label', true)
+            .style('text-anchor', 'end')
+            .text('Slope: ' + d3.format('.2f')(regBest.slope) + ' (r=' + d3.format('.2f')(Math.sqrt(regBest.r2)) + ')');
 
         });
     }
@@ -328,7 +390,7 @@ function kingsJewelsExample() {
     jewelsMultiHistogram('#plotting-area-normal', '/jsons/10_normal.json');
     jewelsMultiHistogram('#plotting-area-exponential', '/jsons/10_exponential.json');
 
-    jewelsRegressionLineChart('#regression-area', '/jsons/all_stats.csv');
+    jewelsRegressionLineChart('#regression-area', '/jsons/all_stats_uniform.csv');
     jewelsRegressionLineChart('#regression-area-normal', '/jsons/all_stats_normal.csv');
     jewelsRegressionLineChart('#regression-area-exponential', '/jsons/all_stats_exponential.csv');
 }
