@@ -7,7 +7,7 @@ tags: maps javascript d3.js leaflet
 <meta charset="utf-8"> 
 <img itemprop="image" src="/img/sunshine_map/sunshine_map_itemprop.jpg" style='display:none' width=200 height=170>
 
-<b>Introduction</b>
+<h4>Introduction</h4>
 
 One of my favorite things about Wikipedia is that most cities have a 'weather box'
 which shows historical climate data such as sunshine hours, maximum and minimum
@@ -17,13 +17,13 @@ temperatures, precipitation and various other interesting statistics:
 <a href="https://en.wikipedia.org/wiki/Grytviken#Climate"><img src="/img/sunshine_map/grytviken_weatherbox.jpg"/ width="500px"></a>
 <hr>
 
-It's informative to compare the values for different cities. Are summers in
-Vienna warmer than in Zürich (yes)? Is Seattle rainier than New York City
-(no!)? This often involves jumping from page to page or opening up two browser
-windows to compare values.  Couldn't we make it easier? What if we could see
-all the values for every place for which there was data at once? What if we
-could show how the weather changes over the course of the year for the
-whole world at once?
+It's fun to compare the values for different cities. Are summers in Vienna
+warmer than in Zürich (yes)? Is Seattle rainier than New York City (no!)? What
+are the sunniest regions in the world? What about the rainiest? This often
+involves jumping from page to page or opening up two browser windows to compare
+values.  Couldn't we make it easier? What if we could see all the values for
+every place for which there was data at once? What if we could show how the
+global weather changes over the course of the year?
 
 <hr>
 <table>
@@ -47,14 +47,14 @@ whole world at once?
 <hr>
 
 The animations above show how the world's climate changes over the year, as
-documented in Wikipedia's weather boxes. The sunshine mostly follows the a
-predictable pattern following the seasons. Bright in the northern hemisphere
+documented in Wikipedia's weather boxes. Sunshine mostly follows a
+predictable pattern following the seasons, bright in the northern hemisphere
 from April to October and vice versa. A few exceptions stick out, such as the
 prominently cloudier regions over the equatorial land masses, which largely
 correspond to the rainforests of the Amazon, Mid-Western Africa and Indonesia,
 Malaysia, and Papua New Guinea. 
 
-These rainy regions can be more easily recognized in the middle animation above
+These rainy regions are easily recognized in the middle animation above
 which show how the precipitation changes over the year. As expected the
 rainiest regions are where we find rainforests near the equator, as well as
 along the coast of British Columbia and northern Washington in the US. A few
@@ -62,16 +62,16 @@ rainy islands in the Pacific and South Atlantic are shown with
 disproportionately large areas due to the lack of any other weather stations
 nearby (see the description of the map below).
 
-Finally, the temperature map is also as expected, wherein the temperatures
-follow the seasons. Most striking, perhaps, is how much the temperatures change
-over the large landmasses of North America and Siberia, as compared to the
-oceanic regions. The astutue eye may also notice persistently colder
-temperatures over Tibet due to its high elevation.
+The temperature map is also as expected, wherein the temperatures follow the
+seasons. Most striking, perhaps, is how much the temperatures change over the
+large landmasses of North America and Siberia, as compared to the oceanic
+regions. The astutue eye may also notice persistently colder temperatures over
+Tibet due to its high elevation.
 
 These animations were created by recording interactions with the map described
 below.
 
-<b>The Map</b>
+<a name="themap"></a><h4>The Map</h4>
 
 The map below contains a Voronoi diagram overlay where each cell is color coded 
 according to the climate data for the location defining that point (default is
@@ -130,8 +130,13 @@ precipitation, high and low temperatures
 
 1. Country outlines were obtained from [Johan Sundström's `world.geo.json` github repository](https://github.com/johan/world.geo.json)
 2. The circular brush was obtained from [Elijah Meeks' bl.ock](http://bl.ocks.org/emeeks/ccc0368f6fb127d60b7c)
-3. There's a bottom layer using [CartoDB's Positron Layer](https://cartodb.com/basemaps), although this is usually covered by up the SVG containing the voronoi diagram.
-4. There's a middle layer containing the SVG element with all of the voronoi cells.
-5. Then there is a label-only [CartoDB Position Layer](https://cartodb.com/basemaps).
-6. Finally, on top of that, the circular brush is used to create the month selector control on the bottom right corner.
-7. The layer selector control on the upper right hand corner is a hacked facsimile of [Leaflet.js's Layers Control](http://leafletjs.com/examples/layers-control.html). It's hacked because the different layers aren't actually Leaflet layers, but rather different cross sections of the data. Selecting different options triggers a different data bind for the Voronoi cells in the SVG layer.
+3. The map itself is displayed using [leaflet.js](http://leafletjs.com/).
+4. There's a bottom layer using [CartoDB's Positron Layer](https://cartodb.com/basemaps), although this is usually covered by up the SVG containing the voronoi diagram.
+5. There's a middle layer containing the SVG element with all of the voronoi cells.
+6. There's a label-only [CartoDB Position Layer](https://cartodb.com/basemaps).
+7. Finally, on top of that, the circular brush is used to create the month selector control on the bottom right corner.
+8. The layer selector control on the upper right hand corner is a hacked facsimile of [Leaflet.js's Layers Control](http://leafletjs.com/examples/layers-control.html). It's hacked because the different layers aren't actually Leaflet layers, but rather different cross sections of the data. Selecting different options triggers a different data bind for the Voronoi cells in the SVG layer.
+
+<b>Related</b>
+
+A similar map is available for historical temperatures at [halftone.co](http://halftone.co/projects/temperatures/).
