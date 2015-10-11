@@ -58,7 +58,7 @@ def main():
 
         for j in range(options.iterations):
             if options.distribution == 'uniform':
-                jewels = [i for i in range(options.number)]
+                jewels = [j for j in range(options.number)]
             elif options.distribution == 'normal':
                 jewels = map(int, np.random.normal(options.number / 2, options.number / normal_std_divisor, options.number))
             elif options.distribution == 'exponential':

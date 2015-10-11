@@ -13,16 +13,18 @@ differents layout to show the data along 3 different dimensions:
 
 1. RNA secondary structure. RNA is a molecule similar to DNA with the property
 that it folds back onto itself to form pairs with bases in its own sequence.
-Its secondary structure is often displayed as an eponymous diagram. Displayed
-using an <a href="https://github.com/pkerpedjiev/rnaplot">rnaplot</a> layout.
+Its secondary structure is often displayed as an eponymous diagram. The circles
+representing nucleotides are arranged using an <a
+href="https://github.com/pkerpedjiev/rnaplot">rnaplot</a> layout.
 
-2. Some quantity associated with each molecule. We can display this by scaling
-the secondary structure diagrams using a treemap layout. Each rna-plot is 
-scaled as a <a href="http://bl.ocks.org/mbostock/4063582">treemap</a>
+2. Some quantity associated with each molecule (e.g. concentration). We can
+display this by scaling the secondary structure diagrams using a treemap
+layout. Each rnaplot is scaled as a <a
+href="http://bl.ocks.org/mbostock/4063582">treemap</a>
 
-3. Multiples of the above quantities. Four sets of structures and sizes
-are arranged using a <a href="https://github.com/interactivethings/d3-grid">grid
-layout</a>.
+3. Multiples of the above quantities (e.g. from different experiments). Four
+sets of structures and sizes are arranged using a <a
+href="https://github.com/interactivethings/d3-grid">grid layout</a>.
 
 <hr>
 <div id='layouts-upon-layouts-div' style="width: 400px; margin:auto;" ></div>
@@ -72,7 +74,7 @@ var chart = function(selection) {
     });
 {% endhighlight %}
 
-At the end of the road, the `rna-plot` layout adds its own &lt;g&gt; and
+Finally, the `rna-plot` layout adds its own &lt;g&gt; and
 continuous on drawing the circles associated with the RNA (not shown).
 
 {% highlight javascript %}

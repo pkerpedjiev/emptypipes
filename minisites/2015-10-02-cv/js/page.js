@@ -35,7 +35,10 @@ d3.json("/jsons/world-110m.json", function(error, world) {
       .datum(topojson.feature(world, world.objects.land))
       .attr("class", "land")
       .attr("d", path)
-      .style('opacity', 0.2);
+      .style('opacity', 0.1);
+
+      console.log('world.objects:', world.objects);
+
 
   svg.insert("path", ".graticule")
       .datum(topojson.mesh(world, world.objects.countries, function(a, b) { return a !== b; }))
@@ -44,8 +47,25 @@ d3.json("/jsons/world-110m.json", function(error, world) {
 
         var gMain = svg.append('g');
 
-      d3.json("/jsons/cv.json?25", function(error1, cvJson) {
+      d3.json("/jsons/cv.json?30", function(error1, cvJson) {
         var dateFormat = d3.time.format('%Y-%m-%d');
+
+        // color in the countries according to citizenship, lived
+        // and visited
+          svg.selectAll(".country")
+          .data(topojson.feature(world, world.objects.countries).features)
+          .enter().append("path")
+          .attr("class", 'country')
+          .attr("d", path)
+          .attr('fill', function(d) {
+              console.log('d:', d.id);
+              if (d.id == 840) {
+                  console.log('here:');
+                  return 'green';
+              }
+              return 'transparent';
+          })
+          .attr('opacity', 0.3);
 
         var activities = cvJson.activities.map(function(d) {
             d.start = dateFormat.parse(d.start);
@@ -60,11 +80,10 @@ d3.json("/jsons/world-110m.json", function(error, world) {
         .domain([dateFormat.parse('1983-12-30'), 
                 dateFormat.parse('2001-12-30'), dateFormat.parse(currentDate)])
         //.range([width,3*width/4,0]);
-        .range([0, width / 3.5,width]);
+        .range([0, height / 3.5,height-10]);
 
         console.log('cvJson:', cvJson);
         console.log('minStartLat:', dateScale(minStart), dateScale(maxStart));
-
 
         gMain.selectAll('activity-connection')
         .data(activities.filter(function(d) { return d.displayConnection != "false"; }))
@@ -76,12 +95,35 @@ d3.json("/jsons/world-110m.json", function(error, world) {
             return proj[1]; })
         .attr('x1', function(d) {
             var proj = projection([d.location.lon, d.location.lat]);
-            return proj[0]; })
+            var x_offset = typeof d.x_offset == 'undefined' ? 0 : d.x_offset;
+            return proj[0] + x_offset; })
         .attr('x2', function(d) {
             var proj = projection([d.location.lon, d.location.lat]);
-            return proj[0]; })
-        .attr('stroke-dasharray', '5,5')
+            var x_offset = typeof d.x_offset == 'undefined' ? 0 : d.x_offset;
+            return proj[0] + x_offset; })
+        .attr('stroke-dasharray', '2,2')
         .classed('activity-connection', true);
+
+        gMain.selectAll('activity-connection-extra')
+        .data(activities.filter(function(d) { return d.displayConnection != "false"; }))
+        .enter()
+        .append('line')
+        .attr('y1', function(d) { 
+            var proj = projection([d.location.lon, d.location.lat]);
+            return proj[1]; })
+        .attr('y2', function(d) {
+            var proj = projection([d.location.lon, d.location.lat]);
+            return proj[1]; })
+        .attr('x1', function(d) {
+            var proj = projection([d.location.lon, d.location.lat]);
+            var x_offset = 0;
+            return proj[0] + x_offset; })
+        .attr('x2', function(d) {
+            var proj = projection([d.location.lon, d.location.lat]);
+            var x_offset = typeof d.x_offset == 'undefined' ? 0 : d.x_offset;
+            return proj[0] + x_offset; })
+        .attr('stroke-dasharray', '2,2')
+        .classed('activity-connection-extra', true);
 
         //plot lines indicating the period along with a particular activity
         //took place
@@ -93,11 +135,11 @@ d3.json("/jsons/world-110m.json", function(error, world) {
         .attr('y2', function(d) { return dateScale(d.end); })
         .attr('x1', function(d) { 
             var proj = projection([d.location.lon, d.location.lat]);
-            return proj[0];
+            return proj[0] + (typeof d.x_offset == 'undefined' ? 0 : d.x_offset);
         })
         .attr('x2', function(d) { 
             var proj = projection([d.location.lon, d.location.lat]);
-            return proj[0];
+            return proj[0] + (typeof d.x_offset == 'undefined' ? 0 : d.x_offset);
         })
         .attr('stroke-linecap', 'round')
         .classed('activities-line', true);
@@ -115,33 +157,53 @@ d3.json("/jsons/world-110m.json", function(error, world) {
         .attr('r', 3)
         .classed('activity-point', true);
 
+        function activityTextX(d) {
+            var proj = projection([d.location.lon, d.location.lat]);
+            var x_offset = typeof d.x_offset == 'undefined' ? 0 : d.x_offset;
+
+            // place the text on either the left or right hand side
+            // of the activity line
+            if (d.text_align == 'left')
+                return x_offset + proj[0] - (ACTIVITY_TEXT_OFFSET = 10);
+            else
+                return x_offset + proj[0] + (ACTIVITY_TEXT_OFFSET = 10);
+        }
+
+        function activityTextAnchor(d) {
+            if (d.text_align == 'left')
+                return 'end';
+            else
+                return 'start';
+        }
+
+        function activityTextY(d) {
+            return (dateScale(d.start) + dateScale(d.end)) / 2 +
+                (typeof d.y_offset == 'undefined' ? 0 : d.y_offset);
+        }
+
         //Add labels for each activity
         gMain.selectAll('.activity-text')
         .data(activities)
         .enter()
         .append('text')
-        .attr('y', function(d) { 
-            return (dateScale(d.start) + dateScale(d.end)) / 2;
-        })
+        .attr('y', activityTextY)
         .attr('dy', '.3em')
-        .attr('x', function(d) {
-            var proj = projection([d.location.lon, d.location.lat]);
-
-            // place the text on either the left or right hand side
-            // of the activity line
-            if (d.text_align == 'left')
-                return proj[0] - (ACTIVITY_TEXT_OFFSET = 10);
-            else
-                return proj[0] + (ACTIVITY_TEXT_OFFSET = 10);
-        })
+        .attr('x', activityTextX)
         .classed('activity-text', true)
-        .attr('text-anchor', function(d) {
-            if (d.text_align == 'left')
-                return 'end';
-            else
-                return 'start';
-        })
+        .attr('text-anchor', activityTextAnchor)
         .text(function(d) { return  d.host; });
+
+        //Add labels for each activity
+        gMain.selectAll('.activity-description')
+        .data(activities)
+        .enter()
+        .append('text')
+        .attr('y', function(d) { return activityTextY(d) + 14; })
+        .attr('dy', '.3em')
+        .attr('x', activityTextX)
+        .classed('activity-description', true)
+        .attr('text-anchor', activityTextAnchor)
+        .text(function(d) { return  d.description; });
 
         var yearDateFormat = d3.time.format('%Y');
 		// add an axis for the year
@@ -182,6 +244,7 @@ d3.json("/jsons/world-110m.json", function(error, world) {
       var textFromTop = 10;  //where to start the name, email, blog header
       var emailOffset = 18;  //how far from the name to offset the email
 
+      // Add the header (name, email, blog)
       svg.append('text')
       .attr('x', width - 40)
       .attr('y', textFromTop)
@@ -201,6 +264,73 @@ d3.json("/jsons/world-110m.json", function(error, world) {
       .attr('dy', 2 * emailOffset)
       .classed('email-label', true)
       .text(cvJson.blog);
+
+      // Add the section headings (History, Skills)
+      svg.append('text')
+      .attr('x', 240)
+      .attr('y', 100)
+      .classed('section-label', true)
+      .text("History");
+
+      svg.append('text')
+      .attr('x', 460)
+      .attr('y', 100)
+      .classed('section-label', true)
+      .text("Skills");
+
+      // Add a rectangle below the skills
+
+      // Add the skills
+      var skillsMinX = 400;
+      var skillsMaxX = 500;
+
+      /*
+      cvJson.skills.sort(function(a,b) {
+          return dateFormat.parse(b.period.start) - 
+                 dateFormat.parse(a.period.start); });
+      */
+
+      var skillSet = d3.set(cvJson.skills.map(function(d) { return d.name; })).values();
+      skillSet.reverse();
+      console.log("skillSet:", skillSet);
+
+      var skillsScale = d3.scale.ordinal()
+      .domain(skillSet)
+      .rangePoints([skillsMinX, skillsMaxX]);
+
+      svg.selectAll('.skill-line')
+      .data(cvJson.skills)
+      .enter()
+      .append('line')
+      .attr('x1', function(d) { console.log('d.name', d.name, skillsScale(d.name)); return skillsScale( d.name ); })
+      .attr('x2', function(d) { return skillsScale( d.name ); })
+      .attr('y1', function(d) { return dateScale( dateFormat.parse(d.period.start) );})
+      .attr('y2', function(d) { return dateScale( dateFormat.parse(d.period.end) );})
+      .classed('skill-line', true);
+
+      var minSkillStart = d3.min(cvJson.skills.map(function(d) { return d.period.start; }));
+      var maxSkillEnd = d3.max(cvJson.skills.map(function(d) { return d.period.end; }));
+
+      svg.selectAll('.skill-guide')
+      .data(cvJson.skills)
+      .enter()
+      .append('line')
+      .attr('x1', function(d) { console.log('d.name', d.name, skillsScale(d.name)); return skillsScale( d.name ); })
+      .attr('x2', function(d) { return skillsScale( d.name ); })
+      .attr('y1', function(d) { return dateScale( dateFormat.parse(minSkillStart));})
+      .attr('y2', function(d) { return dateScale( dateFormat.parse(maxSkillEnd));})
+      .classed('skill-guide', true)
+      .attr('stroke-dasharray', '2,8');
+
+      svg.selectAll('.skill-text')
+      .data(cvJson.skills)
+      .enter()
+      .append('text')
+      .attr('transform', function(d) { return 'translate(' + skillsScale(d.name) + "," + 
+              dateScale( dateFormat.parse('2002-09-01')) + ')rotate(45)'; })
+      .text(function(d) { return d.name; })
+      .attr('text-anchor', 'end')
+      .classed('skill-text', true);
 
       });
 });
