@@ -1,0 +1,136 @@
+.axis text {
+  font: 10px sans-serif;
+}
+
+.axis path, .axis line {
+    fill: none;
+    stroke: none;
+    shape-rendering: crispEdges;
+      }
+
+.main-title {
+font: 13px sans-serif;
+  text-anchor: middle;
+  font-weight: bold;
+}
+
+.name-label {
+  font-size: 150%;
+  font-family: Impact, Charcoal, sans-serif;
+  text-anchor: end;
+}
+
+.section-label {
+  font-size: 100%;
+  /* font-family: sans-serif; */
+  font-family: Impact, Charcoal, sans-serif;
+  font-weight: bold;
+  text-anchor: end;
+  text-decoration: underline;
+}
+
+.email-label {
+  font: 12px sans-serif;
+  font-style: italic;
+  text-anchor: end;
+}
+
+.axis-label {
+    font: 12px sans-serif;
+  text-anchor: middle;
+  /* font-weight: bold; */
+}
+
+.graticule {
+  fill: none;
+  stroke: #777;
+  stroke-opacity: .5;
+  stroke-width: .5px;
+}
+
+.land {
+  fill: #222;
+}
+
+.boundary {
+  fill: none;
+  stroke: #fff;
+  stroke-width: .5px;
+}
+
+.activities-line {
+    stroke: black;
+    stroke-width: 6px;
+    stroke-linecap: "round";
+    opacity: 0.6;
+}
+
+.skill-line {
+    stroke: black;
+    stroke-width: 4px;
+    stroke-linecap: "round";
+    opacity: 0.4;
+}
+
+.skill-guide {
+    stroke: black;
+    /* stroke-dasharray: "5,5"; */
+    stroke-width: 1px;
+    opacity: 0.4;
+}
+.journal-guide {
+    stroke: black;
+    /* stroke-dasharray: "5,5"; */
+    stroke-width: 1px;
+    opacity: 0.4;
+}
+
+.skill-text {
+            font: 10px sans-serif;
+            font-family: "Lucida Console", Monaco, monospace;
+            font-weight: bold;
+        }
+
+
+
+.journal-title {
+            font: 10px sans-serif;
+            font-family: "Lucida Console", Monaco, monospace;
+            font-weight: bold;
+        }
+
+.activity-connection {
+    stroke: black;
+    /* stroke-dasharray: "5,5"; */
+    stroke-width: 1px;
+}
+
+.activity-connection-extra {
+    stroke: black;
+    /* stroke-dasharray: "5,5"; */
+    stroke-width: 1px;
+}
+
+.activity-text {
+            font: 13px sans-serif;
+        }
+
+.country {
+    stroke: transparent;
+}
+
+.activity-description {
+            font: 11px sans-serif;
+            font-style: italic;
+        }
+
+.activity-point {
+    stroke: black;
+    stroke-width: 2;
+    fill: transparent;
+}
+
+.publication-point {
+    stroke: black;
+    stroke-width: 1;
+}
