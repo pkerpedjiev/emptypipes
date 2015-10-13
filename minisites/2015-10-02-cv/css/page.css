@@ -21,7 +21,7 @@ font: 13px sans-serif;
 }
 
 .section-label {
-  font-size: 110%;
+  font-size: 100%;
   /* font-family: sans-serif; */
   font-family: Impact, Charcoal, sans-serif;
   font-weight: bold;
@@ -78,8 +78,22 @@ font: 13px sans-serif;
     stroke-width: 1px;
     opacity: 0.4;
 }
+.journal-guide {
+    stroke: black;
+    /* stroke-dasharray: "5,5"; */
+    stroke-width: 1px;
+    opacity: 0.4;
+}
 
 .skill-text {
+            font: 10px sans-serif;
+            font-family: "Lucida Console", Monaco, monospace;
+            font-weight: bold;
+        }
+
+
+
+.journal-title {
             font: 10px sans-serif;
             font-family: "Lucida Console", Monaco, monospace;
             font-weight: bold;
@@ -110,8 +124,13 @@ font: 13px sans-serif;
             font-style: italic;
         }
 
-        .activity-point {
-            stroke: black;
-            stroke-width: 2;
-            fill: transparent;
-        }
+.activity-point {
+    stroke: black;
+    stroke-width: 2;
+    fill: transparent;
+}
+
+.publication-point {
+    stroke: black;
+    stroke-width: 1;
+}

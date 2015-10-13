@@ -37,9 +37,6 @@ d3.json("/jsons/world-110m.json", function(error, world) {
       .attr("d", path)
       .style('opacity', 0.1);
 
-      console.log('world.objects:', world.objects);
-
-
   svg.insert("path", ".graticule")
       .datum(topojson.mesh(world, world.objects.countries, function(a, b) { return a !== b; }))
       .attr("class", "boundary")
@@ -47,7 +44,7 @@ d3.json("/jsons/world-110m.json", function(error, world) {
 
         var gMain = svg.append('g');
 
-      d3.json("/jsons/cv.json?30", function(error1, cvJson) {
+      d3.json("/jsons/cv.json?31", function(error1, cvJson) {
         var dateFormat = d3.time.format('%Y-%m-%d');
 
         var activities = cvJson.activities.map(function(d) {
@@ -66,7 +63,6 @@ d3.json("/jsons/world-110m.json", function(error, world) {
         .range([0, height / 3.5,height-10]);
 
         console.log('cvJson:', cvJson);
-        console.log('minStartLat:', dateScale(minStart), dateScale(maxStart));
 
         gMain.selectAll('activity-connection')
         .data(activities.filter(function(d) { return d.displayConnection != "false"; }))
@@ -275,7 +271,6 @@ d3.json("/jsons/world-110m.json", function(error, world) {
 
       var skillSet = d3.set(cvJson.skills.map(function(d) { return d.name; })).values();
       skillSet.reverse();
-      console.log("skillSet:", skillSet);
 
       var skillsScale = d3.scale.ordinal()
       .domain(skillSet)
@@ -285,7 +280,7 @@ d3.json("/jsons/world-110m.json", function(error, world) {
       .data(cvJson.skills)
       .enter()
       .append('line')
-      .attr('x1', function(d) { console.log('d.name', d.name, skillsScale(d.name)); return skillsScale( d.name ); })
+      .attr('x1', function(d) { return skillsScale( d.name ); })
       .attr('x2', function(d) { return skillsScale( d.name ); })
       .attr('y1', function(d) { return dateScale( dateFormat.parse(d.period.start) );})
       .attr('y2', function(d) { return dateScale( dateFormat.parse(d.period.end) );})
@@ -298,7 +293,7 @@ d3.json("/jsons/world-110m.json", function(error, world) {
       .data(cvJson.skills)
       .enter()
       .append('line')
-      .attr('x1', function(d) { console.log('d.name', d.name, skillsScale(d.name)); return skillsScale( d.name ); })
+      .attr('x1', function(d) { return skillsScale( d.name ); })
       .attr('x2', function(d) { return skillsScale( d.name ); })
       .attr('y1', function(d) { return dateScale( dateFormat.parse(minSkillStart));})
       .attr('y2', function(d) { return dateScale( dateFormat.parse(maxSkillEnd));})
@@ -314,6 +309,66 @@ d3.json("/jsons/world-110m.json", function(error, world) {
       .text(function(d) { return d.name; })
       .attr('text-anchor', 'end')
       .classed('skill-text', true);
+
+
+      // PUBLICATIONS
+      var publicationsX = 395;
+      // Add the skills
+      var publicationsMinX = 325;
+      var publicationsMaxX = 380;
+
+
+      svg.append('text')
+      .attr('transform', function(d) { return 'translate(' + publicationsX + "," + 
+              dateScale( dateFormat.parse('2008-03-01')) + ')rotate(0)'; })
+       .text('Publications')
+       .attr('text-anchor', 'start')
+       .classed('section-label', true)
+
+      var minPubDate = dateFormat.parse('2012-01-01');
+      var maxPubDate = dateFormat.parse(currentDate);
+
+       var journalsSet = d3.set(cvJson.publications.map(function(d) { return d.journal; })).values();
+
+      var publicationsScale = d3.scale.ordinal()
+      .domain(journalsSet)
+      .rangePoints([publicationsMinX, publicationsMaxX]);
+
+      svg.selectAll('.journal-title')
+      .data(journalsSet)
+      .enter()
+      .append('text')
+      .attr('transform', function(d) { return 'translate(' + publicationsScale(d) + "," + 
+              dateScale( dateFormat.parse('2011-09-01')) + ')rotate(45)'; })
+      .text(function(d) { return d; })
+      .attr('text-anchor', 'end')
+      .classed('journal-title', true);
+
+      svg.selectAll('.journal-guide')
+      .data(journalsSet)
+      .enter()
+      .append('line')
+      .attr('x1', function(d) { return publicationsScale( d ); })
+      .attr('x2', function(d) { return publicationsScale( d ); })
+      .attr('y1', function(d) { return dateScale(minPubDate);})
+      .attr('y2', function(d) { return dateScale(maxPubDate);})
+      .classed('journal-guide', true)
+      .attr('stroke-dasharray', '2,8');
+
+      svg.selectAll('.publication-point')
+      .data(cvJson.publications)
+      .enter()
+      .append('circle')
+      .attr('cx', function(d) { return publicationsScale(d.journal); })
+      .attr('cy', function(d) { return dateScale(dateFormat.parse(d.date)); })
+      .attr('r', function(d) { return Math.sqrt(d.impactFactor * 4); })
+      .attr('fill', function(d) {
+          if (d.firstAuthor == 'true')
+              return 'black';
+          else
+              return 'white';
+      })
+      .classed('publication-point', true);
 
       });
 });
