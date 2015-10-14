@@ -101,7 +101,7 @@
 		},
         { "host": "University of Vienna",
         "type": "Education",
-            "Description": "PhD Student: RNA Structure Prediction",
+            "description": "PhD Student: RNA Structure Prediction",
             "text_align": "left",
             "start": "2011-10-12",
             "end": "2015-10-12",

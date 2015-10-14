@@ -45,7 +45,7 @@ function drawCV(divName) {
 
             var gMain = svg.append('g');
 
-          d3.json("/jsons/cv/cv.json?31", function(error1, cvJson) {
+          d3.json("/jsons/cv/cv.json?32", function(error1, cvJson) {
             var dateFormat = d3.time.format('%Y-%m-%d');
 
             var activities = cvJson.activities.map(function(d) {
