@@ -32,6 +32,7 @@ function drawCV(divName) {
     d3.json("/jsons/cv/world-110m.json", function(error, world) {
       if (error) throw error;
 
+          /*
       svg.insert("path", ".graticule")
           .datum(topojson.feature(world, world.objects.land))
           .attr("class", "land")
@@ -41,11 +42,38 @@ function drawCV(divName) {
       svg.insert("path", ".graticule")
           .datum(topojson.mesh(world, world.objects.countries, function(a, b) { return a !== b; }))
           .attr("class", "boundary")
-          .attr("d", path);
+          .attr("d", path)
+          .each(function(d) { console.log('boundary d:', d); });
+          */
+
+         d3.csv("/jsons/cv/country-codes.csv", function(error, countryCodes) {
+            var countryLookup = {};
+            var countriesToColor = d3.set(['US', 'DE', 'DK', 'AT', 'BG', 'CA',
+            'FR', 'ES', 'GB', 'IE', 'NO', 'SE', 'FI', 'PL', 'BE', 'IT',
+            'CH', 'EE', 'LV', 'LT', 'HR', 'HU', 'CZ', 'RO','GR', 'PT', 'NL',
+            'LU','SK','SI' ]);
+
+            for (var i = 0; i < countryCodes.length; i++) {
+                countryLookup[+countryCodes[i]['ISO3166-1-numeric']] = 
+                    countryCodes[i]['ISO3166-1-Alpha-2'];
+            }
+
+          svg.selectAll(".country")
+          .data(topojson.feature(world, world.objects.countries).features)
+          .enter().append("path")
+          .attr('class', 'country')
+          .attr("d", path)
+          .attr('opacity', function(d) {
+              if (countriesToColor.has(countryLookup[d.id]))
+                return 0.15;
+            else
+                return 0.05;
+          });
+         });
 
             var gMain = svg.append('g');
 
-          d3.json("/jsons/cv/cv.json?32", function(error1, cvJson) {
+          d3.json("/jsons/cv/cv.json?35", function(error1, cvJson) {
             var dateFormat = d3.time.format('%Y-%m-%d');
 
             var activities = cvJson.activities.map(function(d) {
@@ -124,6 +152,8 @@ function drawCV(divName) {
             .attr('stroke-linecap', 'round')
             .classed('activities-line', true);
 
+            // CITIES
+            //
             gMain.selectAll('activity-point')
             .data(activities.filter(function(d) { return d.displayConnection != "false"; }))
             .enter()
@@ -136,6 +166,26 @@ function drawCV(divName) {
                 return proj[1]; })
             .attr('r', 3)
             .classed('activity-point', true);
+
+            /*
+            gMain.selectAll('.city-text')
+            .data(activities.filter(function(d) { return d.displayConnection != "false"; }))
+            .enter()
+            .append('text')
+            .attr('transform', function(d) {
+                var proj = projection([d.location.lon, d.location.lat]);
+                return 'translate(' + proj[0] + ',' + proj[1] + ')'; })
+            .attr('text-anchor', function(d) {
+                if ('city_align' in d) {
+                    if (d.city_align == 'right')
+                        return 'start';
+                }
+
+                return 'end';
+            })
+            .classed('city-text', true)
+            .text(function(d) { return d.location.name; });
+            */
 
             function activityTextX(d) {
                 var proj = projection([d.location.lon, d.location.lat]);
@@ -247,8 +297,8 @@ function drawCV(divName) {
 
           // Add the section headings (History, Skills)
           svg.append('text')
-          .attr('x', 240)
-          .attr('y', 100)
+          .attr('x', 160)
+          .attr('y', 20)
           .classed('section-label', true)
           .text("History");
 
@@ -362,8 +412,10 @@ function drawCV(divName) {
           .append('circle')
           .attr('cx', function(d) { return publicationsScale(d.journal); })
           .attr('cy', function(d) { return dateScale(dateFormat.parse(d.date)); })
-          .attr('r', function(d) { return Math.sqrt(d.impactFactor * 4); })
+          //.attr('r', function(d) { return Math.sqrt(d.impactFactor * 4); })
+          .attr('r', function(d) { return 4; })
           .attr('fill', function(d) {
+              return 'black';
               if (d.firstAuthor == 'true')
                   return 'black';
               else

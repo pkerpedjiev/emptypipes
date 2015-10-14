@@ -52,6 +52,11 @@ font: 13px sans-serif;
   fill: #222;
 }
 
+.country {
+    fill: #222;
+    stroke: white;
+}
+
 .boundary {
   fill: none;
   stroke: #fff;
@@ -115,13 +120,13 @@ font: 13px sans-serif;
             font: 13px sans-serif;
         }
 
-.country {
-    stroke: transparent;
-}
-
 .activity-description {
             font: 11px sans-serif;
             font-style: italic;
+        }
+
+.city-text {
+            font: 11px sans-serif;
         }
 
 .activity-point {
