@@ -38,6 +38,7 @@
         "text_align": "left",
         "y_offset": -15,
           "type": "Early Life",
+          "display": false,
           "displayConnection": "false",
           "start": "1994-09-01",
           "end": "1995-02-01",
@@ -115,7 +116,7 @@
 		},
         { "host": "University of Vienna",
         "type": "Education",
-            "Description": "PhD Student: RNA Structure Prediction",
+            "description": "PhD Student: RNA Structure Prediction",
             "text_align": "left",
             "start": "2011-10-12",
             "end": "2015-10-12",
@@ -164,7 +165,7 @@
         "journal": "RNA",
         "impactFactor": 4.622,
         "date": "2015-04-22",
-        "firstAuthor": "true"
+        "firstAuthor": true
     },
     {
         "title": "Complete genome sequence of the cystic fibrosis pathogen Achromobacter xylosoxidans NH44784-1996 complies with important pathogenic phenotypes",
@@ -180,7 +181,7 @@
         "journal": "Bioinformatics",
         "impactFactor": 4.981,
         "date": "2015-10-15",
-        "firstAuthor": "true"
+        "firstAuthor": true
     },
     {
         "title": "Adaptable probabilistic mapping of short reads using position specific scoring matrices.",
@@ -188,7 +189,7 @@
         "journal": "BMC Bioinformatics",
         "impactFactor": 2.672,
         "date": "2014-04-09",
-        "firstAuthor": "true"
+        "firstAuthor": true
     }
     ]
 }

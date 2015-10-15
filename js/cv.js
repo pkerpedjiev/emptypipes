@@ -73,8 +73,18 @@ function drawCV(divName) {
 
             var gMain = svg.append('g');
 
-          d3.json("/jsons/cv/cv.json?35", function(error1, cvJson) {
+          d3.json("/jsons/cv/cv.json?36", function(error1, cvJson) {
             var dateFormat = d3.time.format('%Y-%m-%d');
+
+            function activitiesFilter(d) {
+               if ('display' in d) {
+                   if (d.display === false)
+                       return false;
+               }
+               return true;
+            }
+
+            cvJson.activities = cvJson.activities.filter(activitiesFilter);
 
             var activities = cvJson.activities.map(function(d) {
                 d.start = dateFormat.parse(d.start);
@@ -427,7 +437,7 @@ function drawCV(divName) {
           .attr('r', function(d) { return 4; })
           .attr('fill', function(d) {
               return 'black';
-              if (d.firstAuthor == 'true')
+              if (d.firstAuthor === true)
                   return 'black';
               else
                   return 'white';
