@@ -133,6 +133,11 @@ function drawCV(divName) {
             .attr('stroke-dasharray', '2,2')
             .classed('activity-connection-extra', true);
 
+            function activityLineX(d) { 
+                var proj = projection([d.location.lon, d.location.lat]);
+                return proj[0] + (typeof d.x_offset == 'undefined' ? 0 : d.x_offset);
+            }
+
             //plot lines indicating the period along with a particular activity
             //took place
             gMain.selectAll('.activities-line')
@@ -141,14 +146,8 @@ function drawCV(divName) {
             .append('line')
             .attr('y1', function(d) { return dateScale(d.start); })
             .attr('y2', function(d) { return dateScale(d.end); })
-            .attr('x1', function(d) { 
-                var proj = projection([d.location.lon, d.location.lat]);
-                return proj[0] + (typeof d.x_offset == 'undefined' ? 0 : d.x_offset);
-            })
-            .attr('x2', function(d) { 
-                var proj = projection([d.location.lon, d.location.lat]);
-                return proj[0] + (typeof d.x_offset == 'undefined' ? 0 : d.x_offset);
-            })
+            .attr('x1', activityLineX)
+            .attr('x2', activityLineX)
             .attr('stroke-linecap', 'round')
             .classed('activities-line', true);
 
@@ -234,6 +233,18 @@ function drawCV(divName) {
             .classed('activity-description', true)
             .attr('text-anchor', activityTextAnchor)
             .text(function(d) { return  d.description; });
+
+            //Add a link between the activity and its timeline
+            gMain.selectAll('.activity-link')
+            .data(activities.filter(function(d) { return 'link_to_line' in d; }))
+            .enter()
+            .append('line')
+            .attr('y1', function(d) { return activityTextY(d) + d.link_to_line_offset; })
+            .attr('x1', function(d) { return activityTextX(d) + 2; })
+            .attr('y2', function(d) { return activityTextY(d) + d.link_to_line_offset; })
+            .attr('x2', function(d) { return activityLineX(d) - 5; })
+            .classed('activity-link', true);
+
 
             var yearDateFormat = d3.time.format('%Y');
             // add an axis for the year

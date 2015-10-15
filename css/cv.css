@@ -110,6 +110,12 @@ font: 13px sans-serif;
     stroke-width: 1px;
 }
 
+.activity-link {
+    stroke: black;
+    /* stroke-dasharray: "5,5"; */
+    stroke-width: 1px;
+}
+
 .activity-connection-extra {
     stroke: black;
     /* stroke-dasharray: "5,5"; */
@@ -130,9 +136,10 @@ font: 13px sans-serif;
         }
 
 .activity-point {
-    stroke: black;
+    stroke: #444;
     stroke-width: 2;
     fill: transparent;
+    opacity: 0.9;
 }
 
 .publication-point {
