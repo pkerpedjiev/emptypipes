@@ -17,6 +17,8 @@ that works for about 90% of the graphs I make, using the fantastic
 <a href="http://stanford.edu/~mwaskom/software/seaborn/">`seaborn`</a>
 library in an <a href="http://ipython.org/notebook.html">IPython notebook:</a>
 
+{% highlight python %}
+import numpy as np
 import seaborn as sns
 
 sns.set_style('white')
@@ -24,6 +26,27 @@ sns.set_context("notebook", font_scale=1.5, rc={"lines.linewidth": 2.5})
 rc('text', usetex=True)    # use latex in the labels
 pylab.rcParams['figure.figsize'] = (4,3)
 
+x = np.linspace(0, 2*math.pi,100)
+y = sin(x)
+z = cos(x)
+
+fig, ax = plt.subplots()
+ax.plot(x, y, label='sin')
+ax.plot(x, z, label='cos')
+
+ax.set_xlabel('x')
+ax.set_ylabel('y')
+ax.set_title('Trigonometric Functions')
+
+handles, labels = ax.get_legend_handles_labels()
+ax.legend(handles, labels)
+
+plt.savefig('img/trigonometric_functions.png', dpi=500)
+{% endhighlight %}
+
+
 The result is a figure in which the axis and tick labels are legible and
 the size of the plotting area is commensurate with the amount of data 
-being displayed.
+being displayed:
+
+![simple proportional plot](/img/trigonometric_functions.png)
