@@ -7,20 +7,17 @@ tags: javascript d3.js rna
 <meta charset="utf-8">
 <link rel='stylesheet' href='/css/kings-jewels.css'>
 
-A long time ago, in a land far away, a gallant knight rescues the king's
-life. To show his gratitude, the king offers him one of his jewels as a
-reward. The king, however, is eccetric and demands the knight follow a
-certain procedure when making his choice. He must pick a jewel from the
-treasure chest at random, and immediately decide if he wants it. If he
-wants it, the jewel is his and he goes home. If he doesn't, the jewel is
-placed in another chest and can never be chosen again. The knight gets to
-pick again as long as there are jewels left in the chest. The king,
-generous as he is eccentric, tells the knight the number of jewels in the
-box before he begins picking.
+A long time ago, in an alternate universe, you rescue the king's
+life. To show his gratitude, the king promises you one of his jewels as a
+reward. He takes out his bag of jewels and tells you that you can 
+reach into the bag and randomly choose one of the jewels. If you like it,
+you can keep it. If you don't, you to place it into another bag and 
+loses the opportunity to ever take that jewel. Judging by the size of the
+bag, you estimate that there are 10 jewels inside.
 
-How should the knight proceed if he wants to score the best jewel in chest?
-Should he just take the first one he picks or should he look at a few before
-deciding on one to take home? If so, how many?
+**How should you proceed in order to maximize your chances of scoring the best
+jewel in the bag?** Should you just take the first one you pick or should you
+look at a few before deciding on one to take home? If so, how many?
 
 There is a concrete mathematical solution, but in this case, it's more
 informative to run some simulations and see what the outcome is. The histograms
@@ -40,14 +37,14 @@ picking the best jewel increase dramatically! In fact, the entire distribution
 gets skewed right and your chances of picking the second and third best jewels
 also significantly increase.
 
-We're after the best, however. From the histogram above, it's hard to see how
+You're after the best, however. From the histogram above, it's hard to see how
 many we have to see and discard before we maximize our chances of picking the
 best jewel. For that we can either run a simulation with lots of jewels and lots
 of iterations. Or we can run simulations for increasing numbers of jewels and 
 plot how many we have to look at, to maximize our chances of getting the best:
 
 <hr>
-<div id="kj-regression-area" ></div>
+<div id="kj-regression-area" style="width: 400px; margin-left: auto; margin-right: auto;"></div>
 <hr>
 
 What this chart shows is that the number of we have to look at and throw out to
@@ -62,15 +59,57 @@ worst. When trying to get the highest value on average, we would thus have to
 look at fewer jewels before deciding to look for the best yet. How much fewer,
 in this case, between four and five times fewer.
 
+#### What if the jewels are...? ####
+
 But what if the values of the jewels are not uniformly distributed? What if most
-jewels are average in value and only a few are either precious or worthless?
+jewels are average in value and only a few are either precious or worthless? Or
+what if most jewels have a low value with only a few true gems? The next two sections
+show the results when the jewels are normally distributed (mostly average) and
+exponentially distributed (mostly low-value). 
 
-<div id="kj-plotting-area-normal" ></div>
+<div class="accordion" id="accordion_kings_jewels">
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion_kings_jewels" href="#collapseNormalJewelDist">
+            <b>Normally Distributed Jewels</b>
+            </a>
+        </div>
+        <div id="collapseNormalJewelDist" class="accordion-body collapse out">
+            <div class="accordion-inner">
 
+            <div id="kj-plotting-area-normal" ></div>
+            <div id="kj-regression-area-normal" style="width: 400px; margin-left: auto; margin-right: auto;" ></div>
 
-<div id="kj-plotting-area-exponential" ></div>
-<div id="kj-regression-area-normal" ></div>
-<div id="kj-regression-area-exponential" ></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="accordion-group">
+        <div class="accordion-heading">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion_kings_jewels" href="#collapseExponentialJewelDist">
+            <b>Exponentially Distributed Jewels</b>
+            </a>
+        </div>
+        <div id="collapseExponentialJewelDist" class="accordion-body collapse out">
+            <div class="accordion-inner">
+
+            <div id="kj-plotting-area-exponential" ></div>
+            <div id="kj-regression-area-exponential" style="width: 400px; margin-left: auto; margin-right: auto;" ></div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+#### Moral of the Story ####
+
+As long as you have more than option and you want to get the best reward
+possible, always discard the first third of the options and then pick the next
+one which is better than any you have seen so far. If you want something better
+than average but not necessarily the best, discard fewer. Or, to put it more
+succintly:
+
+<center><b>NEVER take the first offer when you have more than one choice!</b></center>
 
 <script src="/js/lib/d3.min.js"></script>
 <script src="/js/lib/d3-grid.js"></script>
@@ -80,9 +119,10 @@ jewels are average in value and only a few are either precious or worthless?
     kingsJewelsExample();
 </script>
 
-<b>Acknowledgements</b>
+#### Acknowledgements ####
+
 <ul>
-    <li>Huge thanks Stephen Rudich for introducing me (and the rest of the class) to the
+    <li>Huge thanks Stephen Rudich for introducing me to the
     King's Jewels problem a long time ago during a summer lecture at the
     Andrew's Leap program at CMU</li>
 
