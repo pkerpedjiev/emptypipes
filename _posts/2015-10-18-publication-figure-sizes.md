@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Figure Proportions"
+title:  "Graph Proportions and Label Sizes"
 description: "Creating scientific figures with reasonable proportions and font sizes using IPython Notebook"
 tags: python matplotlib research
 ---
