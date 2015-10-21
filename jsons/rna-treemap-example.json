@@ -1,0 +1,67 @@
+[{"name": "graph", 
+    "children": [{"structure": "((..((....)).(((....))).))",
+        "sequence": "CGCUUCAUAUAAUCCUAAUGACCUAU",
+        "size": 50},
+        {"structure": "((...........(((....))).))",
+            "sequence": "CGCUUCAUAUAAUCCUAAUGACCUAU",
+            "size": 40},
+            {"structure": "..........................",
+                "sequence": "CGCUUCAUAUAAUCCUAAUGACCUAU",
+                "size": 20}
+    ]
+},
+{"name": "graph", 
+    "children": [{"structure": "...........(((((.....)))))..",
+        "sequence": "CGCUUCAUAUAAUCCUAAUGACCUAU",
+        "size": 50},
+        {"structure": "(((((((......)))).))).......",
+            "sequence": "CGCUUCAUAUAAUCCUAAUGACCUAU",
+            "size": 10}
+    ]
+},
+{"name": "graph", 
+    "children": [{"structure": "(((.....)))(((((.....)))))..",
+        "sequence": "CGCUUCAUAUAAUCCUAAUGACCUAU",
+        "size": 50},
+        {"structure": "(((((((......)))).)))((...))",
+            "sequence": "CGCUUCAUAUAAUCCUAAUGACCUAU",
+            "size": 10}
+    ]
+},
+{"name": "graph", 
+    "children": [{"structure": "((((((..)))(((((....))))))))",
+        "sequence": "CGCUUCAUAUAAUCCUAAUGACCUAU",
+        "size": 50},
+
+        {"structure": "(((((((((..((....)))))))))))",
+            "sequence": "CGCUUCAUAUAAUCCUAAUGACCUAU",
+            "size": 50},
+
+            {"structure": "((........................))",
+                "sequence": "CGCUUCAUAUAAUCCUAAUGACCUAU",
+                "size": 10},
+
+                {"structure": "((.)).((..)).((..)).((..))..",
+                    "sequence": "CGCUUCAUAUAAUCCUAAUGACCUAU",
+                    "size": 10}
+    ]
+},
+{"name": "graph", 
+    "children": [{"structure": "((((((..)))(((((....))))))))",
+        "sequence": "CGCUUCAUAUAAUCCUAAUGACCUAU",
+        "size": 10},
+
+        {"structure": "(((((((((..((....)))))))))))",
+            "sequence": "CGCUUCAUAUAAUCCUAAUGACCUAU",
+            "size": 50},
+
+            {"structure": "((........................))",
+                "sequence": "CGCUUCAUAUAAUCCUAAUGACCUAU",
+                "size": 10},
+
+                {"structure": "((.)).((..)).((..)).((..))..",
+                    "sequence": "CGCUUCAUAUAAUCCUAAUGACCUAU",
+                    "size": 40}
+    ]
+}
+    ]

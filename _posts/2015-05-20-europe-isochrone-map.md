@@ -102,7 +102,7 @@ for Paris and London! This data has been added.
 Ireland and parts of Spain are not well represented due to missing data.
 <br>
 <hr>
-<b>How its made, technically</b>
+<b>How it's made, technically</b>
 <br>
 
 I used the [Swiss public transport API](http://transport.opendata.ch/) 

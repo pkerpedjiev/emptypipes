@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>King's Jewels Problem</title>
+<link rel='stylesheet' href='/css/page.css'>
+<h1>King's Jewels Problem</h1>
+
+<body>
+    A long time ago, in a land far away, a gallant knight rescues the king's
+    life. To show his gratitude, the king offers him one of his jewels as a
+    reward. The king, however, is eccetric and demands the knight follow a
+    certain procedure when making his choice. He must pick a jewel from the
+    treasure chest at random, and immediately decide if he wants it. If he
+    wants it, the jewel is his and he goes home. If he doesn't, the jewel is
+    placed in another chest and can never be chosen again. The knight gets to
+    pick again as long as there are jewels left in the chest. The king,
+    generous as he is eccentric, tells the knight the number of jewels in the
+    box before he begins picking.
+
+    How should the knight proceed if he wants to score the best jewel in chest?
+    Should he just take the first one he picks or should he look at a few before
+    deciding on one to take home? If so, how many?
+
+<div id="plotting-area" ></div>
+<div id="plotting-area-normal" ></div>
+<div id="plotting-area-exponential" ></div>
+<div id="regression-area" ></div>
+<div id="regression-area-normal" ></div>
+<div id="regression-area-exponential" ></div>
+
+<script src="/js/lib/d3.min.js"></script>
+<script src="/js/lib/d3-grid.js"></script>
+<script src="/js/kings-jewels.js"></script>
+<script src="/js/page.js"></script>
+
+<script type='text/javascript'>
+    kingsJewelsExample();
+</script>
+
+<b>Acknowledgements</b>
+<ul>
+    <li>Huge thanks Stephen Rudich for introducing me (and the rest of the class) to the
+    King's Jewels problem a long time ago during a summer lecture at the
+    Andrew's Leap program at CMU</li>
+
+    <li> Thanks to <a
+        href="http://trentrichardson.com/2010/04/06/compute-linear-regressions-in-javascript/">Trent Richardson</a> for the javascript implementation of a linear regression
+    function.  </li>
+</ul>
+</body>

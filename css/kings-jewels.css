@@ -1,0 +1,49 @@
+
+.bars rect {
+    fill: steelblue;
+  }
+
+  .axis text {
+      font: 10px sans-serif;
+}
+
+.chart-title {
+    font: 12px sans-serif;
+    /* font-weight: bold; */
+}
+
+.axis path, .axis line {
+    fill: none;
+    stroke: #000;
+    shape-rendering: crispEdges;
+      }
+
+      .main-title {
+    font: 13px sans-serif;
+          text-anchor: middle;
+          font-weight: bold;
+      }
+
+      .axis-label {
+            font: 12px sans-serif;
+          text-anchor: middle;
+          /* font-weight: bold; */
+      }
+
+      .line-label {
+            font: 12px sans-serif;
+          text-anchor: start;
+          /* font-weight: bold; */
+      }
+
+      .line-best {
+            fill: none;
+              stroke: steelblue;
+                stroke-width: 1.5px;
+            }
+
+      .line-mean {
+            fill: none;
+              stroke: #e6550d;
+                stroke-width: 1.5px;
+            }
