@@ -112,10 +112,12 @@ exponentially distributed (mostly low-value).
 #### Moral of the Story ####
 
 As long as you have more than one option and you want to get the best reward
-possible, always discard the first third of the options and then pick the next
+possible, always discard the first third* of the options and then pick the next
 one which is better than any you have seen so far. If you want something better
 than average but not necessarily the best, discard fewer. Or, to put it more
 succintly:
+
+* Actually the first (1 / e)'th where e is [Euler's Number](https://en.wikipedia.org/wiki/E_(mathematical_constant)).
 
 <center><b>NEVER take the first offer when you have more than one choice!</b></center>
 
@@ -132,7 +134,7 @@ succintly:
 <ul>
     <li>Huge thanks to <a href="http://www.cs.cmu.edu/~rudich/">Steven Rudich</a> for introducing me to the
     King's Jewels problem a long time ago during a summer lecture at the
-    <a href="http://www.cs.cmu.edu/~./leap/">Andrew's Leap program at CMU</a></li>
+    <a href="http://www.cs.cmu.edu/~./leap/">Andrew's Leap program at CMU.</a></li>
 
     <li> Thanks to <a
         href="http://trentrichardson.com/2010/04/06/compute-linear-regressions-in-javascript/">Trent Richardson</a> for the javascript implementation of a linear regression
