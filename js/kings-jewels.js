@@ -328,9 +328,6 @@ function kingsJewelsExample() {
                     data.map(function(d) { return +d.mean; }),
                     data.map(function(d) { return +d.num; }));
 
-                console.log('regBest:', regBest);
-                console.log('regBest:', regMean);
-
                 gEnter.append('line')
                 .attr('x1', xScale(0))
                 .attr('y1', yScale(regBest.fn(0)))
@@ -387,8 +384,6 @@ function kingsJewelsExample() {
         */
 
         d3.csv(filename, function(data) {
-            console.log('data', data);
-
             d3.select(divName)
             .datum(data)
             .call(regressionChart);
