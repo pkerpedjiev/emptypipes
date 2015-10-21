@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Never Take The First Choice"
+title:  "Never Take The First Option"
 description: "How to maximize the chances of picking the best option."
 tags: problem
 ---
