@@ -79,10 +79,12 @@ exponentially distributed (mostly low-value).
             <b>Normally Distributed Jewels</b>
             </a>
         </div>
+
         <div id="collapseNormalJewelDist" class="accordion-body collapse out">
             <div class="accordion-inner">
 
             <div id="kj-plotting-area-normal" ></div>
+            <hr>
             <div id="kj-regression-area-normal" style="width: 400px; margin-left: auto; margin-right: auto;" ></div>
 
             </div>
@@ -99,6 +101,7 @@ exponentially distributed (mostly low-value).
             <div class="accordion-inner">
 
             <div id="kj-plotting-area-exponential" ></div>
+            <hr>
             <div id="kj-regression-area-exponential" style="width: 400px; margin-left: auto; margin-right: auto;" ></div>
 
             </div>
