@@ -2,20 +2,20 @@
 layout: post
 title:  "Figure Proportions"
 description: "Creating scientific figures with reasonable proportions and font sizes using IPython Notebook"
-tags: javascript d3.js rna
+tags: python matplotlib research
 ---
 <meta charset="utf-8"> 
 <img itemprop="image" src="/img/layouts_upon_layouts_itemprop.png" style='display:none' width=200 height=130>
 
 Graphs are key to any scientific publication. Unfortunately, there don't seem
 to be any hard and fast rules as to how large they should be, what the font
-sizes they should use and how much of the space should be devoted to the actual
+sizes they should use and how much space should be devoted to the actual
 figure as compared to the axis labels and such.
 
 Having tried many different configurations, I've settled on some parameters
-that works for about 90% of the graphs I make. The axis and tick labels are
-legible and the size of the plotting area is commensurate with the amount of
-data being displayed:
+that work as a starting point for most of the graphs I make. The axis and tick
+labels are legible and the size of the plotting area is commensurate with the
+amount of data being displayed:
 
 <hr>
 <img src="/img/trigonometric_functions.png" width=250 align="middle">
