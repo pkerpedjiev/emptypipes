@@ -12,20 +12,20 @@ tags: problem
 
 A long time ago, in an alternate universe, you rescue the king's
 life. To show his gratitude, the king promises you one of his jewels as a
-reward. He takes out his bag of jewels and tells you that you can 
-reach into the bag and randomly choose one of the jewels. If you like it,
+reward. He takes out his bag of treasures and tells you that you can 
+reach into the bag and randomly choose one. If you like it,
 you can keep it. If you don't, you to place it into another bag and 
-loses the opportunity to ever take that jewel. Judging by the size of the
+lose the opportunity to ever keep that jewel. Judging by the size of the
 bag, you estimate that there are 10 jewels inside.
 
 **How should you proceed in order to maximize your chances of scoring the best
 jewel in the bag?** 
 
 Should you just take the first one you pick or should you
-look at a few before deciding on one to take home? If so, how many?
+look at a few before deciding on one to keep? If so, how many?
 
-There is a concrete mathematical solution, but in this case, it's more
-informative to run some simulations and see what the outcome is. The histograms
+There is a concrete mathematical solution, but in this case, but for me it it's
+easier to run some simulations and see what the outcome is. The histograms
 below show how often a jewel with a value between 0 and 9 is picked after
 seeing some of the jewels and then picking the next one which is better than
 any seen (or the last if the best was seen and discarded).
