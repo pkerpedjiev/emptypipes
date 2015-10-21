@@ -112,7 +112,7 @@ exponentially distributed (mostly low-value).
 #### Moral of the Story ####
 
 As long as you have more than one option and you want to get the best reward
-possible, always discard the first third (actually, 1/<i>e</i>'th, where <i>e</i> is [Euler's Number](https://en.wikipedia.org/wiki/E_(mathematical_constant)), to be precise) of the options and then pick the next
+possible, always discard the first third (or 1/<i>e</i>'th, where <i>e</i> is [Euler's Number](https://en.wikipedia.org/wiki/E_(mathematical_constant)), to be more precise) of the options and then pick the next
 one which is better than any you have seen so far. If you want something better
 than average but not necessarily the best, discard fewer. Or, to put it more
 succintly:
