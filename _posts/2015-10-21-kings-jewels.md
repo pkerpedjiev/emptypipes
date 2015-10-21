@@ -108,7 +108,7 @@ exponentially distributed (mostly low-value).
 
 #### Moral of the Story ####
 
-As long as you have more than option and you want to get the best reward
+As long as you have more than one option and you want to get the best reward
 possible, always discard the first third of the options and then pick the next
 one which is better than any you have seen so far. If you want something better
 than average but not necessarily the best, discard fewer. Or, to put it more
