@@ -130,9 +130,9 @@ succintly:
 #### Acknowledgements ####
 
 <ul>
-    <li>Huge thanks Stephen Rudich for introducing me to the
+    <li>Huge thanks to <a href="http://www.cs.cmu.edu/~rudich/">Steven Rudich</a> for introducing me to the
     King's Jewels problem a long time ago during a summer lecture at the
-    Andrew's Leap program at CMU</li>
+    <a href="http://www.cs.cmu.edu/~./leap/">Andrew's Leap program at CMU</a></li>
 
     <li> Thanks to <a
         href="http://trentrichardson.com/2010/04/06/compute-linear-regressions-in-javascript/">Trent Richardson</a> for the javascript implementation of a linear regression
