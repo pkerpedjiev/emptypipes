@@ -1,11 +1,14 @@
 ---
 layout: post
-title:  "The King's Jewels Problem"
+title:  "Never Take The First Choice"
 description: "How to maximize the chances of picking the best option."
-tags: javascript d3.js rna
+tags: problem
 ---
 <meta charset="utf-8">
 <link rel='stylesheet' href='/css/kings-jewels.css'>
+
+#### The King's Jewels Problem ####
+<img itemprop="image" src="/img/itemprop_kings_jewels.png" style='display:none' width=200 height=150>
 
 A long time ago, in an alternate universe, you rescue the king's
 life. To show his gratitude, the king promises you one of his jewels as a
@@ -16,7 +19,9 @@ loses the opportunity to ever take that jewel. Judging by the size of the
 bag, you estimate that there are 10 jewels inside.
 
 **How should you proceed in order to maximize your chances of scoring the best
-jewel in the bag?** Should you just take the first one you pick or should you
+jewel in the bag?** 
+
+Should you just take the first one you pick or should you
 look at a few before deciding on one to take home? If so, how many?
 
 There is a concrete mathematical solution, but in this case, it's more
@@ -33,29 +38,29 @@ The results are striking! If you don't look at any jewels and always pick the
 first one, you're equally likely to get any of the jewels. That is, your
 chances of picking the best one are 1/9. If you look at one, discard it and
 then pick the next jewel which is better than the one you saw, your chances of
-picking the best jewel increase dramatically! In fact, the entire distribution
-gets skewed right and your chances of picking the second and third best jewels
-also significantly increase.
+picking the best jewel increase dramatically to almost 4 / 10.! In fact, the
+entire distribution gets skewed right and your chances of picking the second
+and third best jewels also significantly increase.
 
 You're after the best, however. From the histogram above, it's hard to see how
-many we have to see and discard before we maximize our chances of picking the
+many you have to see and discard before you maximize your chances of picking the
 best jewel. For that we can either run a simulation with lots of jewels and lots
 of iterations. Or we can run simulations for increasing numbers of jewels and 
-plot how many we have to look at, to maximize our chances of getting the best:
+plot how many you have to look at, to maximize your chances of getting the best:
 
 <hr>
 <div id="kj-regression-area" style="width: 400px; margin-left: auto; margin-right: auto;"></div>
 <hr>
 
-What this chart shows is that the number of we have to look at and throw out to
-maximize our chances of finding the best grows linearly with the number of
+What this chart shows is that the number of your have to look at and throw out to
+maximize your chances of finding the best grows linearly with the number of
 jewels. The slope of the line (0.36), indicats the fraction of the total number
 of jewels that we should examine before picking the next best. 
 
-The red line shows how many we should look at if we want to maximize the
-average value of the jewel we end up with. If we try and maximize the chances
-of bagging the best jewel, we also increase the chances that we end up with the
-worst. When trying to get the highest value on average, we would thus have to
+The red line shows how many you should look at if we want to maximize the
+average value of the jewel you end up with. If we try and maximize the chances
+of bagging the best jewel, we also increase the chances that you end up with the
+worst. When trying to get the highest value on average, you would thus have to
 look at fewer jewels before deciding to look for the best yet. How much fewer,
 in this case, between four and five times fewer.
 

@@ -2,7 +2,7 @@
 layout: post
 title:  "Randomly Finding Someone on a Grid"
 description: "How long does it take two people to find each other when moving, vs standing still?"
-tags: javascript d3.js
+tags: javascript d3.js problem
 ---
 
 <meta charset="utf-8"> 

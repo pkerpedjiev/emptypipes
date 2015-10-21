@@ -1,10 +1,10 @@
 function kingsJewelsExample() {
     function histogramChart() {
-      var margin = {top: 10, right: 3, bottom: 20, left: 3},
+      var margin = {top: 10, right: 20, bottom: 20, left: 3},
           width = 960,
           height = 500;
 
-      var histogram = d3.layout.histogram(),
+      var histogram = d3.layout.histogram().frequency(false),
           x = d3.scale.ordinal(),
           y = d3.scale.linear(),
           xAxis = d3.svg.axis().scale(x).orient("bottom").tickSize(6, 0);
@@ -47,8 +47,13 @@ function kingsJewelsExample() {
           var gEnter = svg.enter().append("svg").append("g");
           gEnter.append("g").attr("class", "bars");
           gEnter.append("g").attr("class", "x axis");
+          gEnter.append("g").attr("class", "y axis");
+
+          xAxis = d3.svg.axis().scale(x).orient("bottom").tickSize(3, 0);
+          yAxis = d3.svg.axis().scale(y).orient("right").tickSize(3, 0).ticks(5);
+
           gEnter.append('text')
-          .attr('x', width / 2)
+          .attr('x', (width - margin.right) / 2)
           .attr('y', 20)
           .attr('text-anchor', 'middle')
           .classed('chart-title', true)
@@ -76,6 +81,10 @@ function kingsJewelsExample() {
           g.select(".x.axis")
               .attr("transform", "translate(0," + y.range()[0] + ")")
               .call(xAxis);
+
+          g.select(".y.axis")
+            .attr("transform", "translate(" + (width - margin.left - margin.right) + ",0)")
+            .call(yAxis);
         });
       }
 
@@ -108,7 +117,7 @@ function kingsJewelsExample() {
 
 
     function jewelsMultiHistogram(divName, filename) {
-        var margin = {top: 30, left: 20, right: 20, bottom: 20};
+        var margin = {top: 35, left: 20, right: 20, bottom: 20};
 
         var width = 550 - margin.left - margin.right;
         var height = 360 - margin.top - margin.bottom;
@@ -123,7 +132,7 @@ function kingsJewelsExample() {
 
         mainG.append('text')
         .attr('x', width / 2)
-        .attr('y', 5)
+        .attr('y', -5)
         .classed('main-title', true)
         .text('Jewels Seen');
 

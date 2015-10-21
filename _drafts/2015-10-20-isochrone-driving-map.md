@@ -51,7 +51,7 @@ function. These contour files are stored as JSONs and loaded as a D3.js
 overlay on top of a leaflet map.
 
 All of the code used to create these maps [is on
-github](https://github.com/pkerpedjiev/isochrone_driving_map). If you have any
+github](https://github.com/pkerpedjiev/roadway_routing). If you have any
 questions, feel free to ask.  
 <hr>
 <b>Background Information and Motivation</b>
