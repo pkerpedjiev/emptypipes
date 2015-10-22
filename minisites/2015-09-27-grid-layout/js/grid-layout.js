@@ -1,4 +1,4 @@
-d3.layout.grid = function() {
+d3.layout.aspectGrid = function() {
     var numCells = 1;
     var aspect = 1;
     var widthTotal = 550;
@@ -85,7 +85,6 @@ d3.layout.grid = function() {
         }
 
         nW = Math.floor(0.005 + widthTotal / iW); //rounding errors
-        console.log('alignment', alignment, 'nW:', nW);
 
         return d.map(function(d1, i) {
             return {
