@@ -7,7 +7,7 @@ def print_recursive(wer, indent=0):
     '''
     Iterate over wer path and print it out recursively.
     '''
-    for key,value in sorted(wer.items(), key=lambda x: x[1]['c']):
+    for key,value in sorted(wer.items(), key=lambda x: x[1]['c'] / ((len(x[1]['f'])+1) ** 2)):
         print "{}{} ({})".format("".join([' '] * indent), key, wer[key]['c'])
         print_recursive(wer[key]['f'], indent + 2)
 
@@ -41,6 +41,15 @@ def main():
                     word = words[i+j].strip('\r\n,').lower()
 
                     j += 1
+
+                    to_stop = False
+                    for symbol in ['/','[',']', '@', "'", '-', ':', ';', '?', '(', ')']:
+                        if symbol in word:
+                            to_stop = True
+
+                    if to_stop:
+                        break
+
                     if len(word) == 0:
                         continue
                     

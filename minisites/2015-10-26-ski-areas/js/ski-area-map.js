@@ -1,0 +1,144 @@
+function haversine(lat1, lon1, lat2, lon2) {
+    /*
+    Calculate the haversine distance between two points on the
+    globe. Code taken from:
+
+    http://stackoverflow.com/a/14561433
+   */
+    Number.prototype.toRad = function() {
+        return this * Math.PI / 180;
+    };
+
+    var R = 6371; // km 
+    //has a problem with the .toRad() method below.
+    var x1 = lat2-lat1;
+    var dLat = x1.toRad();  
+    var x2 = lon2-lon1;
+    var dLon = x2.toRad();  
+
+    var a = Math.sin(dLat/2) * Math.sin(dLat/2) + 
+                    Math.cos(lat1.toRad()) * Math.cos(lat2.toRad()) * 
+                    Math.sin(dLon/2) * Math.sin(dLon/2);  
+    var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a)); 
+    var d = R * c;
+
+    return d;
+}
+
+drawSkiMap = function(divName) {
+    //var map = L.map('isochroneMap').setView([48.2858, 6.7868], 4);
+    var initialLat = 47.630119;
+    var initialLon = 15.781780;
+
+    var southWest = L.latLng(47.55994, 15.718415),
+        northEast = L.latLng(47.647418, 15.860986),
+        bounds = L.latLngBounds(southWest, northEast);
+
+    var map = new L.Map(divName, {
+        center: new L.LatLng(initialLat, initialLon),
+        minZoom: 1,
+        zoom: 10
+    });
+
+    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+
+    var topPane = map._createPane('leaflet-top-pane', map.getPanes().mapPane);
+    //var topLayerLines = new L.StamenTileLayer('toner-lines', {'opacity': 0.8});
+
+    var width=550, height=400;
+    //var defaultContourColor = 'transparent';
+
+    // Initialize the SVG layer
+    map._initPathRoot();
+    map.fitBounds(bounds);
+
+    // We pick up the SVG from the map object
+    var svg = d3.select("#" + divName).select("svg");
+    var gMain = svg.append("g").attr("class", "leaflet-zoom-hide").attr('opacity', 0.8);
+
+    var gAreaBoundaries = gMain.append('g');
+
+    /*
+    queue()
+    .defer(d3.xml, "application/xml", "/data/stuhleck.osm")
+    .await(ready);
+    */
+
+   d3.json('/jsons/stuhleck.json', function(error, data) {
+        var distance = data.distance;
+        console.log('distance:', distance);
+        var clusters = [];
+
+        for (var key in data.clusters) {
+            console.log('data.clusters[key]', data.clusters[key]);
+            if (data.clusters[key].length < 2)
+                continue;
+            var mesh = d3.geom.delaunay(data.clusters[key]).filter(function(t) {
+                return  (haversine(t[0][0], t[0][1], t[1][0], t[1][1]) < distance &&
+                         haversine(t[0][0], t[0][1], t[2][0], t[2][1]) < distance &&
+                         haversine(t[2][0], t[2][1], t[1][0], t[1][1]) < distance);
+            });
+
+            mesh.name = key;
+            clusters.push(mesh);
+
+        }
+
+        console.log('clusters:', clusters);
+        
+        // create all of the elements
+        // positions will be updated on resetView
+        gAreaBoundaries.selectAll('.ski-area-boundary')
+        .data(clusters)
+        .enter()
+        .append('g')
+        .classed('ski-area-boundary', true)
+        .attr('area-id', function(d) { return d.name; })
+        .each(function(d) {
+            d3.select(this).selectAll('path')
+            .data(d)
+            .enter()
+            .append('path')
+            .classed('boundary-path', true);
+        });
+
+        function createPath(points) {
+            var coords = points.map(function(d) { return [d.viewportX, d.viewportY]; });
+            return "M" + coords.join("L") + "Z";
+        }
+
+        function resetView() {
+            gAreaBoundaries.selectAll('.ski-area-boundary')
+            .each(function(mesh) {
+                d3.select(this).selectAll('path')
+                .each(function(triangle) {
+                    triangle.forEach(function(point) {
+                        var latlng = new L.LatLng(point[0], point[1]);
+                        var viewPoint = map.latLngToLayerPoint(latlng);
+
+                        point.viewportX = viewPoint.x;
+                        point.viewportY = viewPoint.y;
+                    });
+                })
+                .attr('d', createPath);
+            });
+
+            /*
+            climate.forEach(function(d) {
+                var latlng = new L.LatLng(d.lat, d.lon);
+                var point = map.latLngToLayerPoint(new L.LatLng(+d.lat, +d.lon));
+
+                d.x = point.x;
+                d.y = point.y;
+            });
+
+           */
+        }
+
+        map.on("viewreset", resetView);
+        resetView();
+    });
+};
