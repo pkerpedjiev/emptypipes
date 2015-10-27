@@ -66,76 +66,24 @@ drawSkiMap = function(divName) {
     .defer(d3.xml, "application/xml", "/data/stuhleck.osm")
     .await(ready);
     */
+    function projectPoint(x, y) {
+          var point = map.latLngToLayerPoint(new L.LatLng(x, y));
+            this.stream.point(point.x, point.y);
+    }
+
+    var transform = d3.geo.transform({point: projectPoint}),
+        path = d3.geo.path().projection(transform);
 
    d3.json('/jsons/stuhleck.json', function(error, data) {
-        var distance = data.distance;
-        console.log('distance:', distance);
-        var clusters = [];
+       console.log('data:', data);
 
-        for (var key in data.clusters) {
-            console.log('data.clusters[key]', data.clusters[key]);
-            if (data.clusters[key].length < 2)
-                continue;
-            var mesh = d3.geom.delaunay(data.clusters[key]).filter(function(t) {
-                return  (haversine(t[0][0], t[0][1], t[1][0], t[1][1]) < distance &&
-                         haversine(t[0][0], t[0][1], t[2][0], t[2][1]) < distance &&
-                         haversine(t[2][0], t[2][1], t[1][0], t[1][1]) < distance);
-            });
-
-            mesh.name = key;
-            clusters.push(mesh);
-
-        }
-
-        console.log('clusters:', clusters);
-        
-        // create all of the elements
-        // positions will be updated on resetView
-        gAreaBoundaries.selectAll('.ski-area-boundary')
-        .data(clusters)
-        .enter()
-        .append('g')
-        .classed('ski-area-boundary', true)
-        .attr('area-id', function(d) { return d.name; })
-        .each(function(d) {
-            d3.select(this).selectAll('path')
-            .data(d)
-            .enter()
-            .append('path')
-            .classed('boundary-path', true);
-        });
-
-        function createPath(points) {
-            var coords = points.map(function(d) { return [d.viewportX, d.viewportY]; });
-            return "M" + coords.join("L") + "Z";
-        }
+        var feature = gAreaBoundaries.selectAll(".boundary-path")
+        .data([data])
+        .enter().append("path")
+        .classed('boundary-path', true);
 
         function resetView() {
-            gAreaBoundaries.selectAll('.ski-area-boundary')
-            .each(function(mesh) {
-                d3.select(this).selectAll('path')
-                .each(function(triangle) {
-                    triangle.forEach(function(point) {
-                        var latlng = new L.LatLng(point[0], point[1]);
-                        var viewPoint = map.latLngToLayerPoint(latlng);
-
-                        point.viewportX = viewPoint.x;
-                        point.viewportY = viewPoint.y;
-                    });
-                })
-                .attr('d', createPath);
-            });
-
-            /*
-            climate.forEach(function(d) {
-                var latlng = new L.LatLng(d.lat, d.lon);
-                var point = map.latLngToLayerPoint(new L.LatLng(+d.lat, +d.lon));
-
-                d.x = point.x;
-                d.y = point.y;
-            });
-
-           */
+            feature.attr("d", path);
         }
 
         map.on("viewreset", resetView);
