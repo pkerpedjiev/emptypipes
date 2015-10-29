@@ -30,14 +30,11 @@ drawSkiMap = function(divName) {
     var initialLat = 47.630119;
     var initialLon = 15.781780;
 
-    var southWest = L.latLng(47.55994, 15.718415),
-        northEast = L.latLng(47.647418, 15.860986),
-        bounds = L.latLngBounds(southWest, northEast);
 
     var map = new L.Map(divName, {
         center: new L.LatLng(initialLat, initialLon),
         minZoom: 1,
-        zoom: 10
+        zoom: 5
     });
 
     L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
@@ -53,7 +50,6 @@ drawSkiMap = function(divName) {
 
     // Initialize the SVG layer
     map._initPathRoot();
-    map.fitBounds(bounds);
 
     // We pick up the SVG from the map object
     var svg = d3.select("#" + divName).select("svg");
@@ -74,16 +70,23 @@ drawSkiMap = function(divName) {
     var transform = d3.geo.transform({point: projectPoint}),
         path = d3.geo.path().projection(transform);
 
-   d3.json('/jsons/stuhleck.json', function(error, data) {
+   d3.json('/jsons/ski-areas.topo', function(error, data) {
+    var southWest = L.latLng(data.bbox[0], data.bbox[1]),
+        northEast = L.latLng(data.bbox[2], data.bbox[3]),
+        bounds = L.latLngBounds(southWest, northEast);
+        map.fitBounds(bounds);
+
        console.log('data:', data);
 
+       console.log('data:', data);
+       console.log('feature:', topojson.feature(data, data.objects.boundaries));
         var feature = gAreaBoundaries.selectAll(".boundary-path")
-        .data([data])
+        .data(topojson.feature(data, data.objects.boundaries).features)
         .enter().append("path")
         .classed('boundary-path', true);
 
         function resetView() {
-            feature.attr("d", path);
+            feature.attr("d", function(d) { return path(d.geometry); });
         }
 
         map.on("viewreset", resetView);
