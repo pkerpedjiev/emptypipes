@@ -83,10 +83,32 @@ drawSkiMap = function(divName) {
         var feature = gAreaBoundaries.selectAll(".boundary-path")
         .data(topojson.feature(data, data.objects.boundaries).features)
         .enter().append("path")
-        .classed('boundary-path', true);
+        .classed('boundary-path', true)
+        .on('mouseover', function(d) {
+        d3.selectAll('#u' + d.properties.uid)
+        .classed('selected', true)
+        })
+        .on('mouseout', function(d) {
+        d3.selectAll('#u' + d.properties.uid)
+        .classed('selected', false)
+        })
+        
+        var text = gAreaBoundaries.selectAll('.boundary-text')
+        .data(topojson.feature(data, data.objects.boundaries).features)
+        .enter()
+        .append('text')
+        .text(function(d) { return d.properties.uid; })
+        .attr('id', function(d) { return "u" + d.properties.uid; })
+        .attr('text-anchor', 'middle')
+        .attr('dominant-baseline', 'central');
 
         function resetView() {
             feature.attr("d", function(d) { return path(d.geometry); });
+            text.attr('transform', function(d) {
+                var centroid = path.centroid(d.geometry);
+                console.log('centroid:', centroid);
+                return 'translate(' + centroid[0] + ',' + centroid[1] + ')';
+            });
         }
 
         map.on("viewreset", resetView);

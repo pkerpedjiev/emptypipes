@@ -3,3 +3,12 @@
     stroke-width: 1;
     fill: grey;
 }
+
+text {
+    visibility: hidden;
+    pointer-events: none;
+}
+
+text.selected {
+    visibility: visible;
+}
