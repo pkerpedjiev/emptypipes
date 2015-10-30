@@ -175,6 +175,8 @@ drawSkiMap = function(divName) {
         .enter()
         .append('li')
 
+        var round = d3.format('.3f');
+
         lis.append('a')
         //.attr('href', '#')
         .attr('href', "javascript:void(0);")
@@ -186,11 +188,16 @@ drawSkiMap = function(divName) {
             d3.select(this).classed('selected', true)
             map.fitBounds(newBounds);
         })
-        .text(function(d) { return d.properties.area + " || " ; });
+        .text(function(d) { return round(d.properties.area) + " || " ; });
+
+        lis.append('text')
+        .text(function(d) { return d.properties.uid; })
+        .classed('selected', true);
 
         lis.append('input')
         .attr('type', 'text')
         .attr('name', function(d) { return 'i' + d.properties.uid; })
         .attr('value', function(d) { return d.properties.name; });
+
     });
 };
