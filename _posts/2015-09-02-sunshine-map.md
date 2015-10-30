@@ -54,7 +54,7 @@ prominently cloudier regions over the equatorial land masses, which largely
 correspond to the rainforests of the Amazon, Mid-Western Africa and Indonesia,
 Malaysia, and Papua New Guinea. 
 
-These rainy regions are easily recognized in the middle animation above
+These rainy regions are easily recognized in the middle animation above,
 which show how the precipitation changes over the year. As expected the
 rainiest regions are where we find rainforests near the equator, as well as
 along the coast of British Columbia and northern Washington in the US. A few
@@ -66,7 +66,7 @@ The temperature map is also as expected, wherein the temperatures follow the
 seasons. Most striking, perhaps, is how much the temperatures change over the
 large landmasses of North America and Siberia, as compared to the oceanic
 regions. The astutue eye may also notice persistently colder temperatures over
-Tibet due to its high elevation.
+Tibet, Mongolia and Central China due to their high elevation.
 
 These animations were created by recording interactions with the map described
 below.

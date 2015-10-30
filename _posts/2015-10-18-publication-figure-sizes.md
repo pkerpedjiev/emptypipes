@@ -48,12 +48,13 @@ ax.plot(x, z, label='cos')
 
 ax.set_xlabel('x')
 ax.set_ylabel('y')
+ax.axvline(x=3, color='red', ls='dashed')
 ax.set_title('Trigonometric Functions')
 
 handles, labels = ax.get_legend_handles_labels()
 ax.legend(handles, labels)
 
-plt.savefig('img/trigonometric_functions.png', dpi=500)
+plt.savefig('img/trigonometric_functions.png', dpi=500, bbox_inches="tight")
 {% endhighlight %}
 
 
