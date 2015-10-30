@@ -1,3 +1,33 @@
+function geoBounds(feature) {
+    /* Get the bounding box of a GeoJSON feature
+     * and return it as a leaflet-compatible object
+     *
+     * For some reason d3's geo.bounds didn't seem to work
+     * */
+    var minLat = 90;
+    var maxLat = -90;
+    var minLon = 180;
+    var maxLon = -180;
+    for (var i = 0; i < feature.geometry.coordinates.length; i++) {
+        var coords = feature.geometry.coordinates[i];
+        for (var j = 0; j < coords.length; j++) {
+            if (coords[j][0] < minLat)
+                minLat = coords[j][0];
+            if (coords[j][0] > maxLat)
+                maxLat = coords[j][0];
+            if (coords[j][1] < minLon)
+                minLon = coords[j][1];
+            if (coords[j][1] > maxLon)
+                maxLon = coords[j][1];
+        }
+    }
+    var newBounds = L.latLngBounds(
+        L.latLng(minLat, minLon),
+        L.latLng(maxLat, maxLon));
+
+    return newBounds;
+}
+
 function haversine(lat1, lon1, lat2, lon2) {
     /*
     Calculate the haversine distance between two points on the
@@ -84,6 +114,12 @@ drawSkiMap = function(divName) {
         .data(topojson.feature(data, data.objects.boundaries).features)
         .enter().append("path")
         .classed('boundary-path', true)
+        .style('fill', function(d) { 
+            if (d.properties.name.length == 0)
+                return 'red';
+            else
+                return 'green';
+        })
         .on('mouseover', function(d) {
         d3.selectAll('#u' + d.properties.uid)
         .classed('selected', true)
@@ -102,16 +138,49 @@ drawSkiMap = function(divName) {
         .attr('text-anchor', 'middle')
         .attr('dominant-baseline', 'central');
 
+        var text1 = gAreaBoundaries.selectAll('.boundary-text')
+        .data(topojson.feature(data, data.objects.boundaries).features)
+        .enter()
+        .append('text')
+        .attr('dy', 14)
+        .text(function(d) { return d.properties.name; })
+        .attr('id', function(d) { return "u" + d.properties.uid; })
+        .attr('text-anchor', 'middle')
+        .attr('dominant-baseline', 'central');
+
         function resetView() {
             feature.attr("d", function(d) { return path(d.geometry); });
             text.attr('transform', function(d) {
                 var centroid = path.centroid(d.geometry);
-                console.log('centroid:', centroid);
+                return 'translate(' + centroid[0] + ',' + centroid[1] + ')';
+            });
+            text1.attr('transform', function(d) {
+                var centroid = path.centroid(d.geometry);
                 return 'translate(' + centroid[0] + ',' + centroid[1] + ')';
             });
         }
 
         map.on("viewreset", resetView);
         resetView();
+
+        var skiAreas = topojson.feature(data, data.objects.boundaries).features;
+        skiAreas.sort(function(a,b) { return +b.properties.area - a.properties.area; });
+
+        console.log('bounds:', bounds);
+
+        d3.select("#resort-list")
+        .append('ul')
+        .selectAll('li')
+        .data(skiAreas)
+        .enter()
+        .append('li')
+        .append('a')
+        //.attr('href', '#')
+        .attr('href', "javascript:void(0);")
+        .on('click', function(d) { 
+            var newBounds = geoBounds(d);
+            map.fitBounds(newBounds);
+        })
+        .text(function(d) { return d.properties.uid + " | " + d.properties.name + " | " + d.properties.area; });
     });
 };
