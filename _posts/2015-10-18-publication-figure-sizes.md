@@ -48,6 +48,7 @@ ax.plot(x, z, label='cos')
 
 ax.set_xlabel('x')
 ax.set_ylabel('y')
+ax.axvline(x=3, color='red', ls='dashed')
 ax.set_title('Trigonometric Functions')
 
 handles, labels = ax.get_legend_handles_labels()
