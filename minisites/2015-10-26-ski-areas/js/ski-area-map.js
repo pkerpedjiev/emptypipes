@@ -186,7 +186,7 @@ drawSkiMap = function(divName) {
             d3.select(this).classed('selected', true)
             map.fitBounds(newBounds);
         })
-        .text(function(d) { return d.properties.uid + " | " + d.properties.name + " | " + d.properties.area; });
+        .text(function(d) { return d.properties.area + " || " ; });
 
         lis.append('input')
         .attr('type', 'text')
