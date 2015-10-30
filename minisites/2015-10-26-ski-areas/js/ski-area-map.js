@@ -75,7 +75,7 @@ drawSkiMap = function(divName) {
     var topPane = map._createPane('leaflet-top-pane', map.getPanes().mapPane);
     //var topLayerLines = new L.StamenTileLayer('toner-lines', {'opacity': 0.8});
 
-    var width=550, height=400;
+    var width=550, height=300;
     //var defaultContourColor = 'transparent';
 
     // Initialize the SVG layer
@@ -168,19 +168,29 @@ drawSkiMap = function(divName) {
 
         console.log('bounds:', bounds);
 
-        d3.select("#resort-list")
+        var lis = d3.select("#resort-list")
         .append('ul')
         .selectAll('li')
         .data(skiAreas)
         .enter()
         .append('li')
-        .append('a')
+
+        lis.append('a')
         //.attr('href', '#')
         .attr('href', "javascript:void(0);")
         .on('click', function(d) { 
             var newBounds = geoBounds(d);
+            d3.selectAll('a')
+            .classed('selected', false)
+
+            d3.select(this).classed('selected', true)
             map.fitBounds(newBounds);
         })
         .text(function(d) { return d.properties.uid + " | " + d.properties.name + " | " + d.properties.area; });
+
+        lis.append('input')
+        .attr('type', 'text')
+        .attr('name', function(d) { return 'i' + d.properties.uid; })
+        .attr('value', function(d) { return d.properties.name; });
     });
 };

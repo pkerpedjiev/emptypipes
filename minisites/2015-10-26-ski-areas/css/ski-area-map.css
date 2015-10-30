@@ -2,6 +2,7 @@
     stroke: black;
     stroke-width: 1;
     fill: grey;
+    opacity: 0.5;
 }
 
 text {
@@ -11,4 +12,8 @@ text {
 
 text.selected {
     visibility: visible;
+}
+
+a.selected {
+    background-color: yellow;
 }
