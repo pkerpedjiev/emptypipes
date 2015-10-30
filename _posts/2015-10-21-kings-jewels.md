@@ -24,7 +24,7 @@ jewel in the bag?**
 Should you just take the first one you pick or should you
 look at a few before deciding on one to keep? If so, how many?
 
-There is a concrete mathematical solution, but in this case, but for me it it's
+There is a concrete mathematical solution, but for me it's
 easier to run some simulations and see what the outcome is. The histograms
 below show how often a jewel with a value between 0 and 9 is picked after
 seeing some of the jewels and then picking the next one which is better than
