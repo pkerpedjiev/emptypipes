@@ -12,7 +12,7 @@ function kingsJewelsExample() {
 
       function chart(selection) {
         selection.each(function(data, index) {
-            numbers = { 0: 'None',
+            var numbers = { 0: 'None',
                        1: 'One',
                        2: 'Two',
                        3: 'Three',

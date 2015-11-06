@@ -1,72 +1,97 @@
-d3.layout.grid = function() {
+d3.layout.aspectGrid = function() {
     var numCells = 1;
     var aspect = 1;
     var widthTotal = 550;
     var heightTotal = 300;
 
+    var alignment = "best";
+
     function grid(d) {
         numCells = d.length;
 
-        var widthIndividual = Math.sqrt(aspect * widthTotal * heightTotal / numCells);
+        var tA = (widthTotal / heightTotal);
+        var onW = Math.sqrt(tA * numCells / aspect);
+        var onH = numCells / onW;
 
-        //fill the window horizantally
-        var minNx = Math.floor(widthTotal / widthIndividual);
-        var maxNy = Math.ceil(numCells / minNx);
+        var iH, iW;
+        var nW, nH;
+        var totalAreaVertical, horizontalW, horizontalH;
+        var totalAreaHorizontal, verticalW, verticalH;
 
-        //fill the window vertically
-        var maxNx = Math.ceil(widthTotal / widthIndividual);
-        var minNy = Math.ceil(numCells / maxNx);
+        if (alignment == 'vertical' || alignment == 'best') {
+            nH = Math.floor(onH) - 1;
+            do {
+                nH += 1;
+                nW = Math.ceil(numCells / nH);
+                iH = heightTotal / nH;
+                iW = iH * aspect;
+            } while (iW * nW > widthTotal);
 
-        /*
-        var horizontalWidth = Math.min((widthTotal / maxNx),
-                                       (aspect * heightTotal / minNy ));
-                                       */
-        while (widthTotal / maxNx / aspect * minNy > heightTotal ) {
-            maxNx += 1;
-            minNy = Math.ceil(numCells / maxNx);
+            totalAreaVertical = numCells * iH * iW;
+            verticalnW = nW;
+            verticalnH = nH;
+
+            verticaliW = iW;
+            verticaliH = iH;
         }
 
-        var horizontalWidth = widthTotal / maxNx;
-        var horizontalHeight = horizontalWidth / aspect;
+        if (alignment == 'horizontal' || alignment == 'best') {
+            nW = Math.floor(onW)-1;
+            do {
+                nW += 1;
+                nH = Math.ceil(numCells / nW);
 
-        var verticalHeight = (heightTotal / maxNy);
-        var verticalWidth = verticalHeight * aspect;
+                iW = widthTotal / nW;
+                iH = iW / aspect;
+            } while (iH * nH > heightTotal);
 
-        var totalAreaHorizontal = numCells * horizontalWidth * horizontalHeight;
-        var totalAreaVertical = numCells * verticalHeight * verticalWidth;
+            totalAreaHorizontal = numCells * iH * iW;
+            horizontalnW = nW;
+            horizontalnH = nH;
 
+            horizontaliW = iW;
+            horizontaliH = iH;
+        }
+        
         /*
         console.log('totalAreaHorizontal:', totalAreaHorizontal);
         console.log('totalAreaVertical:', totalAreaVertical);
         */
 
-        //if (totalAreaHorizontal > totalAreaVertical) {
-        if (true) {
-            widthI = horizontalWidth;
-            heightI = horizontalHeight;
+        var currentAlignment;
 
-            numX = maxNx;
-            numY = minNy;
+        if (alignment == 'best') {
+            if (totalAreaHorizontal > totalAreaVertical) {
+                currentAlignment = 'horizontal';
+            } else {
+                currentAlignment = 'vertical';
+            }
         } else {
-            widthI = verticalWidth;
-            heightI = verticalHeight;
-
-            numX = minNx;
-            numY = maxNy;
+            currentAlignment = 'alignment';
         }
 
-        /*
-        console.log('horizontalHeight:', horizontalHeight);
-        console.log('verticalHeight:', verticalHeight);
-        console.log('heightI', heightI);
-        */
+        if (currentAlignment == 'vertical') {
+            nH = verticalnH;
+            nW = verticalnW;
+
+            iH = verticaliH;
+            iW = verticaliW;
+        } else if (currentAlignment == 'horizontal') {
+            nH = horizontalnH;
+            nW = horizontalnW;
+
+            iH = horizontaliH;
+            iW = horizontaliW;
+        }
+
+        nW = Math.floor(0.005 + widthTotal / iW); //rounding errors
 
         return d.map(function(d1, i) {
             return {
-                pos: { x:  widthI * (i % numX) ,
-                       y:  heightI * Math.floor(i / numX) ,
-                       width: widthI,
-                       height: heightI
+                pos: { x:  iW * (i % nW) ,
+                       y:  iH * Math.floor(i / nW) ,
+                       width: iW,
+                       height: iH
                 },
                 data: d1
             };
@@ -85,6 +110,12 @@ d3.layout.grid = function() {
     grid.aspect = function(_) {
         if (!arguments.length) return aspect;
         else aspect = _;
+        return grid;
+    };
+
+    grid.alignment = function(_) {
+        if (!arguments.length) return alignment;
+        else alignment = _;
         return grid;
     };
 

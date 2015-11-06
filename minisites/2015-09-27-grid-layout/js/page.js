@@ -1,4 +1,4 @@
-function gridLayoutExample() {
+function gridLayoutExample(divName, alignment) {
     var totalWidth = 550;
     var totalHeight = 300;
 
@@ -9,15 +9,16 @@ function gridLayoutExample() {
 
     var gridLayout = d3.layout.grid()
     .size([width, height])
-    .aspect(1.0);
+    .aspect(1.0)
+    .alignment(alignment);
 
-    console.log(gridLayout([1,2,3]));
+    //console.log(gridLayout([1,2,3]));
 
     //when called on an array of objects, gridLayout
     //will return another array, each of whose members
     //contain the 'pos' and 'data' members
 
-    var svg = d3.select('#grid-area')
+    var svg = d3.select(divName)
     .append('svg')
     .attr('width', totalWidth)
     .attr('height', totalHeight);
@@ -152,7 +153,7 @@ function gridLayoutExample() {
                   .attr('height', 0)
                   .classed('grid-rect', true);
 
-                  d3.selectAll('.grid-rect')
+                  rectG.selectAll('.grid-rect')
                   .transition()
                   .attr('x', function(d) { return d.pos.x; })
                   .attr('y', function(d) { return d.pos.y; })
@@ -173,4 +174,16 @@ function gridLayoutExample() {
           // when the user selects a new aspect ratio
           lastTime = new Date().getTime();
           setTimeout(startPushing(lastTime), duration);
+          return;
+         gridLayout.aspect(.2);
+
+                  rectG.selectAll('.grid-rect')
+                  .data(gridLayout([1,2,3,4,5,6,7,8,9,10,11,12,13]))
+                  .enter()
+                  .append('rect')
+                  .classed('grid-rect', true)
+                  .attr('x', function(d) { return d.pos.x; })
+                  .attr('y', function(d) { return d.pos.y; })
+                  .attr('width', function(d) { return d.pos.width; })
+                  .attr('height', function(d) { return d.pos.height; });
 }
