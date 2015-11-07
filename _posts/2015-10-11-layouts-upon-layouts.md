@@ -93,6 +93,35 @@ Call layout function. Rinse, repeat! Take a look at the <a
 href="http://bost.ocks.org/mike/chart/">"Towards Reusable Charts"</a> tutorial
 for an excellent introduction to creating a custom layout.
 
+#### Appendix ####
+
+Here's the beginning of the json file used to create this:
+
+<pre>
+[{"name": "graph", 
+    "children": [{"structure": "((..((....)).(((....))).))",
+        "sequence": "CGCUUCAUAUAAUCCUAAUGACCUAU",
+        "size": 50},
+        {"structure": "((...........(((....))).))",
+            "sequence": "CGCUUCAUAUAAUCCUAAUGACCUAU",
+            "size": 40},
+            {"structure": "..........................",
+                "sequence": "CGCUUCAUAUAAUCCUAAUGACCUAU",
+                "size": 20}
+    ]
+},
+{"name": "graph", 
+    "children": [{"structure": "...........(((((.....)))))..",
+        "sequence": "CGCUUCAUAUAAUCCUAAUGACCUAU",
+        "size": 50},
+        {"structure": "(((((((......)))).))).......",
+            "sequence": "CGCUUCAUAUAAUCCUAAUGACCUAU",
+            "size": 10}
+    ]
+},
+...]
+</pre>
+
 <link rel='stylesheet' type='text/css' href='/css/d3-rnaplot.css' />
 
 <script type='text/javascript' src='/js/lib/d3-rnaplot.js'></script>
