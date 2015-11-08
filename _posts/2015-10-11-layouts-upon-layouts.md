@@ -93,9 +93,11 @@ Call layout function. Rinse, repeat! Take a look at the <a
 href="http://bost.ocks.org/mike/chart/">"Towards Reusable Charts"</a> tutorial
 for an excellent introduction to creating a custom layout.
 
-#### Appendix ####
+<hr>
+**Addendum**
+<hr>
 
-Here's the beginning of the json file used to create this:
+Here's the beginning of the json file used to create the plot:
 
 <pre>
 [{"name": "graph", 
