@@ -32,7 +32,8 @@ function mapComparison() {
     var chart = function(selection) {
         selection.each(function(data) {
             // add grid coordinates to the features
-            var numCols = data.features.length;
+            var features = topojson.feature(data, data.objects.boundaries).features;
+            var numCols = features.length;
             var padding = [0,0];
             var nodeWidth = Math.min(height, Math.floor((width - (numCols - 1) * padding[0]) / numCols));
             var nodeHeight = nodeWidth;
@@ -42,7 +43,8 @@ function mapComparison() {
             .padding(padding)
             .nodeSize([nodeHeight, nodeWidth]);
 
-            var rectFeatures = grid(data.features);
+            console.log('features', features);
+            var rectFeatures = grid(features);
 
             // get the largest feature and tailor the 
             // projection so that the entire feature fits inside it
@@ -56,8 +58,8 @@ function mapComparison() {
 
             var minS = 1000000000000;
 
-            for (var i = 0; i < data.features.length; i++) {
-                var feature = data.features[i];
+            for (var i = 0; i < features.length; i++) {
+                var feature = features[i];
                 var gb = geoBounds(feature);
                 var b = [projection(gb[0]), projection(gb[1])];
                 // scaling the projection taken from
