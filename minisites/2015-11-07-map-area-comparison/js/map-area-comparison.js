@@ -5,11 +5,22 @@ function mapComparison() {
     var chart = function(selection) {
         selection.each(function(data) {
             console.log('data', data, d3.select(this));
+            var grid = d3.layout.grid().size([width,height])
+            .cols(data.features.length);
 
+            var padding = [0,0];
+            // add grid coordinates to the features
+            var rectFeatures = grid(data.features);
+
+            var numCols = grid.cols();
+            var nodeWidth = Math.floor((width - (numCols - 1) * padding[0]) / numCols);
+            var nodeHeight = nodeWidth;
+
+            // get the largest feature and tailor the 
+            // projection so that the entire feature fits inside it
+            // snuggly
             var feature = data.features[0];
-            console.log('feature:', feature);
-
-            var projection = d3.geo.equirectangular()
+            var projection = d3.geo.mercator()
             .scale(1);
 
             var path = d3.geo.path()
@@ -19,22 +30,21 @@ function mapComparison() {
             // http://stackoverflow.com/a/17067379/899470
             var b = path.bounds(feature),
                 s = 0.95 / Math.max(
-                    (b[1][0] - b[0][0]) / width, 
-                    (b[1][1] - b[0][1]) / height
+                    (b[1][0] - b[0][0]) / nodeWidth, 
+                    (b[1][1] - b[0][1]) / nodeHeight
                 );
             projection.scale(s); 
             b = d3.geo.bounds(feature);
             projection.center([(b[1][0]+b[0][0])/2, (b[1][1]+b[0][1])/2]);
-            projection.translate([width/2, height/2]);
-
-            d3.select(this)
-            .on('mousemove', function(d) { 
-               console.log( d3.mouse(this), projection.invert(d3.mouse(this)) );
-            });
+            projection.translate([nodeWidth/2, nodeHeight/2]);
 
             d3.select(this).selectAll(".subunit")
-            .data([feature])
-            .enter().append("path")
+            .data(rectFeatures)
+            .enter()
+            .append('g')
+            .attr('transform', function(d) { 
+                return 'translate(' + d.x + ',' + d.y + ')'; })
+            .append("path")
             .attr("class", function(d) { return "u" + d.properties.uid; })
             .attr("d", path);
 
