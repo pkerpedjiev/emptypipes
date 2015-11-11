@@ -1,0 +1,20 @@
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Map Area Comparison</title>
+<link rel='stylesheet' href='/css/map-area-comparison.css'>
+<h1>Map Area Comparison</h1>
+
+<div id="map-area" style="height: 300px; width: 550px;"></div>
+<div id="resort-list" style="position: fixed; top: 300px; left: 0; height: 300px"></div>
+
+<script src="/js/lib/d3.min.js"></script>
+<script src="/js/lib/topojson.v1.min.js"></script>
+<script src="/js/lib/d3-grid.js"></script>
+<script src="/js/map-area-comparison.js"></script>
+<script>
+
+compareMaps('/jsons/topn.topo')
+
+</script>
+

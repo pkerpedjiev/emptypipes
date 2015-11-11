@@ -11,16 +11,17 @@ function geoBounds(feature) {
     for (var i = 0; i < feature.geometry.coordinates.length; i++) {
         var coords = feature.geometry.coordinates[i];
         for (var j = 0; j < coords.length; j++) {
-            if (coords[j][0] < minLat)
-                minLat = coords[j][0];
-            if (coords[j][0] > maxLat)
-                maxLat = coords[j][0];
-            if (coords[j][1] < minLon)
-                minLon = coords[j][1];
-            if (coords[j][1] > maxLon)
-                maxLon = coords[j][1];
+            if (coords[j][1] < minLat)
+                minLat = coords[j][1];
+            if (coords[j][1] > maxLat)
+                maxLat = coords[j][1];
+            if (coords[j][0] < minLon)
+                minLon = coords[j][0];
+            if (coords[j][0] > maxLon)
+                maxLon = coords[j][0];
         }
     }
+    console.log('minLat:', minLat, 'minLon:', minLon);
     var newBounds = L.latLngBounds(
         L.latLng(minLat, minLon),
         L.latLng(maxLat, maxLon));
@@ -93,7 +94,7 @@ drawSkiMap = function(divName) {
     .await(ready);
     */
     function projectPoint(x, y) {
-          var point = map.latLngToLayerPoint(new L.LatLng(x, y));
+          var point = map.latLngToLayerPoint(new L.LatLng(y, x));
             this.stream.point(point.x, point.y);
     }
 
@@ -101,9 +102,11 @@ drawSkiMap = function(divName) {
         path = d3.geo.path().projection(transform);
 
    d3.json('/jsons/ski-areas.topo', function(error, data) {
-    var southWest = L.latLng(data.bbox[0], data.bbox[1]),
-        northEast = L.latLng(data.bbox[2], data.bbox[3]),
-        bounds = L.latLngBounds(southWest, northEast);
+       console.log('data.bbox:', data.bbox);
+        var southWest = L.latLng(data.bbox[1], data.bbox[0]),
+            northEast = L.latLng(data.bbox[3], data.bbox[2]);
+
+        var bounds = L.latLngBounds(southWest, northEast);
         map.fitBounds(bounds);
 
        console.log('data:', data);
@@ -152,11 +155,11 @@ drawSkiMap = function(divName) {
             feature.attr("d", function(d) { return path(d.geometry); });
             text.attr('transform', function(d) {
                 var centroid = path.centroid(d.geometry);
-                return 'translate(' + centroid[0] + ',' + centroid[1] + ')';
+                return 'translate(' + centroid[1] + ',' + centroid[0] + ')';
             });
             text1.attr('transform', function(d) {
                 var centroid = path.centroid(d.geometry);
-                return 'translate(' + centroid[0] + ',' + centroid[1] + ')';
+                return 'translate(' + centroid[1] + ',' + centroid[0] + ')';
             });
         }
 
@@ -175,6 +178,7 @@ drawSkiMap = function(divName) {
         .enter()
         .append('li')
 
+        var roundFormat = d3.format('.3f');
         lis.append('a')
         //.attr('href', '#')
         .attr('href', "javascript:void(0);")
@@ -186,7 +190,7 @@ drawSkiMap = function(divName) {
             d3.select(this).classed('selected', true)
             map.fitBounds(newBounds);
         })
-        .text(function(d) { return d.properties.area + " || " ; });
+        .text(function(d,i) { return i + ") " + roundFormat(d.properties.area) + " || " ; });
 
         lis.append('input')
         .attr('type', 'text')
