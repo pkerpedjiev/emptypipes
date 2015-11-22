@@ -155,11 +155,11 @@ drawSkiMap = function(divName) {
             feature.attr("d", function(d) { return path(d.geometry); });
             text.attr('transform', function(d) {
                 var centroid = path.centroid(d.geometry);
-                return 'translate(' + centroid[1] + ',' + centroid[0] + ')';
+                return 'translate(' + centroid[0] + ',' + centroid[1] + ')';
             });
             text1.attr('transform', function(d) {
                 var centroid = path.centroid(d.geometry);
-                return 'translate(' + centroid[1] + ',' + centroid[0] + ')';
+                return 'translate(' + centroid[0] + ',' + centroid[1] + ')';
             });
         }
 
