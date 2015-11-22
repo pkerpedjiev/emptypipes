@@ -27,13 +27,13 @@ function mapComparison() {
                     maxLon = coords[j][0];
             }
         }
-        console.log('minLat:', minLat, 'minLon:', minLon);
         return [[minLon, minLat], [maxLon, maxLat]];
     }
 
     var chart = function(selection) {
         selection.each(function(data) {
             // add grid coordinates to the features
+            var i, j;
             var features = topojson.feature(data, data.objects.boundaries).features;
             var numCols = features.length / 5;
             var numRows = Math.ceil(features.length / numCols);
@@ -42,19 +42,8 @@ function mapComparison() {
             var nodeWidth = Math.min(height, Math.floor((width - (numCols - 1) * padding[0]) / numCols));
             var nodeHeight = nodeWidth;
             var totalHeight = numRows * nodeHeight;
-            console.log('totalHeight:', totalHeight);
 
-            var grid = d3.layout.grid().size([width,height])
-            .cols(numCols)
-            .padding(padding)
-            .nodeSize([nodeHeight, nodeWidth]);
-
-            console.log('features', features);
-            var rectFeatures = grid(features);
-
-            // get the largest feature and tailor the 
-            // projection so that the entire feature fits inside it
-            // snuggly
+            // make sure all features fit in the prescribed width
             var projection = d3.geo.mercator()
             .scale(1)
             .precision(0);
@@ -62,37 +51,81 @@ function mapComparison() {
             var path = d3.geo.path()
                 .projection(projection);
 
-
             if (scaleValue === null) {
                 scaleValue = 1000000000000;
 
-                for (var i = 0; i < features.length; i++) {
+                for (i = 0; i < features.length; i++) {
                     var feature = features[i];
                     var gb = geoBounds(feature);
                     var b = [projection(gb[0]), projection(gb[1])];
                     // scaling the projection taken from
                     // http://stackoverflow.com/a/17067379/899470
+                    /*
                     var s = 0.95 / Math.max(
                             (b[1][0] - b[0][0]) / nodeWidth, 
                             (b[0][1] - b[1][1]) / nodeHeight
                         );
+                    */
+                     var s = 0.95 / Math.max( (b[1][0] - b[0][0]) / nodeWidth );
+
                     if (s < scaleValue) {
                         scaleValue = s;
                     }
                 }
             }
+
+            // the height for each row will be adjusted dynamically
+            var grid = d3.layout.grid().size([width,height])
+            .cols(numCols)
+            .padding(padding)
+            .nodeSize([nodeHeight, nodeWidth]);
+
+            var rectFeatures = grid(features);
+
+            var currY = 0;
+            var textHeight = 50;
+            for (i = 0; i < numRows; i++) {
+                var maxHeight = 0;
+
+                // calculate the maximum height of a node in this row
+                for (j = 0; j < numCols; j++) {
+                    var feature = rectFeatures[i * numCols + j];
+                    feature.nodeWidth = nodeWidth;
+                    feature.nodeHeight = nodeHeight;
+                    createFeaturePath(feature);
+                    var bounds = path.bounds(feature.geometry);
+                    var featureHeight = bounds[1][1] - bounds[0][1];
+                    console.log('featureHeight:', featureHeight);
+
+                    if (featureHeight > maxHeight)
+                        maxHeight = featureHeight;
+                }
+
+                // set the height of all the nodes in this row to the maximum
+                // row height
+                for (j = 0; j < numCols; j++) {
+                    var feature = rectFeatures[i * numCols + j];
+                    feature.y = currY;
+                    feature.nodeHeight = maxHeight + textHeight;
+                    feature.nodeWidth = nodeWidth;
+                }
+
+                // set the current position in the grid
+                currY += maxHeight + textHeight;
+            }
+
+
+            // get the largest feature and tailor the 
+            // projection so that the entire feature fits inside it
+            // snuggly
+
             
             function createFeaturePath(feature) {
-                var path = d3.geo.path()
-                    .projection(projection);
-
                 var b = geoBounds(feature);
 
                 projection.center([(b[1][0]+b[0][0])/2, (b[1][1]+b[0][1])/2]);
-                projection.translate([nodeWidth/2, nodeHeight/2]);
+                projection.translate([feature.nodeWidth/2, feature.nodeHeight/2]);
                 projection.scale(scaleValue); 
-
-                console.log('feature', feature);
 
                 return path(feature.geometry);
             }
@@ -102,7 +135,9 @@ function mapComparison() {
             .enter()
             .append('g')
             .attr('transform', function(d) { 
-                return 'translate(' + d.x + ',' + d.y + ')'; });
+                console.log('d.y:', d.y);
+                return 'translate(' + d.x + ',' + d.y + ')'; 
+            });
 
             gSkiArea.append("path")
             .attr("class", function(d) { return "u" + d.properties.uid; })
@@ -110,7 +145,8 @@ function mapComparison() {
 
             gSkiArea.append('text')
             .attr('transform', function(d) {
-                return 'translate(' + (nodeWidth / 2) + ',' + (nodeHeight + 5) + ')';
+                console.log('d.nodeHeight:', d.nodeHeight);
+                return 'translate(' + (d.nodeWidth / 2) + ',' + (d.nodeHeight + 5) + ')';
             })
             .classed('ski-area-name', true)
             .text(function(d) { return d.properties.name; });
