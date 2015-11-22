@@ -189,7 +189,7 @@ function mapComparison() {
             //
             console.log('worldJson:', worldJson);
 
-            var continents = ['Europe', 'N. America', 'Asia', 'S. America', 'Aus / Oceania'];
+            var continents = ['Europe', 'N. America', 'Asia', 'S. America', 'Aus. / Oceania'];
 
             for (i = 0; i < numRows; i++) {
                 var gThisGlobe = gGlobes.append('g')
