@@ -3,3 +3,8 @@ path {
     stroke-width: 1;
     fill: red;
 }
+
+.ski-area-name {
+    text-anchor: middle;
+    font: 12px sans-serif;
+}
