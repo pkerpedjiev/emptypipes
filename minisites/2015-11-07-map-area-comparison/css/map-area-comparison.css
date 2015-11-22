@@ -34,3 +34,13 @@ path.land {
     font: 12px sans-serif;
     font-weight: bold;
 }
+
+.boundary-path {
+    opacity: 0.5;
+}
+
+.chart-title {
+    text-anchor: middle;
+    font: 13px sans-serif;
+    font-weight: bold;
+}

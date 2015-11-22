@@ -3,6 +3,7 @@ function mapComparison() {
     var height = 400;
     var worldJson = null;
     var scaleValue = null;
+    var leafletMap = null;
 
     function geoBounds(feature) {
         /* Get the bounding box of a GeoJSON feature
@@ -45,7 +46,6 @@ function mapComparison() {
             var nodeHeight = nodeWidth;
             var totalHeight = numRows * nodeHeight;
 
-            // make sure all features fit in the prescribed width
             var projection = d3.geo.mercator()
             .scale(1)
             .precision(0);
@@ -53,6 +53,7 @@ function mapComparison() {
             var path = d3.geo.path()
                 .projection(projection);
 
+            // make sure all features fit in the prescribed width
             if (scaleValue === null) {
                 scaleValue = 1000000000000;
 
@@ -62,13 +63,11 @@ function mapComparison() {
                     var b = [projection(gb[0]), projection(gb[1])];
                     // scaling the projection taken from
                     // http://stackoverflow.com/a/17067379/899470
-                    /*
                     var s = 0.95 / Math.max(
                             (b[1][0] - b[0][0]) / nodeWidth, 
                             (b[0][1] - b[1][1]) / nodeHeight
                         );
-                    */
-                     var s = 0.95 / Math.max( (b[1][0] - b[0][0]) / nodeWidth );
+                     //var s = 0.95 / Math.max( (b[1][0] - b[0][0]) / nodeWidth );
 
                     if (s < scaleValue) {
                         scaleValue = s;
@@ -101,7 +100,6 @@ function mapComparison() {
                     createFeaturePath(feature);
                     var bounds = path.bounds(feature.geometry);
                     var featureHeight = bounds[1][1] - bounds[0][1];
-                    console.log('featureHeight:', featureHeight);
 
                     if (featureHeight > maxHeight)
                         maxHeight = featureHeight;
@@ -139,6 +137,7 @@ function mapComparison() {
                 return path(feature.geometry);
             }
 
+
             var gGrid = d3.select(this).append('g')
             .attr('transform', 'translate(' + marginLeft + ',0)');
 
@@ -147,7 +146,6 @@ function mapComparison() {
             .enter()
             .append('g')
             .attr('transform', function(d) { 
-                console.log('d.y:', d.y);
                 return 'translate(' + d.x + ',' + d.y + ')'; 
             });
 
@@ -166,11 +164,17 @@ function mapComparison() {
                 .style('stroke-width', 0);
                 d3.select('#up' + d.properties.uid)
                 .style('stroke-width', 1);
+            })
+            .on('click', function(d) {
+                var newBounds = geoBounds(d);
+                var mapBounds = L.latLngBounds(
+                    L.latLng(newBounds[0][1], newBounds[0][0]),
+                    L.latLng(newBounds[1][1], newBounds[1][0]));
+                map.fitBounds(mapBounds);
             });
 
             gSkiArea.append('text')
             .attr('transform', function(d) {
-                console.log('d.nodeHeight:', d.nodeHeight);
                 return 'translate(' + (d.nodeWidth / 2) + ',' + (d.nodeHeight + 3) + ')';
             })
             .classed('ski-area-name', true)
@@ -178,7 +182,6 @@ function mapComparison() {
 
             gSkiArea.append('text')
             .attr('transform', function(d) {
-                console.log('d.nodeHeight:', d.nodeHeight);
                 return 'translate(' + (d.nodeWidth / 2) + ',' + (d.nodeHeight + 16) + ')';
             })
             .classed('ski-area-name', true)
@@ -187,7 +190,6 @@ function mapComparison() {
             var gGlobes = d3.select(this).append('g');
             // add the globes
             //
-            console.log('worldJson:', worldJson);
 
             var continents = ['Europe', 'N. America', 'Asia', 'S. America', 'Aus. / Oceania'];
 
@@ -206,8 +208,6 @@ function mapComparison() {
 
                 var clipHeight = nodeWidth;
                 var clipWidth = nodeHeight;
-
-                console.log('nodeWidth:', nodeWidth);
 
                 var totalHeight = (heights[i] + textHeight) / 2;
                 var scale = 30;
@@ -282,23 +282,34 @@ function mapComparison() {
         return chart;
     };
 
+    chart.leafletMap = function(_) {
+        if (!arguments.length) return leafletMap;
+        leafletMap = _;
+        return chart;
+    };
+
     return chart;
 }
 
-function compareMaps(geoJson) {
+function compareMaps(geoJson, leafletMap) {
     /*
     Create a grid comparing some topojson maps.
 
     @param geoJson: The topojson file (misleading parameter name)
     */
     var width = 550;
-    var height = 550;
+    var height = 510;
 
-    var svg = d3.select('#map-area').append('svg')
+    var svg = d3.select('#compare-area').append('svg')
         .attr('width', width)
         .attr('height', height);
 
-    var margin = {'top': 10, 'left': 10, 'right': 10, 'bottom': 10};
+    var margin = {'top': 30, 'left': 10, 'right': 10, 'bottom': 10};
+
+    svg.append('text')
+    .attr('transform', 'translate(' + (width / 2) + ',' + 20 + ')')
+    .classed('chart-title', true)
+    .text('Largest Ski Areas on Each Continent');
 
     var compareChart = mapComparison()
     .width(width - margin.left - margin.right)
@@ -308,7 +319,8 @@ function compareMaps(geoJson) {
 
     d3.json(geoJson, function(data) {
         d3.json('/jsons/world-110m.json', function(world) {
-            compareChart.worldJson(topojson.feature(world, world.objects.countries));
+            compareChart.worldJson(topojson.feature(world, world.objects.countries))
+            .leafletMap(leafletMap);
 
             svg.selectAll('g')
             .data([data])
