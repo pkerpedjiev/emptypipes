@@ -1,6 +1,7 @@
 function mapComparison() {
     var width = 400;
     var height = 400;
+    var worldJson = null;
     var scaleValue = null;
 
     function geoBounds(feature) {
@@ -39,7 +40,8 @@ function mapComparison() {
             var numRows = Math.ceil(features.length / numCols);
 
             var padding = [0,0];
-            var nodeWidth = Math.min(height, Math.floor((width - (numCols - 1) * padding[0]) / numCols));
+            var marginLeft = width / 6;
+            var nodeWidth = Math.min(height, Math.floor((width - marginLeft - (numCols - 1) * padding[0]) / numCols));
             var nodeHeight = nodeWidth;
             var totalHeight = numRows * nodeHeight;
 
@@ -83,9 +85,13 @@ function mapComparison() {
             var rectFeatures = grid(features);
 
             var currY = 0;
-            var textHeight = 50;
+            var textHeight = 20;
+
+            var heights = Array(numRows);  //the height of each row
+            var rowYPoss = Array(numRows); //the positions of each row
+
+            var maxHeight = 0;
             for (i = 0; i < numRows; i++) {
-                var maxHeight = 0;
 
                 // calculate the maximum height of a node in this row
                 for (j = 0; j < numCols; j++) {
@@ -110,6 +116,9 @@ function mapComparison() {
                     feature.nodeWidth = nodeWidth;
                 }
 
+                heights[i] = maxHeight;
+                rowYPoss[i] = currY;
+
                 // set the current position in the grid
                 currY += maxHeight + textHeight;
             }
@@ -130,7 +139,10 @@ function mapComparison() {
                 return path(feature.geometry);
             }
 
-            var gSkiArea = d3.select(this).selectAll(".subunit")
+            var gGrid = d3.select(this).append('g')
+            .attr('transform', 'translate(' + marginLeft + ',0)');
+
+            var gSkiArea = gGrid.selectAll(".subunit")
             .data(rectFeatures)
             .enter()
             .append('g')
@@ -141,15 +153,108 @@ function mapComparison() {
 
             gSkiArea.append("path")
             .attr("class", function(d) { return "u" + d.properties.uid; })
-            .attr("d", createFeaturePath);
+            .attr("d", createFeaturePath)
+            .attr('id', function(d) { return 'up' + d.properties.uid; })
+            .on('mouseover', function(d) {
+                d3.select('#uo' + d.properties.uid)
+                .style('stroke-width', 2);
+                d3.select('#up' + d.properties.uid)
+                .style('stroke-width', 2);
+            })
+            .on('mouseout', function(d) {
+                var sel = d3.select('#uo' + d.properties.uid)
+                .style('stroke-width', 0);
+                d3.select('#up' + d.properties.uid)
+                .style('stroke-width', 1);
+            });
 
             gSkiArea.append('text')
             .attr('transform', function(d) {
                 console.log('d.nodeHeight:', d.nodeHeight);
-                return 'translate(' + (d.nodeWidth / 2) + ',' + (d.nodeHeight + 5) + ')';
+                return 'translate(' + (d.nodeWidth / 2) + ',' + (d.nodeHeight + 3) + ')';
             })
             .classed('ski-area-name', true)
             .text(function(d) { return d.properties.name; });
+
+            gSkiArea.append('text')
+            .attr('transform', function(d) {
+                console.log('d.nodeHeight:', d.nodeHeight);
+                return 'translate(' + (d.nodeWidth / 2) + ',' + (d.nodeHeight + 16) + ')';
+            })
+            .classed('ski-area-name', true)
+            .text(function(d) { return "(" + d.properties.country + ")"; });
+
+            var gGlobes = d3.select(this).append('g');
+            // add the globes
+            //
+            console.log('worldJson:', worldJson);
+
+            var continents = ['Europe', 'N. America', 'Asia', 'S. America', 'Aus / Oceania'];
+
+            for (i = 0; i < numRows; i++) {
+                var gThisGlobe = gGlobes.append('g')
+                .attr('transform', 'translate(0,' + rowYPoss[i] + ')');
+
+                var centroid = [0,0];
+                for (j = 0; j < numCols; j++) {
+                    var featureCentroid = d3.geo.centroid(features[i * numRows + j]);
+                    centroid[0] += featureCentroid[0];
+                    centroid[1] += featureCentroid[1];
+                }
+                centroid[0] /= numCols;
+                centroid[1] /= numCols;
+
+                var clipHeight = nodeWidth;
+                var clipWidth = nodeHeight;
+
+                console.log('nodeWidth:', nodeWidth);
+
+                var totalHeight = (heights[i] + textHeight) / 2;
+                var scale = 30;
+                var worldProjection = d3.geo.orthographic()
+                .scale(scale)
+                .translate([nodeWidth / 2, totalHeight])
+                .rotate([-centroid[0], -centroid[1]])
+                .clipAngle(90)
+                .precision(0.1);
+
+                var worldPath = d3.geo.path()
+                    .projection(worldProjection);
+
+                gThisGlobe.append('path')
+                .datum(worldJson)
+                .attr('d', worldPath)
+                .classed('land', 'true');
+
+                for (j = 0; j < numCols; j++) {
+                    var featureCentroid = d3.geo.centroid(features[i * numRows + j]);
+                    var point = worldProjection(featureCentroid);
+
+                    gThisGlobe.append('circle')
+                    .attr('cx', point[0])
+                    .attr('cy', point[1])
+                    .attr('r', 3)
+                    .classed('ski-area-centroid', true);
+                }
+
+                gThisGlobe.append('text')
+                .attr('transform', 'translate(' + 5 + ',' + (nodeHeight / 2) + ')rotate(-90)')
+                .classed('continent-name', true)
+                .text(continents[i]);
+
+                //add circle outlines on top of the red points
+                for (j = 0; j < numCols; j++) {
+                    var featureCentroid = d3.geo.centroid(features[i * numRows + j]);
+                    var point = worldProjection(featureCentroid);
+
+                    gThisGlobe.append('circle')
+                    .attr('cx', point[0])
+                    .attr('cy', point[1])
+                    .attr('r', 3)
+                    .attr('id', 'uo' + features[i * numRows + j].properties.uid)
+                    .classed('ski-area-outline', true);
+                }
+            }
         });
     };
 
@@ -168,6 +273,12 @@ function mapComparison() {
     chart.scale = function(_) {
         if (!arguments.length) return scaleValue;
         scaleValue = _;
+        return chart;
+    };
+
+    chart.worldJson = function(_) {
+        if (!arguments.length) return worldJson;
+        worldJson = _;
         return chart;
     };
 
@@ -196,11 +307,15 @@ function compareMaps(geoJson) {
     var prevArgs = arguments;
 
     d3.json(geoJson, function(data) {
-        svg.selectAll('g')
-        .data([data])
-        .enter()
-        .append('g')
-        .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
-        .call(compareChart);
+        d3.json('/jsons/world-110m.json', function(world) {
+            compareChart.worldJson(topojson.feature(world, world.objects.countries));
+
+            svg.selectAll('g')
+            .data([data])
+            .enter()
+            .append('g')
+            .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')')
+            .call(compareChart);
+        });
     });
 }
