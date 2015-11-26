@@ -7,17 +7,50 @@ tags: leaflet maps ski-areas
 <meta charset="utf-8"> 
 <img itemprop="image" src="/img/layouts_upon_layouts_itemprop.png" style='display:none' width=200 height=130>
 
+The title pretty much sums it up. The chart below shows the five largest ski
+areas on each continent (except Africa and Antarctica). Africa is excluded
+because the few ski areas there are so poorly annotated that it hardly made
+sense to include them. Sorry Africa. Antarctica is excluded because penguins
+don't need designated ski areas. Everything is calculated according to
+heuristics so take it with a grain of salt.
+
 <link rel='stylesheet' href='/css/largest-ski-areas.css'>
 <link rel="stylesheet" href="/css/leaflet.css">
 
+<hr>
 <div id="compare-area"></div>
+<hr>
+
+Don't believe the outlines? Curious where these ski areas are?  They're all
+displayed within the map below.  Clicking any of the outlines above will
+center the map below on that ski area.
+
+<hr>
 <div id="map-area" style="height: 300px; width: 550px;"></div>
+<hr>
+<b>How it's made</b>
+
+What constitutes a ski area you ask? In this case, it's the concave hull of
+all lifts and slopes that are no further than 1km from each other. Here's the recipe:
+
+1. Download OpenStreetMap dumps of each continent
+2. Filter for lifts and slopes
+3. Sample points along long segments to make sure they're not split
+4. Calculate a Delaunay triangulation of all the OSM nodes and the sampled points
+5. Exclude all triangles which have an edge longer than 1km (concave hull of sorts)
+6. Polygonize
+7. Convert to topojson and downsample to reduce the size
+8. Google the towns near the resorts to figure out what the resorts are called
+9. Make table using D3.js
+10. Create zoomable map using leaflet.js and a d3.js overlay
+
+Questions? Comments? Twitter or email.
 
 <script src="/js/lib/d3.min.js"></script>
 <script src="/js/lib/topojson.v1.min.js"></script>
 <script src="/js/lib/d3-grid.js"></script>
 <script src="/js/lib/leaflet.js"></script>
-<script src="/js/map-area-comparison.js"></script>
+<script src="/js/largest-ski-areas.js"></script>
 <script src="/js/ski-area-map.js"></script>
 <script>
 

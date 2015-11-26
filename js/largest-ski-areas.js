@@ -308,7 +308,7 @@ function compareMaps(geoJson, leafletMap) {
 
     svg.append('text')
     .attr('transform', 'translate(' + (width / 2) + ',' + 20 + ')')
-    .classed('chart-title', true)
+    .classed('largest-ski-area-title', true)
     .text('Largest Ski Areas on Each Continent');
 
     var compareChart = mapComparison()
