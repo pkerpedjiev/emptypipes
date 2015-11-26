@@ -21,7 +21,6 @@ function geoBounds(feature) {
                 maxLon = coords[j][0];
         }
     }
-    console.log('minLat:', minLat, 'minLon:', minLon);
     var newBounds = L.latLngBounds(
         L.latLng(minLat, minLon),
         L.latLng(maxLat, maxLon));
@@ -56,7 +55,7 @@ function haversine(lat1, lon1, lat2, lon2) {
     return d;
 }
 
-drawSkiMap = function(divName) {
+drawSkiMap = function(divName, skiAreasFn) {
     //var map = L.map('isochroneMap').setView([48.2858, 6.7868], 4);
     var initialLat = 47.630119;
     var initialLon = 15.781780;
@@ -101,11 +100,9 @@ drawSkiMap = function(divName) {
     var transform = d3.geo.transform({point: projectPoint}),
         path = d3.geo.path().projection(transform);
 
-   d3.json('/jsons/topn.topo', function(error, data) {
-       console.log('data:', data);
+   d3.json(skiAreasFn, function(error, data) {
        var feature = topojson.feature(data, data.objects.boundaries).features[0];
        var bbox = d3.geo.bounds(feature);
-       console.log('feature:', feature, bbox);
 
         var southWest = L.latLng(bbox[0][1], bbox[0][0]),
             northEast = L.latLng(bbox[1][1], bbox[1][0]);
@@ -113,10 +110,6 @@ drawSkiMap = function(divName) {
         var bounds = L.latLngBounds(southWest, northEast);
         map.fitBounds(bounds);
 
-       console.log('data:', data);
-
-       console.log('data:', data);
-       console.log('feature:', topojson.feature(data, data.objects.boundaries));
         var feature = gAreaBoundaries.selectAll(".boundary-path")
         .data(topojson.feature(data, data.objects.boundaries).features)
         .enter().append("path")

@@ -21,7 +21,9 @@ tags: leaflet maps ski-areas
 <script src="/js/ski-area-map.js"></script>
 <script>
 
-var map = drawSkiMap('map-area');
-compareMaps('/jsons/largest-ski-areas/topn.topo', map);
+var skiAreasFn = '/jsons/largest-ski-areas/topn.topo'
+
+var map = drawSkiMap('map-area', skiAreasFn);
+compareMaps(skiAreasFn, map);
 
 </script>
