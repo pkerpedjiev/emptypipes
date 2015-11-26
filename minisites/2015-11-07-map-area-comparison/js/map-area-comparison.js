@@ -298,7 +298,12 @@ function compareMaps(geoJson) {
         .attr('width', width)
         .attr('height', height);
 
-    var margin = {'top': 10, 'left': 10, 'right': 10, 'bottom': 10};
+    var margin = {'top': 30, 'left': 10, 'right': 10, 'bottom': 10};
+
+    svg.append('text')
+    .attr('transform', 'translate(' + (width / 2) + ',' + 20 + ')')
+    .classed('chart-title', true)
+    .text('Largest Ski Areas on Each Continent');
 
     var compareChart = mapComparison()
     .width(width - margin.left - margin.right)
