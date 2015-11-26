@@ -29,6 +29,12 @@ path.land {
     font: 11px sans-serif;
 }
 
+.chart-title {
+    text-anchor: middle;
+    font: 13px sans-serif;
+    font-weight: bold;
+}
+
 .continent-name {
     text-anchor: middle;
     font: 12px sans-serif;
