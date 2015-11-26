@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+path {
+    stroke: black;
+    stroke-width: 1;
+    fill: transparent;
+}
+</style>
+
+<div id="map-area" style="height: 300px; width: 550px;"></div>
+<div id="resort-list" style="position: fixed; top: 300px; left: 0; height: 300px"></div>
+
+<script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script>
+    var json = {
+  "type": "FeatureCollection", 
+  "features": [
+    {
+      "geometry": {
+        "type": "Polygon", 
+        "coordinates": [
+          [
+            [
+              6.55757, 
+              45.4283625
+            ], 
+            [
+              6.50925565, 
+              45.3728949
+            ], 
+            [
+              6.5249137, 
+              45.3728329
+            ], 
+            [
+              6.52511385, 
+              45.37276325
+            ]
+          ]
+        ]
+      }, 
+      "type": "Feature", 
+      "properties": {
+        "uid": "fb3f3081-c6cf-4f64-8ccb-67918a3dbe84"
+      }
+    }
+  ]
+}
+
+var projection = d3.geo.mercator()
+.scale(1)
+.precision(0);
+
+var path = d3.geo.path()
+.projection(projection);
+
+var pathBounds = path.bounds(json.features[0]);
+var geoBounds = d3.geo.bounds(json.features[0]);
+
+json.features[0].geometry.coordinates[0].map(function(d) {
+    console.log("projection:", projection(d)[0], projection(d)[1]);
+});
+
+console.log('path.bounds:', pathBounds[0][0], pathBounds[0][1])
+console.log('path.bounds:', pathBounds[1][0], pathBounds[1][1])
+
+console.log('d3.geo.bounds:', geoBounds[0][0], geoBounds[0][1])
+console.log('d3.geo.bounds:', geoBounds[1][0], geoBounds[1][1])
+
+</script>
+

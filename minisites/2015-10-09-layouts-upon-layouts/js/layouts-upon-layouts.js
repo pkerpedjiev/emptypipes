@@ -31,7 +31,7 @@ function layoutsUponLayouts(divName) {
               .cols(numCols)
               .padding(padding)
               .nodeSize([treemapWidth, treemapHeight]);
-    var rectData = rectGrid(root)
+    var rectData = rectGrid(root);
 
     // create an svg as a child of the #rna_ss div
     // and then a g for each grid cell

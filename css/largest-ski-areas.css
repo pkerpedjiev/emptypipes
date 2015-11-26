@@ -1,0 +1,52 @@
+path {
+    stroke: black;
+    stroke-width: 1;
+    fill: red;
+    opacity: 0.6;
+}
+
+path.land {
+    stroke: grey;
+    stroke-width: 0;
+    fill: grey;
+    opacity: 0.5;
+}
+
+.ski-area-centroid {
+    fill: red;
+    stroke-width: 0;
+    stroke: black;
+}
+
+.ski-area-outline {
+    fill: transparent;
+    stroke-width: 0;
+    stroke: black;
+}
+
+.ski-area-name {
+    text-anchor: middle;
+    font: 11px sans-serif;
+}
+
+.chart-title {
+    text-anchor: middle;
+    font: 13px sans-serif;
+    font-weight: bold;
+}
+
+.continent-name {
+    text-anchor: middle;
+    font: 12px sans-serif;
+    font-weight: bold;
+}
+
+.boundary-path {
+    opacity: 0.5;
+}
+
+.chart-title {
+    text-anchor: middle;
+    font: 13px sans-serif;
+    font-weight: bold;
+}

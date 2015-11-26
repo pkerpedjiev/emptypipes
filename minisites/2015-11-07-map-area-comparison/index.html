@@ -1,0 +1,24 @@
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Map Area Comparison</title>
+<link rel='stylesheet' href='/css/map-area-comparison.css'>
+<link rel="stylesheet" href="/css/leaflet.css">
+
+<div id="resort-list" style="position: fixed; top: 300px; left: 0; height: 300px"></div>
+<div id="compare-area"></div>
+<div id="map-area" style="height: 300px; width: 550px;"></div>
+
+<script src="/js/lib/d3.min.js"></script>
+<script src="/js/lib/topojson.v1.min.js"></script>
+<script src="/js/lib/d3-grid.js"></script>
+<script src="/js/lib/leaflet.js"></script>
+<script src="/js/map-area-comparison.js"></script>
+<script src="/js/ski-area-map.js"></script>
+<script>
+
+var map = drawSkiMap('map-area');
+compareMaps('/jsons/topn.topo', map);
+
+</script>
+
