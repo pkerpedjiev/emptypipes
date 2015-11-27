@@ -37,7 +37,7 @@ function mapComparison() {
             // add grid coordinates to the features
             var i, j;
             var features = topojson.feature(data, data.objects.boundaries).features;
-            var numCols = features.length / 5;
+            var numCols = 5;
             var numRows = Math.ceil(features.length / numCols);
 
             var padding = [0,0];
@@ -93,7 +93,7 @@ function mapComparison() {
             for (i = 0; i < numRows; i++) {
 
                 // calculate the maximum height of a node in this row
-                for (j = 0; j < numCols; j++) {
+                for (j = 0; j < numCols && (i * numCols + j) < features.length; j++) {
                     var feature = rectFeatures[i * numCols + j];
                     feature.nodeWidth = nodeWidth;
                     feature.nodeHeight = nodeHeight;
@@ -107,7 +107,7 @@ function mapComparison() {
 
                 // set the height of all the nodes in this row to the maximum
                 // row height
-                for (j = 0; j < numCols; j++) {
+                for (j = 0; j < numCols && (i * numCols + j) < features.length; j++) {
                     var feature = rectFeatures[i * numCols + j];
                     feature.y = currY;
                     feature.nodeHeight = maxHeight + textHeight;
@@ -191,15 +191,15 @@ function mapComparison() {
             // add the globes
             //
 
-            var continents = ['Europe', 'N. America', 'Asia', 'S. America', 'Aus. / Oceania'];
+            var continents = ['Europe', 'N. America', 'Asia', 'S. America', 'Aus. / Oceania', 'Africa'];
 
             for (i = 0; i < numRows; i++) {
                 var gThisGlobe = gGlobes.append('g')
                 .attr('transform', 'translate(0,' + rowYPoss[i] + ')');
 
                 var centroid = [0,0];
-                for (j = 0; j < numCols; j++) {
-                    var featureCentroid = d3.geo.centroid(features[i * numRows + j]);
+                for (j = 0; j < numCols && (i * numCols + j) < features.length; j++) {
+                    var featureCentroid = d3.geo.centroid(features[i * numCols + j]);
                     centroid[0] += featureCentroid[0];
                     centroid[1] += featureCentroid[1];
                 }
@@ -226,8 +226,8 @@ function mapComparison() {
                 .attr('d', worldPath)
                 .classed('land', 'true');
 
-                for (j = 0; j < numCols; j++) {
-                    var featureCentroid = d3.geo.centroid(features[i * numRows + j]);
+                for (j = 0; j < numCols && (i * numCols + j) < features.length; j++) {
+                    var featureCentroid = d3.geo.centroid(features[i * numCols + j]);
                     var point = worldProjection(featureCentroid);
 
                     gThisGlobe.append('circle')
@@ -243,15 +243,15 @@ function mapComparison() {
                 .text(continents[i]);
 
                 //add circle outlines on top of the red points
-                for (j = 0; j < numCols; j++) {
-                    var featureCentroid = d3.geo.centroid(features[i * numRows + j]);
+                for (j = 0; j < numCols && (i * numCols + j) < features.length; j++) {
+                    var featureCentroid = d3.geo.centroid(features[i * numCols + j]);
                     var point = worldProjection(featureCentroid);
 
                     gThisGlobe.append('circle')
                     .attr('cx', point[0])
                     .attr('cy', point[1])
                     .attr('r', 3)
-                    .attr('id', 'uo' + features[i * numRows + j].properties.uid)
+                    .attr('id', 'uo' + features[i * numCols + j].properties.uid)
                     .classed('ski-area-outline', true);
                 }
             }
@@ -298,7 +298,7 @@ function compareMaps(geoJson, leafletMap) {
     @param geoJson: The topojson file (misleading parameter name)
     */
     var width = 550;
-    var height = 510;
+    var height = 600;
 
     var svg = d3.select('#compare-area').append('svg')
         .attr('width', width)
