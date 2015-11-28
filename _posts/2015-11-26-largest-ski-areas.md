@@ -44,7 +44,15 @@ all lifts and slopes that are no further than 1km from each other. Here's the re
 9. Make table using D3.js
 10. Create zoomable map using leaflet.js and a d3.js overlay
 
-Questions? Comments? Twitter or email.
+This recipe does lead to some inconsistencies. The Kitzbühel / SkiWelt area is
+dubiously connected in this plot. I'm not sure it's actually possible to ski
+from the SkiWelt area to Kitzbühel, but because they have lifts within 1km of
+each other, they're lumped into one area. This can be fixed by making the
+concave hull tighter, but this ends up either splitting other areas or making
+them look spindly. I've tried quite a few combinations of parameters and this
+one ends up striking the best balance between fidelity and aesthetics.
+
+Questions? Comments? [Twitter (@pkerpedjiev)](https://twitter.com/pkerpedjiev) or email ([see about page](/about)).
 
 <script src="/js/lib/d3.min.js"></script>
 <script src="/js/lib/topojson.v1.min.js"></script>
