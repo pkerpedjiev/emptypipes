@@ -7,12 +7,11 @@ tags: leaflet maps ski-areas
 <meta charset="utf-8"> 
 <img itemprop="image" src="/img/layouts_upon_layouts_itemprop.png" style='display:none' width=200 height=130>
 
-The title pretty much sums it up. The chart below shows the five largest ski
-areas on each continent (except Africa and Antarctica). Africa is excluded
-because the few ski areas there are so poorly annotated that it hardly made
-sense to include them. Sorry Africa. Antarctica is excluded because penguins
-don't need designated ski areas. Everything is calculated according to
-heuristics so take it with a grain of salt.
+The chart below shows the five largest ski areas on each continent (except
+Antarctica). Africa only has three entries because those are the only ski areas
+I found with annotated ski lifts and slopes.  Everything is calculated
+according to heuristics so take it with a grain of salt. If you click on
+a ski area, it will be displayed in the map below.
 
 <link rel='stylesheet' href='/css/largest-ski-areas.css'>
 <link rel="stylesheet" href="/css/leaflet.css">
@@ -26,6 +25,7 @@ displayed within the map below.  Clicking any of the outlines above will
 center the map below on that ski area.
 
 <hr>
+<a name='#map-area'></a>
 <div id="map-area" style="height: 300px; width: 550px;"></div>
 <hr>
 <b>How it's made</b>

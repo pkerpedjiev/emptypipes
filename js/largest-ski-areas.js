@@ -171,6 +171,8 @@ function mapComparison() {
                     L.latLng(newBounds[0][1], newBounds[0][0]),
                     L.latLng(newBounds[1][1], newBounds[1][0]));
                 map.fitBounds(mapBounds);
+
+                window.location = '#map-area';
             });
 
             gSkiArea.append('text')
