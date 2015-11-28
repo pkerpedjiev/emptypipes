@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Never Take The First Choice"
+title:  "Never Take The First Option"
 description: "How to maximize the chances of picking the best option."
 tags: problem
 ---
@@ -12,20 +12,20 @@ tags: problem
 
 A long time ago, in an alternate universe, you rescue the king's
 life. To show his gratitude, the king promises you one of his jewels as a
-reward. He takes out his bag of jewels and tells you that you can 
-reach into the bag and randomly choose one of the jewels. If you like it,
+reward. He takes out his bag of treasures and tells you that you can 
+reach into the bag and randomly choose one. If you like it,
 you can keep it. If you don't, you to place it into another bag and 
-loses the opportunity to ever take that jewel. Judging by the size of the
+lose the opportunity to ever keep that jewel. Judging by the size of the
 bag, you estimate that there are 10 jewels inside.
 
 **How should you proceed in order to maximize your chances of scoring the best
 jewel in the bag?** 
 
 Should you just take the first one you pick or should you
-look at a few before deciding on one to take home? If so, how many?
+look at a few before deciding on one to keep? If so, how many?
 
-There is a concrete mathematical solution, but in this case, it's more
-informative to run some simulations and see what the outcome is. The histograms
+There is a concrete mathematical solution, but for me it's
+easier to run some simulations and see what the outcome is. The histograms
 below show how often a jewel with a value between 0 and 9 is picked after
 seeing some of the jewels and then picking the next one which is better than
 any seen (or the last if the best was seen and discarded).
@@ -112,10 +112,11 @@ exponentially distributed (mostly low-value).
 #### Moral of the Story ####
 
 As long as you have more than one option and you want to get the best reward
-possible, always discard the first third of the options and then pick the next
+possible, always discard the first third (or 1/<i>e</i>'th, where <i>e</i> is [Euler's Number](https://en.wikipedia.org/wiki/E_(mathematical_constant)), to be more precise) of the options and then pick the next
 one which is better than any you have seen so far. If you want something better
 than average but not necessarily the best, discard fewer. Or, to put it more
 succintly:
+
 
 <center><b>NEVER take the first offer when you have more than one choice!</b></center>
 
@@ -130,9 +131,9 @@ succintly:
 #### Acknowledgements ####
 
 <ul>
-    <li>Huge thanks Stephen Rudich for introducing me to the
+    <li>Huge thanks to <a href="http://www.cs.cmu.edu/~rudich/">Steven Rudich</a> for introducing me to the
     King's Jewels problem a long time ago during a summer lecture at the
-    Andrew's Leap program at CMU</li>
+    <a href="http://www.cs.cmu.edu/~./leap/">Andrew's Leap program at CMU.</a></li>
 
     <li> Thanks to <a
         href="http://trentrichardson.com/2010/04/06/compute-linear-regressions-in-javascript/">Trent Richardson</a> for the javascript implementation of a linear regression

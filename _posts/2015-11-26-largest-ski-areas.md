@@ -20,12 +20,12 @@ a ski area, it will be displayed in the map below.
 <div id="compare-area"></div>
 <hr>
 
-Don't believe the outlines? Curious where these ski areas are?  They're all
-displayed within the map below.  Clicking any of the outlines above will
-center the map below on that ski area.
+<b id='map-area-section'>The Map</b>
+
+All the ski areas in the chart above are annotated on the map below. Clicking
+on an area above centers the map below.
 
 <hr>
-<a name='#map-area'></a>
 <div id="map-area" style="height: 300px; width: 550px;"></div>
 <hr>
 <b>How it's made</b>

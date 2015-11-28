@@ -172,7 +172,7 @@ function mapComparison() {
                     L.latLng(newBounds[1][1], newBounds[1][0]));
                 map.fitBounds(mapBounds);
 
-                window.location = '#map-area';
+                window.location = '#map-area-section';
             });
 
             gSkiArea.append('text')
