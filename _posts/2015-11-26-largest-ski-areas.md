@@ -2,6 +2,7 @@
 layout: post
 title:  "Largest Ski Areas On Each Continent"
 description: "A comparison of the sizes of the five largest ski areas on each continent."
+permalink: "/:title"
 tags: leaflet maps ski-areas
 ---
 <meta charset="utf-8"> 
