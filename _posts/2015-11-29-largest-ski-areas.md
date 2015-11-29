@@ -11,8 +11,9 @@ tags: leaflet maps ski-areas
 The chart below shows the five largest ski areas on each continent (except
 Antarctica). Africa only has three entries because those are the only ski areas
 I found with annotated ski lifts and slopes.  Everything is calculated
-according to heuristics so take it with a grain of salt. If you click on
-a ski area, it will be displayed in the map below.
+according to some reasonable yet arbitrary heuristics (described below) so
+please take the boundaries and rankings with a grain of salt. If you click on a
+ski area, it will be displayed in the map below.
 
 <link rel='stylesheet' href='/css/largest-ski-areas.css'>
 <link rel="stylesheet" href="/css/leaflet.css">
@@ -31,8 +32,21 @@ on an area above centers the map below.
 <hr>
 <b>How it's made</b>
 
-What constitutes a ski area you ask? In this case, it's the concave hull of
-all lifts and slopes that are no further than 1km from each other. Here's the recipe:
+Each ski area is defined by something like an (alpha
+shape)[https://en.wikipedia.org/wiki/Alpha_shape], calculated over all the
+lifts and slopes. Each "alpha shape" -like area is calculated by first creating
+a Delaunay triangulation of all ski lift and slope waypoints. Every triangle
+which has a side greater than 1km is then removed. The result is a set of
+disconnected shapes all composed of multiple triangles. Each aggregation of
+triangles is what I consider a ski area.
+
+In some cases, this can lead to two ski resorts being connected even though you
+might have to walk up to 1km to get from one lift to another (e.g. Kitzbühel /
+SkiWelt above). In the opposite scenario, a long lift may not be counted simply
+because the points defining it create degenerate triangles. Nevertheless, in 
+most cases the shapes created reflect the ski areas they represent quite well.
+
+Here's the recipe to re-create the graphic:
 
 1. Download OpenStreetMap dumps of each continent
 2. Filter for lifts and slopes
@@ -40,18 +54,10 @@ all lifts and slopes that are no further than 1km from each other. Here's the re
 4. Calculate a Delaunay triangulation of all the OSM nodes and the sampled points
 5. Exclude all triangles which have an edge longer than 1km (concave hull of sorts)
 6. Polygonize
-7. Convert to topojson and downsample to reduce the size
-8. Google the towns near the resorts to figure out what the resorts are called
-9. Make table using D3.js
+7. Google the towns near the resorts to figure out what the resorts are called
+8. Convert to topojson and downsample to reduce the size
+9. Make table using d3.js
 10. Create zoomable map using leaflet.js and a d3.js overlay
-
-This recipe does lead to some inconsistencies. The Kitzbühel / SkiWelt area is
-dubiously connected in this plot. I'm not sure it's actually possible to ski
-from the SkiWelt area to Kitzbühel, but because they have lifts within 1km of
-each other, they're lumped into one area. This can be fixed by making the
-concave hull tighter, but this ends up either splitting other areas or making
-them look spindly. I've tried quite a few combinations of parameters and this
-one ends up striking the best balance between fidelity and aesthetics.
 
 Questions? Comments? [Twitter (@pkerpedjiev)](https://twitter.com/pkerpedjiev) or email ([see about page](/about)).
 
