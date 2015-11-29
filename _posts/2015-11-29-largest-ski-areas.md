@@ -11,9 +11,10 @@ tags: leaflet maps ski-areas
 The chart below shows the five largest ski areas on each continent (except
 Antarctica). Africa only has three entries because those are the only ski areas
 I found with annotated ski lifts and slopes.  Everything is calculated
-according to some reasonable yet arbitrary heuristics (described below) so
-please take the boundaries and rankings with a grain of salt. If you click on a
-ski area, it will be displayed in the map below.
+according to <a href='#how-its-made'>some reasonable yet arbitrary
+heuristics</a> so please take the rankings with a grain of salt. If you click
+on a ski area, it will be displayed in the <a href='#map-area-section'>map
+below</a>.
 
 <link rel='stylesheet' href='/css/largest-ski-areas.css'>
 <link rel="stylesheet" href="/css/leaflet.css">
@@ -30,10 +31,10 @@ on an area above centers the map below.
 <hr>
 <div id="map-area" style="height: 300px; width: 550px;"></div>
 <hr>
-<b>How it's made</b>
+<b id='how-its-made'>How it's made</b>
 
-Each ski area is defined by something like an (alpha
-shape)[https://en.wikipedia.org/wiki/Alpha_shape], calculated over all the
+Each ski area is defined by something like an [alpha
+shape](https://en.wikipedia.org/wiki/Alpha_shape), calculated over all the
 lifts and slopes. Each "alpha shape" -like area is calculated by first creating
 a Delaunay triangulation of all ski lift and slope waypoints. Every triangle
 which has a side greater than 1km is then removed. The result is a set of
@@ -42,9 +43,10 @@ triangles is what I consider a ski area.
 
 In some cases, this can lead to two ski resorts being connected even though you
 might have to walk up to 1km to get from one lift to another (e.g. Kitzbühel /
-SkiWelt above). In the opposite scenario, a long lift may not be counted simply
-because the points defining it create degenerate triangles. Nevertheless, in 
-most cases the shapes created reflect the ski areas they represent quite well.
+SkiWelt above). In the opposite case (e.g. Oukaimeden), a long lift may not
+be counted simply because the points defining it create degenerate triangles.
+Nevertheless, in most cases the shapes created reflect the ski areas they
+represent quite well.
 
 Here's the recipe to re-create the graphic:
 
