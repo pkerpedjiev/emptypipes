@@ -13,7 +13,10 @@
    style="height:600px;width:550px;perspective-origin:275px 300px;transform-origin:275px 300px;"
    id="svg2"
    inkscape:version="0.91 r13725"
-   sodipodi:docname="largest-ski-areas_retouched.svg">
+   sodipodi:docname="largest-ski-areas_retouched.svg"
+   inkscape:export-filename="/Users/pkerp/projects/emptypipes/img/largest-ski-areas_retouched.png"
+   inkscape:export-xdpi="539.93585"
+   inkscape:export-ydpi="539.93585">
   <metadata
      id="metadata332">
     <rdf:RDF>
@@ -43,11 +46,20 @@
      showgrid="false"
      inkscape:zoom="0.78666667"
      inkscape:cx="284.5281"
-     inkscape:cy="293.45704"
+     inkscape:cy="242.60959"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="0"
      inkscape:current-layer="svg2" />
+  <rect
+     style="fill:#ffffff;fill-opacity:0.6;stroke:none"
+     id="rect4205"
+     width="551.69489"
+     height="600"
+     x="0"
+     y="1.2711861"
+     inkscape:export-xdpi="539.93585"
+     inkscape:export-ydpi="539.93585" />
   <text
      transform="translate(275,20)"
      class="largest-ski-area-title"
