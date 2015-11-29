@@ -21,7 +21,6 @@ function geoBounds(feature) {
                 maxLon = coords[j][0];
         }
     }
-    console.log('minLat:', minLat, 'minLon:', minLon);
     var newBounds = L.latLngBounds(
         L.latLng(minLat, minLon),
         L.latLng(maxLat, maxLon));
@@ -56,7 +55,7 @@ function haversine(lat1, lon1, lat2, lon2) {
     return d;
 }
 
-drawSkiMap = function(divName) {
+drawSkiMap = function(divName, skiAreasFn) {
     //var map = L.map('isochroneMap').setView([48.2858, 6.7868], 4);
     var initialLat = 47.630119;
     var initialLon = 15.781780;
@@ -101,28 +100,21 @@ drawSkiMap = function(divName) {
     var transform = d3.geo.transform({point: projectPoint}),
         path = d3.geo.path().projection(transform);
 
-   d3.json('/jsons/ski-areas.topo', function(error, data) {
-       console.log('data.bbox:', data.bbox);
-        var southWest = L.latLng(data.bbox[1], data.bbox[0]),
-            northEast = L.latLng(data.bbox[3], data.bbox[2]);
+   d3.json(skiAreasFn, function(error, data) {
+       var feature = topojson.feature(data, data.objects.boundaries).features[0];
+       var bbox = d3.geo.bounds(feature);
+
+        var southWest = L.latLng(bbox[0][1], bbox[0][0]),
+            northEast = L.latLng(bbox[1][1], bbox[1][0]);
 
         var bounds = L.latLngBounds(southWest, northEast);
         map.fitBounds(bounds);
 
-       console.log('data:', data);
-
-       console.log('data:', data);
-       console.log('feature:', topojson.feature(data, data.objects.boundaries));
         var feature = gAreaBoundaries.selectAll(".boundary-path")
         .data(topojson.feature(data, data.objects.boundaries).features)
         .enter().append("path")
         .classed('boundary-path', true)
-        .style('fill', function(d) { 
-            if (d.properties.name.length == 0)
-                return 'red';
-            else
-                return 'green';
-        })
+        .style('fill', 'red')
         .on('mouseover', function(d) {
         d3.selectAll('#u' + d.properties.uid)
         .classed('selected', true)
@@ -136,18 +128,8 @@ drawSkiMap = function(divName) {
         .data(topojson.feature(data, data.objects.boundaries).features)
         .enter()
         .append('text')
-        .text(function(d) { return d.properties.uid; })
-        .attr('id', function(d) { return "u" + d.properties.uid; })
-        .attr('text-anchor', 'middle')
-        .attr('dominant-baseline', 'central');
-
-        var text1 = gAreaBoundaries.selectAll('.boundary-text')
-        .data(topojson.feature(data, data.objects.boundaries).features)
-        .enter()
-        .append('text')
-        .attr('dy', 14)
         .text(function(d) { return d.properties.name; })
-        .attr('id', function(d) { return "u" + d.properties.uid; })
+        .attr('id', function(d) { return "u" + d.properties.name; })
         .attr('text-anchor', 'middle')
         .attr('dominant-baseline', 'central');
 
@@ -157,44 +139,11 @@ drawSkiMap = function(divName) {
                 var centroid = path.centroid(d.geometry);
                 return 'translate(' + centroid[0] + ',' + centroid[1] + ')';
             });
-            text1.attr('transform', function(d) {
-                var centroid = path.centroid(d.geometry);
-                return 'translate(' + centroid[0] + ',' + centroid[1] + ')';
-            });
         }
 
         map.on("viewreset", resetView);
         resetView();
-
-        var skiAreas = topojson.feature(data, data.objects.boundaries).features;
-        skiAreas.sort(function(a,b) { return +b.properties.area - a.properties.area; });
-
-        console.log('bounds:', bounds);
-
-        var lis = d3.select("#resort-list")
-        .append('ul')
-        .selectAll('li')
-        .data(skiAreas)
-        .enter()
-        .append('li')
-
-        var roundFormat = d3.format('.3f');
-        lis.append('a')
-        //.attr('href', '#')
-        .attr('href', "javascript:void(0);")
-        .on('click', function(d) { 
-            var newBounds = geoBounds(d);
-            d3.selectAll('a')
-            .classed('selected', false)
-
-            d3.select(this).classed('selected', true)
-            map.fitBounds(newBounds);
-        })
-        .text(function(d,i) { return i + ") " + roundFormat(d.properties.area) + " || " ; });
-
-        lis.append('input')
-        .attr('type', 'text')
-        .attr('name', function(d) { return 'i' + d.properties.uid; })
-        .attr('value', function(d) { return d.properties.name; });
     });
+
+    return map;
 };
