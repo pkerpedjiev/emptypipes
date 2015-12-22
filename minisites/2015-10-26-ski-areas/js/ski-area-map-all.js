@@ -56,7 +56,7 @@ function haversine(lat1, lon1, lat2, lon2) {
     return d;
 }
 
-drawSkiMap = function(divName) {
+drawSkiMap = function(divName, jsonDir) {
     //var map = L.map('isochroneMap').setView([48.2858, 6.7868], 4);
     var initialLat = 47.630119;
     var initialLon = 15.781780;
@@ -101,9 +101,9 @@ drawSkiMap = function(divName) {
     var transform = d3.geo.transform({point: projectPoint}),
         path = d3.geo.path().projection(transform);
 
-    d3.json('/jsons/uids-to-names.json', function(error, uids_to_names) {
+    d3.json(jsonDir + '/uids-to-names.json', function(error, uids_to_names) {
         console.log('uids_to_names', uids_to_names);
-        d3.json('/jsons/ski-areas.topo', function(error, data) {
+        d3.json(jsonDir + '/ski-areas.topo', function(error, data) {
             console.log('data.bbox:', data.bbox);
             var southWest = L.latLng(data.bbox[1], data.bbox[0]),
                 northEast = L.latLng(data.bbox[3], data.bbox[2]);
