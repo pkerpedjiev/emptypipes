@@ -68,10 +68,17 @@ drawSkiMap = function(divName, jsonDir) {
         zoom: 5
     });
 
-    L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+    var mapnikLayer = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(map);
+    });
 
+    var mapQuestLayer = new L.TileLayer.MapQuestOpen.OSM();
+    mapQuestLayer.addTo(map);
+
+    var baseMaps = { 'MapQuest Open': mapQuestLayer,
+                    'Mapnik': mapnikLayer };
+
+    L.control.layers(baseMaps).addTo(map);
 
     var topPane = map._createPane('leaflet-top-pane', map.getPanes().mapPane);
     //var topLayerLines = new L.StamenTileLayer('toner-lines', {'opacity': 0.8});
@@ -109,17 +116,19 @@ drawSkiMap = function(divName, jsonDir) {
                 northEast = L.latLng(data.bbox[3], data.bbox[2]);
 
                 var bounds = L.latLngBounds(southWest, northEast);
+                console.log('bounds:', bounds);
                 map.fitBounds(bounds);
 
                 var feature = gAreaBoundaries.selectAll(".boundary-path")
                 .data(topojson.feature(data, data.objects.boundaries).features)
                 .enter().append("path")
                 .classed('boundary-path', true)
-                .style('fill', function(d) { 
+                .attr('id', function(d) { return 'b' + d.properties.uid; })
+                .classed('annotated', function(d) {
                     if (d.properties.uid in uids_to_names)
-                        return 'green';
+                        return true;
                     else
-                        return 'red';
+                        return false;
                 })
                 .on('mouseover', function(d) {
                     d3.selectAll('#u' + d.properties.uid)
@@ -139,6 +148,12 @@ drawSkiMap = function(divName, jsonDir) {
                     .classed('selected', true)
                     .node()
                     .scrollIntoView();
+
+                    d3.selectAll('.boundary-path')
+                    .classed('selected', false);
+
+                    d3.select(this)
+                    .classed('selected', true);
                 });
 
                 var namedFeatures = topojson.feature(data, data.objects.boundaries).features;
@@ -201,6 +216,11 @@ drawSkiMap = function(divName, jsonDir) {
                     var newBounds = geoBounds(d);
                     d3.selectAll('a')
                     .classed('selected', false);
+
+                    feature.classed('selected', false);
+
+                    d3.select('#b' + d.properties.uid)
+                    .classed('selected', true);
 
                     d3.select(this).classed('selected', true);
                     map.fitBounds(newBounds);
