@@ -44,22 +44,20 @@
      inkscape:window-height="812"
      id="namedview328"
      showgrid="false"
-     inkscape:zoom="3.8569461"
-     inkscape:cx="510.36749"
-     inkscape:cy="82.653416"
+     inkscape:zoom="5.4545455"
+     inkscape:cx="144.1379"
+     inkscape:cy="441.52556"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="0"
      inkscape:current-layer="svg2" />
   <rect
-     style="fill:#ffffff;fill-opacity:0.6;stroke:none"
-     id="rect4205"
-     width="551.69489"
-     height="600"
-     x="0"
-     y="1.2711861"
-     inkscape:export-xdpi="539.93585"
-     inkscape:export-ydpi="539.93585" />
+     style="color:#000000;display:inline;overflow:visible;visibility:visible;opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#666666;stroke-width:1.23800004;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:1.238, 4.952;stroke-dashoffset:0;stroke-opacity:0.99215686;marker:none;enable-background:accumulate"
+     id="rect4290"
+     width="594.25256"
+     height="634.69904"
+     x="-10.370899"
+     y="-8.7717943" />
   <text
      transform="translate(275,20)"
      class="largest-ski-area-title"
@@ -74,11 +72,11 @@
      class="ufb3f3081-c6cf-4f64-8ccb-67918a3dbe84" />
   <text
      id="text13"
-     style="font-size:9.375px;line-height:125%;font-family:sans-serif;text-anchor:middle;white-space:nowrap;display:block;-inkscape-font-specification:'sans-serif, Normal';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;text-align:center;writing-mode:lr;"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:9.375px;line-height:125%;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Normal';text-align:center;writing-mode:lr-tb;text-anchor:middle;white-space:nowrap;display:block"
      class="ski-area-name"
      x="142.33333"
      y="122.84744"
-     sodipodi:linespacing="125%">Les 3 Vallees</text>
+     sodipodi:linespacing="125%">Les 3 Vallées</text>
   <text
      id="text15"
      style="font-size:9.375px;line-height:125%;font-family:sans-serif;text-anchor:middle;white-space:nowrap;display:block;-inkscape-font-specification:'sans-serif, Normal';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;text-align:center;writing-mode:lr;"
