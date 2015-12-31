@@ -1,0 +1,9 @@
+**/*.un~
+**/*.swn
+**/*.swo
+**/*.swp
+.DS_Store
+_site/**
+minisites/**
+supp/isochrone_driving_train_difference
+css/dist/**
