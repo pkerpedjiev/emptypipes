@@ -241,7 +241,7 @@ drawSkiMap = function(divName, jsonDir) {
 
                 d3.select('#export-button')
                 .on('click', function(d) {
-                    var data_string = JSON.stringify(uids_to_names);
+                    var data_string = JSON.stringify(uids_to_names, null, '  ');
                     var blob = new Blob([data_string], {type: "application/json"});
                     saveAs(blob, 'uids-to-names.json');
 
