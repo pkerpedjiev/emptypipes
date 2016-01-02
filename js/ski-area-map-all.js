@@ -224,12 +224,7 @@ drawSkiMap = function(divName, jsonDir) {
                 .classed('area', true)
                 .text(function(d,i) { return i;});
 
-                var roundFormat = d3.format('.3f');
-                lis.append('td').append('a')
-                .classed('area', true)
-                .attr('href', "javascript:void(0);")
-                .attr('id', function(d) { return 'a-' + d.properties.uid; })
-                .on('click', function(d) { 
+                function skiAreaClicked(d) {
                     var newBounds = geoBounds(d);
                     d3.selectAll('a')
                     .classed('selected', false);
@@ -241,22 +236,26 @@ drawSkiMap = function(divName, jsonDir) {
 
                     d3.select(this).classed('selected', true);
                     map.fitBounds(newBounds);
-                })
+                }
+
+                var roundFormat = d3.format('.3f');
+                lis.append('td').append('a')
+                .classed('area', true)
+                .attr('href', "javascript:void(0);")
+                .attr('id', function(d) { return 'a-' + d.properties.uid; })
+                .on('click', skiAreaClicked)
                 .text(function(d,i) { return roundFormat(d.properties.area); });
 
 
                 lis.append('td')
-                .append('input')
-                .attr('type', 'text')
-                .attr('name', function(d) { return 'i' + d.properties.uid; })
-                .attr('value', function(d) { 
+                .append('a')
+                .classed('area', true)
+                .attr('href', "javascript:void(0);")
+                .on('click', skiAreaClicked)
+                .text(function(d) {
                   if (d.properties.uid in uids_to_names) {
                     return uids_to_names[d.properties.uid];
-                  }
-                })
-                .on('change', function(d) {
-                    uids_to_names[d.properties.uid] = this.value;
-                });
+                  }});
 
                 d3.select('#export-button')
                 .on('click', function(d) {
