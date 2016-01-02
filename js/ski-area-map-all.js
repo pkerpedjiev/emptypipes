@@ -21,7 +21,6 @@ function geoBounds(feature) {
                 maxLon = coords[j][0];
         }
     }
-    console.log('minLat:', minLat, 'minLon:', minLon);
     var newBounds = L.latLngBounds(
         L.latLng(minLat, minLon),
         L.latLng(maxLat, maxLon));
@@ -73,10 +72,15 @@ drawSkiMap = function(divName, jsonDir) {
     });
 
     var mapQuestLayer = new L.TileLayer.MapQuestOpen.OSM();
-    mapQuestLayer.addTo(map);
+    //mapQuestLayer.addTo(map);
+    
+    mapnikLayer.addTo(map);
+
+    var openTopoMapLayer = new L.TileLayer.OpenTopoMap();
 
     var baseMaps = { 'MapQuest Open': mapQuestLayer,
-                    'Mapnik': mapnikLayer };
+                    'OpenStreetMap': mapnikLayer,
+                    'OpenTopoMap': openTopoMapLayer };
 
     L.control.layers(baseMaps).addTo(map);
 
@@ -109,14 +113,11 @@ drawSkiMap = function(divName, jsonDir) {
         path = d3.geo.path().projection(transform);
 
     d3.json(jsonDir + '/uids-to-names.json', function(error, uids_to_names) {
-        console.log('uids_to_names', uids_to_names);
         d3.json(jsonDir + '/ski-areas.topo', function(error, data) {
-            console.log('data.bbox:', data.bbox);
             var southWest = L.latLng(data.bbox[1], data.bbox[0]),
                 northEast = L.latLng(data.bbox[3], data.bbox[2]);
 
                 var bounds = L.latLngBounds(southWest, northEast);
-                console.log('bounds:', bounds);
                 map.fitBounds(bounds);
 
                 var feature = gAreaBoundaries.selectAll(".boundary-path")
@@ -139,7 +140,6 @@ drawSkiMap = function(divName, jsonDir) {
                     .classed('selected', false)
                 })
                 .on('click', function(d) {
-                    console.log('clicked');
                     d3.selectAll('a')
                     .classed('selected', false);
 
@@ -160,7 +160,6 @@ drawSkiMap = function(divName, jsonDir) {
                 namedFeatures = namedFeatures.filter(function(d) {
                     return d.properties.uid in uids_to_names;
                 });
-                console.log('namedFeatures:', namedFeatures);
 
                 var text = gAreaBoundaries.selectAll('.boundary-text')
                 .data(namedFeatures)
@@ -199,17 +198,35 @@ drawSkiMap = function(divName, jsonDir) {
                 var skiAreas = topojson.feature(data, data.objects.boundaries).features;
                 skiAreas.sort(function(a,b) { return +b.properties.area - a.properties.area; });
 
-                console.log('bounds:', bounds);
-
                 var lis = d3.select("#resort-list")
                 .append('ul')
-                .selectAll('li')
+                .classed('area-list', true)
+                .append('table')
+                .attr('id', 'resort-list-table')
+
+                var headerRow = lis;
+
+                headerRow.append('th')
+                .text('id');
+
+                headerRow.append('th')
+                .text('area');
+
+                headerRow.append('th')
+                .text('name');
+
+                lis = lis.selectAll('tr')
                 .data(skiAreas)
                 .enter()
-                .append('li');
+                .append('tr');
+
+                lis.append('td')
+                .classed('area', true)
+                .text(function(d,i) { return i;});
 
                 var roundFormat = d3.format('.3f');
-                lis.append('a')
+                lis.append('td').append('a')
+                .classed('area', true)
                 .attr('href', "javascript:void(0);")
                 .attr('id', function(d) { return 'a-' + d.properties.uid; })
                 .on('click', function(d) { 
@@ -225,9 +242,11 @@ drawSkiMap = function(divName, jsonDir) {
                     d3.select(this).classed('selected', true);
                     map.fitBounds(newBounds);
                 })
-                .text(function(d,i) { return i + ") " + roundFormat(d.properties.area) + " || " ; });
+                .text(function(d,i) { return roundFormat(d.properties.area); });
 
-                lis.append('input')
+
+                lis.append('td')
+                .append('input')
                 .attr('type', 'text')
                 .attr('name', function(d) { return 'i' + d.properties.uid; })
                 .attr('value', function(d) { 
@@ -245,7 +264,6 @@ drawSkiMap = function(divName, jsonDir) {
                     var blob = new Blob([data_string], {type: "application/json"});
                     saveAs(blob, 'uids-to-names.json');
 
-                    console.log('uids_to_names:', uids_to_names);
                 });
 
         });

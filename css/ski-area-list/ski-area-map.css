@@ -1,10 +1,45 @@
+@import url(https://fonts.googleapis.com/css?family=Crimson+Text:600);
+@import url(https://fonts.googleapis.com/css?family=Crimson+Text);
+@import url(https://fonts.googleapis.com/css?family=Cambo);
+
+#everything {
+    width: 850px;
+    margin: 0 auto;
+}
+
 #continents-table {
     width: 100%;
 }
 
+body {
+    font-family: 'Cambo', serif;
+    font-size: 11pt;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+.area {
+    font-family: 'Cambo', serif;
+    font-size: 10pt;
+}
+
+
 td.continent-cell {
     width: 16%;
     text-align: center;
+    font-family: "Cambo", sans-serif;
+    font-weight: 600;
+    font-size: 11pt;
+    border-right: solid;
+    border-color: #CCCCCC;
+    border-right-width: 1px;
+}
+
+td.last-cell {
+    border-right: none;
 }
 
 #resort-stuff {
@@ -45,12 +80,11 @@ a.selected {
     background-color: yellow;
 }
 
-ul{
-    list-style: none;
+ul.area-list {
     padding: 0;
     margin: 0;
     overflow-y: scroll;
     position: absolute;
     width: 550px;
     height: 100%;
-                        }
+}
