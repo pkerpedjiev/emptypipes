@@ -1,43 +1,11 @@
+---
+layout: ski-areas-of-the-world
+title:  "Ski Areas of the World (Africa)"
+---
 
-<!DOCTYPE html>
-<meta charset="utf-8">
-<title>Ski Area Maps</title>
-<link rel='stylesheet' href='/css/ski-area-list/ski-area-map.css'>
-<link rel="stylesheet" href="/css/leaflet.css">
-
-<div id="navigation" style="width:850px">
-    <table style="width:850px" id='continents-table'>
-        <tr>
-            <td class='continent-cell'><a href="/supp/ski_areas/africa.html">Africa</a></td>
-            <td class='continent-cell'><a href="/supp/ski_areas/asia.html">Asia</a></td>
-            <td class='continent-cell'><a href="/supp/ski_areas/australia_oceania.html">Australia / Oceania</a></td>
-            <td class='continent-cell'><a href="/supp/ski_areas/europe.html">Europe</a></td>
-            <td class='continent-cell'><a href="/supp/ski_areas/north_america.html">North America</a></td>
-            <td class='continent-cell'><a href="/supp/ski_areas/south_america.html">South America</a></td>
-        </tr>
-        </table>
-</div>
-
-<div id="resort-stuff">
-    <div id="map-area" style="height: 350px; width: 650px;"></div>
-    <div id="resort-area">
-        <div id="resort-list" style="position: absolute; top: 0px; left: 650px; height: 350px; width: 200px"></div>
-        <div id="resort-button" style="position: absolute; top: 350px; left: 650px; height: 50px; width: 200px;">
-            <button type='button' id="export-button" style="float: right;">Export JSON</button>
-        </div>
-    </div>
-</div>
-
-
-<script src="/js/lib/d3.min.js"></script>
-<script src="/js/lib/topojson.v1.min.js"></script>
-<script src="/js/lib/leaflet.js"></script>
-<script src="/js/lib/TileLayer.common.js"></script>
-<script src="/js/lib/FileSaver.min.js"></script>
-<script src="/js/ski-area-map-all.js"></script>
 <script>
 
-drawSkiMap('map-area', '/jsons/ski-areas/africa/')
+    drawSkiMap('map-area', '/jsons/ski-areas/africa/')
 
 </script>
 
