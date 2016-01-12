@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Ski Area Elevations</title>
+<link rel='stylesheet' href='/css/ski-area-elevations.css'>
+
+<div id="resort-list" style="position: fixed; top: 300px; left: 0; height: 300px"></div>
+<div id="ski-area-elevations"></div>
+
+<script src="/js/lib/d3.min.js"></script>
+<script src="/js/ski-area-elevations.js"></script>
+<script>
+
+    var elevationsPlot = skiAreaElevationsPlot()
+    .width(550)
+    .height(400);
+
+    d3.json('jsons/ski-area-elevations.json', function(data, error) {
+        d3.select('#ski-area-elevations')
+        .datum(data)
+        .call(skiAreaElevationsPlot)
+    }
+
+</script>
+

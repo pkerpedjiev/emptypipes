@@ -5,5 +5,6 @@
 .DS_Store
 _site/**
 minisites/**
+!minisites/2015-01-12-ski-area-elevations/**
 supp/isochrone_driving_train_difference
 css/dist/**
