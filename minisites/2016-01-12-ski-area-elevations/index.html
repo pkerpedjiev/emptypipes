@@ -10,10 +10,11 @@
 
     <script src="/js/lib/d3.min.js"></script>
     <script src="/js/ski-area-elevations.js"></script>
+    <script src="/js/lib/d3-zoom-pan-extent.js"></script>
     <script>
         var elevationsPlot = skiAreaElevationsPlot()
         .width(550)
-        .height(400);
+        .height(300);
 
         d3.json('jsons/ski-area-elevations.json', function(error, data) {
             console.log('data', data);

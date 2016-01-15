@@ -25,8 +25,9 @@ svg {
 }
 
 .resort-rect {
-    stroke: black;
-    fill: white;
+    stroke: transparent;
+    fill: black;
+    opacity: 0.5;
     pointer-events: none;
 }
 
