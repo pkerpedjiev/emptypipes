@@ -7,15 +7,11 @@ tags: python matplotlib research
 <meta charset="utf-8"> 
 <img itemprop="image" src="/img/layouts_upon_layouts_itemprop.png" style='display:none' width=200 height=130>
 
-Graphs are key to any scientific publication. Unfortunately, there don't seem
-to be any hard and fast rules as to how large they should be, what the font
-sizes they should use and how much space should be devoted to the actual
-figure as compared to the axis labels and such.
-
-Having tried many different configurations, I've settled on some parameters
-that work as a starting point for most of the graphs I make. The axis and tick
-labels are legible and the size of the plotting area is commensurate with the
-amount of data being displayed:
+The example below shows how to create a graph that is both aesthetically
+pleasing and sensibly proportioned. I used these parameters to generate the
+majority of the figures in my PhD thesis.  The `savefig` function can also be
+used to save a pdf or an svg file for modification in your favorite image
+editor (e.g. inkscape).
 
 <hr>
 <img src="/img/trigonometric_functions.png" width=250 align="middle">
@@ -27,14 +23,27 @@ amount of data being displayed:
 
 
 {% highlight python %}
+%load_ext autoreload
+%autoreload 2
+%pylab inline
+
 import numpy as np
 import seaborn as sns
 
-# set the figure look
+rc('text', usetex=True)
+plt.rc('font', family='Palatino')
 sns.set_style('white')
-sns.set_context("notebook", font_scale=1.5, rc={"lines.linewidth": 2.5})
+sns.set_context("notebook", font_scale=1.0, rc={"lines.linewidth": 2})
 rc('text', usetex=True)    # use latex in the labels
-pylab.rcParams['figure.figsize'] = (4,3)
+pylab.rcParams['figure.figsize'] = (1.3,1.0)
+
+
+font = {'family' : 'serif',
+        'serif': 'Palatino',
+        'weight' : 'bold',
+        'size'   : 11}
+
+matplotlib.rc('font', **font)
 
 # create the dummy data
 x = np.linspace(0, 2*math.pi,100)
@@ -49,10 +58,18 @@ ax.plot(x, z, label='cos')
 ax.set_xlabel('x')
 ax.set_ylabel('y')
 ax.axvline(x=3, color='red', ls='dashed')
-ax.set_title('Trigonometric Functions')
+ax.set_title('Trigonometric Functions', y=1.08)
+
+ax.spines['right'].set_visible(False)
+ax.spines['top'].set_visible(False)
+
+pyplot.locator_params(nbins=7)
+for item in ([ax.title, ax.xaxis.label, ax.yaxis.label] +
+         ax.get_xticklabels() + ax.get_yticklabels()):
+    item.set_fontsize(10)
 
 handles, labels = ax.get_legend_handles_labels()
-ax.legend(handles, labels)
+ax.legend(handles, labels, bbox_to_anchor=(1.8, 0.85))
 
 plt.savefig('img/trigonometric_functions.png', dpi=500, bbox_inches="tight")
 {% endhighlight %}

@@ -4,3 +4,4 @@ highlighter: pygments
 paginate: 3
 permalink: pretty
 url: http://emptypipes.org
+gems: [jekyll-paginate]
