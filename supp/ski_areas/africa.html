@@ -1,11 +1,91 @@
----
-layout: ski-areas-of-the-world
-title:  "Ski Areas of the World (Africa)"
----
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+<title>Ski Area Maps</title>
 
+</head>
+<link rel='stylesheet' href='/css/ski-area-list/ski-area-map.css'>
+<link rel="stylesheet" href="/css/leaflet.css">
+
+<h2 align="center">Ski Areas of the World</h2>
+
+<body>
+<div id='everything'>
+<div id="navigation" style="width:850px; margin-bottom: 10px">
+    <table style="width:850px" id='continents-table'>
+        <tr>
+            <td class='continent-cell'><a href="/supp/ski_areas/africa.html">Africa</a></td>
+            <td class='continent-cell'><a href="/supp/ski_areas/asia.html">Asia</a></td>
+            <td class='continent-cell'><a href="/supp/ski_areas/australia_oceania.html">Australia / Oceania</a></td>
+            <td class='continent-cell'><a href="/supp/ski_areas/europe.html">Europe</a></td>
+            <td class='continent-cell'><a href="/supp/ski_areas/north_america.html">North America</a></td>
+            <td class='continent-cell last-cell'><a href="/supp/ski_areas/south_america.html">South America</a></td>
+        </tr>
+        </table>
+</div>
+
+<div id="resort-stuff" style='height:380px'>
+    <div id="map-area" style="height: 350px; width: 650px;"></div>
+    <div id="resort-area">
+        <div id="resort-list" style="position: absolute; top: 0px; left: 655px; height: 350px; width: 200px"></div>
+        <div id="resort-button" style="position: absolute; top: 350px; left: 655px; height: 50px; width: 200px;">
+            <button type='button' id="export-button" style="float: right;">Export JSON</button>
+        </div>
+    </div>
+</div>
+
+
+<div>
+<b>Usage</b>
+<ul>
+    <li> Clicking on one of the links to the right will center the map on that
+    ski area.</li>
+    <li> Annotated ski areas are colored green</li>
+    <li> Unannotated ski areas are colored red</li>
+    <li> The currently selected ski area is colored yellow irregardless of
+    whether it is selected or not</li>
+
+</ul>
+<b>Annotation</b>
+<br><br>
+If you want to add new ski area names, enter them in the text boxes to the
+right of the map. To save them, click on 'Export JSON', and store the 
+resulting file (uids-to-names.json) in the appropriate sub-directory:
+<table style="margin-top: 10px; margin-left: 25px">
+    <tr>
+    <td><b>Africa:</b></td> <td><tt>/page/jsons/ski-areas/africa/uids-to-names.json</tt></td>
+</tr>
+<tr>
+<td><b>Asia:</b></td><td> <tt>/page/jsons/ski-areas/asia/uids-to-names.json</tt></td>
+</tr>
+<tr>
+<td><b>Australia / Oceania:</b></td><td> <tt>/page/jsons/ski-areas/australia-oceania/uids-to-names.json</tt></td>
+</tr>
+<tr>
+    <td><b>Europe:</b></td><td> <tt>/page/jsons/ski-areas/europe/uids-to-names.json</tt></td>
+</tr>
+<tr>
+<td><b>North America:</b></td><td> <tt>/page/jsons/ski-areas/north-america/uids-to-names.json</tt></td>
+</tr>
+<tr>
+    <td><b>South America:</b></td><td> <tt>/page/jsons/ski-areas/south-america/uids-to-names.json</tt></td>
+</tr>
+</table>
+</div>
+
+
+</div><!-- id=everything -->
+
+<script src="/js/lib/d3.min.js"></script>
+<script src="/js/lib/topojson.v1.min.js"></script>
+<script src="/js/lib/leaflet.js"></script>
+<script src="/js/lib/TileLayer.Common.js"></script>
+<script src="/js/lib/FileSaver.min.js"></script>
+<script src="/js/ski-area-map-all.js"></script>
 <script>
 
-    drawSkiMap('map-area', '/jsons/ski-areas/africa/')
+drawSkiMap('map-area', '/jsons/ski-areas/africa/')
 
 </script>
+</body>
 

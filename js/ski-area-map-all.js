@@ -72,15 +72,10 @@ drawSkiMap = function(divName, jsonDir) {
     });
 
     var mapQuestLayer = new L.TileLayer.MapQuestOpen.OSM();
-    //mapQuestLayer.addTo(map);
-    
-    mapnikLayer.addTo(map);
-
-    var openTopoMapLayer = new L.TileLayer.OpenTopoMap();
+    mapQuestLayer.addTo(map);
 
     var baseMaps = { 'MapQuest Open': mapQuestLayer,
-                    'OpenStreetMap': mapnikLayer,
-                    'OpenTopoMap': openTopoMapLayer };
+                    'Mapnik': mapnikLayer };
 
     L.control.layers(baseMaps).addTo(map);
 
@@ -120,17 +115,19 @@ drawSkiMap = function(divName, jsonDir) {
                 var bounds = L.latLngBounds(southWest, northEast);
                 map.fitBounds(bounds);
 
+                function isAnnotated(d) {
+                    if (d.properties.uid in uids_to_names)
+                        return true;
+                    else
+                        return false;
+                }
+
                 var feature = gAreaBoundaries.selectAll(".boundary-path")
                 .data(topojson.feature(data, data.objects.boundaries).features)
                 .enter().append("path")
                 .classed('boundary-path', true)
                 .attr('id', function(d) { return 'b' + d.properties.uid; })
-                .classed('annotated', function(d) {
-                    if (d.properties.uid in uids_to_names)
-                        return true;
-                    else
-                        return false;
-                })
+                .classed('annotated', isAnnotated)
                 .on('mouseover', function(d) {
                     d3.selectAll('#u' + d.properties.uid)
                     .classed('selected', true)
@@ -154,6 +151,21 @@ drawSkiMap = function(divName, jsonDir) {
 
                     d3.select(this)
                     .classed('selected', true);
+                });
+
+                var areaCircles = gAreaBoundaries.selectAll('.area-circle')
+                .data(topojson.feature(data, data.objects.boundaries).features)
+                .enter().append('g')
+                .attr('transform', function(d) {
+                    var centroid = path.centroid(d.geometry);
+                    return 'translate(' + centroid[0] + ',' + centroid[1] + ')';
+                });
+
+                areaCircles.append('circle')
+                .classed('area-circle', true)
+                .classed('annotated', isAnnotated)
+                .attr('r', function(d) {
+                    return Math.sqrt(1 + d.properties.area);
                 });
 
                 var namedFeatures = topojson.feature(data, data.objects.boundaries).features;
@@ -181,15 +193,31 @@ drawSkiMap = function(divName, jsonDir) {
                 .attr('dominant-baseline', 'central');
 
                 function resetView() {
-                    feature.attr("d", function(d) { return path(d.geometry); });
-                    text.attr('transform', function(d) {
-                        var centroid = path.centroid(d.geometry);
-                        return 'translate(' + centroid[0] + ',' + centroid[1] + ')';
-                    });
-                    text1.attr('transform', function(d) {
-                        var centroid = path.centroid(d.geometry);
-                        return 'translate(' + centroid[0] + ',' + centroid[1] + ')';
-                    });
+                    console.log('zoom:', map.getZoom());
+
+                    if (map.getZoom() > 7) {
+                        feature.attr("d", function(d) { return path(d.geometry); })
+                        .style('visibility', 'visible');
+                        areaCircles.style('visibility', 'hidden');
+
+                        text.attr('transform', function(d) {
+                            var centroid = path.centroid(d.geometry);
+                            return 'translate(' + centroid[0] + ',' + centroid[1] + ')';
+                        });
+                        text1.attr('transform', function(d) {
+                            var centroid = path.centroid(d.geometry);
+                            return 'translate(' + centroid[0] + ',' + centroid[1] + ')';
+                        });
+
+                    } else {
+                        areaCircles.style('visibility', 'visible');
+                        feature.style('visibility', 'hidden');
+
+                        areaCircles.attr('transform', function(d) {
+                            var centroid = path.centroid(d.geometry);
+                            return 'translate(' + centroid[0] + ',' + centroid[1] + ')';
+                        });
+                    }
                 }
 
                 map.on("viewreset", resetView);
@@ -203,19 +231,7 @@ drawSkiMap = function(divName, jsonDir) {
                 .classed('area-list', true)
                 .append('table')
                 .attr('id', 'resort-list-table')
-
-                var headerRow = lis;
-
-                headerRow.append('th')
-                .text('id');
-
-                headerRow.append('th')
-                .text('area');
-
-                headerRow.append('th')
-                .text('name');
-
-                lis = lis.selectAll('tr')
+                .selectAll('tr')
                 .data(skiAreas)
                 .enter()
                 .append('tr');

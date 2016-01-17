@@ -18,11 +18,6 @@ L.TileLayer.Common = L.TileLayer.extend({
 		}
 	});
 
-	L.TileLayer.OpenTopoMap = L.TileLayer.Common.extend({
-		url: 'http://{s}.tile.opentopomap.org/{z}/{x}/{y}.png',
-		options: {attribution: osmAttr}
-	});
-
 	L.TileLayer.OpenStreetMap = L.TileLayer.Common.extend({
 		url: 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
 		options: {attribution: osmAttr}

@@ -1,53 +1,10 @@
----
-layout: default
-title: Empty Pipes
----
-{% for post in paginator.posts %}
-<div class="container">
+<h2>Ski Areas of the World</h3>
 
-      <div class="row-fluid">
-	
-        <h3>{{ post.title }}</h3>
-        <div class='meta_wrapper'>
-        <ul class='inline'> 
-            <li>{{ post.date | date_to_string }}</li>
-            <li> | </li>
-            {% for tag in post.tags %}
-            <li> {{tag}} </li>
-            {% endfor %}
-            <li> | </li>
-            <li><a href="{{ post.url }}"><i class="fa fa-link"></i></a></li>
-    </ul>
-    </div>
-</div>
-	
-          {{ post.content }}
-          <hr>
-{% endfor %}
-
-<!-- Pagination links -->
-{% if paginator.total_pages > 1 %}
-<div class="pagination", align="center">
-  {% if paginator.previous_page %}
-    <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Prev</a>
-  {% else %}
-    <span>&laquo; Prev</span>
-  {% endif %}
-
-  {% for page in (1..paginator.total_pages) %}
-    {% if page == paginator.page %}
-      <em>{{ page }}</em>
-    {% elsif page == 1 %}
-      <a href="{{ '/index.html' | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a>
-    {% else %}
-      <a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
-    {% endif %}
-  {% endfor %}
-
-  {% if paginator.next_page %}
-    <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next &raquo;</a>
-  {% else %}
-    <span>Next &raquo;</span>
-  {% endif %}
-</div>
-{% endif %}
+<ul>
+    <li><a href="supp/ski_areas/africa.html">Africa</a></li>
+    <li><a href="supp/ski_areas/asia.html">Asia</a></li>
+    <li><a href="supp/ski_areas/australia_oceania.html">Australia / Oceania</a></li>
+    <li><a href="supp/ski_areas/europe.html">Europe</a></li>
+    <li><a href="supp/ski_areas/north_america.html">North America</a></li>
+    <li><a href="supp/ski_areas/south_america.html">South America</a></li>
+</ul>

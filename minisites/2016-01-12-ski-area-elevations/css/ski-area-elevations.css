@@ -28,10 +28,13 @@ svg {
     stroke: transparent;
     fill: black;
     opacity: 0.5;
-    pointer-events: none;
 }
 
 .pane {
     fill: transparent;
     stroke: transparent;
+}
+.resort-name {
+    text-anchor: middle;
+    font: 11px sans-serif;
 }

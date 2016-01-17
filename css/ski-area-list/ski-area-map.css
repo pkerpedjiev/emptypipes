@@ -13,7 +13,7 @@
 
 body {
     font-family: 'Cambo', serif;
-    font-size: 11pt;
+    font-size: 10pt;
 }
 
 a {
@@ -26,6 +26,11 @@ a {
     font-size: 10pt;
 }
 
+.area-circle {
+    stroke-width: 1;
+    stroke: black;
+    opacity: 0.5;
+}
 
 td.continent-cell {
     width: 16%;
@@ -62,6 +67,14 @@ td.last-cell {
 text {
     visibility: hidden;
     pointer-events: none;
+}
+
+circle.annotated {
+    fill: green;
+}
+
+circle {
+    fill: red;
 }
 
 path.annotated {
