@@ -1,0 +1,12 @@
+---
+layout: isochrone_details
+title:  "Isochrone Map for Train Travel from Birmingham"
+tags: maps javascript leaflet isochrone
+city: Birmingham
+latitude: 52.4831
+longitude: 1.89
+---
+
+<script type="text/javascript">
+    drawIsochroneMap({{ page.latitude }}, {{ page.longitude }}, '/jsons/isochrone_contours/{{page.city | downcase}}.json');
+    </script>
