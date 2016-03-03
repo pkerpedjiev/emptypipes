@@ -17,23 +17,55 @@ would take somebody to travel from a given city to any other point in Europe
 using only public transportation. In this post, I do the exact same thing using
 driving times.
 
-<div class="wp-caption alignright" style="width: 183px">
-<img src="/img/isochrone-driving-distances/denver.png" width="183"/>
-<p class="wp-caption-text">Driving times starting in Lincoln, Nebraska.</p>
-</div>
-<div class="wp-caption alignright" style="width: 183px">
-<img src="/img/isochrone-driving-distances/vienna.png" width="183"/>
-<p class="wp-caption-text">Driving times starting in Vienna, Austria. Notice how the frontier
-of the contours is more rounded than in Lincoln, NE.</p>
-</div>
+<div class="wp-caption alignright" style="width: 183px"> <img
+src="/img/isochrone-driving-distances/lincoln.png" width="183"/> <p
+class="wp-caption-text">Driving times starting in Lincoln, Nebraska.</p> </div>
+<div class="wp-caption alignright" style="width: 183px"> <img
+src="/img/isochrone-driving-distances/vienna.png" width="183"/> <p
+class="wp-caption-text">Driving times starting in Vienna, Austria. Notice how
+the frontier of the contours is more rounded than in Lincoln, NE.</p> </div>
+
+<p>
 The wonderful thing about portraying driving times is that it's possible to
 make such maps for cities from all over the world. In doing so, we can see the
-how the transportation infrastructure of a region meshes with the natural 
+how the transportation infrastructure of a region meshes with the natural
 features to create a unique accessibility profile. Lincoln (Nebraska) is
 centered in the USA and has a characteristic diamond shaped travel time
-profile. Why? Anyone that has looked at a map of the region will have
-surely noticed that the roads are arranged in a grid pattern. Thus it takes
-much longer to travel along the diagonal than to travel straight north and south.
+profile. Why? Anyone that has looked at a map of the region will certainly have
+noticed that the roads are arranged in a grid pattern. Thus it takes much
+longer to travel along the diagonal than to travel straight north and south.
+</p>
+
+<div class="wp-caption alignleft" style="width: 183px">
+<img src="/img/isochrone-driving-distances/santiago.png" width="183"/>
+<p class="wp-caption-text">The effect of Andes is clear on the driving times from Santiago, Chile.</p>
+</div>
+<div class="wp-caption alignleft" style="width: 183px">
+<img src="/img/isochrone-driving-distances/panama-city.png" width="183"/>
+<p class="wp-caption-text">The Darien Gap is the end of the road from Panama City, Panama.</p>
+</div>
+
+
+Looking at the isochrone map of Santiago, Chile, one can clearly see the how
+the Andes mountains block travel east of the city. Southeast of panama city,
+the odd fact that you can't drive between North / Central America and South
+America becomes clear. Zooming in at identical levels, you can compare cities
+and see the difference in accessibility of the relatively wealthy South Africa
+with that of the less developed, wilder Congo. The differences in accessibility
+between different cities of the world can range from the trivial (Denver, CO vs
+Lincoln, NE) to the substantial (Perth, Australia vs. Sydney, Australia).
+Individual cities can have a wide automobile-reachible area (Moscow, Russia) or
+a narrow, geography, politics and infrastructure-constrained area (Irkutsk,
+Russia).
+
+<div class="wp-caption alignright" style="width: 183px">
+<img src="/img/isochrone-driving-distances/kinshasa.png" width="183"/>
+<p class="wp-caption-text">Kinshasa, Democratic Republic of the Congo</p>
+</div>
+<div class="wp-caption alignright" style="width: 183px">
+<img src="/img/isochrone-driving-distances/cape-town.png" width="183"/>
+<p class="wp-caption-text">Cape Town, South Africa</p>
+</div>
 
 
 <meta charset="utf-8"> 
@@ -45,10 +77,12 @@ much longer to travel along the diagonal than to travel straight north and south
 <script src="/js/cubehelix.js"></script>
 <script src="/js/tile.stamen.js"></script>
 
-This map shows how far one may expect to drive in less than 24 hours
-starting in Vienna.
-<br>
-<br>
+Whatever the case, the places that are most interesting are usually those that
+most familiar as well as those that are most foreign. The map currently shows 
+Vienna (where I currently reside), but clicking any of the links below will
+open a map for that particular city. The travel times were obtained using
+GraphHopper and OpenStreetMap data so don't be surprised if they differ from
+those of Google maps.
 
 <div id="isochroneDrivingMap" style="height: 400px; width: 550px;"></div>
 <div id="isochroneDrivingMapLegend" style="height: 40px; width: 550px;"></div>
