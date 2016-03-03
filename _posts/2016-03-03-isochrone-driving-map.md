@@ -5,6 +5,27 @@ description: "A contour map of driving times from various cities. Otherwise know
 tags: maps javascript d3.js leaflet 
 ---
 
+Maps can portray many things, but one of their greatest features is the context
+they provide for overlayed information. This can range from the mundane and
+orthodox (such as roads and boundaries) to the
+[esoteric](http://imgur.com/NpUXT2e) and
+[abstract](https://atlasofprejudice.com/tearing-europe-apart-10d01e876eab#.vs8s28r1r).
+Nearly a year ago I wrote a [blog
+post](http://emptypipes.org/2015/05/20/europe-isochrone-map/) which overlayed
+travel time (isochrone) data on top of a map of Europe. It showed how long it
+would take somebody to travel from a given city to any other point in Europe
+using only public transportation. In this post, I do the exact same thing using
+driving times.
+
+The wonderful thing about portraying driving times is that it's possible to
+make such maps for cities from all over the world. In doing so, we can see the
+how the transportation infrastructure of a region meshes with the natural 
+features to create a unique accessibility profile. Lincoln (Nebraska) is
+centered in the USA and has a characterstic diamond shaped travel time
+profile. Why? Anyone that has looked at a map of the region will have
+surely noticed that the roads are arranged in a grid pattern. Thus it takes
+much longer to travel along the diagonal than to travel straight north and south.
+
 <meta charset="utf-8"> 
 <img itemprop="image" src="/img/isochrone_example.jpg" style='display:none' width=200 height=170>
 
@@ -42,7 +63,7 @@ best to fix them.
 <hr>
 <b>How it's made, technically</b>
 
-For each starting city, an area encompassing 30 degrees norht, east, south and
+For each starting city, an area encompassing 30 degrees north, east, south and
 west was subdivided into a .1 degree grid. Directions from the starting city to
 each point were calculated using
 [graphhopper](https://github.com/graphhopper/graphhopper/) and the OSM map
@@ -57,4 +78,4 @@ questions, feel free to ask.
 <b>Background Information and Motivation</b>
 
 This project was a logical extension of the [isochrone train
-maps](/2015/05/20/europe-isochrone-map/) of Europe. 
+maps](/2015/05/20/europe-isochrone-map/) of Europe project. 
