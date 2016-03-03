@@ -17,14 +17,24 @@ would take somebody to travel from a given city to any other point in Europe
 using only public transportation. In this post, I do the exact same thing using
 driving times.
 
+<div class="wp-caption alignright" style="width: 183px">
+<img src="/img/isochrone-driving-distances/denver.png" width="183"/>
+<p class="wp-caption-text">Driving times starting in Lincoln, Nebraska.</p>
+</div>
+<div class="wp-caption alignright" style="width: 183px">
+<img src="/img/isochrone-driving-distances/vienna.png" width="183"/>
+<p class="wp-caption-text">Driving times starting in Vienna, Austria. Notice how the frontier
+of the contours is more rounded than in Lincoln, NE.</p>
+</div>
 The wonderful thing about portraying driving times is that it's possible to
 make such maps for cities from all over the world. In doing so, we can see the
 how the transportation infrastructure of a region meshes with the natural 
 features to create a unique accessibility profile. Lincoln (Nebraska) is
-centered in the USA and has a characterstic diamond shaped travel time
+centered in the USA and has a characteristic diamond shaped travel time
 profile. Why? Anyone that has looked at a map of the region will have
 surely noticed that the roads are arranged in a grid pattern. Thus it takes
 much longer to travel along the diagonal than to travel straight north and south.
+
 
 <meta charset="utf-8"> 
 <img itemprop="image" src="/img/isochrone_example.jpg" style='display:none' width=200 height=170>
