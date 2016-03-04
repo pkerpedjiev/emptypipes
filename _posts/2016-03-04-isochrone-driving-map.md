@@ -81,12 +81,13 @@ Russia).
 <script src="/js/cubehelix.js"></script>
 <script src="/js/tile.stamen.js"></script>
 
-Whatever the case, the places that are most interesting are usually those that
-most familiar as well as those that are most foreign. The map currently shows 
-Vienna (where I currently reside), but clicking any of the links below will
-open a map for that particular city. The travel times were obtained using
-GraphHopper and OpenStreetMap data so don't be surprised if they differ from
-those of Google maps.
+Whatever the case, the places that are most interesting are always those that
+are also most familiar. For this reason, I've provided overlays for most major
+cities around the world. The map currently shows Vienna (where I currently
+reside), but clicking any of the links below will open a map for that
+particular city. The travel times were obtained using GraphHopper and
+OpenStreetMap data so don't be surprised if they differ from those of Google
+maps.
 
 <div id="isochroneDrivingMap" style="height: 400px; width: 550px;"></div>
 <div id="isochroneDrivingMapLegend" style="height: 40px; width: 550px;"></div>
