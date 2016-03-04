@@ -5,10 +5,9 @@ description: "A contour map of driving times from various cities. Otherwise know
 tags: maps javascript d3.js leaflet 
 ---
 
-Maps can portray many things, but one of their greatest features is the context
-they provide for overlayed information. This can range from the mundane and
-orthodox (such as roads and boundaries) to the
-[esoteric](http://imgur.com/NpUXT2e) and
+One of my favorite things about maps is the context they provide for overlayed
+information. This can range from the mundane and orthodox (such as roads and
+boundaries) to the [esoteric](http://imgur.com/NpUXT2e) and
 [abstract](https://atlasofprejudice.com/tearing-europe-apart-10d01e876eab#.vs8s28r1r).
 Nearly a year ago I wrote a [blog
 post](http://emptypipes.org/2015/05/20/europe-isochrone-map/) which overlayed
@@ -17,13 +16,16 @@ would take somebody to travel from a given city to any other point in Europe
 using only public transportation. In this post, I do the exact same thing using
 driving times.
 
-<div class="wp-caption alignright" style="width: 183px"> <img
-src="/img/isochrone-driving-distances/lincoln.png" width="183"/> <p
-class="wp-caption-text">Driving times starting in Lincoln, Nebraska.</p> </div>
-<div class="wp-caption alignright" style="width: 183px"> <img
-src="/img/isochrone-driving-distances/vienna.png" width="183"/> <p
+<div class="wp-caption alignright" style="width: 183px"> 
+<a href="/supp/isochrone_driving/vienna"><img
+src="/img/isochrone-driving-distances/vienna.png" width="183"/> </a>
+<p
 class="wp-caption-text">Driving times starting in Vienna, Austria. Notice how
 the frontier of the contours is more rounded than in Lincoln, NE.</p> </div>
+<div class="wp-caption alignright" style="width: 183px"> 
+<a href="/supp/isochrone_driving/lincoln"><img
+src="/img/isochrone-driving-distances/lincoln.png" width="183"/></a> 
+<p class="wp-caption-text">Driving times starting in Lincoln, Nebraska.</p> </div>
 
 <p>
 The wonderful thing about portraying driving times is that it's possible to
@@ -34,15 +36,17 @@ centered in the USA and has a characteristic diamond shaped travel time
 profile. Why? Anyone that has looked at a map of the region will certainly have
 noticed that the roads are arranged in a grid pattern. Thus it takes much
 longer to travel along the diagonal than to travel straight north and south.
+Vienna, Austria, on the other hand, has a more circular accessibility profile
+due to the abundance of roads going in all directions.
 </p>
 
 <div class="wp-caption alignleft" style="width: 183px">
-<img src="/img/isochrone-driving-distances/santiago.png" width="183"/>
-<p class="wp-caption-text">The effect of Andes is clear on the driving times from Santiago, Chile.</p>
+<a href="/supp/isochrone_driving/santiago"><img src="/img/isochrone-driving-distances/santiago.png" width="183"/></a>
+<p class="wp-caption-text">The Andes mountains block driving to the east of Santiago, Chile</p>
 </div>
 <div class="wp-caption alignleft" style="width: 183px">
-<img src="/img/isochrone-driving-distances/panama-city.png" width="183"/>
-<p class="wp-caption-text">The Darien Gap is the end of the road from Panama City, Panama.</p>
+<a href="/supp/isochrone_driving/panama_city"><img src="/img/isochrone-driving-distances/panama-city.png" width="183"/></a>
+<p class="wp-caption-text">The Darien Gap separates Central America from South America</p>
 </div>
 
 
@@ -59,12 +63,12 @@ a narrow, geography, politics and infrastructure-constrained area (Irkutsk,
 Russia).
 
 <div class="wp-caption alignright" style="width: 183px">
-<img src="/img/isochrone-driving-distances/kinshasa.png" width="183"/>
-<p class="wp-caption-text">Kinshasa, Democratic Republic of the Congo</p>
+<a href="/supp/isochrone_driving/kinshasa"><img src="/img/isochrone-driving-distances/kinshasa.png" width="183"/></a>
+<p class="wp-caption-text">The accessibility profile of Kinshasa, Democratic Republic of the Congo is rugged and discontinuous. </p>
 </div>
 <div class="wp-caption alignright" style="width: 183px">
-<img src="/img/isochrone-driving-distances/cape-town.png" width="183"/>
-<p class="wp-caption-text">Cape Town, South Africa</p>
+<a href="/supp/isochrone_driving/cape_town"><img src="/img/isochrone-driving-distances/cape-town.png" width="183"/></a>
+<p class="wp-caption-text">Cape Town, South Africa has good links to the interior of the country as well as to Namibia in the north.</p>
 </div>
 
 
