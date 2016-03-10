@@ -73,10 +73,6 @@ Russia).
 <p class="wp-caption-text">Cape Town, South Africa has good links to the interior of the country as well as to Namibia in the north.</p>
 </div>
 
-
-<meta charset="utf-8"> 
-<img itemprop="image" src="/img/isochrone_example.jpg" style='display:none' width=200 height=170>
-
 <link rel="stylesheet" href="/css/leaflet.css">
 <script src="/js/leaflet.js"></script>
 <script src="/js/isochrone_driving_map.js"></script>
