@@ -7,7 +7,7 @@ tags: maps javascript d3.js leaflet
 <meta charset="utf-8"> 
 
 <meta property="og:image"
-    content="/img/isochrone-driving-distances/vienna.png" />
+    content="/img/isochrone-driving-distances/itemprop.jpg" />
 
 <img itemprop="image" src="/img/isochrone-driving-distances/itemprop.jpg" style='display:none' width=150 height=100>
 
