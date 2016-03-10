@@ -9,7 +9,7 @@ tags: maps javascript d3.js leaflet
 <meta property="og:image"
     content="/img/isochrone-driving-distances/vienna.png" />
 
-<img itemprop="image" src="/img/isochrone-driving-distances/vienna.png" style='display:none' width=200 height=170>
+<img itemprop="image" src="/img/isochrone-driving-distances/itemprop.jpg" style='display:none' width=200 height=170>
 
 One of my favorite things about maps is the context they provide for overlayed
 information. This can range from the mundane and orthodox (such as roads and
