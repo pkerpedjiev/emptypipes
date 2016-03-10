@@ -5,6 +5,10 @@ description: "A contour map of driving times from various cities. Otherwise know
 tags: maps javascript d3.js leaflet 
 ---
 <meta charset="utf-8"> 
+
+<meta property="og:image"
+    content="/img/isochrone-driving-distances/vienna.png" />
+
 <img itemprop="image" src="/img/isochrone-driving-distances/vienna.png" style='display:none' width=200 height=170>
 
 One of my favorite things about maps is the context they provide for overlayed
