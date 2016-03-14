@@ -8,6 +8,7 @@ thumbnail: /img/isochrone-driving-distances/itemprop.png
 <meta charset="utf-8"> 
 <img itemprop="image" src="/img/isochrone_example.png" style='display:none' width=200 height=170>
 
+
 One of my favorite things about maps is the context they provide for overlayed
 information. This can range from the mundane and orthodox (such as roads and
 boundaries) to the [esoteric](http://imgur.com/NpUXT2e) and
