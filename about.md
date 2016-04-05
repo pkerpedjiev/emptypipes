@@ -5,11 +5,19 @@ title:  "Peter Kerpedjiev"
 
 #### Bio ####
 
-I'm a PhD student working on modelling the tertiary structure of RNA molecules at the [Theoretical Biochemistry Group](http://www.tbi.univie.ac.at) at the University of Vienna. If you're interested, you can find a short form copy of my <a href="/cv">CV here</a>.
+I'm currently a Postdoctoral Fellow in the lab of [Nils
+Gehlenborg](http://gehlenborg.com/) at Harvard Medical School. Previously, I
+was a PhD student working on modelling the tertiary structure of RNA molecules
+at the [Theoretical Biochemistry Group](http://www.tbi.univie.ac.at) at the
+University of Vienna. If you're interested, you can find a short form copy of
+my <a href="/cv">CV here</a>.
 
 #### Contact ####
 
-Feel free to email me at pkerpedjiev(at)gmail.com or [follow me on Twitter](https://twitter.com/pkerpedjiev) or [Google+](https://www.google.com/+PeterKerpedjiev). In case you're interested in updates to my blog, there's an [Atom feed here](/feed.xml).
+Feel free to email me at pkerpedjiev(at)gmail.com or [follow me on
+Twitter](https://twitter.com/pkerpedjiev) or
+[Google+](https://www.google.com/+PeterKerpedjiev). In case you're interested
+in updates to my blog, there's an [Atom feed here](/feed.xml).
 
 
 #### This Webpage ####
