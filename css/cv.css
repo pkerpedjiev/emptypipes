@@ -106,6 +106,7 @@ font: 13px sans-serif;
 
 .activity-connection {
     stroke: black;
+    opacity: 0.5;
     /* stroke-dasharray: "5,5"; */
     stroke-width: 1px;
 }

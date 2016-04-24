@@ -1,6 +1,4 @@
 function drawCV(divName) {
-    var currentDate = '2015-10-08';
-
     var margin = {top: 10, right: 10, left: 10, bottom: 10}
 
     var width = 550,
@@ -84,6 +82,7 @@ function drawCV(divName) {
                return true;
             }
 
+            let currentDate = cvJson.currentDate;
             cvJson.activities = cvJson.activities.filter(activitiesFilter);
 
             var activities = cvJson.activities.map(function(d) {
