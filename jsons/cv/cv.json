@@ -9,7 +9,7 @@
         "Estonia", "Turkey", "Greece", "Georgia", "Croatia", "Russia", "Mongolia", "China",
         "UAE", "Kyrgyzstan"],
     "birthDate": "1984-09-22",
-    "currentDate": "2015-10-06",
+    "currentDate": "2016-07-01",
     "blog": "http://emptypipes.org",
     "activities": [
         {"title": "Childhood in Sofia",
@@ -119,11 +119,23 @@
             "description": "PhD Student: RNA Structure Prediction",
             "text_align": "left",
             "start": "2011-10-12",
-            "end": "2015-10-12",
+            "end": "2016-03-31",
             "location": { "name": "Vienna, AT",
                           "lat": 48.2000,
                           "lon": 16.3667 },
             "skills": ["Python", "PDB", "Javascript"]
+		},
+        { "host": "Harvard Medical School",
+        "type": "Work",
+            "description": "Postdoctoral Fellow",
+            "text_align": "left",
+            "y_offset": 5,
+            "start": "2016-04-01",
+            "end": "2016-05-01",
+            "location": { "name": "Boston, MA",
+                          "lat": 42.3601,
+                          "lon": -71.0589 },
+            "skills": ["Python", "Javascript"]
 		}
     ],
     "skills": [
