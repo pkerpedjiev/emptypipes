@@ -22,7 +22,7 @@ about the function of this piece of DNA (or RNA).  This got me
 wondering, which are the most studied genes? Which genes have
 made an appearance in the most published papers?
 
-To answer, this, I [downloaded the
+To answer this, I [downloaded the
 table](ftp://ftp.ncbi.nlm.nih.gov/gene/DATA/) which contains the reference
 information from GenBank, performed some rudimentary analysis, and generated the
 following table of the top 20 most popular genes, as measured by the number of
