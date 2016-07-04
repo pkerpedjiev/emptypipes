@@ -52,7 +52,7 @@ circle {
 <script src="/js/lib/d3.v4.min.js"></script>
 
 All that's necessary for panning and zooming is a translation
-<em>[t<sub>x</sub>, t<sub>y</sub>]</em> and a scale factor <em>[k]</em>.  When
+<em>[t<sub>x</sub>, t<sub>y</sub>]</em> and a scale factor <em>k</em>.  When
 a zoom transform is applied to an element at position <em>[x<sub>0</sub>,
 y<sub>0</sub>]</em>, its new position becomes <em>[t<sub>x</sub> + k ×
 x<sub>0</sub>, t<sub>y</sub> + k × y<sub>0</sub>]</em>. That's it. Everything else
@@ -147,7 +147,7 @@ Using our `xScale`, we can determine that they're less than 1 pixel apart.
     xScale(1020) //181.6
 ```
 
-What if we want to zoom in so that they're 10 pixels apart? We'll need a scale factor, <em>k</em>:
+What if we want to zoom in so that they're 10 pixels apart? We'll first need to calculate the scale factor, <em>k</em>:
 
 ```javascript
     var k = 10 / (xScale(1020) - xScale(1010)  //~ 12.5 
@@ -350,7 +350,7 @@ attach it to an element:
     gMain.call(zoom)
 ```
 
-Here we recompute the zoom transform every time there is a zoom event, and
+Here we recompute the zoom transform every time there is a zoom event and
 reposition each circle. We also rescale the x-scale so that we can use it to
 create an axis. The astute observer will note that
 `transform.applyX(xScale(d))` is actually equivalent to `xNewScale(d)`.
@@ -504,12 +504,12 @@ First, we need a function to call every time we want to jump to a point:
     circles.call(transition);
 ```
 
-This function picks a random point (`targetPoint`) and call a
+This function picks a random point (`targetPoint`) and calls a
 transition on the selection. In our case, the selection will be the circles.
 When the transition is over, we simply call the function again to start it
 over.
 
-Second, we need target transform to center the view on the target point:
+Second, we need a transform to center the view on the target point:
 
 ```javascript
     function transform() {
