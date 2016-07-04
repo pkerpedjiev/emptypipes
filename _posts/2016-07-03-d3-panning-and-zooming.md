@@ -364,7 +364,7 @@ behavior would remove that transform as soon as we start zooming.
 
 Why?
 
-Because notice that in the `zoomed` function we obtain a `transform` from
+Because in the `zoomed` function we obtain a `transform` from
 `d3.event.transform`.  In previous versions of D3, this would come from the
 zoom behavior itself (`zoom.translate` and `zoom.scale`). In v4, it comes from
 the element on which the zoom behavior is called (`gMain`). To programmatically
