@@ -482,6 +482,8 @@ zooms between random data points (a la [M. Bostock's Zoom Transitions Block](htt
 First, we need a function to call every time we want to jump to a point:
 
 ```javascript
+    let targetPoint = 1010;
+
     function transition(selection) {
         let n = dataPoints.length;
         let prevTargetPoint = targetPoint;
