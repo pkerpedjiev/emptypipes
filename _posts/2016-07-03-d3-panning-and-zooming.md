@@ -58,6 +58,11 @@ y<sub>0</sub>]</em>, its new position becomes <em>[t<sub>x</sub> + k ×
 x<sub>0</sub>, t<sub>y</sub> + k × y<sub>0</sub>]</em>. That's it. Everything else
 is just sugar and spice on top of this simple transform.
 
+The major difference between zooming in D3v3 and and D3v4 is that the
+behavior (dealing with events) and the transforms (positioning elements)
+are more separated. In v3, they used to be part of the behavior whereas
+in v4, they're part of the element on which the behavior is called.
+
 To illustrate, let's plot 4 points. The rest of this post will only deal
 with data in one dimension. It should be trivial to expand to two dimensions.
 The points will represent the values 1, 1010, 1020 and 5000:
@@ -150,7 +155,7 @@ Using our `xScale`, we can determine that they're less than 1 pixel apart.
 What if we want to zoom in so that they're 10 pixels apart? We'll first need to calculate the scale factor, <em>k</em>:
 
 ```javascript
-    var k = 10 / (xScale(1020) - xScale(1010)  //~ 12.5 
+    var k = 10 / (xScale(1020) - xScale(1010))  //~ 12.5 
 ```
 
 Let's say we want the point 1010 to be positioned at pixel 200. We need to determine <em>t<sub>x</sub></em> such that <em>200 = t<sub>x</sub> + k × xScale(1010)</em>
@@ -159,7 +164,7 @@ Let's say we want the point 1010 to be positioned at pixel 200. We need to deter
     var tx = 200 - k * xScale(1010) //-2600
 ```
 
-Let's apply this to our plot.
+When we apply this to our plot.
 
 ```javascript
     var k = 10 / (xScale(1020) - xScale(1010))
@@ -174,7 +179,7 @@ Let's apply this to our plot.
     .attr('cx', function(d) { return t.applyX(xScale(d)); });
 ```
 
-To get two lovely separated circles.
+We get two lovely separated circles.
 
 <svg class="fig2"></svg>
 
@@ -380,7 +385,7 @@ gMain.call(zoom.transform, t);
 gMain.call(zoom)
 ```
 
-Now we start with an already zoomed in view **and** we can zoom in and out using the
+Now we start with an already zoomed in view **and** can zoom in and out using the
 mouse.
 
 <svg class="fig4"></svg>
@@ -639,5 +644,6 @@ function fig5() {
 }
 fig5();
 </script>
+
 And that's all. Just remember, when zooming and panning the position of the transformed point <em>[x<sub>1</sub>,y<sub>1</sub>] = [t<sub>x</sub> + k ×
 x<sub>0</sub>, t<sub>y</sub> + k × y<sub>0</sub>]</em>. Everything else is just window dressing.
