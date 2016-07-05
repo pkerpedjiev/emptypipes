@@ -376,7 +376,7 @@ the element on which the zoom behavior is called (`gMain`). To programmatically
 zoom in and then apply the zoom behavior starting from there, we need to set the
 zoom transform of the `gMain` element before we call the behavior:
 
-```javacript
+```javascript
 var k = 10 / (xScale(1020) - xScale(1010))
 var tx = 200 - k * xScale(1010)
 var t = d3.zoomIdentity.translate(tx, 0).scale(k)
