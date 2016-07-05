@@ -15,7 +15,7 @@ earth to any other.
 </ul>
 
 <meta charset="utf-8"> 
-<img itemprop="image" src="/img/isodistance_screenshot.png" style='display:none' width=200 height=170>
+<img itemprop="image" src="/img/isodistance_screenshot.png" style='display:none' width="200" height="170" />
 <link rel="stylesheet" href="/css/isodistances.css">
 
 <script src="/js/isodistances.js"></script>

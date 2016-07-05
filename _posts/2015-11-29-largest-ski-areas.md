@@ -6,7 +6,7 @@ permalink: /largest-ski-areas
 tags: leaflet maps ski-areas
 ---
 <meta charset="utf-8"> 
-<img itemprop="image" src="/img/itemprop-largest-ski-areas.png" style='display:none' width=200 height=130>
+<img itemprop="image" src="/img/itemprop-largest-ski-areas.png" style='display:none' width="200" height="130" />
 
 The chart below shows the five largest ski areas on each continent (except
 Antarctica). Africa only has three entries because those are the only ski areas

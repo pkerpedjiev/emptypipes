@@ -58,7 +58,7 @@ worker cores (as set by the `SPARK_WORKER_CORES` option).
  <script>totalRunningTime();</script>
 </div>
 
-<img itemprop="image" src="/img/python_vs_scala_vs_spark_small.png" style='display:none' width=300 height=210>
+<img itemprop="image" src="/img/python_vs_scala_vs_spark_small.png" style='display:none' width="300" height="210" />
 
 The fastest performance was achieved when using SparkSQL with Scala. The
 slowest, SparkSQL with Python. The more cores used, the more equal the results.
@@ -79,7 +79,7 @@ recorded after each `count()`.
  <script>stageRunningTime();</script>
 </div>
 
-<img itemprop="image" src="/img/python_vs_scala_vs_spark_2_small.png" style='display:none' width=300 height=210>
+<img itemprop="image" src="/img/python_vs_scala_vs_spark_2_small.png" style='display:none' width="300" height="210" />
 
 This data indicates that just about every step in the Python implementation,
 except for the final sort, benefitted proportionally (~ 8x) from the extra cores.  The

@@ -5,7 +5,7 @@ description: "A map showing climate data such as sunshine, precipitation and sno
 tags: maps wikipedia d3.js leaflet 
 ---
 <meta charset="utf-8"> 
-<img itemprop="image" src="/img/sunshine_map/sunshine_map_itemprop.jpg" style='display:none' width=200 height=170>
+<img itemprop="image" src="/img/sunshine_map/sunshine_map_itemprop.jpg" style='display:none' width="200" height="170" />
 
 <h4>Introduction</h4>
 

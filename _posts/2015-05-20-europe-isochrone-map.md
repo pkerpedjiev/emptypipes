@@ -5,7 +5,7 @@ description: "A contour map of travel times between European cities. Otherwise k
 tags: maps javascript d3.js leaflet 
 ---
 <meta charset="utf-8"> 
-<img itemprop="image" src="/img/isochrone_example.jpg" style='display:none' width=200 height=170>
+<img itemprop="image" src="/img/isochrone_example.jpg" style='display:none' width="200" height="170" />
 
 <b>Edit:</b> Any time you see 'train' below, it should technically be public transport. The vast
 vast majority of the travel used to make these maps is by train, but a very small percentage may

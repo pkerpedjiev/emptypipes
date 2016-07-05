@@ -8,7 +8,7 @@ tags: problem
 <link rel='stylesheet' href='/css/kings-jewels.css'>
 
 #### The King's Jewels Problem ####
-<img itemprop="image" src="/img/itemprop_kings_jewels.png" style='display:none' width=200 height=150>
+<img itemprop="image" src="/img/itemprop_kings_jewels.png" style='display:none' width="200" height="150" />
 
 A long time ago, in an alternate universe, you rescue the king's
 life. To show his gratitude, the king promises you one of his jewels as a

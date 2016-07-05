@@ -10,7 +10,7 @@ tags: javascript d3.js problem
 <script src="/js/math.min.js"></script>
 <script src="/js/random_finding.js"></script>
 
-<img itemprop="image" src="/img/random_finding/random_finding_thumbnail.png" style='display:none' width=150 height=150>
+<img itemprop="image" src="/img/random_finding/random_finding_thumbnail.png" style='display:none' width="150" height="150" />
 
 A few months ago somebody asked the [following question on
 AskReddit](https://www.reddit.com/r/askscience/comments/35uljq/if_i_wanted_to_randomly_find_someone_in_an/?limit=500):
