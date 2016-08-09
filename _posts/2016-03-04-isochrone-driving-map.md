@@ -6,6 +6,7 @@ tags: maps javascript d3.js leaflet
 thumbnail: http://emptypipes.org/img/isochrone_example.png
 ---
 <meta charset="utf-8"> 
+<script src="/js/lib/d3.min.js"></script>
 
 <img src="/img/isochrone_example.png" itemprop="image"  style='display:none' width="200" height="170"/>
 
