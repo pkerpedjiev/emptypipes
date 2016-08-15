@@ -75,7 +75,7 @@ Other interesting facts that one can glean from this map:
 
 <b>Credits</b>
 
-Thanks to <a href=http://bl.ocks.org/patricksurry/6621971>patricksurry's
+Thanks to <a href="http://bl.ocks.org/patricksurry/6621971">patricksurry's
 block</a> for an example of how to implement a rolling pan and zoom with d3.js.
 
 <b>Errata / Disclaimer</b>
