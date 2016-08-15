@@ -1,6 +1,6 @@
 name: Empty Pipes
 highlighter: rouge
-paginate: 3
+paginate: 1
 permalink: pretty
 url: http://emptypipes.org
 gems: [jekyll-paginate, jekyll-feed]
