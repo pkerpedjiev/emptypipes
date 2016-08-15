@@ -12,9 +12,11 @@ earth to any other.
 <meta charset="utf-8"> 
 <script src="/js/lib/d3.min.js"></script>
 <img itemprop="image" src="/img/isodistance_screenshot.png" style='display:none' width="200" height="170" />
-<link rel="stylesheet" href="/css/isodistances.css">
+<link rel="stylesheet" href="/css/isodistances.css" />
 
+{::nomarkdown}
 <ul>
+
 
 <li><b>Double click</b> to change the starting point (sorry mobile users!).</li>
 <li>Click and drag to pan</li>
@@ -22,6 +24,8 @@ earth to any other.
 <li>Click on the <i>Flight Times</i> and <i>Flight Paths</i> checkboxes to toggle the displayed lines</li>
 
 </ ul>
+{:/nomarkdown}
+
 
 <script src="/js/isodistances.js"></script>
 <script src="/js/topojson.v1.min.js"></script>
