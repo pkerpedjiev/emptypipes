@@ -15,10 +15,13 @@ earth to any other.
 <link rel="stylesheet" href="/css/isodistances.css">
 
 <ul>
-<li><b>Double click</b> to change the starting point (sorry mobile users!).
+
+<li><b>Double click</b> to change the starting point (sorry mobile users!).</li>
 <li>Click and drag to pan</li>
 <li>Scroll to zoom in and out</li>
-<li>Click on the <i>Flight Times</i> and <i>Flight Paths</i> checkboxes to toggle the displayed lines</li></ul>
+<li>Click on the <i>Flight Times</i> and <i>Flight Paths</i> checkboxes to toggle the displayed lines</li>
+
+</ ul>
 
 <script src="/js/isodistances.js"></script>
 <script src="/js/topojson.v1.min.js"></script>
