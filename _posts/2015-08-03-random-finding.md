@@ -10,6 +10,7 @@ tags: javascript d3.js problem
 <script src="/js/math.min.js"></script>
 <script src="/js/random_finding.js"></script>
 
+<script src="/js/lib/d3.min.js"></script>
 <img itemprop="image" src="/img/random_finding/random_finding_thumbnail.png" style='display:none' width="150" height="150" />
 
 A few months ago somebody asked the [following question on
