@@ -60,9 +60,9 @@ body {
                     <h4>What are we building?</h4> <br><br>
                     <table>
                         <tr>
-                            <td class='fragment'>
+                            <td class='fragment' style="text-align: middle;">
                                 Multi-resolution<br>
-                            <img src="images/presentation-4dn/higlass_multiresolution.png" height="300px" border="none"/><br
+                            <img src="images/presentation-4dn/higlass_multiresolution.png" height="300px" border="none" align="middle"/><br
                             </td>
                             <td class='fragment'>
                                 Web-based<br>
@@ -88,16 +88,41 @@ body {
                     </ul>
                 </section>
                 <section>
-                    What already exists
-
-                    Juicebox
-                    WashU
-
-                    Integrating a component into a web page
+                    <b>Other options</b><br><br>
+                    <table>
+                        <tr class='fragment'>
+                            <td style="vertical-align: middle;">
+                            <img src="images/presentation-4dn/juicebox_screenshot.png" height="60"/><br>
+                            </td>
+                            <td style="vertical-align: middle;">
+                                    Juicebox
+                                </td>
+                        </tr>
+                        <tr class='fragment'>
+                            <td style="vertical-align: middle;">
+                            <img src="images/presentation-4dn/washu_epigenome_browser.png" height="60"/><br>
+                            </td>
+                            <td style="vertical-align: middle;">
+                                WashU Epigenome Browser
+                            </td>
+                        </tr>
+                        <tr class='fragment'>
+                            <td style="vertical-align: middle;">
+                                <img src="images/presentation-4dn/interactive_hic_browser.png" height="60"/><br>
+                            </td>
+                            <td style="vertical-align: middle;">
+                                Interactive HiC Browser
+                            </td>
+                        </tr>
+                        <br>
+                    </table><br>
+                        <span class='fragment'>
+                            <i>We need fast, versatile and usable components that can be placed anywhere on a web page.</i><br>
+                        </span>
                 </section>
                 <section>
                     <b>Usability</b><br>
-                    <img src="images/presentation-4dn/higlass_zooming.gif" height="300px"/><br>
+                    <img src="images/presentation-4dn/higlass_zooming.gif" height="400px"/><br>
                         Effortlessly pan and zoom
                 </section>
 
@@ -109,35 +134,37 @@ body {
 
                 <section>
                     <b>Versatility</b><br><br>
-                        <img src="images/presentation-4dn/line_zooming.gif" width="500px"/><br>
+                        <img src="images/presentation-4dn/line_zooming.gif" width="600px"/><br>
                         <br>
                         Zoomable lines
                 </section>
 
                 <section>
                     <b>Versatility</b><br><br>
-                        <img src="images/presentation-4dn/bar_zooming.gif" width="500px"/><br>
+                        <img src="images/presentation-4dn/bar_zooming.gif" width="600px"/><br>
                         <br>
                         Zoomable bars
                 </section>
 
                 <section>
                     <b>Versatility</b><br><br>
-                        <img src="images/presentation-4dn/gene_zooming.gif" width="500px"/><br>
+                        <img src="images/presentation-4dn/gene_zooming.gif" width="600px"/><br>
                         <br>
                         Zoomable gene annotations
                 </section>
 
                 <section>
                     <b>Versatility</b><br><br>
-                        <img src="images/presentation-4dn/all_zooming.gif" width="500px"/><br>
+                        <img src="images/presentation-4dn/all_zooming.gif" width="600px"/><br>
                         <br>
                         Zoomable everything
                 </section>
 
                 <section>
-                    <b>Reproducibility</b><br><br>
-                        Easily recreate graphics.
+                    <b>Speed</b><br><br>
+                        <img src="images/presentation-4dn/immediate_panning_and_zooming.gif" width="400px"/><br>
+                        <br>
+                        (Nearly) Immediate data loading
                         <br>
                 </section>
 
@@ -164,10 +191,9 @@ body {
                 </section>
 
                 <section>
-                    <h4>How?</h4><br><br>
                     <b>Data resides on the server (cloud)</b><br><br>
 
-                    Elasticsearch stores a database of <i>tiles</i><br>
+                    Elasticsearch (a database system) stores a collection of <i>tiles</i><br>
 
                     <br>
                     <div class='fragment'>Each <i>tile</i> contains the values that can be seen on the screen at a particular zoom level and location</div>
@@ -176,18 +202,12 @@ body {
                 </section>
 
                 <section>
-                    What is elasticsearch.
-                </section>
-
-                <section>
-                    <h4>How?</h4><br><br>
                     <b>Tiles:</b><br><br>
                     <img src="images/presentation-4dn/tiles_loading.gif" height="350px"/><br>
 
                 </section>
 
                 <section>
-                    <h4>How?</h4><br><br>
                     <b>Tile Example:</b><br><br>
 <pre>
 {
@@ -201,14 +221,12 @@ body {
                 </section>
 
                 <section>
-                    <h4>How?</h4><br><br>
                     <b>Server Goal:</b><br><br>
                     <div>Eliminate Elasticsearch and serve directly from cooler and/or Hi-C files.</div>
                 </section>
 
 
                 <section>
-                    <h4>How?</h4><br><br>
                     <b>Visualization resides on the client (web browser)</b><br><br>
 
                     The browser converts this tile:
@@ -229,7 +247,6 @@ body {
 
                 </section>
                 <section>
-                    <h4>How?</h4><br><br>
                     <b>Problem!</b><br><br>
                     Too much data to display at once. (1K Hi-C dataset is nearly 10 gigabytes)<br><br>
                     <div class='fragment'>
@@ -239,28 +256,27 @@ body {
                 </section>
 
                 <section>
-                    <h4>How?</h4><br><br>
                     <b>Visualization resides on the client (web browser)</b><br><br>
 
-                    Browser keeps track of:
+                    Browser keeps track of:<br><br>
                     <ul>
-                        <li>Visible Zoom Level (0 to 14 for 1KB Hi-C data)</li>
+                        <li>Visible Zoom Level (0 to 14 for 1K Hi-C data)</li>
                         <li>Visible X range (1 to 3 billion)</li>
                         <li>Visible Y range (1 to 3 billion)</li>
                     </ul>
+                    <br>
+                    <br>
                     <div class='fragment'>And requests data only for visible areas</div>
                 </section>
 
                 <section>
-                    <h4>How?</h4><br><br>
                     <b>Tiles:</b><br><br>
-                    <img src="images/presentation-4dn/zooming_and_panning_debug.gif" width="700px"/><br>
+                    <img src="images/presentation-4dn/zooming_and_panning_debug.gif" width="800px"/><br>
                 </section>
 
                 <section>
-                    <h4>How?</h4><br><br>
                     <b>Tiles:</b><br><br>
-                    <img src="images/presentation-4dn/openstreetmap.gif" width="700px"/><br>
+                    <img src="images/presentation-4dn/openstreetmap.gif" width="800px"/><br>
                 </section>
 
                 <section data-transition='none'>
@@ -296,7 +312,7 @@ body {
                 <section>
                     <b>Summary:</b><br><br>
                     <i>
-                    HiGlass is a usable, versatile, web-based tool for viewing and comparing large
+                    HiGlass is a fast, usable, versatile, web-based tool for viewing and comparing large
                     genomic datasets.
                     </i>
                 </section>
@@ -305,7 +321,7 @@ body {
                     <b>What's next</b></br><br>
                     <ul>
                         <li class='fragment'>Dynmically gneerating tiles from cooler or HiC files</li>
-                        <li class='fragment'>User Data Upload</li>
+                        <li class='fragment'>User data upload</li>
                         <li class='fragment'>Better handling of normalization</li>
                     </ul>
                 </section>
@@ -317,10 +333,10 @@ body {
                         <li class='fragment'>Nils Gehlenborg</li>
                         <li class='fragment'>Burak Alver</li>
                         <li class='fragment'>Nezar Abdennur</li>
-                        <li class='fragment'>Kaspar Dinkla</li>
+                        <li class='fragment'>Kasper Dinkla</li>
                         <li class='fragment'>Hendrik Strobelt</li>
-                        <li class='fragment'>Alaleh</li>
-                        <li class='fragment'>Nikhil</li>
+                        <li class='fragment'>Alaleh Aazhir</li>
+                        <li class='fragment'>Nikhil Kumar</li>
                     </ul>
                 </section>
             </div>
