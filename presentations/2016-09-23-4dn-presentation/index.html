@@ -1,0 +1,337 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="https://s3.amazonaws.com/pkerp/public/reveal.js/css/reveal.css">
+        <link rel="stylesheet" href="https://s3.amazonaws.com/pkerp/public/reveal.js/css/theme/serif.css">
+    </head>
+<style>
+
+body {
+    background: #FFFFFF;
+    background-color: #FFFFFF; 
+}
+
+.reveal section img {
+    border: none;
+}
+
+.inactive {
+    color: #dddddd;
+}
+
+
+</style>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section>
+                    <h4>HiGlass</h2>
+                    <h4>Building a multi-resolution, web-based, Hi-C data display</h4>
+                    <br>
+                    <br>
+                    <p>Peter Kerpedjiev</p>
+                    <p>Gehlenborg Lab</p>
+                    <p>Harvard Medical School</p>
+                </section>
+                <section data-transition='none'>
+                    <b>Presentation Organization</b><br><br>
+                    <ul>
+                        <li class='fragment'>What?</li>
+                        <li class='fragment'>Why?</li>
+                        <li class='fragment'>How?</li>
+                        <li class='fragment'>Demo</li>
+                        <li class='fragment'>Statistics</li>
+                        <li class='fragment'>Summary</li>
+                        <li class='fragment'>Acknowledgements</li>
+                    </ul>
+                </section>
+                <section data-transition='none'>
+                    <b>Presentation Organization</b><br><br>
+                    <ul>
+                        <li class=''>What?</li>
+                        <li class='inactive'>Why?</li>
+                        <li class='inactive'>How?</li>
+                        <li class='inactive'>Demo</li>
+                        <li class='inactive'>Statistics</li>
+                        <li class='inactive'>Summary</li>
+                        <li class='inactive'>Acknowledgements</li>
+                    </ul>
+                </section>
+                <section>
+                    <h4>What are we building?</h4> <br><br>
+                    <table>
+                        <tr>
+                            <td class='fragment'>
+                                Multi-resolution<br>
+                            <img src="images/presentation-4dn/higlass_multiresolution.png" height="300px" border="none"/><br
+                            </td>
+                            <td class='fragment'>
+                                Web-based<br>
+                                <img src="images/presentation-4dn/higlass_browser.png" height="300px"/><br
+                            </td>
+                                <td class='fragment'>
+                                    Hi-C Data Display<br>
+                                <img src="images/presentation-4dn/higlass_zoomed_in.png" height="300px"/><br
+                                </td>
+                        </tr>
+                    </table>
+                </section>
+                <section data-transition='none'>
+                    <b>Presentation Organization</b><br><br>
+                    <ul>
+                        <li class='inactive'>What?</li>
+                        <li class=''>Why?</li>
+                        <li class='inactive'>How?</li>
+                        <li class='inactive'>Demo</li>
+                        <li class='inactive'>Statistics</li>
+                        <li class='inactive'>Summary</li>
+                        <li class='inactive'>Acknowledgements</li>
+                    </ul>
+                </section>
+                <section>
+                    What already exists
+
+                    Juicebox
+                    WashU
+
+                    Integrating a component into a web page
+                </section>
+                <section>
+                    <b>Usability</b><br>
+                    <img src="images/presentation-4dn/higlass_zooming.gif" height="300px"/><br>
+                        Effortlessly pan and zoom
+                </section>
+
+                <section>
+                        <b>Usability</b><br>
+                        <img src="images/presentation-4dn/higlass_browse_to.gif" height="400px"/><br>
+                        Access viewer from a web page
+                </section>
+
+                <section>
+                    <b>Versatility</b><br><br>
+                        <img src="images/presentation-4dn/line_zooming.gif" width="500px"/><br>
+                        <br>
+                        Zoomable lines
+                </section>
+
+                <section>
+                    <b>Versatility</b><br><br>
+                        <img src="images/presentation-4dn/bar_zooming.gif" width="500px"/><br>
+                        <br>
+                        Zoomable bars
+                </section>
+
+                <section>
+                    <b>Versatility</b><br><br>
+                        <img src="images/presentation-4dn/gene_zooming.gif" width="500px"/><br>
+                        <br>
+                        Zoomable gene annotations
+                </section>
+
+                <section>
+                    <b>Versatility</b><br><br>
+                        <img src="images/presentation-4dn/all_zooming.gif" width="500px"/><br>
+                        <br>
+                        Zoomable everything
+                </section>
+
+                <section>
+                    <b>Reproducibility</b><br><br>
+                        Easily recreate graphics.
+                        <br>
+                </section>
+
+                <section data-transition='none'>
+                    <b>Presentation Organization</b><br><br>
+                    <ul>
+                        <li class='inactive'>What?</li>
+                        <li class='inactive'>Why?</li>
+                        <li class=''>How?</li>
+                        <li class='inactive'>Demo</li>
+                        <li class='inactive'>Statistics</li>
+                        <li class='inactive'>Summary</li>
+                        <li class='inactive'>Acknowledgements</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <b>Client / Server Architecture</b><br><br>
+
+                        <ul>
+                            <li class='fragment'>Data resides on the server</li>
+                            <li class='fragment'>Visualization resides on the client</li>
+                        </ul>
+                </section>
+
+                <section>
+                    <h4>How?</h4><br><br>
+                    <b>Data resides on the server (cloud)</b><br><br>
+
+                    Elasticsearch stores a database of <i>tiles</i><br>
+
+                    <br>
+                    <div class='fragment'>Each <i>tile</i> contains the values that can be seen on the screen at a particular zoom level and location</div>
+                    <br>
+
+                </section>
+
+                <section>
+                    What is elasticsearch.
+                </section>
+
+                <section>
+                    <h4>How?</h4><br><br>
+                    <b>Tiles:</b><br><br>
+                    <img src="images/presentation-4dn/tiles_loading.gif" height="350px"/><br>
+
+                </section>
+
+                <section>
+                    <h4>How?</h4><br><br>
+                    <b>Tile Example:</b><br><br>
+<pre>
+{
+    "tile_value": {"max_value": 53137.01228744652, "min_value": 0.0,
+        "dense": [0.0, 0.0, 0.0, 0.0, 0.0...[65526 more values]... 
+                  1639.6605, 2564.1854, 7815.50706, 27623.40794, 0.0], 
+    },
+    "tile_id": "3.2.2"
+}
+</pre>
+                </section>
+
+                <section>
+                    <h4>How?</h4><br><br>
+                    <b>Server Goal:</b><br><br>
+                    <div>Eliminate Elasticsearch and serve directly from cooler and/or Hi-C files.</div>
+                </section>
+
+
+                <section>
+                    <h4>How?</h4><br><br>
+                    <b>Visualization resides on the client (web browser)</b><br><br>
+
+                    The browser converts this tile:
+
+<pre>
+[29.0285, 27.97826,... 36.40484, 21.0694]
+</pre>
+<div class='fragment'>
+    To<br>
+    <img src="images/presentation-4dn/line_example.png" width="400" /> 
+</div>
+<div>
+<div class='fragment'>
+    Or<br>
+    <img src="images/presentation-4dn/heatmap_example.png" height="103" /> 
+</div>
+</div>
+
+                </section>
+                <section>
+                    <h4>How?</h4><br><br>
+                    <b>Problem!</b><br><br>
+                    Too much data to display at once. (1K Hi-C dataset is nearly 10 gigabytes)<br><br>
+                    <div class='fragment'>
+                    <b>Solution</b><br><br>
+                    Only request visible tiles.
+                    </div>
+                </section>
+
+                <section>
+                    <h4>How?</h4><br><br>
+                    <b>Visualization resides on the client (web browser)</b><br><br>
+
+                    Browser keeps track of:
+                    <ul>
+                        <li>Visible Zoom Level (0 to 14 for 1KB Hi-C data)</li>
+                        <li>Visible X range (1 to 3 billion)</li>
+                        <li>Visible Y range (1 to 3 billion)</li>
+                    </ul>
+                    <div class='fragment'>And requests data only for visible areas</div>
+                </section>
+
+                <section>
+                    <h4>How?</h4><br><br>
+                    <b>Tiles:</b><br><br>
+                    <img src="images/presentation-4dn/zooming_and_panning_debug.gif" width="700px"/><br>
+                </section>
+
+                <section>
+                    <h4>How?</h4><br><br>
+                    <b>Tiles:</b><br><br>
+                    <img src="images/presentation-4dn/openstreetmap.gif" width="700px"/><br>
+                </section>
+
+                <section data-transition='none'>
+                    <b>Presentation Organization</b><br><br>
+                    <ul>
+                        <li class='inactive'>What?</li>
+                        <li class='inactive'>Why?</li>
+                        <li class='inactive'>How?</li>
+                        <li class=''>Demo</li>
+                        <li class=''>Statistics</li>
+                        <li class=''>Summary</li>
+                        <li class=''>Acknowledgements</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <b>Demo</b><br><br>
+                    <!-- <div id="simple1" style="width: 600px; height: 400px; margin: auto;"></div> -->
+                </section>
+
+                <section>
+                    <b>Statistics</b><br><br>
+                    For the Rao et al 1KB resolution data set (GM12878 cell line):<br><br>
+                    <ul>
+                        <li class='fragment'>2.2 billion contacts</li>
+                        <li class='fragment'>15G raw data size (gzipped)</li>
+                        <li class='fragment'>80M tiles</li>
+                        <li class='fragment'>14 zoom levels</li>
+                        <li class='fragment'>30G tileset size</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <b>Summary:</b><br><br>
+                    <i>
+                    HiGlass is a usable, versatile, web-based tool for viewing and comparing large
+                    genomic datasets.
+                    </i>
+                </section>
+
+                <section>
+                    <b>What's next</b></br><br>
+                    <ul>
+                        <li class='fragment'>Dynmically gneerating tiles from cooler or HiC files</li>
+                        <li class='fragment'>User Data Upload</li>
+                        <li class='fragment'>Better handling of normalization</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <b>Acknowledgements</b><br><br>
+                    <!-- <div id="simple1" style="width: 600px; height: 400px; margin: auto;"></div> -->
+                    <ul>
+                        <li class='fragment'>Nils Gehlenborg</li>
+                        <li class='fragment'>Burak Alver</li>
+                        <li class='fragment'>Nezar Abdennur</li>
+                        <li class='fragment'>Kaspar Dinkla</li>
+                        <li class='fragment'>Hendrik Strobelt</li>
+                        <li class='fragment'>Alaleh</li>
+                        <li class='fragment'>Nikhil</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.3.0/js/reveal.min.js"></script>
+        <script>
+Reveal.initialize({
+    viewDistance: 10000,
+    maxScale: 1.0
+});
+        </script>
+        <script src='scripts/main.js'></script>
+    </body>
+</html>
