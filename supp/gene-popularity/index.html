@@ -1,0 +1,26 @@
+
+<!DOCTYPE html>
+<meta charset="utf-8">
+<title>Goomba</title>
+<link rel='stylesheet' href='css/goomba-plot.css'>
+
+<div id="resort-list" style="position: fixed; top: 300px; left: 0; height: 300px"></div>
+<div id="goomba-plot"></div>
+
+    <script src="/js/lib/d3.min.js"></script>
+    <script src="js/goomba-plot.js"></script>
+    <script src="js/d3-zoomable-labels.js" type="text/javascript"></script>
+    <script src="js/lib/d3-zoom-pan-extent.js"></script>
+    <script>
+        var goombaPlot = goombaPlot()
+        .width(550);
+
+        d3.tsv('data/sorted_genes_by_popularity.tsv', function(error, data) {
+            console.log('error:', error);
+            d3.select('#goomba-plot')
+            .datum(data)
+            .call(goombaPlot)
+        });
+
+    </script>
+</html>
