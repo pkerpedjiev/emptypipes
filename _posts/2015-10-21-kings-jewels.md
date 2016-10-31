@@ -139,4 +139,3 @@ succintly:
         href="http://trentrichardson.com/2010/04/06/compute-linear-regressions-in-javascript/">Trent Richardson</a> for the javascript implementation of a linear regression
     function.  </li>
 </ul>
-</body>

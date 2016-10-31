@@ -30,7 +30,7 @@ thorough explanation of their strengths and weaknesses.
 
         <td><div id="marchingSquaresContourPlotDiv"></div></td>
         <td><div id="conrecContourPlotDiv"></div></td>
-        <td><div id="turfContourPlotDiv"></div></td></td>
+        <td><div id="turfContourPlotDiv"></div></td>
         </tr>
         <tr>
         <td align='center'><hr><b><a href="https://github.com/RaumZeit/MarchingSquares.js">MarchingSquares.js</a></b><hr></td>

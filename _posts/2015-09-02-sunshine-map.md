@@ -5,7 +5,7 @@ description: "A map showing climate data such as sunshine, precipitation and sno
 tags: maps wikipedia d3.js leaflet 
 ---
 <meta charset="utf-8"> 
-<img itemprop="image" src="/img/sunshine_map/sunshine_map_itemprop.jpg" style='display:none' width="200" height="170" />
+<img itemprop="image" src="/img/sunshine_map/sunshine_map_itemprop.jpg" style="display:none" width="200" height="170" />
 
 <h4>Introduction</h4>
 
@@ -14,7 +14,7 @@ which shows historical climate data such as sunshine hours, maximum and minimum
 temperatures, precipitation and various other interesting statistics:
 
 <hr>
-<a href="https://en.wikipedia.org/wiki/Grytviken#Climate"><img src="/img/sunshine_map/grytviken_weatherbox.jpg"/ width="500px"></a>
+<a href="https://en.wikipedia.org/wiki/Grytviken#Climate"><img src="/img/sunshine_map/grytviken_weatherbox.jpg" width="500px" /></a>
 <hr>
 
 It's fun to compare the values for different cities. Are summers in Vienna
@@ -71,7 +71,7 @@ Tibet, Mongolia and Central China due to their high elevation.
 These animations were created by recording interactions with the map described
 below.
 
-<a name="themap"></a><h4>The Map</h4>
+<h4>The Map</h4>
 
 The map below contains a Voronoi diagram overlay where each cell is color coded 
 according to the climate data for the location defining that point (default is

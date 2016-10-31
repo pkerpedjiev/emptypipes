@@ -5,7 +5,7 @@ description: "Creating scientific figures with reasonable proportions and font s
 tags: python matplotlib research
 ---
 <meta charset="utf-8"> 
-<img itemprop="image" src="/img/layouts_upon_layouts_itemprop.png" style='display:none' width=200 height=130>
+<img itemprop="image" src="/img/layouts_upon_layouts_itemprop.png" style='display:none' width="200" height="130">
 
 The example below shows how to create a graph that is both aesthetically
 pleasing and sensibly proportioned. I used these parameters to generate the
@@ -14,7 +14,7 @@ used to save a pdf or an svg file for modification in your favorite image
 editor (e.g. inkscape).
 
 <hr>
-<img src="/img/trigonometric_functions.png" width=250 align="middle">
+<img src="/img/trigonometric_functions.png" width="250" align="middle">
 <hr>
 
  The code to generate this plot uses the <a

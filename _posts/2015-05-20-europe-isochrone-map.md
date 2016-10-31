@@ -5,6 +5,7 @@ description: "A contour map of travel times between European cities. Otherwise k
 tags: maps javascript d3.js leaflet 
 ---
 <meta charset="utf-8"> 
+<script src="/js/lib/d3.min.js"></script>
 <img itemprop="image" src="/img/isochrone_example.jpg" style='display:none' width="200" height="170" />
 
 <b>Edit:</b> Any time you see 'train' below, it should technically be public transport. The vast
@@ -129,8 +130,7 @@ to distinguish the different contours.
 <hr>
 <b>Background Information and Motivation</b>
 
-While browsing twitter, I recently came across [this wonderful isochrone map]
-(https://alternativetransport.wordpress.com/2015/05/07/what-is-an-isochrone-map/)
+While browsing twitter, I recently came across [this wonderful isochrone map](https://alternativetransport.wordpress.com/2015/05/07/what-is-an-isochrone-map/)
 of the travel times by train from Vienna to the surrounding region at the turn
 of the century. As happy resident of Vienna, an avowed admirer of trains, and 
 an ardent afficionado of maps, that map strikes a strong chord with me not only
