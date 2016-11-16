@@ -7,7 +7,6 @@ tags: javascript d3.js problem
 
 <meta charset="utf-8"> 
 <link rel="stylesheet" href="/css/random_finding.css">
-<script src="/js/lib/d3.min.js"></script>
 <script src="/js/math.min.js"></script>
 <script src="/js/random_finding.js"></script>
 

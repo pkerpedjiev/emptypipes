@@ -63,7 +63,6 @@ Here's the recipe to re-create the graphic:
 
 Questions? Comments? [Twitter (@pkerpedjiev)](https://twitter.com/pkerpedjiev) or email ([see about page](/about)).
 
-<script src="/js/lib/d3.min.js"></script>
 <script src="/js/lib/topojson.v1.min.js"></script>
 <script src="/js/lib/d3-grid.js"></script>
 <script src="/js/lib/leaflet.js"></script>

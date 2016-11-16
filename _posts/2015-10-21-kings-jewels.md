@@ -120,7 +120,6 @@ succintly:
 
 <center><b>NEVER take the first offer when you have more than one choice!</b></center>
 
-<script src="/js/lib/d3.min.js"></script>
 <script src="/js/lib/d3-grid.js"></script>
 <script src="/js/kings-jewels.js"></script>
 

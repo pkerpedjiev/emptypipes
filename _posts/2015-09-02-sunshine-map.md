@@ -91,7 +91,6 @@ Different climate data overlays can be selected via the icon in the upper right 
 <script src="/js/lib/jquery.min.js"></script>
 <script src="/js/lib/underscore-min.js"></script>
 <script src="/js/lib/backbone.js"></script>
-<script src="/js/lib/d3.min.js"></script>
 <script src="/js/lib/queue.min.js"></script>
 <script src="/js/lib/topojson.v1.min.js"></script>
 <script src="/js/lib/d3.geo.voronoi.js"></script>

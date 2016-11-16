@@ -115,7 +115,6 @@ The code for all three of these examples can be found in a [github repository he
 
 If you see any errors or omissions or know of a way to make the Turf.js example look more reasonable, please let me know on [Twitter](https://twitter.com/pkerpedjiev) or by email.
 
-<script src="/js/lib/d3.min.js"></script>
 <script src="/js/lib/conrec.js"></script>
 <script src="/js/lib/turf.custom.js"></script>
 <script src="/js/lib/marchingsquares-isobands.min.js"></script>

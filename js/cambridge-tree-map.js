@@ -1,4 +1,6 @@
 function createMap(divId) {
+    let d3 = d3v4;
+
     var width=550, height=400;
 
     var svg = d3.select(divId)
@@ -43,6 +45,7 @@ function createMap(divId) {
         .data(texts)
         .enter()
         .append('text')
+        .classed('cambridge-tree-map', true)
         .classed('abstract',true)
         .attr('y', function(d,i) { return 10 * i; })
         .text(function(d) { return d; });
@@ -141,6 +144,7 @@ function createMap(divId) {
             })
 
         legendItems.append('text')
+            .classed('cambridge-tree-map', true)
             .text(function(d) { return d + " (" + popularTreeCounts[d] + ")"; })
             .attr('dy', 8)
             .attr('dx', 4);
