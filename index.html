@@ -35,6 +35,16 @@ title: Empty Pipes
   {% endif %}
 
   {% for page in (1..paginator.total_pages) %}
+  {% assign llimit = paginator.page | minus: 4 %}
+  {% assign ulimit = paginator.page | plus: 4 %}
+    {% if page > ulimit %}
+        {% continue %}
+    {% endif %}
+
+    {% if page < llimit %}
+        {% continue %}
+    {% endif %}
+
     {% if page == paginator.page %}
       <em>{{ page }}</em>
     {% elsif page == 1 %}
