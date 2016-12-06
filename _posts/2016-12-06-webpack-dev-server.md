@@ -1,14 +1,14 @@
 ---
 layout: post
 title:  "Speeding up webpack when called from gulp"
-description: "How to speed up webpack bundling when using gulp."
+description: "Switching from gulp and webpack-stream to webpack-dev-server reduces the rebuild time of a javascript project from 11s to <2s"
 tags: javascript
 ---
 
 #### Summary
 
 <i>Switching from `gulp` and `webpack-stream` to `webpack-dev-server` reduces
-the build time for my javascript project from ~11s to ~1.3 seconds.</i>
+the rebuild time for my javascript project from ~11s to ~1.3 seconds.</i>
 
 #### Details
 
