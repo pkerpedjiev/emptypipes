@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Fast javascript recompiling using webpack-dev-server"
+title:  "Fast ES6 development using webpack-dev-server"
 description: "How to speed up webpack when called from gulp: switching from gulp and webpack-stream to webpack-dev-server reduces the rebuild time of a 5500 line javascript project from 11s to <2s"
 tags: javascript
 ---
@@ -8,7 +8,7 @@ tags: javascript
 #### Summary
 
 <i>Switching from `gulp` and `webpack-stream` to `webpack-dev-server` reduces
-the rebuild time for my javascript project from ~11s to ~1.3 seconds.</i>
+the rebuild time for a 5500-line javascript project from ~11s to ~1.3 seconds.</i>
 
 #### Details
 
