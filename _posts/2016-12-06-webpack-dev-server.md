@@ -43,7 +43,7 @@ recreates the output files specified in its config and reloads the web page. I
 run it using the following command line:
 
 ```
-webpack-dev-server --content-base app --display-exclude --profile | grep -v "\\[\\d*\\]"
+webpack-dev-server --content-base app --display-exclude --profile --inline | grep -v "\\[\\d*\\]"
 ```
 
 The grep at the end is to filter out some of the [overly] verbose output that webpack
@@ -58,7 +58,7 @@ chunk    {0} main.js (main) 4.61 MB
 This is about 10x faster than the configuration using gulp and webpack-stream.
 
 The resulting web page can be found at
-`http://localhost:8080/webpack-dev-server/index.html`
+`http://localhost:8080/index.html`
 
 The only thing I needed
 to change in my `webpack.config.js` file was to add `output: { publicPath:
@@ -69,10 +69,13 @@ from the `scripts` directory:
 <script src='scripts/playground.js'></script>
 ```
 
-Below is the entire `webpack.config.js` for this project. Notice that there's multiple different targets being built including
-Where do I find the resulting web page?
-a worker script that can be used in a web worker to do compute intensive tasks off
-of the main UI thread.
+Below is the entire `webpack.config.js` for this project. Notice that there's
+multiple different targets being built including a worker script that can be
+used in a web worker to do compute intensive tasks off of the main UI thread.
+
+Other notable sights include the `devtool: "cheap-source-map"` entry to make sure
+we can easily see the source code when debugging.
+
 
 ```javascript
 var path = require('path');
@@ -85,6 +88,7 @@ module.exports = {
       main: ['./scripts/main.jsx'],
       worker: ['./scripts/worker.js']
   },
+  devtool: "cheap-source-map",
   output: {
     path: __dirname + '/build',
     publicPath: '/scripts/',
