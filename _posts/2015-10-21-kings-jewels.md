@@ -3,6 +3,7 @@ layout: post
 title:  "Never Take The First Option"
 description: "How to maximize the chances of picking the best option."
 tags: problem
+thumbnail: /img/2015-10-21-kings-jewels.png
 ---
 <meta charset="utf-8">
 <link rel='stylesheet' href='/css/kings-jewels.css'>

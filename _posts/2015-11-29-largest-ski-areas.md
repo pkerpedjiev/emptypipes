@@ -4,6 +4,7 @@ title:  "Largest Ski Areas On Each Continent"
 description: "A comparison of the sizes of the five largest ski areas on each continent."
 permalink: /largest-ski-areas
 tags: leaflet maps ski-areas
+thumbnail: /img/2015-11-29-largest-ski-areas.png
 ---
 <meta charset="utf-8"> 
 <img itemprop="image" src="/img/itemprop-largest-ski-areas.png" style='display:none' width="200" height="130" />

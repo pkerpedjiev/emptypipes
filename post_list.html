@@ -6,9 +6,18 @@ title:  "List of Posts"
 <table>
     {% for post in site.posts %}
     <tr>
-        <td class="archive_date" width=100>{{ post.date | date: "%Y-%m-%d" }}</td>  <td><a href="{{ post.url }}">{{ post.title }}</a></td>
+        <td></td>
+        <td><div style='padding: 2px'/></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td class="archive_date" width=80 rowspan="2">{{ post.date | date: "%Y-%m-%d" }}</td>  
+        <td rowspan="2" height="50px">
+            <img src="{{ post.thumbnail }}" width="40px" class="post-list-thumbnail" />
+        </td>
+        <td><a href="{{ post.url }}" class="post-list-title">{{ post.title }}</a></td>
+    </tr>
         <tr>
-            <td></td>
             <td>
     <div class='post_list_meta'>
         <ul class='inline'>

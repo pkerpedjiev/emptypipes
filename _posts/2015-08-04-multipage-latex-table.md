@@ -3,6 +3,7 @@ layout: post
 title:  "Multi-Page Vertically Centered Latex Table"
 description: "How to create a latex table which spans multiple pages and has the text centered vertically in the cells."
 tags: latex
+thumbnail: /img/2015-08-04-multipage-latex-table.png
 ---
 
 Say we wanted to create a latex table that had vertically centered text.  Say
