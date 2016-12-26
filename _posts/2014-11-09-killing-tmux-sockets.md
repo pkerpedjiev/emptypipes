@@ -3,6 +3,7 @@ layout: post
 title:  "Reviving a Seemingly Dead Tmux"
 description: "Bring a tmux session back from the dead by recreating the socket it uses."
 tags: tmux linux
+thumbnail: /img/2014-11-09-killing-tmux-sockets.png
 ---
 
 Quite often, when I try to attach to an existing tmux session, the following error pops up:

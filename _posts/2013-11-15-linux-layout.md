@@ -3,6 +3,7 @@ layout: post
 title:  "My Linux and Xfce Customizations"
 description: "Various customizations that make linux and bash easier and more convenient to use."
 tags: linux xfce
+thumbnail: /img/2013-11-15-linux-layout.png
 ---
 
 ##### Xfce Keyboard Shortcuts #####

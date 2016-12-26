@@ -3,6 +3,7 @@ layout: post
 title:  "VIM Python Snippets"
 description: "How to simplify and ease the creation of new code by creating shortcuts to chunks of code using the vim snippets plugin."
 tags: linux python vim
+thumbnail: /img/2014-10-02-vim-python-snippets.png
 ---
 
 There are many times when a task calls for a simple python script. It is

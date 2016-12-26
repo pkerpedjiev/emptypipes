@@ -3,6 +3,7 @@ layout: post
 title:  "Scaled Colormap in Matplotlib"
 description: "Scale the matplotlib colormap to provide a range of output colors over the whole domain of input values."
 tags: matplotlib python colormap
+thumbnail: /img/2014-09-05-python-scaled-colormap.png
 ---
 
 I often have to create plots where the color of some element reflects an
