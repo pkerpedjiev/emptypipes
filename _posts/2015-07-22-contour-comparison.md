@@ -3,6 +3,7 @@ layout: post
 title:  "D3.js and Contouring"
 description: "A comparison of javascript contouring libraries and how they can be used with d3.js"
 tags: javascript d3.js
+thumbnail: /img/2015-07-22-contour-comparison.png
 ---
 
 Contouring is an important way for displying 3D data in 2D. At its core are

@@ -3,7 +3,7 @@ layout: post
 title:  "Isochrone Driving Maps of the World"
 description: "A contour map of driving times from various cities. Otherwise known as an isochrone map."
 tags: maps javascript d3.js leaflet 
-thumbnail: http://emptypipes.org/img/isochrone_example.png
+thumbnail: /img/2016-03-04-isochrone-driving-map.png
 ---
 <meta charset="utf-8"> 
 

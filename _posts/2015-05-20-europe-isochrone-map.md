@@ -3,6 +3,7 @@ layout: post
 title:  "Isochrone Maps of Europe"
 description: "A contour map of travel times between European cities. Otherwise known as an isochrone map."
 tags: maps javascript d3.js leaflet 
+thumbnail: /img/2015-05-20-europe-isochrone-map.png
 ---
 <meta charset="utf-8"> 
 <img itemprop="image" src="/img/isochrone_example.jpg" style='display:none' width="200" height="170" />

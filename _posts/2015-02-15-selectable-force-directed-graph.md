@@ -3,6 +3,7 @@ layout: post
 title:  "Selectable Force-Directed Graph Using D3.js"
 description: "A variation of d3's force-directed graph layout which allows the simultaneous selection and dragging of multiple nodes, zooming and centering the view."
 tags: javascript d3.js
+thumbnail: /img/2015-02-15-selectable-force-directed-graph.png
 ---
 
 Dragging multiple nodes in a force-directed graph layout is useful

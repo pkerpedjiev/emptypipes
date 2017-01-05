@@ -3,6 +3,7 @@ layout: post
 title:  "Panning and Zooming with D3v4"
 description: "How to use D3v4's zoom behavior to implement panning and zooming on elements."
 tags: javascript d3.js zooming
+thumbnail: /img/2016-07-03-d3-panning-and-zooming.png
 ---
 <style>
 path.line {

@@ -3,6 +3,7 @@ layout: post
 title:  "Wikipedia's Climate Data on an Interactive Map"
 description: "A map showing climate data such as sunshine, precipitation and snow taken from wikipedia."
 tags: maps wikipedia d3.js leaflet 
+thumbnail: /img/2015-09-02-sunshine-map.png
 ---
 <meta charset="utf-8"> 
 <img itemprop="image" src="/img/sunshine_map/sunshine_map_itemprop.jpg" style="display:none" width="200" height="170" />

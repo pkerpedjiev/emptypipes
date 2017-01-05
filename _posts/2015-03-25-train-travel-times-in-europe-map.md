@@ -3,6 +3,7 @@ layout: post
 title:  "Europe by Train"
 description: "A map of the travel time from Berlin, Vienna, London, Paris and Jena to any other place in Europe."
 tags: python maps leaflet
+thumbnail: /img/2015-03-25-train-travel-times-in-europe-map.png
 ---
 
 I like travelling. I like trains. I don't particularly like making decisions.

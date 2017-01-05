@@ -3,6 +3,7 @@ layout: post
 title:  "Fast 3D Vector Operations in Cython"
 description: "Speed up vector operations in python by using cython to pre-compile the code and add static type declarations."
 tags: python cython vector
+thumbnail: /img/2014-02-26-cython-vectors.png
 ---
 
 The numpy library provides a plethora of fast functionality using for vectors. The question is, can we improve upon it by using cython and assuming vectors in three-dimensional space. Let's take the following two functions which are not provided by numpy, but easily implemented. The first simply calculates the magnitude of a vector, while the second calculates the distance between two vectors.

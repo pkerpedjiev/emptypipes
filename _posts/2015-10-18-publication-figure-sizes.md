@@ -3,6 +3,7 @@ layout: post
 title:  "Graph Proportions and Label Sizes"
 description: "Creating scientific figures with reasonable proportions and font sizes using IPython Notebook"
 tags: python matplotlib research
+thumbnail: /img/2015-10-18-publication-figure-sizes.png
 ---
 <meta charset="utf-8"> 
 <img itemprop="image" src="/img/layouts_upon_layouts_itemprop.png" style='display:none' width="200" height="130">
