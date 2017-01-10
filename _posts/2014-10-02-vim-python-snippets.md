@@ -9,10 +9,11 @@ thumbnail: /img/2014-10-02-vim-python-snippets.png
 There are many times when a task calls for a simple python script. It is
 usually something small that takes some input file as a parameter, does some
 processing, and then spits out some results. It might even take an options or
-two. It is tempting to just throw some lines of code into a file that directly
-attacks the task in the form of a sequential script. By way of overly simplified
-examples, consider the following code (let's creatively call it ``do_stuff.py``)
-which simply converts the input to uppercase.  Simple, easy, to-the-point.
+two. It's tempting to just throw some lines of code into a file and be done with
+it. This may work but often just makes things more difficult later.
+
+Consider the following code (let's creatively call it ``do_stuff.py``)
+which simply converts the input to uppercase:
 
 {% highlight python %}
 import sys
@@ -37,11 +38,10 @@ for line in sys.stdin:
     print line.upper()
 {% endhighlight %}
 
-Still simple. Still easy. But now what happens, if we want to include that
-function into another file. Then importing do_stuff.py will cause the for
-loop to run leading to troubles. A much better solution is to do all of the
-'scripty' stuff in a main function that only gets called if the file is called
-as a script (as opposed to being imported as a library):
+What happens if we want to include that function into another file? Then
+importing do_stuff.py will cause the for loop to run. A much better solution is
+to do all of the 'scripty' stuff in a main function that only gets called if
+the file is called as a script (as opposed to being imported as a library):
 
 {% highlight python %}
 import random
@@ -83,12 +83,12 @@ if __name__ == '__main__':
 
 {% endhighlight %}
 
-That's a lot of code for a simple task you say? Well it doesn't necessarily
-require much typing to enter thanks to the
+That's a lot of code for a simple task. Well it doesn't necessarily require
+much typing to enter thanks to the
 [SnipMate](http://www.vim.org/scripts/script.php?script_id=2540) plugin for
 vim. By adding the following code in ``~/.vim/snippets/python.snippets`` we can
-create almost all of the code by simply typing ``start`` and hitting tab
-right at the beginning of the script.
+create almost all of the code by typing ``start`` and hitting tab right
+at the beginning of the script.
 
 {% highlight python %}
 snippet start
@@ -117,7 +117,7 @@ snippet start
 {% endhighlight %}
 
 This will create the main function and position the cursor within the ``usage`` string 
-thus priming the author to write a quick documentation of what this script will do. 
+thus making it a snap to write some quick documentation of what this script will do. 
 The ``num_args`` variable is there to make sure the user enters the right number of
 arguments. Otherwise the script exits with an error. The rest of the processing code
 should go directly after the `if` statement. When scripts are written in this manner, 
