@@ -3,9 +3,10 @@ layout: post
 title:  "Layouts Upon Layouts"
 description: "An example of how to create nested d3 layouts."
 tags: javascript d3.js rna
+thumbnail: /img/2015-10-11-layouts-upon-layouts.png
 ---
 <meta charset="utf-8"> 
-<img itemprop="image" src="/img/layouts_upon_layouts_itemprop.png" style='display:none' width=200 height=130>
+<img itemprop="image" src="/img/layouts_upon_layouts_itemprop.png" style='display:none' width="200" height="130" />
 
 One of the truly beautiful things about d3.js is how easy it is to combine
 multiple layouts into one graphic. The example below incorporates three

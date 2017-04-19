@@ -3,6 +3,7 @@ layout: post
 title:  "D3.js and Contouring"
 description: "A comparison of javascript contouring libraries and how they can be used with d3.js"
 tags: javascript d3.js
+thumbnail: /img/2015-07-22-contour-comparison.png
 ---
 
 Contouring is an important way for displying 3D data in 2D. At its core are
@@ -30,7 +31,7 @@ thorough explanation of their strengths and weaknesses.
 
         <td><div id="marchingSquaresContourPlotDiv"></div></td>
         <td><div id="conrecContourPlotDiv"></div></td>
-        <td><div id="turfContourPlotDiv"></div></td></td>
+        <td><div id="turfContourPlotDiv"></div></td>
         </tr>
         <tr>
         <td align='center'><hr><b><a href="https://github.com/RaumZeit/MarchingSquares.js">MarchingSquares.js</a></b><hr></td>
@@ -115,7 +116,6 @@ The code for all three of these examples can be found in a [github repository he
 
 If you see any errors or omissions or know of a way to make the Turf.js example look more reasonable, please let me know on [Twitter](https://twitter.com/pkerpedjiev) or by email.
 
-<script src="/js/lib/d3.min.js"></script>
 <script src="/js/lib/conrec.js"></script>
 <script src="/js/lib/turf.custom.js"></script>
 <script src="/js/lib/marchingsquares-isobands.min.js"></script>

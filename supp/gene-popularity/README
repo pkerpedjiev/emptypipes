@@ -1,0 +1,6 @@
+Download the gene annotations:
+
+scp pkerp@fluidspace.tbi.univie.ac.at:/scr/fluidspace/pkerp/projects/goomba/output/genes_by_popularity.tsv data/
+sort -n data/genes_by_popularity.tsv | head -n 2000  > data/sorted_genes_by_popularity.tsv
+
+echo -e "count\tgeneid\tsymbol\tname\tchr\torientation\tstart\tend" > data/sorted_genes_by_popularity.tsv; sort data/genes_by_popularity.tsv -nk 1,1 | tail -n 1000 >> data/sorted_genes_by_popularity.tsv

@@ -92,7 +92,7 @@ tr.post_list {
  */
 div.meta_wrapper{border:1px solid #C9C6C3;border-width:1px 0;color:#666;font-size:12px;line-height:12px;margin:0 0 10px;padding:1px 0;text-transform:uppercase;height:20px;}
 
-div.post_list_meta{border:0px solid #C9C6C3;border-width:0px 0;color:#666;font-size:12px;line-height:12px;margin:0 0 10px;padding:1px 0;text-transform:uppercase;height:20px;}
+div.post_list_meta{border:0px solid #C9C6C3;border-width:0px 0;color:#666;font-size:12px;line-height:12px;margin:0 0 0px;padding:1px 0;text-transform:uppercase;height:20px;}
 
 
 td.archive_date {
@@ -108,7 +108,7 @@ h3 {
 }
 
 h4 {
-    font-size: 26px;
+    font-size: 20px;
     font-family:"LeagueGothicRegular", helvetica,"League Gothic", "Helvetica Neue", helvetica, arial, sans-serif;
     font-weight:normal;letter-spacing:+.025em;
     margin: 20px 0 20px;
@@ -200,4 +200,12 @@ h4 {
     padding-right: 30px;
     padding-top: 20px;
     padding-bottom: 20px;
+}
+
+.post-list-thumbnail {
+    padding: 5px 15px 5px 5px;
+}
+
+.post-list-title {
+    margin-top: 15px;
 }

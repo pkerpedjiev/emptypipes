@@ -3,6 +3,7 @@ layout: post
 title:  "Randomly Finding Someone on a Grid"
 description: "How long does it take two people to find each other when moving, vs standing still?"
 tags: javascript d3.js problem
+thumbnail: /img/2015-08-03-random-finding.png
 ---
 
 <meta charset="utf-8"> 
@@ -10,7 +11,7 @@ tags: javascript d3.js problem
 <script src="/js/math.min.js"></script>
 <script src="/js/random_finding.js"></script>
 
-<img itemprop="image" src="/img/random_finding/random_finding_thumbnail.png" style='display:none' width=150 height=150>
+<img itemprop="image" src="/img/random_finding/random_finding_thumbnail.png" style='display:none' width="150" height="150" />
 
 A few months ago somebody asked the [following question on
 AskReddit](https://www.reddit.com/r/askscience/comments/35uljq/if_i_wanted_to_randomly_find_someone_in_an/?limit=500):
@@ -109,12 +110,12 @@ To save you some time, I took the liberty of repeating these simulations for a
 variety of grid sizes and recorded the results.
 
 <hr>
-<h5 align=center> Number of Moves Required to Meet </h5>
+<h5 align="center"> Number of Moves Required to Meet </h5>
 
 <hr>
-<table width=400 align=center>
+<table width="400" align="center">
 <tr>
-<th rowspan=2>Grid Size</th>
+<th rowspan="2">Grid Size</th>
 <th>Both People</th>
 <th>One Person</th>
 </tr>
@@ -237,10 +238,10 @@ To determine what the best course of action is when two people are separated
 somewhere, we need to do a pairwise comparison of the strategies on an 8x8 grid:
 
 <hr>
-<h5 align=center> Median Moves Requires to Meet </h5>
+<h5 align="center"> Median Moves Requires to Meet </h5>
 <hr>
 
-<table id='pairwiseStrategyComparison' align=center>
+<table id='pairwiseStrategyComparison' align="center">
 <tr>
 <td></td>
 <td> Standing </td>
@@ -282,6 +283,7 @@ somewhere, we need to do a pairwise comparison of the strategies on an 8x8 grid:
 <td class='number-cell'>57</td>
 <td class='number-cell'>30</td>
 </tr>
+<tr>
 <td>Centering</td>
 <td class='number-cell'></td>
 <td class='number-cell'></td>
@@ -349,10 +351,10 @@ that made all of this possible.
 ### Appendix ###
 
 <hr>
-<h5 align=center> The Distribution of the Number of Moves Required to Meet </h5>
+<h5 align="center"> The Distribution of the Number of Moves Required to Meet </h5>
 <hr>
 
-<table id='pairwiseStrategyComparisonHistograms' align=center>
+<table id='pairwiseStrategyComparisonHistograms' align="center">
 <tr>
 <td></td>
 <td> Standing </td>
@@ -364,42 +366,47 @@ that made all of this possible.
 
 <tr>
 <td>Standing</td>
-<td class='number-cell'><img width=100 src="/img/random_finding/8_8_scanning_scanning.png" /></td>
-<td ><img width=100 src="/img/random_finding/8_8_standing_random.png" /></td>
-<td class='number-cell'><img width=100 src="/img/random_finding/8_8_standing_scanning.png" /></td>
-<td class='number-cell'><img width=100 src="/img/random_finding/8_8_standing_avoiding.png" /></td>
-<td class='number-cell'><img width=100 src="/img/random_finding/8_8_scanning_scanning.png" /></td>
+<td class='number-cell'><img width="100" src="/img/random_finding/8_8_scanning_scanning.png" /></td>
+<td ><img width="100" src="/img/random_finding/8_8_standing_random.png" /></td>
+<td class='number-cell'><img width="100" src="/img/random_finding/8_8_standing_scanning.png" /></td>
+<td class='number-cell'><img width="100" src="/img/random_finding/8_8_standing_avoiding.png" /></td>
+<td class='number-cell'><img width="100" src="/img/random_finding/8_8_scanning_scanning.png" /></td>
 </tr>
+
 <tr>
 <td>Random</td>
 <td class='number-cell'></td>
-<td class='number-cell'><img width=100 src="/img/random_finding/8_8_random_random.png" /></td>
-<td class='number-cell'><img width=100 src="/img/random_finding/8_8_random_scanning.png" /></td>
-<td class='number-cell'><img width=100 src="/img/random_finding/8_8_random_avoiding.png" /></td>
-<td class='number-cell'><img width=100 src="/img/random_finding/8_8_centering_random.png" /></td>
+<td class='number-cell'><img width="100" src="/img/random_finding/8_8_random_random.png" /></td>
+<td class='number-cell'><img width="100" src="/img/random_finding/8_8_random_scanning.png" /></td>
+<td class='number-cell'><img width="100" src="/img/random_finding/8_8_random_avoiding.png" /></td>
+<td class='number-cell'><img width="100" src="/img/random_finding/8_8_centering_random.png" /></td>
 </tr>
+
 <tr>
 <td>Scanning</td>
 <td class='number-cell'></td>
 <td class='number-cell'></td>
-<td class='number-cell'><img width=100 src="/img/random_finding/8_8_scanning_scanning.png" /></td>
-<td class='number-cell'><img width=100 src="/img/random_finding/8_8_avoiding_scanning.png" /></td>
-<td class='number-cell'><img width=100 src="/img/random_finding/8_8_centering_scanning.png" /></td>
+<td class='number-cell'><img width="100" src="/img/random_finding/8_8_scanning_scanning.png" /></td>
+<td class='number-cell'><img width="100" src="/img/random_finding/8_8_avoiding_scanning.png" /></td>
+<td class='number-cell'><img width="100" src="/img/random_finding/8_8_centering_scanning.png" /></td>
 </tr>
+
 <tr>
 <td>Avoiding</td>
 <td class='number-cell'></td>
 <td class='number-cell'></td>
 <td class='number-cell'></td>
-<td class='number-cell'><img width=100 src="/img/random_finding/8_8_avoiding_avoiding.png" /></td>
-<td class='number-cell'><img width=100 src="/img/random_finding/8_8_centering_avoiding.png" /></td>
+<td class='number-cell'><img width="100" src="/img/random_finding/8_8_avoiding_avoiding.png" /></td>
+<td class='number-cell'><img width="100" src="/img/random_finding/8_8_centering_avoiding.png" /></td>
 </tr>
+
+<tr>
 <td>Centering</td>
 <td class='number-cell'></td>
 <td class='number-cell'></td>
 <td class='number-cell'></td>
 <td class='number-cell'></td>
-<td class='number-cell'><img width=100 src="/img/random_finding/8_8_centering_centering.png" /></td>
+<td class='number-cell'><img width="100" src="/img/random_finding/8_8_centering_centering.png" /></td>
 </tr>
 </table>
 <hr>
@@ -431,10 +438,10 @@ exorbitantly long search time.
 A [few people](https://www.reddit.com/r/dataisbeautiful/comments/3flifw/animation_and_analysis_of_the_randomly_finding/ctpw7zd) wondered how different the results would be on a 3D grid. It's large-ish step to add 3D rendering to the current animations, but changing the code to use 3D dimensions wasn't a huge deal. The results are in the table below.
 
 <hr>
-<h5 align=center> Median Moves Requires to Meet </h5>
+<h5 align="center"> Median Moves Requires to Meet </h5>
 <hr>
 
-<table id='pairwise3DStrategyComparison' align=center>
+<table id='pairwise3DStrategyComparison' align="center">
 <tr>
 <td></td>
 <td> Standing </td>
@@ -472,10 +479,10 @@ when the other person is also moving randomly. For those that are interested,
 the histograms below show the distribution of search lengths on a 3D grid.
 
 <hr>
-<h5 align=center> The Distribution of the Number of Moves Required to Meet on a 3D Grid </h5>
+<h5 align="center"> The Distribution of the Number of Moves Required to Meet on a 3D Grid </h5>
 <hr>
 
-<table id='pairwiseStrategyComparisonHistograms' align=center>
+<table id='pairwiseStrategyComparisonHistograms' align="center">
 <tr>
 <td></td>
 <td> Standing </td>
@@ -485,26 +492,28 @@ the histograms below show the distribution of search lengths on a 3D grid.
 
 <tr>
 <td>Standing</td>
-<td ><img width=100 src="/img/random_finding/8_8_scanning_scanning.png" /></td>
-<td ><img width=100 src="/img/random_finding/3d_8_8_standing_random.png" /></td>
-<td ><img width=100 src="/img/random_finding/3d_8_8_standing_avoiding.png" /></td>
+<td ><img width="100" src="/img/random_finding/8_8_scanning_scanning.png" /></td>
+<td ><img width="100" src="/img/random_finding/3d_8_8_standing_random.png" /></td>
+<td ><img width="100" src="/img/random_finding/3d_8_8_standing_avoiding.png" /></td>
 </tr>
+
 <tr>
 <td>Random</td>
 <td ></td>
-<td ><img width=100 src="/img/random_finding/3d_8_8_random_random.png" /></td>
-<td ><img width=100 src="/img/random_finding/3d_8_8_random_avoiding.png" /></td>
+<td ><img width="100" src="/img/random_finding/3d_8_8_random_random.png" /></td>
+<td ><img width="100" src="/img/random_finding/3d_8_8_random_avoiding.png" /></td>
 </tr>
-<tr>
+
 <tr>
 <td>Avoiding</td>
 <td ></td>
 <td ></td>
-<td ><img width=100 src="/img/random_finding/3d_8_8_avoiding_avoiding.png" /></td>
+<td ><img width="100" src="/img/random_finding/3d_8_8_avoiding_avoiding.png" /></td>
 </tr>
 </table>
 <hr>
 <br>
+
 #### Make Your Own Simulation ####
 
 Here's an application that you can use to run your own simulation.
@@ -512,11 +521,11 @@ Here's an application that you can use to run your own simulation.
 <div id='random-finding-options' style='width: 400px; margin-left: auto; margin-right: auto'>
 <table id='options-table' style='width: 400px'>
 <tr>
-<td colspan=2>
+<td colspan="2">
 <label>Strategy Person 1:</label>
 <select id='selectStrategy1'> </select>
 </td>
-<td colspan=2>
+<td colspan="2">
 <label>Strategy Person 2:</label>
 <select id='selectStrategy2'> </select>
 </td>

@@ -2,7 +2,8 @@
 layout: post
 title:  "Panning and Zooming with D3v4"
 description: "How to use D3v4's zoom behavior to implement panning and zooming on elements."
-tags: javascript d3 zooming
+tags: javascript d3.js zooming
+thumbnail: /img/2016-07-03-d3-panning-and-zooming.png
 ---
 <style>
 path.line {
@@ -49,14 +50,18 @@ circle {
     stroke-width: 1px;
 }
 </style>
-<script src="/js/lib/d3.v4.min.js"></script>
 
 All that's necessary for panning and zooming is a translation
-<em>[t<sub>x</sub>, t<sub>y</sub>]</em> and a scale factor <em>[k]</em>.  When
+<em>[t<sub>x</sub>, t<sub>y</sub>]</em> and a scale factor <em>k</em>.  When
 a zoom transform is applied to an element at position <em>[x<sub>0</sub>,
 y<sub>0</sub>]</em>, its new position becomes <em>[t<sub>x</sub> + k ×
 x<sub>0</sub>, t<sub>y</sub> + k × y<sub>0</sub>]</em>. That's it. Everything else
 is just sugar and spice on top of this simple transform.
+
+The major difference between zooming in D3v3 and and D3v4 is that the
+behavior (dealing with events) and the transforms (positioning elements)
+are more separated. In v3, they used to be part of the behavior whereas
+in v4, they're part of the element on which the behavior is called.
 
 To illustrate, let's plot 4 points. The rest of this post will only deal
 with data in one dimension. It should be trivial to expand to two dimensions.
@@ -85,14 +90,14 @@ The points will represent the values 1, 1010, 1020 and 5000:
 function figure1() {
     var margin = {'left': -50, 'top': 80, 'bottom': 20, 'right': 20};
     var width = 500, height=50;
-    var svg = d3.selectAll(".fig1")
+    var svg = d3v4.selectAll(".fig1")
         .attr('height', height + margin.top + margin.bottom)
         .attr('width', width + margin.left + margin.right);
 
     var gMain = svg.append('g')
         .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
 
-    var xScale = d3.scaleLinear()
+    var xScale = d3v4.scaleLinear()
         .domain([0,5000])
         .range([100,500])
 
@@ -118,7 +123,7 @@ function figure1() {
     .text('screen position');
 
 
-    var xTopAxis = d3.axisTop()
+    var xTopAxis = d3v4.axisTop()
     .scale(xScale)
     .ticks(3)
 
@@ -126,8 +131,8 @@ function figure1() {
     .classed('x axis', true)
     .attr('transform', 'translate(0,-15)')
 
-    var xAxis = d3.axisBottom()
-    .scale(d3.scaleLinear().domain([100,500]).range([100,500]))
+    var xAxis = d3v4.axisBottom()
+    .scale(d3v4.scaleLinear().domain([100,500]).range([100,500]))
     .ticks(3)
 
     var gAxis = gMain.append('g')
@@ -147,10 +152,10 @@ Using our `xScale`, we can determine that they're less than 1 pixel apart.
     xScale(1020) //181.6
 ```
 
-What if we want to zoom in so that they're 10 pixels apart? We'll need a scale factor, <em>k</em>:
+What if we want to zoom in so that they're 10 pixels apart? We'll first need to calculate the scale factor, <em>k</em>:
 
 ```javascript
-    var k = 10 / (xScale(1020) - xScale(1010)  //~ 12.5 
+    var k = 10 / (xScale(1020) - xScale(1010))  //~ 12.5 
 ```
 
 Let's say we want the point 1010 to be positioned at pixel 200. We need to determine <em>t<sub>x</sub></em> such that <em>200 = t<sub>x</sub> + k × xScale(1010)</em>
@@ -159,7 +164,7 @@ Let's say we want the point 1010 to be positioned at pixel 200. We need to deter
     var tx = 200 - k * xScale(1010) //-2600
 ```
 
-Let's apply this to our plot.
+When we apply this to our plot.
 
 ```javascript
     var k = 10 / (xScale(1020) - xScale(1010))
@@ -174,7 +179,7 @@ Let's apply this to our plot.
     .attr('cx', function(d) { return t.applyX(xScale(d)); });
 ```
 
-To get two lovely separated circles.
+We get two lovely separated circles.
 
 <svg class="fig2"></svg>
 
@@ -183,14 +188,14 @@ To get two lovely separated circles.
 function fig2() {
     var margin = {'left': -50, 'top': 80, 'bottom': 20, 'right': 20};
     var width = 500, height=50;
-    var svg = d3.selectAll(".fig2")
+    var svg = d3v4.selectAll(".fig2")
         .attr('height', height + margin.top + margin.bottom)
         .attr('width', width + margin.left + margin.right);
 
     var gMain = svg.append('g')
         .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
 
-    var xScale = d3.scaleLinear()
+    var xScale = d3v4.scaleLinear()
         .domain([0,5000])
         .range([100,500])
 
@@ -199,7 +204,7 @@ function fig2() {
 
     var k = 10 / (xScale(1020) - xScale(1010))
     var tx = 200 - k * xScale(1010)
-    var t = d3.zoomIdentity.translate(tx, 0).scale(k)
+    var t = d3v4.zoomIdentity.translate(tx, 0).scale(k)
 
     gMain.selectAll('circle')
     .data(dataPoints)
@@ -221,7 +226,7 @@ function fig2() {
     .text('screen position');
 
 
-    var xTopAxis = d3.axisTop()
+    var xTopAxis = d3v4.axisTop()
     .scale(xScale)
     .ticks(3)
 
@@ -229,8 +234,8 @@ function fig2() {
     .classed('x axis', true)
     .attr('transform', 'translate(0,-15)')
 
-    var xAxis = d3.axisBottom()
-    .scale(d3.scaleLinear().domain([100,500]).range([100,500]))
+    var xAxis = d3v4.axisBottom()
+    .scale(d3v4.scaleLinear().domain([100,500]).range([100,500]))
     .ticks(3)
 
     var gAxis = gMain.append('g')
@@ -264,14 +269,14 @@ axis:
 function fig3() {
     var margin = {'left': -50, 'top': 80, 'bottom': 20, 'right': 20};
     var width = 500, height=50;
-    var svg = d3.selectAll(".fig3")
+    var svg = d3v4.selectAll(".fig3")
         .attr('height', height + margin.top + margin.bottom)
         .attr('width', width + margin.left + margin.right);
 
     var gMain = svg.append('g')
         .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
 
-    var xScale = d3.scaleLinear()
+    var xScale = d3v4.scaleLinear()
         .domain([0,5000])
         .range([100,500])
 
@@ -280,7 +285,7 @@ function fig3() {
 
     var k = 10 / (xScale(1020) - xScale(1010))
     var tx = 200 - k * xScale(1010)
-    var t = d3.zoomIdentity.translate(tx, 0).scale(k)
+    var t = d3v4.zoomIdentity.translate(tx, 0).scale(k)
 
     var xNewScale = t.rescaleX(xScale)
 
@@ -304,7 +309,7 @@ function fig3() {
     .text('screen position');
 
 
-    var xTopAxis = d3.axisTop()
+    var xTopAxis = d3v4.axisTop()
     .scale(xNewScale)
     .ticks(3)
 
@@ -312,8 +317,8 @@ function fig3() {
     .classed('x axis', true)
     .attr('transform', 'translate(0,-15)')
 
-    var xAxis = d3.axisBottom()
-    .scale(d3.scaleLinear().domain([100,500]).range([100,500]))
+    var xAxis = d3v4.axisBottom()
+    .scale(d3v4.scaleLinear().domain([100,500]).range([100,500]))
     .ticks(3)
 
     var gAxis = gMain.append('g')
@@ -350,7 +355,7 @@ attach it to an element:
     gMain.call(zoom)
 ```
 
-Here we recompute the zoom transform every time there is a zoom event, and
+Here we recompute the zoom transform every time there is a zoom event and
 reposition each circle. We also rescale the x-scale so that we can use it to
 create an axis. The astute observer will note that
 `transform.applyX(xScale(d))` is actually equivalent to `xNewScale(d)`.
@@ -364,14 +369,14 @@ behavior would remove that transform as soon as we start zooming.
 
 Why?
 
-Because notice that in the `zoomed` function we obtain a `transform` from
+Because in the `zoomed` function we obtain a `transform` from
 `d3.event.transform`.  In previous versions of D3, this would come from the
 zoom behavior itself (`zoom.translate` and `zoom.scale`). In v4, it comes from
 the element on which the zoom behavior is called (`gMain`). To programmatically
 zoom in and then apply the zoom behavior starting from there, we need to set the
 zoom transform of the `gMain` element before we call the behavior:
 
-```javacript
+```javascript
 var k = 10 / (xScale(1020) - xScale(1010))
 var tx = 200 - k * xScale(1010)
 var t = d3.zoomIdentity.translate(tx, 0).scale(k)
@@ -380,7 +385,7 @@ gMain.call(zoom.transform, t);
 gMain.call(zoom)
 ```
 
-Now we start with an already zoomed in view **and** we can zoom in and out using the
+Now we start with an already zoomed in view **and** can zoom in and out using the
 mouse.
 
 <svg class="fig4"></svg>
@@ -390,7 +395,7 @@ mouse.
 function fig4() {
     var margin = {'left': -50, 'top': 80, 'bottom': 20, 'right': 20};
     var width = 500, height=50;
-    var svg = d3.selectAll(".fig4")
+    var svg = d3v4.selectAll(".fig4")
         .attr('height', height + margin.top + margin.bottom)
         .attr('width', width + margin.left + margin.right);
 
@@ -404,7 +409,7 @@ function fig4() {
     .attr('height', height)
     .style('fill', 'transparent');
 
-    var xScale = d3.scaleLinear()
+    var xScale = d3v4.scaleLinear()
         .domain([0,5000])
         .range([100,500])
 
@@ -413,7 +418,7 @@ function fig4() {
 
     var k = 10 / (xScale(1020) - xScale(1010))
     var tx = 200 - k * xScale(1010)
-    var t = d3.zoomIdentity.translate(tx, 0).scale(k)
+    var t = d3v4.zoomIdentity.translate(tx, 0).scale(k)
 
     var xNewScale = t.rescaleX(xScale)
 
@@ -441,7 +446,7 @@ function fig4() {
     .text('screen position');
 
 
-    var xTopAxis = d3.axisTop()
+    var xTopAxis = d3v4.axisTop()
     .scale(xNewScale)
     .ticks(3)
 
@@ -449,17 +454,17 @@ function fig4() {
     .classed('x axis', true)
     .attr('transform', 'translate(0,-15)')
 
-    var xAxis = d3.axisBottom()
-    .scale(d3.scaleLinear().domain([100,500]).range([100,500]))
+    var xAxis = d3v4.axisBottom()
+    .scale(d3v4.scaleLinear().domain([100,500]).range([100,500]))
     .ticks(3)
 
     var gAxis = gMain.append('g')
     .classed('x axis', true)
     .attr('transform', 'translate(0,15)')
 
-    var zoom = d3.zoom().on('zoom', zoomed);
+    var zoom = d3v4.zoom().on('zoom', zoomed);
     function zoomed() {
-        var transform = d3.event.transform;
+        var transform = d3v4.event.transform;
 
         var xNewScale = transform.rescaleX(xScale);
         xTopAxis.scale(xNewScale)  
@@ -482,6 +487,8 @@ zooms between random data points (a la [M. Bostock's Zoom Transitions Block](htt
 First, we need a function to call every time we want to jump to a point:
 
 ```javascript
+    let targetPoint = 1010;
+
     function transition(selection) {
         let n = dataPoints.length;
         let prevTargetPoint = targetPoint;
@@ -502,12 +509,12 @@ First, we need a function to call every time we want to jump to a point:
     circles.call(transition);
 ```
 
-This function picks a random point (`targetPoint`) and call a
+This function picks a random point (`targetPoint`) and calls a
 transition on the selection. In our case, the selection will be the circles.
 When the transition is over, we simply call the function again to start it
 over.
 
-Second, we need target transform to center the view on the target point:
+Second, we need a transform to center the view on the target point:
 
 ```javascript
     function transform() {
@@ -528,7 +535,7 @@ Second, we need target transform to center the view on the target point:
 function fig5() {
     var margin = {'left': -50, 'top': 80, 'bottom': 20, 'right': 20};
     var width = 500, height=50;
-    var svg = d3.selectAll(".fig5")
+    var svg = d3v4.selectAll(".fig5")
         .attr('height', height + margin.top + margin.bottom)
         .attr('width', width + margin.left + margin.right);
 
@@ -542,7 +549,7 @@ function fig5() {
     .attr('height', height)
     .style('fill', 'transparent');
 
-    var xScale = d3.scaleLinear()
+    var xScale = d3v4.scaleLinear()
         .domain([0,5000])
         .range([100,500])
 
@@ -552,7 +559,7 @@ function fig5() {
 
     var k = 10 / (xScale(1020) - xScale(1010))
     var tx = 200 - k * xScale(1010)
-    var t = d3.zoomIdentity.translate(tx, 0).scale(k)
+    var t = d3v4.zoomIdentity.translate(tx, 0).scale(k)
 
     var xNewScale = t.rescaleX(xScale)
 
@@ -576,7 +583,7 @@ function fig5() {
     .attr('text-anchor', 'middle')
     .text('screen position');
 
-    var xTopAxis = d3.axisTop()
+    var xTopAxis = d3v4.axisTop()
     .scale(xNewScale)
     .ticks(3)
 
@@ -584,17 +591,17 @@ function fig5() {
     .classed('x axis', true)
     .attr('transform', 'translate(0,-15)')
 
-    var xAxis = d3.axisBottom()
-    .scale(d3.scaleLinear().domain([100,500]).range([100,500]))
+    var xAxis = d3v4.axisBottom()
+    .scale(d3v4.scaleLinear().domain([100,500]).range([100,500]))
     .ticks(3)
 
     var gAxis = gMain.append('g')
     .classed('x axis', true)
     .attr('transform', 'translate(0,15)')
 
-    var zoom = d3.zoom().on('zoom', zoomed);
+    var zoom = d3v4.zoom().on('zoom', zoomed);
     function zoomed() {
-        var transform = d3.event.transform;
+        var transform = d3v4.event.transform;
         var xNewScale = transform.rescaleX(xScale);
 
         xTopAxis.scale(xNewScale)
@@ -612,7 +619,7 @@ function fig5() {
         var k = 20 / (xScale(10) - xScale(0))
         // center in the middle of the visible area
         var tx = (xScale.range()[1] + xScale.range()[0])/2 - k * xScale(targetPoint)
-        var t = d3.zoomIdentity.translate(tx, 0).scale(k)
+        var t = d3v4.zoomIdentity.translate(tx, 0).scale(k)
         return t;
     }
 
@@ -637,5 +644,6 @@ function fig5() {
 }
 fig5();
 </script>
+
 And that's all. Just remember, when zooming and panning the position of the transformed point <em>[x<sub>1</sub>,y<sub>1</sub>] = [t<sub>x</sub> + k ×
 x<sub>0</sub>, t<sub>y</sub> + k × y<sub>0</sub>]</em>. Everything else is just window dressing.

@@ -319,6 +319,8 @@ function compareMaps(geoJson, leafletMap) {
 
     var prevArgs = arguments;
 
+    console.log('d3:', d3);
+
     d3.json(geoJson, function(data) {
         d3.json('/jsons/world-110m.json', function(world) {
             compareChart.worldJson(topojson.feature(world, world.objects.countries))

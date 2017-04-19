@@ -3,6 +3,7 @@ layout: post
 title:  "Europe by Train"
 description: "A map of the travel time from Berlin, Vienna, London, Paris and Jena to any other place in Europe."
 tags: python maps leaflet
+thumbnail: /img/2015-03-25-train-travel-times-in-europe-map.png
 ---
 
 I like travelling. I like trains. I don't particularly like making decisions.
@@ -26,12 +27,12 @@ the log of the total estimated travel time. No legend is provided, but clicking
 on the image leads to a larger interactive version overlayed on OpenStreetMap.
 <table>
 <tr>
-<td><div align="center"><a href="/supp/travel_times_from_london"><img src="/img/from_london.jpg" width=260 height=260 style="border:1px solid #021a40;"/>London</a></div></td>
-<td><div align="center"><a href="/supp/travel_times_from_paris"><img src="/img/from_paris.jpg" width=260 height=260 style="border:1px solid #021a40;" />Paris</a></td>
+<td><div align="center"><a href="/supp/travel_times_from_london"><img src="/img/from_london.jpg" width="260" height="260" style="border:1px solid #021a40;"/>London</a></div></td>
+<td><div align="center"><a href="/supp/travel_times_from_paris"><img src="/img/from_paris.jpg" width="260" height="260" style="border:1px solid #021a40;" />Paris</a></td>
 </tr>
 <tr>
-<td><div align="center"><a href="/supp/travel_times_from_berlin"><img src="/img/from_berlin.jpg" width=260 height=260 style="border:1px solid #021a40;">Berlin</a></div></td>
-<td><div align="center"><a href="/supp/travel_times_from_vienna"><img src="/img/from_vienna.jpg" width=260 height=260 style="border:1px solid #021a40;">Vienna</a></td>
+<td><div align="center"><a href="/supp/travel_times_from_berlin"><img src="/img/from_berlin.jpg" width="260" height="260" style="border:1px solid #021a40;">Berlin</a></div></td>
+<td><div align="center"><a href="/supp/travel_times_from_vienna"><img src="/img/from_vienna.jpg" width="260" height="260" style="border:1px solid #021a40;">Vienna</a></td>
 </tr>
 </table>
 <br>

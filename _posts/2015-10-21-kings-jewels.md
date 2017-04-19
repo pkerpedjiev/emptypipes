@@ -3,12 +3,13 @@ layout: post
 title:  "Never Take The First Option"
 description: "How to maximize the chances of picking the best option."
 tags: problem
+thumbnail: /img/2015-10-21-kings-jewels.png
 ---
 <meta charset="utf-8">
 <link rel='stylesheet' href='/css/kings-jewels.css'>
 
 #### The King's Jewels Problem ####
-<img itemprop="image" src="/img/itemprop_kings_jewels.png" style='display:none' width=200 height=150>
+<img itemprop="image" src="/img/itemprop_kings_jewels.png" style='display:none' width="200" height="150" />
 
 A long time ago, in an alternate universe, you rescue the king's
 life. To show his gratitude, the king promises you one of his jewels as a
@@ -120,7 +121,6 @@ succintly:
 
 <center><b>NEVER take the first offer when you have more than one choice!</b></center>
 
-<script src="/js/lib/d3.min.js"></script>
 <script src="/js/lib/d3-grid.js"></script>
 <script src="/js/kings-jewels.js"></script>
 
@@ -139,4 +139,3 @@ succintly:
         href="http://trentrichardson.com/2010/04/06/compute-linear-regressions-in-javascript/">Trent Richardson</a> for the javascript implementation of a linear regression
     function.  </li>
 </ul>
-</body>

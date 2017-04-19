@@ -3,6 +3,7 @@ layout: post
 title:  "Slowing Down the Force Directed Graph in D3"
 description: "Slow down the d3 force-directed graph in order to more clearly see what happens in each step."
 tags: javascript d3.js
+thumbnail: /img/2015-02-18-slow-force-directed-graph.png
 ---
 
 Tracking the stepwise movements of the [force-directed graph layout in

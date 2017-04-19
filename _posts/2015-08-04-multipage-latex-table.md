@@ -3,6 +3,7 @@ layout: post
 title:  "Multi-Page Vertically Centered Latex Table"
 description: "How to create a latex table which spans multiple pages and has the text centered vertically in the cells."
 tags: latex
+thumbnail: /img/2015-08-04-multipage-latex-table.png
 ---
 
 Say we wanted to create a latex table that had vertically centered text.  Say
@@ -11,15 +12,15 @@ multiple pages.
 
 Then we might imagine that the table would have a heading...
 <br><br>
-<img src="/img/multipage_latex_table/first_page_start.png" width=400px />
+<img src="/img/multipage_latex_table/first_page_start.png" width="400px" />
 <br><br>
 Followed by an ending at the end of the page...
 <br><br>
-<img src="/img/multipage_latex_table/first_page_end.png" width=400px />
+<img src="/img/multipage_latex_table/first_page_end.png" width="400px" />
 <br><br>
 Which would be continued at the start of the next page...
 <br><br>
-<img src="/img/multipage_latex_table/second_page_start.png" width=400px>
+<img src="/img/multipage_latex_table/second_page_start.png" width="400px">
 <br><br>
 Such a table can be created using the snippet of code below. It uses the
 `array` package for vertically centering the cell text and the `longtable`

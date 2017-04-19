@@ -3,20 +3,29 @@ layout: post
 title:  "Approximate Flight Time Map"
 description: "An iso-distance map showing approximate flight times between different locations on Earth"
 tags: javascript d3.js maps
+thumbnail: /img/2015-07-13-flight-times-map.png
 ---
+
 The map below shows the approximate flight time (in hours) from any location on
 earth to any other.
 
+
+<meta charset="utf-8"> 
+<img itemprop="image" src="/img/isodistance_screenshot.png" style='display:none' width="200" height="170" />
+<link rel="stylesheet" href="/css/isodistances.css" />
+
+{::nomarkdown}
 <ul>
-<li><b>Double click</b> to change the starting point (sorry mobile users!).
+
+
+<li><b>Double click</b> to change the starting point (sorry mobile users!).</li>
 <li>Click and drag to pan</li>
 <li>Scroll to zoom in and out</li>
 <li>Click on the <i>Flight Times</i> and <i>Flight Paths</i> checkboxes to toggle the displayed lines</li>
-</ul>
 
-<meta charset="utf-8"> 
-<img itemprop="image" src="/img/isodistance_screenshot.png" style='display:none' width=200 height=170>
-<link rel="stylesheet" href="/css/isodistances.css">
+</ ul>
+{:/nomarkdown}
+
 
 <script src="/js/isodistances.js"></script>
 <script src="/js/topojson.v1.min.js"></script>
@@ -73,7 +82,7 @@ Other interesting facts that one can glean from this map:
 
 <b>Credits</b>
 
-Thanks to <a href=http://bl.ocks.org/patricksurry/6621971>patricksurry's
+Thanks to <a href="http://bl.ocks.org/patricksurry/6621971">patricksurry's
 block</a> for an example of how to implement a rolling pan and zoom with d3.js.
 
 <b>Errata / Disclaimer</b>

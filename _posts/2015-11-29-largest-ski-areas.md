@@ -4,9 +4,10 @@ title:  "Largest Ski Areas On Each Continent"
 description: "A comparison of the sizes of the five largest ski areas on each continent."
 permalink: /largest-ski-areas
 tags: leaflet maps ski-areas
+thumbnail: /img/2015-11-29-largest-ski-areas.png
 ---
 <meta charset="utf-8"> 
-<img itemprop="image" src="/img/itemprop-largest-ski-areas.png" style='display:none' width=200 height=130>
+<img itemprop="image" src="/img/itemprop-largest-ski-areas.png" style='display:none' width="200" height="130" />
 
 The chart below shows the five largest ski areas on each continent (except
 Antarctica). Africa only has three entries because those are the only ski areas
@@ -63,7 +64,6 @@ Here's the recipe to re-create the graphic:
 
 Questions? Comments? [Twitter (@pkerpedjiev)](https://twitter.com/pkerpedjiev) or email ([see about page](/about)).
 
-<script src="/js/lib/d3.min.js"></script>
 <script src="/js/lib/topojson.v1.min.js"></script>
 <script src="/js/lib/d3-grid.js"></script>
 <script src="/js/lib/leaflet.js"></script>
