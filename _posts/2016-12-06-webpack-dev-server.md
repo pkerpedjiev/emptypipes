@@ -78,7 +78,7 @@ Other notable sights include the `devtool: "cheap-source-map"` entry to make sur
 we can easily see the source code when debugging.
 
 
-{% highlight json %}
+{% highlight javascript %}
 var path = require('path');
 var webpack = require('webpack');
 
