@@ -5,7 +5,7 @@ circle {
     stroke-width: 1px;
 }
 
-svg {
+svg.event-filtering {
     border: 1px solid;
     font: 13px sans-serif;
     text-anchor: middle;

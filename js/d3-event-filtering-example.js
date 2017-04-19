@@ -5,6 +5,7 @@ function zoomFiltering(divId) {
                 .append('svg')
                 .attr('width', width)
                 .attr('height', height)
+                .attr('class', 'event-filtering');
     var g = svg.append('g')
 
     // create 15 circles
