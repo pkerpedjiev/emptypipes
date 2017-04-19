@@ -1,5 +1,5 @@
 name: Empty Pipes
-highlighter: rouge
+highlighter: redcarpet2
 paginate: 3
 permalink: pretty
 url: http://emptypipes.org
