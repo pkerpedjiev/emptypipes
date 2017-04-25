@@ -38,35 +38,34 @@ better, he must settle for the last.
 <div id="kj-plotting-area" ></div>
 <hr>
 
-The results are striking! If you don't look at any jewels and always pick the
-first one, you're equally likely to get any of the jewels. That is, your
-chances of picking the best one are 1/9. If you look at one, discard it and
-then pick the next jewel which is better than the one you saw, your chances of
-picking the best jewel increase dramatically to almost 4 / 10.! In fact, the
-entire distribution gets skewed right and your chances of picking the second
+The results are striking! If he doesn't look at any jewels and always pick the
+first one, he's equally likely to get any of the jewels. That is, the
+chances of picking the best one are 1/9. If he looks at one, discards it and
+then pick the next jewel which is better than any of the discarded, the chances of
+picking the best jewel increase dramatically to almost 4 / 10! In fact, the
+entire distribution gets skewed right and the chances of picking the second
 and third best jewels also significantly increase.
 
-You're after the best, however. From the histogram above, it's hard to see how
-many you have to see and discard before you maximize your chances of picking the
-best jewel. For that we can either run a simulation with lots of jewels and lots
+But the hero is after the best. From the histogram above, it's hard to see how
+many he has to see and discard to maximize the chances of picking the
+best one. For that we can either run a simulation with lots of jewels and lots
 of iterations. Or we can run simulations for increasing numbers of jewels and 
-plot how many you have to look at, to maximize your chances of getting the best:
+plot how many one has to look at, to maximize his/her chances of getting the best:
 
 <hr>
 <div id="kj-regression-area" style="width: 400px; margin-left: auto; margin-right: auto;"></div>
 <hr>
 
-What this chart shows is that the number of your have to look at and throw out to
-maximize your chances of finding the best grows linearly with the number of
-jewels. The slope of the line (0.36), indicats the fraction of the total number
-of jewels that we should examine before picking the next best. 
+What this chart shows is that the number one needs look at and throw out to
+maximize the chances of finding the best grows linearly with the number of
+jewels. The slope of the line (0.36), indicates the fraction of the total
+number of jewels that we should examine before picking the next best. 
 
-The red line shows how many you should look at if we want to maximize the
-average value of the jewel you end up with. If we try and maximize the chances
-of bagging the best jewel, we also increase the chances that you end up with the
-worst. When trying to get the highest value on average, you would thus have to
-look at fewer jewels before deciding to look for the best yet. How much fewer,
-in this case, between four and five times fewer.
+The red line shows how many we one should look at to maximize the average value
+of the kept jewel. If we try and maximize the chances of bagging the best
+jewel, we also increase the chances that we end up with the worst. When trying
+to get the highest value on average, one should look at fewer options before
+deciding to stick with the next best.
 
 #### What if the jewels are...? ####
 
@@ -115,7 +114,9 @@ exponentially distributed (mostly low-value).
 
 #### Moral of the Story ####
 
-As long as you have more than one option and you want to get the best reward
+So what should we tell our kind-saving friend?
+
+As long as there's more than one option and you want to get the best reward
 possible, always discard the first third (or 1/<i>e</i>'th, where <i>e</i> is [Euler's Number](https://en.wikipedia.org/wiki/E_(mathematical_constant)), to be more precise) of the options and then pick the next
 one which is better than any you have seen so far. If you want something better
 than average but not necessarily the best, discard fewer. Or, to put it more
