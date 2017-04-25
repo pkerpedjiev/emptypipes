@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "D3v4 event filtering example"
+title:  "Selectable zoomable force directed graph in D3v4"
 description: "To prevent events from affecting certain elements, certain behaviors (such as zoom) can be filtered so that their events ignore specified elements."
-tags: javascript d3.js
+tags: javascript d3.js d3v4.js
 thumbnail: 
 ---
 

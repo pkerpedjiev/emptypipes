@@ -11,25 +11,28 @@ thumbnail: /img/2015-10-21-kings-jewels.png
 #### The King's Jewels Problem ####
 <img itemprop="image" src="/img/itemprop_kings_jewels.png" style='display:none' width="200" height="150" />
 
-A long time ago, in an alternate universe, you rescue the king's
-life. To show his gratitude, the king promises you one of his jewels as a
-reward. He takes out his bag of treasures and tells you that you can 
-reach into the bag and randomly choose one. If you like it,
-you can keep it. If you don't, you to place it into another bag and 
-lose the opportunity to ever keep that jewel. Judging by the size of the
-bag, you estimate that there are 10 jewels inside.
+A long time ago, the story goes, a hero rescues the king's life. The elated
+king promises the hero one of his crown jewels as a reward. He takes out his
+bag of treasures and tells the hero to reach into the bag and randomly choose
+one. If he likes it, he can keep it. If he doesn't, he can throw it aside and
+lose it forever. The hero, greedy as he is heroic, naturally wants to pick 
+the best jewels. Looking at the bag, he judges there to be about 10 jewels
+inside. He stops to ponder for a second.
 
-**How should you proceed in order to maximize your chances of scoring the best
-jewel in the bag?** 
+*How should the hero proceed to maximize his chances of scoring the best
+jewel in the bag?*
 
-Should you just take the first one you pick or should you
-look at a few before deciding on one to keep? If so, how many?
+Should he just take the first one he picks or should he look at a few
+before deciding on one to keep? If so, how many?
 
-There is a concrete mathematical solution, but for me it's
-easier to run some simulations and see what the outcome is. The histograms
-below show how often a jewel with a value between 0 and 9 is picked after
-seeing some of the jewels and then picking the next one which is better than
-any seen (or the last if the best was seen and discarded).
+We could try to answer this question analytically, but since "data science" is
+all the rage, why not try and answer it stochastically? If we simulate the
+hero's choices, we should be able to come up with some numerically-grounded
+recommendation for what he should do.
+
+Let's assume a simple scenario. The hero first looks at *n* jewels and then takes
+the next best jewel. If none of the jewels that come up after the first *n* are
+better, he must settle for the last. 
 
 <hr>
 <div id="kj-plotting-area" ></div>
