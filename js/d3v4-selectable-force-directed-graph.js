@@ -26,7 +26,7 @@ function createV4SelectableForceDirectedGraph(svg, graph) {
     .attr('height', parentHeight)
     .style('fill', 'white')
 
-    var svg = gMain.append('g');
+    var gDraw = gMain.append('g');
 
     var zoom = d3v4.zoom()
     .on('zoom', zoomed)
@@ -35,7 +35,7 @@ function createV4SelectableForceDirectedGraph(svg, graph) {
 
 
     function zoomed() {
-        svg.attr('transform', d3v4.event.transform);
+        gDraw.attr('transform', d3v4.event.transform);
     }
 
     var color = d3v4.scaleOrdinal(d3v4.schemeCategory20);
@@ -54,17 +54,17 @@ function createV4SelectableForceDirectedGraph(svg, graph) {
 
     // the brush needs to go before the nodes so that it doesn't
     // get called when the mouse is over a node
-    var gBrushHolder = svg.append('g');
+    var gBrushHolder = gDraw.append('g');
     var gBrush = null;
 
-    var link = svg.append("g")
+    var link = gDraw.append("g")
         .attr("class", "link")
         .selectAll("line")
         .data(graph.links)
         .enter().append("line")
         .attr("stroke-width", function(d) { return Math.sqrt(d.value); });
 
-    var node = svg.append("g")
+    var node = gDraw.append("g")
         .attr("class", "node")
         .selectAll("circle")
         .data(graph.nodes)
@@ -256,6 +256,17 @@ function createV4SelectableForceDirectedGraph(svg, graph) {
             d.fy = null;
         })
     }
+
+    var texts = ['Use the scroll wheel to zoom',
+                 'Hold the shift key to select nodes']
+
+    svg.selectAll('text')
+        .data(texts)
+        .enter()
+        .append('text')
+        .attr('x', 390)
+        .attr('y', function(d,i) { return 270 + i * 18; })
+        .text(function(d) { return d; });
 
     return graph;
 };
