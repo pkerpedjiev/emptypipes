@@ -15,3 +15,23 @@ Differences between v3 and v4
   `.fixed` parameter on each node.
 * Clear the selection when someone clicks on the background, this fixes the issue in the previous version
  where zooming would clear the selection
+
+<div align='center' id="d3_selectable_force_directed_graph" style="width: 400px; height: 300px">
+    <svg />
+</div>
+
+<script src="/js/d3v4-brush-lite.js"></script>
+<script src="/js/d3v4-selectable-force-directed-graph.js"></script>
+
+<script>
+    var svg = d3.select('#d3_selectable_force_directed_graph');
+
+    d3.json('/jsons/miserables.with-ids.json', function(error, graph) {
+        if (!error) {
+            //console.log('graph', graph);
+            createV4SelectableForceDirectedGraph(svg, graph);
+        } else {
+            console.error(error);
+        }
+    });
+</script>
