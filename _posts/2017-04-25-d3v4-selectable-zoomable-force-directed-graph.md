@@ -6,6 +6,21 @@ tags: javascript d3.js d3v4.js
 thumbnail: 
 ---
 
+A [previous post](/2015/02/15/selectable-force-directed-graph/) described how
+to use d3.js to create a force-directed graph we can zoom into and select
+multiple nodes from. Beyond serving as an example that can be used to display
+larger graphs and move selections of nodes around, it showed how to combine
+different behaviors (zoom, drag, and brush) to act on one set of data.
+
+Since that post, a new version of D3 was released: v4. This new release
+introduced a lot of useful new features (see [Irene Ros's excellent overview of
+the differences between v3 and v4](https://iros.github.io/d3-v4-whats-new/)).
+Unfortunately, however, it did not maintain compatiblity with previous versions
+of d3. This means that my previous selectable zoomable force directed graph
+example could not be used with new code written with the latest version of the
+D3 library. Until now.
+
+
 Differences between v3 and v4
 
 * The brush keeps a constant width or height when the shift key is pressed so we can't use that for selection

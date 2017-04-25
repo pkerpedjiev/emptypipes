@@ -114,7 +114,7 @@ exponentially distributed (mostly low-value).
 
 #### Moral of the Story ####
 
-So what should we tell our kind-saving friend?
+So what should we tell our king-saving friend?
 
 As long as there's more than one option and you want to get the best reward
 possible, always discard the first third (or 1/<i>e</i>'th, where <i>e</i> is [Euler's Number](https://en.wikipedia.org/wiki/E_(mathematical_constant)), to be more precise) of the options and then pick the next
