@@ -1,11 +1,11 @@
-circle {
+#event-filtering-div circle {
     fill: red;
     opacity: 0.2;
     stroke: black;
     stroke-width: 1px;
 }
 
-svg.event-filtering {
+#event-filtering-div svg.event-filtering {
     border: 1px solid;
     font: 13px sans-serif;
     text-anchor: middle;

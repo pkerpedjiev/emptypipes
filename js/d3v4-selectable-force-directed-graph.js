@@ -40,6 +40,57 @@ function createV4SelectableForceDirectedGraph(svg, graph) {
 
     var color = d3v4.scaleOrdinal(d3v4.schemeCategory20);
 
+    if (! ("links" in graph)) {
+        console.log("Graph is missing links");
+        return;
+    }
+
+    var nodes = {};
+    var i;
+    for (i = 0; i < graph.nodes.length; i++) {
+        nodes[graph.nodes[i].id] = graph.nodes[i];
+        graph.nodes[i].weight = 1.01;
+    }
+
+    // the brush needs to go before the nodes so that it doesn't
+    // get called when the mouse is over a node
+    var gBrushHolder = svg.append('g');
+    var gBrush = null;
+
+    var link = svg.append("g")
+        .attr("class", "link")
+        .selectAll("line")
+        .data(graph.links)
+        .enter().append("line")
+        .attr("stroke-width", function(d) { return Math.sqrt(d.value); });
+
+    var node = svg.append("g")
+        .attr("class", "node")
+        .selectAll("circle")
+        .data(graph.nodes)
+        .enter().append("circle")
+        .attr("r", 5)
+        .attr("fill", function(d) { 
+            if ('color' in d)
+                return d.color;
+            else
+                return color(d.group); 
+        })
+        .call(d3v4.drag()
+        .on("start", dragstarted)
+        .on("drag", dragged)
+        .on("end", dragended));
+
+      
+    // add titles for mouseover blurbs
+    node.append("title")
+        .text(function(d) { 
+            if ('name' in d)
+                return d.name;
+            else
+                return d.id; 
+        });
+
     var simulation = d3v4.forceSimulation()
         .force("link", d3v4.forceLink()
                 .id(function(d) { return d.id; })
@@ -56,88 +107,41 @@ function createV4SelectableForceDirectedGraph(svg, graph) {
         .force("x", d3v4.forceX(parentWidth/2))
         .force("y", d3v4.forceY(parentHeight/2));
 
+    simulation
+        .nodes(graph.nodes)
+        .on("tick", ticked);
 
-    if (! ("links" in graph)) {
-        console.log("Graph is missing links");
-        return;
+    simulation.force("link")
+        .links(graph.links);
+
+    function ticked() {
+        // update node and line positions at every step of 
+        // the force simulation
+        link.attr("x1", function(d) { return d.source.x; })
+            .attr("y1", function(d) { return d.source.y; })
+            .attr("x2", function(d) { return d.target.x; })
+            .attr("y2", function(d) { return d.target.y; });
+
+        node.attr("cx", function(d) { return d.x; })
+            .attr("cy", function(d) { return d.y; });
     }
-
-    var nodes = {};
-    var i;
-    for (i = 0; i < graph.nodes.length; i++) {
-        nodes[graph.nodes[i].id] = graph.nodes[i];
-        graph.nodes[i].weight = 1.01;
-    }
-
-    var gBrushHolder = svg.append('g');
-    var gBrush = null;
-
-  var link = svg.append("g")
-      .attr("class", "links")
-    .selectAll("line")
-    .data(graph.links)
-    .enter().append("line")
-      .attr("stroke-width", function(d) { return Math.sqrt(d.value); });
-
-  var node = svg.append("g")
-      .attr("class", "node")
-    .selectAll("circle")
-    .data(graph.nodes)
-    .enter().append("circle")
-      //.attr("r", function(d) { return 8 * Math.sqrt(d.weight); })
-      .attr("r", 5)
-      .attr("fill", function(d) { 
-          if ('color' in d)
-              return d.color;
-          else
-            return color(d.group); 
-      })
-      .call(d3v4.drag()
-          .on("start", dragstarted)
-          .on("drag", dragged)
-          .on("end", dragended));
-
-  node.append("title")
-      .text(function(d) { 
-          if ('name' in d)
-              return d.name;
-          else
-                return d.id; 
-      });
-
-  simulation
-      .nodes(graph.nodes)
-      .on("tick", ticked);
-
-  simulation.force("link")
-      .links(graph.links);
-
-
-  function ticked() {
-    link
-        .attr("x1", function(d) { return d.source.x; })
-        .attr("y1", function(d) { return d.source.y; })
-        .attr("x2", function(d) { return d.target.x; })
-        .attr("y2", function(d) { return d.target.y; });
-
-    node
-        .attr("cx", function(d) { return d.x; })
-        .attr("cy", function(d) { return d.y; });
-  }
 
     var brushMode = false;
     var brushing = false;
 
     var brush = d3v4.brush()
-    .on("start", brushstarted)
-    .on("brush", brushed)
-    .on("end", brushended);
+        .on("start", brushstarted)
+        .on("brush", brushed)
+        .on("end", brushended);
 
     function brushstarted() {
+        // keep track of whether we're actively brushing so that we
+        // don't remove the brush on keyup in the middle of a selection
         brushing = true;
 
         node.each(function(d) { 
-            d.previouslySelected = shiftKey && d.selected; });
+            d.previouslySelected = shiftKey && d.selected; 
+        });
     }
 
     rect.on('click', () => {
@@ -148,36 +152,34 @@ function createV4SelectableForceDirectedGraph(svg, graph) {
         node.classed("selected", false);
     });
 
-  function brushed() {
-    if (!d3v4.event.sourceEvent) return;
-    if (!d3v4.event.selection) return;
+    function brushed() {
+        if (!d3v4.event.sourceEvent) return;
+        if (!d3v4.event.selection) return;
 
-    var extent = d3v4.event.selection;
+        var extent = d3v4.event.selection;
 
-    node.classed("selected", function(d) {
-        return d.selected = d.previouslySelected ^
-        (extent[0][0] <= d.x && d.x < extent[1][0]
-         && extent[0][1] <= d.y && d.y < extent[1][1]);
-    });
-  }
+        node.classed("selected", function(d) {
+            return d.selected = d.previouslySelected ^
+            (extent[0][0] <= d.x && d.x < extent[1][0]
+             && extent[0][1] <= d.y && d.y < extent[1][1]);
+        });
+    }
 
-  function brushended() {
-      if (!d3v4.event.sourceEvent) return;
-      if (!d3v4.event.selection) return;
-      if (!gBrush) return;
+    function brushended() {
+        if (!d3v4.event.sourceEvent) return;
+        if (!d3v4.event.selection) return;
+        if (!gBrush) return;
 
-      console.log('brushing');
+        gBrush.call(brush.move, null);
 
-      gBrush.call(brush.move, null);
+        if (!brushMode) {
+            // the shift key has been release before we ended our brushing
+            gBrush.remove();
+            gBrush = null;
+        }
 
-      if (!brushMode) {
-          // the shift key has been release before we ended our brushing
-          gBrush.remove();
-          gBrush = null;
-      }
-
-      brushing = false;
-  }
+        brushing = false;
+    }
 
     d3v4.select('body').on('keydown', keydown);
     d3v4.select('body').on('keyup', keyup);
@@ -255,5 +257,5 @@ function createV4SelectableForceDirectedGraph(svg, graph) {
         })
     }
 
-  return graph;
+    return graph;
 };
