@@ -3,7 +3,7 @@ layout: post
 title:  "Selectable zoomable force directed graph in D3v4"
 description: "To prevent events from affecting certain elements, certain behaviors (such as zoom) can be filtered so that their events ignore specified elements."
 tags: javascript d3.js d3v4.js
-thumbnail: 
+thumbnail: /img/2017-04-23-d3v4-selectable-zoomable-force-directed-graph.png
 ---
 
 A [previous post](/2015/02/15/selectable-force-directed-graph/) described how

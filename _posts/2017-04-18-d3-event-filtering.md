@@ -3,7 +3,7 @@ layout: post
 title:  "D3v4 event filtering example"
 description: "To prevent events from affecting certain elements, certain behaviors (such as zoom) can be filtered so that their events ignore specified elements."
 tags: javascript d3.js
-thumbnail: /img/2017-04-18-d3-event-filtering
+thumbnail: /img/2017-04-18-d3-event-filtering.png
 ---
 <link rel="stylesheet" href="/css/d3-event-filtering.css">
 <script src="/js/d3-event-filtering-example.js"></script>
