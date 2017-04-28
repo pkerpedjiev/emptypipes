@@ -15,21 +15,25 @@ different behaviors (zoom, drag, and brush) to act on one set of data.
 Since that post, a new version of D3 was released: v4. This new release
 introduced a lot of useful new features (see [Irene Ros's excellent overview of
 the differences between v3 and v4](https://iros.github.io/d3-v4-whats-new/)).
-Unfortunately, however, it did not maintain compatiblity with previous versions
-of d3. This means that my previous selectable zoomable force directed graph
-example could not be used with new code written with the latest version of the
-D3 library. Until now.
+Unfortunately, however, it did not maintain backward compatiblity with previous
+versions of d3. This means that the [previous selectable zoomable force
+directed graph example](/2015/02/15/selectable-force-directed-graph/) could not
+be used with new code written with the latest version of the D3 library. Until
+now.
 
+Upgrading the selectable zoomable force directed graph implementation required
+a few minor and not-so-minor changes.
 
-Differences between v3 and v4
-
-* The brush keeps a constant width or height when the shift key is pressed so we can't use that for selection
-    - Had to fork d3-brush to remove its default shift key behavior
-* How the brush is called and cleared on keydown
-* Whether a node is fixed is specified by the `.fx` and `.fy` parameters. This eliminates the need to set the
-  `.fixed` parameter on each node.
-* Clear the selection when someone clicks on the background, this fixes the issue in the previous version
- where zooming would clear the selection
+* The brush keeps a constant width or height when the shift key is pressed so
+  we can't use that for selection. This means I had to copy `d3-brush` and modify
+  it so that it doesn't capture the shift events. The new version (d3-brush-lite) 
+  can be found [on github](https://github.com/pkerpedjiev/d3-brush-lite).
+* Because the d3-drag behavior consumes all events in v4, it is no longer necessary
+  to stop propagation.
+* The brush creates its own overlay which catches all events meaning that we don't
+  need to turn the zoom behavior off when the shift key is pressed.
+* Whether a node is fixed is specified by the `.fx` and `.fy` parameters. This
+  eliminates the need to set the `.fixed` parameter on each node.
 
 <div align='center' id="d3_selectable_force_directed_graph" style="width: 400px; height: 300px; margin: auto">
     <svg />
