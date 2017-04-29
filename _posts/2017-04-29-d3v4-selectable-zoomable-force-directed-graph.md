@@ -37,8 +37,8 @@ behavior:
     <svg />
 </div>
 
-Upgrading the selectable zoomable force directed graph implementation required
-a few minor and not-so-minor changes.
+Upgrading the selectable zoomable force directed graph implementation to D3 v4
+required a few minor and not-so-minor changes.
 
 * The new brush in v4 captures the shift, alt and meta keys to perform some
   actions by default. To get around this, I forked `d3-brush` and modified it
