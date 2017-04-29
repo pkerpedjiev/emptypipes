@@ -159,8 +159,6 @@ function brush$1(dim) {
 
   function brush(group) {
 
-      console.log('brush');
-
     var overlay = group
         .property("__brush", initialize)
       .selectAll(".overlay")
