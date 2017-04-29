@@ -3,25 +3,26 @@ layout: post
 title:  "Selectable zoomable force directed graph in D3v4"
 description: "To prevent events from affecting certain elements, certain behaviors (such as zoom) can be filtered so that their events ignore specified elements."
 tags: javascript d3.js d3v4.js
-thumbnail: /img/2017-04-23-d3v4-selectable-zoomable-force-directed-graph.png
+thumbnail: /img/2017-04-29-d3v4-selectable-zoomable-force-directed-graph.png
 ---
 
 A [previous post](/2015/02/15/selectable-force-directed-graph/) described how
-to use d3.js to create a force-directed graph we can zoom into and select
-multiple nodes from. Beyond serving as an example that can be used to display
-larger graphs and move selections of nodes around, it showed how to combine
-different behaviors (zoom, drag, and brush) to act on one set of data.
+to use d3.js to create a force-directed graph we can zoom in to and select
+nodes from. Such a tool is useful for displaying and arranging larger
+networks. My colleagues and I personally used it to create [a small web
+application for displaying RNA secondary
+structure](http://rna.tbi.univie.ac.at/forna/).
 
-Since that post, a new version of D3 was released: v4. This new release
-introduced a lot of useful new features (see [Irene Ros's excellent overview of
-the differences between v3 and v4](https://iros.github.io/d3-v4-whats-new/)).
-Unfortunately, however, it did not maintain backward compatiblity with previous
-versions of d3. This means that the [previous selectable zoomable force
-directed graph example](/2015/02/15/selectable-force-directed-graph/) could not
-be used with new code written with the latest version of the D3 library. Until
-now.
+Since that post, a new version of D3 was released. D3 V4 introduced a lot of
+useful new features (see [Irene Ros's excellent overview of the differences
+between v3 and v4](https://iros.github.io/d3-v4-whats-new/)). Unfortunately,
+however, it did not maintain backward compatiblity with previous versions of
+d3. This means that the [previous selectable zoomable force directed graph
+example](/2015/02/15/selectable-force-directed-graph/) could not be used with
+new code written with the latest version of the D3 library. Until now.
 
-To recap, this graph implements the following selection semantics.
+As in the previous example, this graph provides the following selection
+behavior:
 
 1. Clicking on a node selects it and de-selects everything else.
 2. Shift-clicking on a node toggles its selection status and leaves
