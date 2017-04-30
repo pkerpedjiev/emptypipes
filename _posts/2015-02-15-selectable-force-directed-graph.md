@@ -7,7 +7,7 @@ thumbnail: /img/2015-02-15-selectable-force-directed-graph.png
 ---
 
 **Update:** An new version of this example using D3v4 can be
-[found in a later blog post.](/2017/04/29/d3v4-selectable-zoomable-force-directed-graph/)
+[found in a more recent blog post.](/2017/04/29/d3v4-selectable-zoomable-force-directed-graph/)
 
 Dragging multiple nodes in a force-directed graph layout is useful
 for making large changes in its arrangement. Mike Bostock
