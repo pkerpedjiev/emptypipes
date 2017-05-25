@@ -25,8 +25,8 @@ accomplished using `externals`.
 
 Initially, I had these dependencies defined in `webpack.conf.js` for Bar:
 
-```javascript
-    externals: {
+```json
+    "externals": {
       "pixi.js": "PIXI",
       "react" : "React",
       "react-dom": "ReactDOM",
@@ -126,7 +126,7 @@ Uncaught Error: locals[0] does not appear to be a `module` object with Hot Modul
 
 Both appear to be associated redbox-react and both were fixed by removing `react-hmre` from `.babelrc`:
 
-```javascript
+```json
 {
   "presets": ["es2015", "stage-0", "react"],
   "env": {
