@@ -1,21 +1,27 @@
 ---
 layout: post
-title:  "Upgrading a Webpack 2 and using externals"
+title:  "Using external dependencies with Webpack2"
 description: "This post describes errors I encountered in including a project containing external dependencies into a parent project using npm link."
 tags: javascript d3.js
-thumbnail: /img/2017-05-21-webpack-npm-link-external-dependencies.png
+thumbnail: /img/2017-05-25-webpack-npm-link-external-dependencies.png
 ---
 
-Over the past week I've been trying to move a project (let's call it Foo) from
-Webpack to Webpack2. One of its dependencies, another project of mine, is
-called Bar. Bar is its own package and can be used as a standalone library.  In
-this case, however, it is a dependency of the application Foo. Foo and Bar 
-both require React, ReactDOM and ReactBootstrap. 
+Over the past week I've been trying to move a project from Webpack to Webpack2.
+Normally, this would entail reading [some
+tutorials](https://webpack.js.org/guides/migrating/), changing a few settings
+and swatting a few errors. This migration, however, turned out to be a little
+more complicated. The problem was that the project I was migrating, let's call
+it Foo, depends on a library (Bar) and this library had external dependencies.
+So no the task of making sure that Foo's `webpack.config.js` was properly
+configured was compounded by the task of making sure that Bar's
+`webpack.config.js` was configured. The challenge here was ensuring
+that React, ReactDOM, ReactBootstrap and PIXI.js were not bundled
+with Bar even though it depended on them.
 
-When I want to use Bar within a webpage on its own, I'd like to include React,
-ReactDOM and ReactBootstrap separately so that they can be quickly pulled from
-a CDN rather than having them be part of the bundle. With webpack, this is
-easily accomplished using `externals`.
+When I want to use Bar within a webpage, I'd like to include React, ReactDOM,
+ReactBootstrap and PIXI.js separately so that they can be quickly pulled from a
+CDN rather than having them be part of the bundle. With webpack, this is easily
+accomplished using `externals`.
 
 Initially, I had these dependencies defined in `webpack.conf.js` for Bar:
 
@@ -31,8 +37,8 @@ Initially, I had these dependencies defined in `webpack.conf.js` for Bar:
 Now when I loaded Bar in a webpage along with the `<script>` tags for React,
 ReactDOM, ReactBootstrap and PIXI. Everything would work just fine.
 
-But when I included Bar [which is actually the [higlass
-library](https://github.com/hms-dbmi/higlass) into Foo using `npm link ../Foo`
+But when I included Bar (which, in this case, is actually the [higlass
+library](https://github.com/hms-dbmi/higlass)) into Foo using `npm link ../Bar`
 errors started appearing:
 
 ```
@@ -44,18 +50,17 @@ Module not found: Error: Can't resolve 'ReactDOM' in '/Users/pkerp/projects/higl
  @ ./src/routes.js
  @ ./src/app.js
  @ multi (webpack)-dev-server/client?http://localhost:8080 ./app.js
- ```
+```
 
-After a bit of googling spanning topics from 'npm link externals', to 'webpack
-peer dependencies' to any other relevant terms I could think of I stumbled upon
-[Webpack's documentation on
-externals](https://webpack.js.org/configuration/externals/). It quite clearly
-states that the syntax I was using for externals (`"react-dom": "ReactDOM"`)
-indicates that the library `react-dom` can be found in the global `ReactDOM`.
-When we include Bar as a dependency and compile it with Webpack, no scripts
-have been loaded so `ReactDOM` does not exist as a global. What I needed to do
-instead was to specify another way that the external libraries can be
-available:
+After googling topics from 'npm link externals', to 'webpack peer dependencies'
+to any other relevant terms I could think of, I stumbled upon [Webpack's
+documentation on externals](https://webpack.js.org/configuration/externals/).
+It explains that the syntax I was using for externals
+(`"react-dom": "ReactDOM"`) indicates that the library `react-dom` can be found
+in the global `ReactDOM`.  When we include Bar as a dependency and compile it
+with Webpack, no scripts have been loaded so `ReactDOM` does not exist as a
+global. What I needed to do instead was to specify another way that the
+external libraries can be found:
 
 ```
   externals: {
@@ -160,9 +165,9 @@ components:
       }
 ```
 
-This concluded the process of making the library (Bar) use externals while the 
-application (Foo) includes the library and having it all built using Webpack 2. For
-those interested, here is the entire webpack.js file:
+And it worked! Foo now includes Bar while Bar expects React, ReactDOM,
+ReactBootstrap and PIXI.js to be defined externally. For completeness, here is
+the entire webpack.js file:
 
 ```javascript
 var path = require('path');
