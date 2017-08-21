@@ -8,24 +8,23 @@ thumbnail: /img/2017-04-18-d3-event-filtering.png
 <link rel="stylesheet" href="/css/d3-event-filtering.css">
 <script src="/js/d3-event-filtering-example.js"></script>
 
-D3 behaviors, such as `d3.zoom`, work by responding to events which 
-pass through the element on which they are called. If they are called
-on an element with children and the children don't block the events
-from propagating, the behavior will still be called. This is often
-beneficial. If we want to be able to zoom on a populated SVG, we need
-only call the zoom behavior on the root node and we'll be able to
-pan and zoom even if we drag and scroll on the child elements.
+D3 behaviors, such as `d3.zoom`, work by responding to events which pass
+through the element on which they are called. If the element has children, the
+behavior will be called as long as the children don't block events'
+propagation. This is often beneficial. If we want to be able to zoom on a
+populated SVG, we need only call the zoom behavior on the root node and we'll
+be able to pan and zoom even if we drag and scroll on the child elements.
 
-There are times, however, when this is undesireable. We may want to 
-ignore certain elements without having the block the propagation of
-the event. For this, there is event filtering. The example below
-illustrates this by only allowing zooming on the background and not
-on the circles.
+There are times, however, when we may want to ignore certain elements without
+having the block the propagation of the event. For this, there is event
+filtering. By filtering events, we can let them pass through without having to
+block or process them. This can be seen in the example below where dragging
+the background leads to panning, while dragging the circles has no effect.
 
-<div id='event-filtering-div' style="width: 400px; margin: auto; margin-bottom: 5px"></div>
+<div id='event-filtering-div' style="width: 400px; margin: auto; margin-bottom: 10px"></div>
 
-To accomplish this, we simply check that the event did not go through
-any elements with a class of `no-zoom`.
+The crux of the code for this example is a simple check to see that handled
+events have not passed though an element with a `no-zoom` class.
 
 ```javascript
 var zoom = d3v4.zoom()

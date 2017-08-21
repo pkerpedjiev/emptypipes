@@ -28,10 +28,10 @@ This works like a charm until the source code and dependencies get to any
 appreciable size. As more and more files need to be transpiled, the process
 gets slower and slower until at about ~10 seconds, it starts to get annoying:
 
-{% highlight shell %}
+```shell
 [BS] 3 files changed (main.js, playground.js, worker.js)
 [08:31:20] Finished 'scripts' after 11 s
-{% endhighlight %}
+```
 
 So how can this be sped up? Easy, stop using gulp and webpack-stream and
 switch to the...
@@ -43,18 +43,18 @@ listed in its config file (`webpack.config.js`). When one of the files changes, 
 recreates the output files specified in its config and reloads the web page. I
 run it using the following command line:
 
-{% highlight shell %}
-webpack-dev-server --content-base app --display-exclude --profile --inline | grep -v "\\[\\d*\\]"
-{% endhighlight %}
+```shell
+webpack-dev-server --content-base app --display-exclude --profile --inline | grep -v "\\[\\d\*\\]"
+```
 
 The grep at the end is to filter out some of the [overly] verbose output that webpack
 produces. So how long does it take to regenerate the code when a source file is changed? 
 
-{% highlight shell %}
+```shell
 Version: webpack 1.12.15
 Time: 1296ms
 chunk    {0} main.js (main) 4.61 MB
-{% endhighlight %}
+```
 
 This is about 10x faster than the configuration using gulp and webpack-stream.
 
@@ -66,9 +66,9 @@ to change in my `webpack.config.js` file was to add `output: { publicPath:
 '/scripts/'}`.  This is because my `index.html` file loads the compiled scripts
 from the `scripts` directory:
 
-{% highlight html %}
+```html
 <script src='scripts/playground.js'></script>
-{% endhighlight %}
+```
 
 Below is the entire `webpack.config.js` for this project. Notice that there's
 multiple different targets being built including a worker script that can be
@@ -78,7 +78,7 @@ Other notable sights include the `devtool: "cheap-source-map"` entry to make sur
 we can easily see the source code when debugging.
 
 
-{% highlight json %}
+```javascript
 var path = require('path');
 var webpack = require('webpack');
 
@@ -126,4 +126,4 @@ module.exports = {
     }
   }
 };
-{% endhighlight %}
+```

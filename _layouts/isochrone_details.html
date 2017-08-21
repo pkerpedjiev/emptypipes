@@ -38,6 +38,15 @@ Everything is an estimate. Rounding errors abound. Don't use this for anything b
 <br>
 <br>
 
+Travel times to areas close to the coasts are prone to large errors. This is
+because travel times are calculated and interpolated on a grid. Points in the
+water are heavily penalized so if a city lies between points sampled on land
+and water, the interpolated time may be extraordinarily large. Thanks to <a
+    href="https://twitter.com/ChristianTanner">@ChristianTanner</a> for
+pointing this out for the very stark example of Dublin, where it appears that
+it takes 14 hours to travel from Dublin to Dublin.  <br> <br>
+
+
 Some data may be missing. There may be faster connections.
 If you find issues, please let me know
 and I'll do my best to fix them.

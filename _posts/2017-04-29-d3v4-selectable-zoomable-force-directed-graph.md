@@ -3,7 +3,7 @@ layout: post
 title:  "Selectable zoomable force directed graph in D3v4"
 description: "To prevent events from affecting certain elements, certain behaviors (such as zoom) can be filtered so that their events ignore specified elements."
 tags: javascript d3.js d3v4.js
-thumbnail: /img/2017-04-23-d3v4-selectable-zoomable-force-directed-graph.png
+thumbnail: /img/2017-04-29-d3v4-selectable-zoomable-force-directed-graph.png
 ---
 
 A [previous post](/2015/02/15/selectable-force-directed-graph/) described how
@@ -37,8 +37,8 @@ behavior:
     <svg />
 </div>
 
-Upgrading the selectable zoomable force directed graph implementation required
-a few minor and not-so-minor changes.
+Upgrading the selectable zoomable force directed graph implementation to D3 v4
+required a few minor and not-so-minor changes.
 
 * The new brush in v4 captures the shift, alt and meta keys to perform some
   actions by default. To get around this, I forked `d3-brush` and modified it

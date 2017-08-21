@@ -101,6 +101,14 @@ Thanks to <i>cuicuit</i> on reddit and
 for Paris and London! This data has been added.
 <br>
 
+Travel times to areas close to the coasts are prone to large errors. This is
+because travel times are calculated and interpolated on a grid. Points in the
+water are heavily penalized so if a city lies between points sampled on land
+and water, the interpolated time may be extraordinarily large. Thanks to <a
+    href="https://twitter.com/ChristianTanner">@ChristianTanner</a> for
+pointing this out for the very stark example of Dublin, where it appears that
+it takes 14 hours to travel from Dublin to Dublin.  <br>
+
 Ireland and parts of Spain are not well represented due to missing data.
 <br>
 <hr>
