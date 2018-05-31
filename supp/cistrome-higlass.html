@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Cistrome / HiGlass</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/higlass@1.0.0-alpha.11/dist/styles/hglib.css" type="text/css">
+
+  <style type="text/css">
+    .canvasjs-chart-credit {
+      display: none;
+    }
+
+    .content {
+      width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    h4 {
+      margin-top: 15px;
+      margin-bottom: 15px;
+    }
+
+    p {
+      margin-bottom: 15px;
+      margin-top: 15px;
+    }
+
+  </style>
+
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.5.4/react.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.5.4/react-dom.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.5.2/pixi.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react-bootstrap/0.31.0/react-bootstrap.min.js"></script>
+</head>
+<body>
+  <div class='content'>
+    <h2>Viewing Cistrome data using HiGlass</h2>
+
+    <p>
+    The cistrome database contains a set of genome-wide measures. These are
+    typically displayed in a genome browser using individual "tracks". The
+    current implementation allows users to select files in the database and
+    then go to an external viewer like UCSC to view them.
+    </p>
+
+    <p>
+    Using HiGlass, individual files can be directly displayed within the page
+    that will host them. The example below shows four bigWig files from the cistrome
+    database. Each file is displayed as a separate "track".
+    </p>
+
+    <div style="margin: auto">
+      <div style="height: 300px; width: 800px; border: 1px solid grey;"
+           id="bigwig">
+      </div>
+    </div>
+
+    <p>
+    If we try to display too many individual bigWig files, however, the performance
+    will suffer due to the many files that need to be opened and read.
+    </p>
+
+    <p>
+
+    A better solution is to consolidate the data into a single "multivec" file
+    that can be queried once to obtain values across hundreds of datasets. The
+    example below contains a heatmap made up of 256 individual samples. It also
+    contains a track showing sequence conservation as a well as 
+    <a href="http://epilogos.altiusinstitute.org">epigenetic states</a>
+
+    </p>
+
+      <div style="margin: auto">
+        <div style="height: 500px; width: 800px; border: 1px solid grey;"
+             id="multivec">
+        </div>
+      </div>
+
+    <p>
+
+    By incorporating HiGlass, Cistrome can take advantage of more advanced
+    HiGlass features such as detail / overview views.
+
+    </p>
+
+    <p>
+      The view on the left is a "detail" view showing data a high zoom level
+      where individual promoters can be identified. The view on the right contains
+      an "overview" at a lower zoom level indicating the context for the detail view.
+    </p>
+
+  <div style="margin: auto">
+    <div style="height: 640px; width: 800px; border: 1px solid grey;"
+         id="two-views">
+    </div>
+  </div>
+
+  </div>
+</body>
+
+<script src="https://unpkg.com/higlass-multivec@0.1.10/dist/higlass-multivec.js"></script>
+<script src="https://unpkg.com/higlass-time-interval-track@0.1.8/dist/higlass-time-interval-track.js"></script>
+<script src="https://unpkg.com/higlass@1.0.0-alpha.11/dist/scripts/hglib.js"></script>
+
+<script>
+
+  window.hglib.createHgComponent(
+    document.getElementById('bigwig'),
+    "https://higlass.io/api/v1/viewconfs/?d=E1a9LFkFRoOJaLp4JKMg7A",
+    { bounded: true}
+  );
+
+  window.hglib.createHgComponent(
+    document.getElementById('multivec'),
+    "https://higlass.io/api/v1/viewconfs/?d=Kp6qt1jaQFqTBeIqN4grpg",
+    { bounded: true}
+  );
+
+  window.hglib.createHgComponent(
+    document.getElementById('two-views'),
+    "https://higlass.io/api/v1/viewconfs/?d=IYecQvy-ToO9b2t0mkzupw",
+    { bounded: true}
+  );
+
+
+</script>
+<script>
+  (function (i, s, o, g, r, a, m) {
+    i['GoogleAnalyticsObject'] = r;
+    i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date();
+    a = s.createElement(o),
+      m = s.getElementsByTagName(o)[0];
+    a.async = 1;
+    a.src = g;
+    m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+  ga('create', 'UA-77756807-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</html>
