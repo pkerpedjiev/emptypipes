@@ -1,0 +1,597 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>Zymergen Presentation</title>
+
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/theme/presentation.css">
+
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="lib/css/zenburn.css">
+
+  <!-- Printing and PDF exports -->
+  <script>
+   var link = document.createElement( 'link' );
+   link.rel = 'stylesheet';
+   link.type = 'text/css';
+   link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+   document.getElementsByTagName( 'head' )[0].appendChild( link );
+</script>
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+</head>
+<body>
+  <div class="reveal">
+   <div class="slides">
+    <section>
+        <h2>Genomes, maps and matrices</h2> 
+        <h3><i>How we use the technology behind web-based maps to explore trillion-cell genome contact matrices</i></h3>
+        <br>
+        <p>
+            Peter Kerpedjiev<br>
+            Postdoc, Gehlenborg Lab<br>
+            Harvard Medical School
+        </p>
+    </section>
+
+    <section>
+        <h3>Topics</h3>
+        <ul>
+            <li class="fragment">The questions</li>
+            <li class="fragment">The data</li>
+            <li class="fragment">The challenges</li>
+            <li class="fragment">The technology</li>
+            <li class="fragment">The other applications</li>
+            <li class="fragment">The summary</li>
+        </ul>
+    </section>
+
+    <section>
+        <h3>Topics</h3>
+        <ul>
+            <li><b>The questions</b></li>
+            <li style="color: grey">The data</li>
+            <li style="color: grey">The challenges</li>
+            <li style="color: grey">The technology</li>
+            <li style="color: grey">The other applications</li>
+            <li style="color: grey">The summary</li>
+        </ul>
+    </section>
+
+
+    <section> 
+        <h3>A question</h3>
+
+        <p><i>What is the structure of DNA within the nucleus?</i></p>
+    </section>
+
+    <section>
+        <h3>DNA</h3>
+        <table width="1000px">
+            <tr>
+                <td style="vertical-align: middle; width: 400px; height: 400px">
+                    <img src="img/DNA_simple2.svg" width="400px"/>
+                </td>
+
+                <td style="vertical-align: middle; width: 400px; height: 400px">
+                    <img src="img/DNA-Chromosome.jpg" width="400px"/>
+                </td>
+            </tr>
+        </table>
+
+        <p><small>
+        3.4e-10m distance between base pairs * 6e9 base pairs ~= 2.04 meters of DNA in a single cell
+        </small></p>
+    </section>
+
+    <section>
+        <h3>The nucleus</h3>
+
+        <img src="img/nucleusfigure1.jpg" width="400px"/>
+
+        <p><small>
+            Nucleus is about 1 micrometer (1e-6 meters) in diameter.
+        </small></p>
+    </section>
+
+    <section>
+        <h3>DNA is tightly packed within the nucleus</h3>
+
+        <table >
+            <tr>
+                <td style="vertical-align: middle; width: 400px; height: 400px">
+                    <img src="img/uu-to-antelope.png" width="400px"/>
+                </td>
+
+                <td style="text-align: center; vertical-align: middle; height: 400px; width: 300px">
+                    <img src="img/Basketball.png" width="200px"/>
+                </td>
+            </tr>
+        </table>
+
+    </section>
+
+    <section>
+        <h3>A question</h3>
+
+        <p><i>How do we measure DNA structure?</i></p>
+    </section>
+
+    <section>
+        <h3>How do we measure DNA structure</h3>
+        <div style="display: flex; align-items: center; justify-content: space-evenly" >
+            <div>
+                <h4>X-Ray Crystallography?</h4>
+                <br>
+                <p><small>Structure 5I6Q from PDB</small></p>
+            </div>
+            <img src="img/5I6Q.png" width="600"/>
+        </div>
+        <aside class="notes" src="This is how the structure of DNA was initially determined" />
+    </section>
+
+    <section>
+        <h3>How do we measure DNA structure</h3>
+        <div style="display: flex; align-items: center; justify-content: space-evenly" >
+            <div>
+                <h4>Microscopy?</h4>
+                <br>
+                <p><small>Horng et al. Science 2017</small></p>
+            </div>
+
+            <img src="img/F6.large.jpg" width="500"/>
+        </div>
+        <aside class="notes" src="There are, of course, other types of microscopy too." />
+        <div class="footer">
+        </div>
+    </section>
+
+    <section>
+        <h3>How do we measure DNA structure</h3>
+        <div style="display: flex; align-items: center; justify-content: space-evenly" >
+
+            <h4>Contacts?</h4>
+
+            <img src="img/higlass-sequencing.png" width="500"/>
+        </div>
+        <aside class="notes" src="" />
+    </section>
+
+    <section>
+        <h3>Why do we measure DNA structure?</h3>
+        <div style="display: flex; justify-content: space-evenly; margin-top: 50px;">
+            <img class="fragment" src="img/equilibrium-globule.png">
+            <img class="fragment" src="img/fractal-globule.png">
+        </div>
+        <p class='fragment'><small>It affects biological processes such as gene expression (Zuin et al. 2014), cancer (Hnisz et al. 2016), X-Chromosome inactivation (Chen et al. 2014) </small></p>
+    </section>
+
+    <section>
+        <h3>Topics</h3>
+        <ul>
+            <li>The questions</li>
+            <li><b>The data</b></li>
+            <li style="color: grey">The challenges</li>
+            <li style="color: grey">The technology</li>
+            <li style="color: grey">The other applications</li>
+            <li style="color: grey">The summary</li>
+        </ul>
+    </section>
+
+    <section>
+        <h3>The Data</h3>
+    </section>
+
+    <section>
+        <h3>What is Hi-C data?</h3>
+        Hi-C data describes contacts between distal portions of DNA
+        <table>
+            <tr>
+                <td class="fragment no-border align-top">
+                    <img src="img/aiden-et-al-1.png" height="26%" class="no-border"></td>
+                </td>
+                <td class="fragment no-border align-top">
+                    <img src="img/aiden-et-al-2.png" height="26%" class="no-border"></td>
+                </td>
+                <td class="fragment no-border align-top">
+                    <img src="img/aiden-et-al-3.png" height="26%" class="no-border"></td>
+                </td>
+                <td class="fragment no-border align-top">
+                    <img src="img/aiden-et-al-4.png" height="26%" class="no-border"></td>
+                </td>
+                <td class="fragment no-border align-top">
+                    <img src="img/aiden-et-al-5.png" height="26%" class="no-border"></td>
+                </td>
+                <td class="fragment no-border align-top">
+                    <img src="img/aiden-et-al-6.png" height="26%" class="no-border"></td>
+                </td>
+            </tr>
+        </table>
+
+        <div class="footer fragment">
+            <p>Lieberman-Aiden, Erez, et al. Science 326.5950 (2009): 289-293.</p>
+        </div>
+    </section>
+
+    <section>
+        <h3>Hi-C Data (Overview)</h3>
+
+        <aside class="notes">
+            <ul>
+                <li>The point of Hi-C data is to show the 3D conformation of the genome.</li> 
+                <li>In an ideal world, we'd use something like X-ray crystallography or NMR or cryo-EM to get a snapshot.</li>
+                <li>In the real world, we make use of the technology that we have (sequencing)</li>
+            </ul>
+        </aside>
+
+
+        </aside>
+
+        <table>
+            <tr>
+                <td class="fragment no-border">
+                    <img src="img/hic-data-fritz-1.png" height="40%" class="no-border"></td>
+                </td>
+                <td class="fragment no-border">
+                    <img src="img/hic-data-fritz-2.png" height="40%" class="no-border"></td>
+                </td>
+                <td class="fragment no-border">
+                    <img src="img/hic-data-fritz-3.png" height="40%" class="no-border"></td>
+                </td>
+                <td class="fragment no-border">
+                    <img src="img/hic-data-fritz-4.png" height="40%" class="no-border"></td>
+                </td>
+                <td class="fragment no-border">
+                    <img src="img/hic-data-fritz-5.png" height="40%" class="no-border"></td>
+                </td>
+            </tr>
+        </table>
+        <p class="fragment">The end result of a Hi-C assay is a <b>sparse 3 million by 3 million contact matrix.</b></p>
+        <div class="footer">
+            <p>Figure from F Lekschas et al.  IEEE Trans Vis Comput Graph. 2017 Aug 29.</p>
+        </div>
+    </section>
+
+   <section>
+        <h3>Topics</h3>
+        <ul>
+            <li>The questions</li>
+            <li>The data</li>
+            <li><b>The challenges</b></li>
+            <li style="color: grey">The technology</li>
+            <li style="color: grey">The other applications</li>
+            <li style="color: grey">The summary</li>
+        </ul>
+    </section>
+
+    <section>
+        <h3>Hi-C Data Visualization Challenges</h3>
+        <ul>
+            <li class='fragment'><b>Big data</b> - 3M x 3M matrices</li>
+            <li class='fragment'><b>Disparate data</b> - many relevant datatypes</li>
+            <li class='fragment'><b>Lots of data</b> - many different samples and experimental conditions</li>
+        </ul>
+    </section>
+    <section>
+        <h3>Big data: how do we display a 3M x 3M matrix in a browser?</h3>
+        <div style="display: flex; align-items: center; justify-content: space-evenly; margin-top: 50px;" class="fragment">
+            <div style="width: 500px">
+                <p>
+                    <b>Solution:</b> Allow the user to navigate the matrix like a map: zooming and panning to regions of interest.
+                </p>
+            </div>
+            <iframe src="hg-demo4.html" height="500px" width="500px"></iframe>
+        </div>
+    </section>
+
+    <section>
+        <h3>How does this work?</h3>
+        <div style="display: flex; align-items: center; justify-content: space-evenly; margin-top: 50px;">
+            <div>
+                <img class='fragment' src="img/higlass-client-server.png" width="400px"/><br>
+                <img class='fragment' src="img/higlass-client-server-2.png" width="400px"/>
+            </div>
+            <iframe src="hg-demo5.html" height="500px" width="500px"></iframe>
+        </div>
+    </section>
+
+    <!--
+        <section>
+            <h3>Big data: how do we display a 3M x 3M matrix in a browser?</h3>
+            <div class="fragment">
+                <img src="img/aggregation.png" width="500"/>
+                <p><b>Aggregation! Average adjacent cells in the matrix to create lower resolutions.</b></p>
+            </div>
+        </section>
+    -->
+
+    <section>
+        <h3>Challenges</h3>
+        <ul>
+            <li class='fragment'><b>Data storage:</b> HDF5 files storing sparse matrices at multiple resolutions (1K, 2K, 4K, ...) </li>
+            <li class='fragment'><b>Data fetching:</b>  Use augmented online maps API 
+                <pre>dataset/zoom_level/x_position/y_position/data_transform
+            </li>
+            <li class='fragment'><b>Data rendering:</b>  Use WebGL-based PIXI.js to render textures containing 65K blocks of data points (tiles)</li>
+        </ul>
+    </section>
+
+
+    <section>
+        <h3>What else do we know about the genome?</h3>
+
+        <table>
+            <tr class='fragment'>
+                <td style="vertical-align: middle">
+                    Contacts
+                </td>
+                <td style="vertical-align: middle">
+                    <img src="img/higlass-matrix.png" height="100px"/>
+                </td>
+                <td style="vertical-align: middle; width:350px">
+                    <small>
+                        Matrix
+                    </small>
+                </td>
+            </tr>
+
+            <tr class='fragment'>
+                <td style="vertical-align: middle">
+                    Chromosome boundaries
+                </td>
+                <td style="vertical-align: middle">
+                    <img src="img/chromosome-axis.png" height="100px"/>
+                </td>
+                <td style="vertical-align: middle; width:350px">
+                    <small>
+                        Axis
+                    </small>
+                </td>
+            </tr>
+
+            <tr class='fragment'>
+                <td style="vertical-align: middle">
+                    Gene Annotations
+                </td>
+                <td style="vertical-align: middle">
+                    <img src="img/higlass-gene-annotations.png" height="100px"/>
+                </td>
+                <td style="vertical-align: middle; width:350px">
+                    <small>
+                        Standard UCSC Genome Browser-like Exon/Intron view
+                    </small>
+                </td>
+            </tr>
+
+
+            <tr class='fragment'>
+                <td style="vertical-align: middle">
+                    Signal tracks (e.g. TF binding)
+                </td>
+                <td style="vertical-align: middle">
+                    <img src="img/higlass-line-track.png" height="100px"/>
+                </td>
+                <td style="vertical-align: middle; width:350px">
+                    <small>
+                        Normal line plot
+                    </small>
+                </td>
+            </tr>
+
+        </table>
+
+    </section>
+
+    <section>
+        <h3>How do we display multiple different data types?</h3>
+        <div style="display: flex; align-items: center; justify-content: space-evenly; margin-top: 50px;">
+            <div style="width: 500px">
+                Disparate data sources are aligned along the axes of the heatmap to provide extra information.
+            </div>
+            <iframe src="hg_demo1.html" height="500" width="500"></iframe>
+
+        </div>
+        <aside class="notes" src="Mention that by splitting data between server and client, we can easily make custom visualizations on the client, without having to worry about the size of the data." />
+
+    </section>
+
+    <section>
+        <h3>What other information can help us understand genome structure?</h3>
+        <iframe src="hg_demo2.html" height="500" width="960"></iframe>
+
+    </section>
+
+    <section>
+        <h3>How do we serve from multiple data sources?</h3>
+
+        <img src="img/higlass-data-storage.png" width="700px"/><br>
+
+        <b>Lots of data:</b> Each dataset is stored in a compressed multi-resolution file on the server.
+
+
+        <aside class="notes" src="Why doesn't the client just access the files directly?" />
+    </section>
+
+    <section>
+        <h3>What if we want to see context?</h3>
+        <iframe src="hg-demo8.html" height="600" width="960"></iframe>
+    </section>
+
+    <section>
+        <h3>How do we generalize location synchronization and overview - detail between multiple views?</h3>
+
+        <div class="fragment">
+            <div style="display: flex; align-items: center; justify-content: space-evenly; margin-top: 50px;">
+                <img src="img/higlass-interaction-multiple-views-1.png" height="200px"/>
+                <img src="img/higlass-interaction-multiple-views-2.png" width="300px"/>
+            </div>
+            <p> Create a user interface for creating and linking views by zoom, location or projection.</p>
+        </div>
+
+    </section>
+
+   <section>
+        <h3>Topics</h3>
+        <ul>
+            <li>The questions</li>
+            <li>The data</li>
+            <li>The challenges</li>
+            <li><b>The technology</b></li>
+            <li style="color: grey">The other applications</li>
+            <li style="color: grey">The summary</li>
+        </ul>
+    </section>
+
+    <section>
+      <h3>Technology Stack: Front End</h3>
+      
+      PixiJS (WebGL) vs. SVG (DOM)
+    <div style="display: flex; align-items: center; justify-content: space-evenly; margin-top: 50px;">
+        <img src="img/pixi-70k-circles.gif" width="300px"/>
+        <img src="img/svg-70k-circles.gif" width="300px"/>
+    </div>
+
+      <aside class="notes">How much work did that entail</aside>
+    </section>
+
+    <section>
+      <h3>Technology Stack: Back End</h3>
+      
+      <ul>
+        <li class="fragment">Django server for storing list of available datasets</li>
+        <li class="fragment">HDF5 based file storage for large arrays and matrices</li>
+        <li class="fragment">SQLite for annotation storage (R-tree indexing for range queries)</li>
+      </ul>
+</section>
+
+   <section>
+        <h3>Topics</h3>
+        <ul>
+            <li>The questions</li>
+            <li>The data</li>
+            <li>The challenges</li>
+            <li>The technology</li>
+            <li><b>The other applications</b></li>
+            <li style="color: grey">The summary</li>
+        </ul>
+    </section>
+
+    <section>
+        <h3>Exploring clinical copy number variation calls </h3>
+        <br>
+        <p>Collaboration with Unversity of Utah and ARUP Laboratories</p>
+    </section>
+
+    <section>
+        <img src="img/ctracks-screencapture.gif">
+        <p>How do we place computational calls in genomic context?</p>
+    </section>
+
+    <section>
+        <h3>cTracks</h3>
+        <img src="img/ctracks-screenshot.png" width="400px">
+        <p><i>Clinician-focused web application for exploring copy number variations within a genomic context</i></p>
+        <p><a href="https://github.com/visdesignlab/cTracks">https://github.com/visdesignlab/cTracks</a></p>
+    </section>
+
+    <!--
+
+    <section>
+      <h3>Snippet Clustering</h3>
+      <video width="800" muted="muted" controls>
+          <source src="img/8-coloring.mov" type="video/mp4">
+      </video>
+    </section>
+
+    <section>
+      <h3>HiPiler Applications</h3>
+      <img src="img/hipiler-applications.png" width="800" />
+    </section>
+    -->
+       <section>
+        <h3>Topics</h3>
+        <ul>
+            <li>The questions</li>
+            <li>The data</li>
+            <li>The challenges</li>
+            <li>The technology</li>
+            <li>The regions</li>
+            <li><b>The summary</b></li>
+        </ul>
+    </section>
+    <section>
+        <h3>Summary</h3>
+        <ul>
+            <li class="fragment">Genome Organization</li>
+            <li class="fragment">Big Data</li>
+            <li class="fragment">Disparate Data</li>
+            <li class="fragment">Lots of Data</li>
+            <li class="fragment">Other Applications</li>
+        </ul>
+    </section>
+
+    <section>
+        <h3>Acknowledgements</h3>
+        <div style="display: flex; justify-content: space-between;">
+            <div style="width: 500px">
+            <p><b><u>Harvard Medical School</u></b></p>
+            <ul>
+                <li>Nils Gehlenborg</li>
+                <li>Fritz Lekschas (also at John Paulson School of Engineering)</li>
+                <li>Nezar Abdennur</li>
+                <li>Chuck McCallum</li>
+                <li>4DN DCIC Team</li>
+            </ul>
+
+            </div>
+            <div>
+            <p><b><u>MIT</u></b></p>
+            <ul>
+                <li>Nezar Abdennur</li>
+                <li>Leonid Mirny</li>
+            </ul>
+            <p><b><u>University of Utah</u></b></p>
+            <ul>
+                <li>Alex Lex</li>
+                <li>Clement Vachet</li>
+            </ul>
+            <p><b><u>ARUP</u></b></p>
+            <ul>
+                <li>Jacob Durtschi</li>
+                <li>David Lachowski</li>
+            </ul>
+        </div>
+        </div>
+
+
+    </section>
+</div>
+
+</div>
+
+
+<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+                height: 800,
+                history: true,
+                "transition": "none",
+                dependencies: [
+                { src: 'plugin/markdown/marked.js' },
+                { src: 'plugin/markdown/markdown.js' },
+                { src: 'plugin/notes/notes.js', async: true },
+                { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+                ],
+
+                minScale: 1,
+                maxScale: 1
+            });
+        </script>
+    </body>
+
+    </html>
