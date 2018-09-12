@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HiGlass</title>
+<style type="text/css">
+    .canvasjs-chart-credit {
+    display:none;
+}
+</style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://unpkg.com/higlass@0.8.40/dist/styles/hglib.css" type="text/css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.5.4/react.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.5.4/react-dom.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.5.2/pixi.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-bootstrap/0.31.0/react-bootstrap.min.js"></script>
+      <script src="https://unpkg.com/higlass@0.8.40/dist/scripts/hglib.js"></script>
+</head>
+<body >
+    <div style="height: 50px" />
+        <div style="margin: auto; width: 100%;">
+        <div
+            id="development-demo"
+            style="position: absolute; left: 1rem; top: 1rem; bottom: 1rem; right: 1rem">
+        </div>
+    </div>
+</body>
+</script>
+<script>
+
+ var testViewConfig =
+{
+  "editable": true,
+  "zoomFixed": false,
+  "trackSourceServers": [
+    "http://higlass.io/api/v1"
+  ],
+  "exportViewUrl": "/api/v1/viewconfs",
+  "views": [
+    {
+      "uid": "aa",
+      "initialXDomain": [
+        2216547639.092373,
+        2794982133.106767
+      ],
+      "autocompleteSource": "/api/v1/suggest/?d=OHJakQICQD6gTD7skx4EWA&",
+      "genomePositionSearchBox": {
+        "autocompleteServer": "http://higlass.io/api/v1",
+        "autocompleteId": "OHJakQICQD6gTD7skx4EWA",
+        "chromInfoServer": "http://higlass.io/api/v1",
+        "chromInfoId": "hg19",
+        "visible": true
+      },
+      "chromInfoPath": "//s3.amazonaws.com/pkerp/data/hg19/chromSizes.tsv",
+      "tracks": {
+        "top": [
+          {
+            "type": "horizontal-gene-annotations",
+            "height": 60,
+            "tilesetUid": "OHJakQICQD6gTD7skx4EWA",
+            "server": "http://higlass.io/api/v1",
+            "position": "top",
+            "uid": "OHJakQICQD6gTD7skx4EWA",
+            "name": "Gene Annotations (hg19)",
+            "options": {
+              "name": "Gene Annotations (hg19)",
+              "labelColor": "black",
+              "labelPosition": "hidden",
+              "plusStrandColor": "blue",
+              "minusStrandColor": "red",
+              "trackBorderWidth": 0,
+              "trackBorderColor": "black"
+            },
+            "width": 424
+          },
+          {
+            "chromInfoPath": "//s3.amazonaws.com/pkerp/data/hg19/chromSizes.tsv",
+            "type": "horizontal-chromosome-labels",
+            "position": "top",
+            "name": "Chromosome Labels (hg19)",
+            "height": 30,
+            "uid": "X4e_1DKiQHmyghDa6lLMVA",
+            "options": {},
+            "width": 424
+          }
+        ],
+        "left": [
+          {
+            "type": "vertical-gene-annotations",
+            "width": 60,
+            "tilesetUid": "OHJakQICQD6gTD7skx4EWA",
+            "server": "http://higlass.io/api/v1",
+            "position": "left",
+            "name": "Gene Annotations (hg19)",
+            "options": {
+              "labelPosition": "bottomRight",
+              "name": "Gene Annotations (hg19)",
+              "labelColor": "black",
+              "plusStrandColor": "blue",
+              "minusStrandColor": "red",
+              "trackBorderWidth": 0,
+              "trackBorderColor": "black"
+            },
+            "uid": "dqBTMH78Rn6DeSyDBoAEXw",
+            "height": 437
+          },
+          {
+            "chromInfoPath": "//s3.amazonaws.com/pkerp/data/hg19/chromSizes.tsv",
+            "type": "vertical-chromosome-labels",
+            "position": "left",
+            "name": "Chromosome Labels (hg19)",
+            "width": 30,
+            "uid": "RHdQK4IRQ7yJeDmKWb7Pcg",
+            "options": {},
+            "height": 437
+          }
+        ],
+        "center": [
+          {
+            "uid": "c1",
+            "type": "combined",
+            "height": 437,
+            "contents": [
+              {
+                "server": "http://higlass.io/api/v1",
+                "tilesetUid": "CQMd6V_cRw6iCI_-Unl3PQ",
+                "type": "heatmap",
+                "position": "center",
+                "options": {
+                  "maxZoom": null,
+                  "labelPosition": "bottomRight",
+                  "name": "Rao et al. (2014) GM12878 MboI (allreps) 1kb",
+                  "colorRange": [
+                    "white",
+                    "rgba(245,166,35,1.0)",
+                    "rgba(208,2,27,1.0)",
+                    "black"
+                  ],
+                  "colorbarLabelsPosition": "inside",
+                  "colorbarPosition": "topRight",
+                  "trackBorderWidth": 0,
+                  "trackBorderColor": "black",
+                  "heatmapValueScaling": "log",
+                  "scaleStartPercent": "0.00000",
+                  "scaleEndPercent": "1.00000"
+                },
+                "uid": "GjuZed1ySGW1IzZZqFB9BA",
+                "name": "Rao et al. (2014) GM12878 MboI (allreps) 1kb",
+                "transforms": [
+                  {
+                    "name": "ICE",
+                    "value": "weight"
+                  }
+                ],
+                "width": 424,
+                "height": 437
+              },
+              {
+                "name": "Rao et al. (2014) GM12878 MboI (allreps) 1kb",
+                "created": "2017-02-03T00:28:06.909619Z",
+                "server": "http://higlass.io/api/v1",
+                "tilesetUid": "CQMd6V_cRw6iCI_-Unl3PQ",
+                "uid": "JmzX4MuBSiW6MibkHQTuQw",
+                "type": "2d-tiles",
+                "options": {
+                  "name": "Rao et al. (2014) GM12878 MboI (allreps) 1kb"
+                },
+                "width": 20,
+                "height": 20,
+                "transforms": [
+                  {
+                    "name": "ICE",
+                    "value": "weight"
+                  }
+                ],
+                "position": "center"
+              }
+            ],
+            "position": "center",
+            "options": {},
+            "width": 424
+          }
+        ],
+        "right": [],
+        "bottom": []
+      },
+      "layout": {
+        "w": 6,
+        "h": 12,
+        "x": 0,
+        "y": 0,
+        "i": "aa",
+        "moved": false,
+        "static": false
+      },
+      "initialYDomain": [
+        2312896119.0638585,
+        2909065632.941573
+      ],
+      "genomePositionSearchBoxVisible": false
+    },
+    {
+      "uid": "Hg2oHLKOSlmros3FKxWDRg",
+      "initialXDomain": [
+        1389002256.874367,
+        1967436751.039003
+      ],
+      "autocompleteSource": "/api/v1/suggest/?d=OHJakQICQD6gTD7skx4EWA&",
+      "genomePositionSearchBox": {
+        "autocompleteServer": "http://higlass.io/api/v1",
+        "autocompleteId": "OHJakQICQD6gTD7skx4EWA",
+        "chromInfoServer": "http://higlass.io/api/v1",
+        "chromInfoId": "hg19",
+        "visible": true
+      },
+      "chromInfoPath": "//s3.amazonaws.com/pkerp/data/hg19/chromSizes.tsv",
+      "tracks": {
+        "top": [
+          {
+            "type": "horizontal-gene-annotations",
+            "height": 60,
+            "tilesetUid": "OHJakQICQD6gTD7skx4EWA",
+            "server": "http://higlass.io/api/v1",
+            "position": "top",
+            "uid": "OHJakQICQD6gTD7skx4EWA",
+            "name": "Gene Annotations (hg19)",
+            "options": {
+              "name": "Gene Annotations (hg19)",
+              "labelColor": "black",
+              "labelPosition": "hidden",
+              "plusStrandColor": "blue",
+              "minusStrandColor": "red",
+              "trackBorderWidth": 0,
+              "trackBorderColor": "black"
+            }
+          },
+          {
+            "chromInfoPath": "//s3.amazonaws.com/pkerp/data/hg19/chromSizes.tsv",
+            "type": "horizontal-chromosome-labels",
+            "position": "top",
+            "name": "Chromosome Labels (hg19)",
+            "height": 30,
+            "uid": "X4e_1DKiQHmyghDa6lLMVA",
+            "options": {}
+          }
+        ],
+        "left": [
+          {
+            "type": "vertical-gene-annotations",
+            "width": 60,
+            "tilesetUid": "OHJakQICQD6gTD7skx4EWA",
+            "server": "http://higlass.io/api/v1",
+            "position": "left",
+            "name": "Gene Annotations (hg19)",
+            "options": {
+              "labelPosition": "bottomRight",
+              "name": "Gene Annotations (hg19)",
+              "labelColor": "black",
+              "plusStrandColor": "blue",
+              "minusStrandColor": "red",
+              "trackBorderWidth": 0,
+              "trackBorderColor": "black"
+            },
+            "uid": "dqBTMH78Rn6DeSyDBoAEXw"
+          },
+          {
+            "chromInfoPath": "//s3.amazonaws.com/pkerp/data/hg19/chromSizes.tsv",
+            "type": "vertical-chromosome-labels",
+            "position": "left",
+            "name": "Chromosome Labels (hg19)",
+            "width": 30,
+            "uid": "RHdQK4IRQ7yJeDmKWb7Pcg",
+            "options": {}
+          }
+        ],
+        "center": [
+          {
+            "uid": "c1",
+            "type": "combined",
+            "height": 200,
+            "contents": [
+              {
+                "type": "osm-tiles",
+                "options": {
+                  "maxPos": 3096000000,
+                  "minPos": 0
+                },
+                "position": "center",
+                "uid": "BUqu9l7lQOSU55hS-AF5wQ",
+                "name": "OSM Tiles"
+              }
+            ],
+            "position": "center",
+            "options": {}
+          }
+        ],
+        "right": [],
+        "bottom": []
+      },
+      "layout": {
+        "w": 6,
+        "h": 12,
+        "x": 6,
+        "y": 0,
+        "i": "Hg2oHLKOSlmros3FKxWDRg",
+        "moved": false,
+        "static": false
+      },
+      "initialYDomain": [
+        768865312.1266152,
+        1365034826.1593986
+      ],
+      "genomePositionSearchBoxVisible": false
+    }
+  ],
+  "zoomLocks": {
+    "locksByViewUid": {
+      "Hg2oHLKOSlmros3FKxWDRg": "Ibx2UMuBRcKM2QyTnLZRtA",
+      "aa": "Ibx2UMuBRcKM2QyTnLZRtA"
+    },
+    "locksDict": {
+      "Ibx2UMuBRcKM2QyTnLZRtA": {
+        "Hg2oHLKOSlmros3FKxWDRg": [
+          1550000000,
+          1550000000,
+          2514193.0251419544
+        ],
+        "aa": [
+          1550000000,
+          1550000000,
+          2514193.02514193
+        ]
+      }
+    }
+  },
+  "locationLocks": {
+    "locksByViewUid": {},
+    "locksDict": {}
+  },
+  "valueScaleLocks": {
+    "locksByViewUid": {},
+    "locksDict": {}
+  }
+}
+ ;
+
+    window.higlassApi;
+
+    hglib.createHgComponent(
+        document.getElementById('development-demo'),
+        testViewConfig,
+        { bounded: true },
+        function (api) {
+            window.hgApi = api;
+        }
+    );
+
+    window.hgApi.on('view', function (viewConfig) {
+      console.log('View Config changed');
+    });
+
+    // setTimeout(function () {
+    //   // Go to PTEN
+    //   window.hgApi.goTo(
+    //     testViewConfig.views[0].uid,
+    //     'chr10',
+    //     89596071,
+    //     89758810,
+    //     'chr10',
+    //     89596071,
+    //     89758810,
+    //     true,
+    //     10000
+    //   );
+    // }, 3000);
+
+    // setTimeout(function () {
+    //   // Go to Chr1 without animation
+    //   window.hgApi.goTo(
+    //     testViewConfig.views[0].uid,
+    //     'chr1',
+    //     0,
+    //     89758810,
+    //     'chr1',
+    //     0,
+    //     89758810
+    //   );
+    // }, 11000);
+
+
+</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-77756807-1', 'auto');
+    ga('send', 'pageview');
+
+</script>
+</html>
