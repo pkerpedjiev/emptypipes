@@ -1,84 +1,119 @@
 ---
 layout: post
-title:  "Retrieving HDF5 data from AWS S3"
-description: "Retrieving data from remote HDF5 files is xxx% slower than from local files."
-tags: aws s3 hdf5
+title:  "Big data visualization in a Jupyter notebook using HiGlass"
+description: "Using HiGlass from within a Jupyter notebook to view and explore large datasets."
+tags: higlass jupyter python
 thumbnail: 
 ---
 
+The past decade has seen tremendous advances in the field of data
+visualization.  Libraries such as D3.js have made it not only possible but easy
+to create complex, informative and beautiful visualizations. Vega and vega lite
+introduced declarative specifications for describing both how data should be
+plotted and how the user should interact with it. A cadre of other libraries
+and services let people create interactive plots that they can share in 
+web browsers.
 
-python scripts/generate_random_tiles.py 14 -n 100 > data/tile_list.txt; /usr/bin/time python scripts/benchmark_tiles.py data-aws/Rao2014-GM12878-MboI-allreps-filtered.1kb.multires.cool data/tile_list.txt -t 16
+Most of these tools and libraries, however, have one glaring limitation. They
+require loading and operating on the the entire dataset. This precludes their
+use with data too large to fit into memory or to render at once. Even with
+smaller datasets, issues such as occlusion and overplotting can make it
+difficult to explore and analyze data.
 
-M4 Large X2:
-## 16 threads: 44 seconds  4 threads: 49 seconds
-T2-medium (different data center):
+This need not be the case. We already have techniques that allow us to break
+down large datasets into smaller, digestible chunks which can be displayed
+without overwhelming the rendering library or viewer. Online maps, for
+example, are a de-facto visualization of terabyte-scale datasets. They rely on
+a very simple principle: only render what is relevant at a given scale and
+location. Modern "slippy maps" partition data into <i>tiles</i> which are indexed
+using three integers:
 
-## 16 threads: 63 seconds  4 threads: 83 seconds
+* **z** - the zoom level describing the scale at which we are viewing the map
+* **x** - the x position of the "tile"
+* **y** - the y position of the "tile"
 
-T2-medium (same data center):
-# random data
-## 16 threads: 47 seconds  4 threads: 55 seconds
-## 16 threads: 52 seconds  4 threads: 49 seconds
+In a typical map, there are 19 zoom levels. The lowest, 0, contains one tile
+which covers the entire world. The next zoom level, 1, contains 4 tiles. Each
+one a quarter of the area of the previous one. The highest zoom level, 19,
+contains 4 ^ 19 tiles. Which tiles are loaded at any given time depends on how
+zoomed in and where one is on a map. Typically, only a handful of tiles are
+loaded at any given time. By limiting the amount of data contained in each tile
+and the number of tiles visible at any given time, we effectively limit the
+amount of data that needs to be rendered.
 
-# real data
-## 16 threads: 29 seconds   4 threads: 29 seconds
-## 16 threads: 28 seconds   4 threads: 29 seconds
+<div id="maps-and-tiles" style="width: 550px; height: 300px"> </div>
+(Example of HiGlass displaying tile #s)
 
-# 1 thread: 25 seconds
-# 1 thread: 25 seconds
+Can we apply the same technique to other types of data? Of course.
 
-Combined tiles
+<b>HiGlass</b>
 
-# real tiles (327 tiles)
+Over the past two and a half years we created HiGlass, a multiscale viewer for
+any type of large data. The principle is the same as in online maps. You can
+pan and zoom and we only request resolution- and location- relevant data from
+the server. **No matter how much data there is, the browser is never overloaded
+and interaction remains smooth and responsive.** For proof, here is a 3 million 
+by 3 million matrix displayed in a web browser.
 
-# individual aws 1 thread 60 seconds
-# individual aws 4 threads 25 seconds
+<div id="two-heatmaps" style="width: 550px; height: 300px"></div>
 
-# individual local 1 thread 29 seconds
-# individual local 4 threads 17 seoncds
+<br />
+So how does this work? There's two key requirements:
 
-# combined local 4 threads 7 seconds
-# combined aws 4 threads 11 seconds
+1. A method of downsampling the data
+2. A method of retrieving subsets of the data corresponding to the visible region
 
-# combined local 1 thread 12 seconds
-# combined aws 1 thread 21 seconds
+In the case of matrices, this is quite simple. The downsampling function is
+simply a summation of adjacent cells. To retrieve subsets, we simply extract
+slices of the matrix. In the example above, the downsampling has been
+precomputed for each zoom level and stored in the cooler file format. Tile
+requests are fulfilled by a HiGlass server running on an Amazon EC2 instance. 
+
+<b> HiGlass Jupyter </b>
+
+There's no better way to experiment with code than to run it in an interactive
+environment. The gold standard in exploratory programming in Python is the
+Jupyter notebook. It lets you compose, modify and run snippets of code
+interspersed with documentation and markdown-formatted text.  More than that,
+it lets you immediately see and record the output of your code.  This is
+invaluable for exploring data and quickly prototyping new code.
+
+To avail ourselves of these opportunities, we created a version of HiGlass that
+can be run directly within a Jupyter notebook
+([https://github.com/pkerpedjiev/higlass-jupyter](https://github.com/pkerpedjiev/higlass-jupyter)).
+We can now open up our large datasets and explore them directly within a
+Jupyter notebook. Options that required UI interaction to change can be
+specified in code and shared with collaborators. The only limitation was the
+file type support coded into the HiGlass server. Because HiGlass began as a
+viewer for genomic data, the server has support for a handful of genomics
+related formats. But what about the mountains of other file, data and object
+types that could be used to store large datasets? We needed something more
+flexible, more accessible and more low level.
+
+<b> Custom tile generation </b>
+
+The example set by online maps can be adopted by nearly any other spatial-like
+data. As long as we can downsample our data and partition it into tiles, we can
+create a server component to power HiGlass. This lightweight server needs to
+implement two functions: `tileset_info` for returning the bounds and depth of
+the dataset and `tiles(z,x,y)` for obtaining data at zoom level z, and position
+x,y.
+
+With these two functions, we can create multi-resolution displays for any
+datatype. To get started, we've created a number of tile generators in the
+[https://github.com/pkerpedjiev/hgtiles](https://github.com/pkerpedjiev/hgtiles)
+repository.
 
 
-python scripts/generate_random_tiles.py 14 -n 100 > data/tile_list.txt; /usr/bin/time python scripts/benchmark_tiles.py data/Rao2014-GM12878-MboI-allreps-filtered.1kb.multires.cool data/tile_list.txt -t 16
+<link rel="stylesheet" href="https://unpkg.com/higlass@1.1.5/dist/styles/hglib.css" type="text/css">
 
-M4 Large X2:
-## 16 threads: 6.34 seconds 4 threads: 8.19 seconds
-T2-medium (different data center):
-## 16 threads: 8 seconds 4 threads: 8 seconds
-T2-medium (same data center):
-## 16 threads: 8 seconds 4 threads: 7 seconds
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.5.4/react.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.5.4/react-dom.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/4.5.2/pixi.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-bootstrap/0.31.0/react-bootstrap.min.js"></script>
 
-# real data
+<script src="https://unpkg.com/higlass@1.2.3/dist/scripts/hglib.js"></script>
+<script src="/js/higlass-jupyter-notebook/index.js"></script>
 
-# 1 thread: 13 seconds
-# 1 thread: 13 seconds
-
-# 4 threads: 13 seconds
-# 4 threads: 13 seconds
-
-# M2 Xlarge (192 IOPS)
-
-38.953776 http://test2.higlass.io/api/v1/tiles/?d=aRuaqCIVSx2HXD09ctbqSA.8.105.105&d=LiXYclAjS5idr5-k0Oo7QA.8.104.104&d=LiXYclAjS5idr5-k0Oo7QA.8.104.105&d=LiXYclAjS5idr5-k0Oo7QA.8.105.105&d=e5WbCLpTQZep787_P8HCUQ.8.104.104&d=e5WbCLpTQZep787_P8HCUQ.8.104.105&d=e5WbCLpTQZep787_P8HCUQ.8.105.105&d=M43TQHoLQbWpmngpV6KbPg.8.104.104&d=M43TQHoLQbWpmngpV6KbPg.8.104.105&d=M43TQHoLQbWpmngpV6KbPg.8.105.105&d=GHBMPlFmTp6awb0VesvIQQ.8.104.104&d=GHBMPlFmTp6awb0VesvIQQ.8.104.105&d=GHBMPlFmTp6awb0VesvIQQ.8.105.105&d=NxYdetsQQXS8E5HifM4OeA.8.104.104&d=NxYdetsQQXS8E5HifM4OeA.8.104.105&d=NxYdetsQQXS8E5HifM4OeA.8.105.105&d=XKdvOmeGRz6eX3oM2e-eNg.8.104.104&d=XKdvOmeGRz6eX3oM2e-eNg.8.104.105&d=XKdvOmeGRz6eX3oM2e-eNg.8.105.105&d=O356BMVpS9uJemtdc8fasA.8.104.104&s=B9PKqdfJQoeg4I1-C2_aQw
-28.534587 http://test2.higlass.io/api/v1/tiles/?d=O356BMVpS9uJemtdc8fasA.8.104.105&d=O356BMVpS9uJemtdc8fasA.8.105.105&d=cNse-dLjS8OvE-1xT-ZUgA.8.104.104&d=cNse-dLjS8OvE-1xT-ZUgA.8.104.105&d=cNse-dLjS8OvE-1xT-ZUgA.8.105.105&d=V4H77F5-Rt6yO_7UnTSvhA.8.104.104&d=V4H77F5-Rt6yO_7UnTSvhA.8.104.105&d=V4H77F5-Rt6yO_7UnTSvhA.8.105.105&d=UH5yId-URvCwCaxOrYGa8w.8.104.104&d=UH5yId-URvCwCaxOrYGa8w.8.104.105&d=UH5yId-URvCwCaxOrYGa8w.8.105.105&d=Oee0lvZnRLOIca3ao4QMWg.8.104.104&d=Oee0lvZnRLOIca3ao4QMWg.8.104.105&d=Oee0lvZnRLOIca3ao4QMWg.8.105.105&d=Jsfcd4eGQtGAvRRzMwF0Fg.8.104.104&d=Jsfcd4eGQtGAvRRzMwF0Fg.8.104.105&d=Jsfcd4eGQtGAvRRzMwF0Fg.8.105.105&d=bfKqmZUDTtu_9435iMLf7w.8.104.104&d=bfKqmZUDTtu_9435iMLf7w.8.104.105&d=bfKqmZUDTtu_9435iMLf7w.8.105.105&s=B9PKqdfJQoeg4I1-C2_aQw
-24.588409 http://test2.higlass.io/api/v1/tiles/?d=JqZVllLMRxSz6kImcreRZw.8.104.104&d=JqZVllLMRxSz6kImcreRZw.8.104.105&d=JqZVllLMRxSz6kImcreRZw.8.105.105&d=Urf5lpXiQOOa2waqeGQ94Q.8.104.104&d=Urf5lpXiQOOa2waqeGQ94Q.8.104.105&d=Urf5lpXiQOOa2waqeGQ94Q.8.105.105&d=fQO934XkRT-GnGqJ-bvk8Q.8.104.104&d=fQO934XkRT-GnGqJ-bvk8Q.8.104.105&d=fQO934XkRT-GnGqJ-bvk8Q.8.105.105&d=dsn0IU1CSAiSZpp2DXysSA.8.104.104&d=dsn0IU1CSAiSZpp2DXysSA.8.104.105&d=dsn0IU1CSAiSZpp2DXysSA.8.105.105&d=MZsC0_B4TzOhbuLLKRhbQw.8.104.104&d=MZsC0_B4TzOhbuLLKRhbQw.8.104.105&d=MZsC0_B4TzOhbuLLKRhbQw.8.105.105&d=SHe3CRNYSCeLI1xkBIZBnQ.8.104.104&d=SHe3CRNYSCeLI1xkBIZBnQ.8.104.105&d=SHe3CRNYSCeLI1xkBIZBnQ.8.105.105&d=Cdv7HxMdT7aFBIf_ny7_SA.8.104.104&d=Cdv7HxMdT7aFBIf_ny7_SA.8.104.105&s=B9PKqdfJQoeg4I1-C2_aQw
-
-# T2 - medius (394 IOPS)
-
-(cenv3) peter@mbi-cw-l10381:~/projects/log-to-location [master|!?]$ /usr/bin/time bash -c ' tail -n 100 data/access_test.log | grep -v info | head -n 3 | python scripts/time_execution.py http://test.higlass.io -'
-15.220992 http://test.higlass.io/api/v1/tiles/?d=aRuaqCIVSx2HXD09ctbqSA.8.105.105&d=LiXYclAjS5idr5-k0Oo7QA.8.104.104&d=LiXYclAjS5idr5-k0Oo7QA.8.104.105&d=LiXYclAjS5idr5-k0Oo7QA.8.105.105&d=e5WbCLpTQZep787_P8HCUQ.8.104.104&d=e5WbCLpTQZep787_P8HCUQ.8.104.105&d=e5WbCLpTQZep787_P8HCUQ.8.105.105&d=M43TQHoLQbWpmngpV6KbPg.8.104.104&d=M43TQHoLQbWpmngpV6KbPg.8.104.105&d=M43TQHoLQbWpmngpV6KbPg.8.105.105&d=GHBMPlFmTp6awb0VesvIQQ.8.104.104&d=GHBMPlFmTp6awb0VesvIQQ.8.104.105&d=GHBMPlFmTp6awb0VesvIQQ.8.105.105&d=NxYdetsQQXS8E5HifM4OeA.8.104.104&d=NxYdetsQQXS8E5HifM4OeA.8.104.105&d=NxYdetsQQXS8E5HifM4OeA.8.105.105&d=XKdvOmeGRz6eX3oM2e-eNg.8.104.104&d=XKdvOmeGRz6eX3oM2e-eNg.8.104.105&d=XKdvOmeGRz6eX3oM2e-eNg.8.105.105&d=O356BMVpS9uJemtdc8fasA.8.104.104&s=B9PKqdfJQoeg4I1-C2_aQw
-13.081323 http://test.higlass.io/api/v1/tiles/?d=O356BMVpS9uJemtdc8fasA.8.104.105&d=O356BMVpS9uJemtdc8fasA.8.105.105&d=cNse-dLjS8OvE-1xT-ZUgA.8.104.104&d=cNse-dLjS8OvE-1xT-ZUgA.8.104.105&d=cNse-dLjS8OvE-1xT-ZUgA.8.105.105&d=V4H77F5-Rt6yO_7UnTSvhA.8.104.104&d=V4H77F5-Rt6yO_7UnTSvhA.8.104.105&d=V4H77F5-Rt6yO_7UnTSvhA.8.105.105&d=UH5yId-URvCwCaxOrYGa8w.8.104.104&d=UH5yId-URvCwCaxOrYGa8w.8.104.105&d=UH5yId-URvCwCaxOrYGa8w.8.105.105&d=Oee0lvZnRLOIca3ao4QMWg.8.104.104&d=Oee0lvZnRLOIca3ao4QMWg.8.104.105&d=Oee0lvZnRLOIca3ao4QMWg.8.105.105&d=Jsfcd4eGQtGAvRRzMwF0Fg.8.104.104&d=Jsfcd4eGQtGAvRRzMwF0Fg.8.104.105&d=Jsfcd4eGQtGAvRRzMwF0Fg.8.105.105&d=bfKqmZUDTtu_9435iMLf7w.8.104.104&d=bfKqmZUDTtu_9435iMLf7w.8.104.105&d=bfKqmZUDTtu_9435iMLf7w.8.105.105&s=B9PKqdfJQoeg4I1-C2_aQw
-14.503153 http://test.higlass.io/api/v1/tiles/?d=JqZVllLMRxSz6kImcreRZw.8.104.104&d=JqZVllLMRxSz6kImcreRZw.8.104.105&d=JqZVllLMRxSz6kImcreRZw.8.105.105&d=Urf5lpXiQOOa2waqeGQ94Q.8.104.104&d=Urf5lpXiQOOa2waqeGQ94Q.8.104.105&d=Urf5lpXiQOOa2waqeGQ94Q.8.105.105&d=fQO934XkRT-GnGqJ-bvk8Q.8.104.104&d=fQO934XkRT-GnGqJ-bvk8Q.8.104.105&d=fQO934XkRT-GnGqJ-bvk8Q.8.105.105&d=dsn0IU1CSAiSZpp2DXysSA.8.104.104&d=dsn0IU1CSAiSZpp2DXysSA.8.104.105&d=dsn0IU1CSAiSZpp2DXysSA.8.105.105&d=MZsC0_B4TzOhbuLLKRhbQw.8.104.104&d=MZsC0_B4TzOhbuLLKRhbQw.8.104.105&d=MZsC0_B4TzOhbuLLKRhbQw.8.105.105&d=SHe3CRNYSCeLI1xkBIZBnQ.8.104.104&d=SHe3CRNYSCeLI1xkBIZBnQ.8.104.105&d=SHe3CRNYSCeLI1xkBIZBnQ.8.105.105&d=Cdv7HxMdT7aFBIf_ny7_SA.8.104.104&d=Cdv7HxMdT7aFBIf_ny7_SA.8.104.105&s=B9PKqdfJQoeg4I1-C2_aQw
-
-
-
-**Does the instance type matter?**
-
-**Does the locality zone matter?**
-
-**What factor does locality play?**
-
+<script>
+</script>
