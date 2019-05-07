@@ -5,12 +5,14 @@ title:  "Peter Kerpedjiev"
 
 #### Bio ####
 
-I'm currently a Postdoctoral Fellow in the lab of [Nils
-Gehlenborg](http://gehlenborg.com/) at Harvard Medical School. Previously, I
-was a PhD student working on modelling the tertiary structure of RNA molecules
-at the [Theoretical Biochemistry Group](http://www.tbi.univie.ac.at) at the
-University of Vienna. If you're interested, you can find a short form copy of
-my <a href="/cv">CV here</a>.
+I'm currently a Senior Software Engineer at Zymergen. Previously, I was a
+postdoctoral fellow in the lab of [Nils Gehlenborg](http://gehlenborg.com/) at
+Harvard Medical School and before that a PhD student working on modelling the
+tertiary structure of RNA molecules at the [Theoretical Biochemistry
+Group](http://www.tbi.univie.ac.at) at the University of Vienna. If you're
+interested, you can find a slightly outdated short form copy of my <a
+href="/cv">CV here</a> or take a look at <a
+href="https://www.linkedin.com/in/peter-kerpedjiev/">my LinkedIn profile</a>.
 
 #### Contact ####
 
